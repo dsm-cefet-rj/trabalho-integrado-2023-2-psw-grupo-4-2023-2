@@ -1,0 +1,15 @@
+.column {
+    flex-direction: column;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.flex {
+    display: flex;
+}
+
+.container {
+    max-width: 1440px;
+}
