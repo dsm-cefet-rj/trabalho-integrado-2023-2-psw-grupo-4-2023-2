@@ -1,4 +1,4 @@
-.column {
+.colummn {
     flex-direction: column;
 }
 
@@ -19,8 +19,8 @@
 }
 
 .container {
-    max-width: 1440px; /* Largura máxima do container */
-    margin: 0 auto; /* Centraliza o container horizontalmente */
+    max-width: 1440px;
+    margin: 0 auto;
     padding: 0px 10px;
   }
 
@@ -40,4 +40,10 @@
 
 .row-colummn {
     flex-direction: row;
+}
+
+@media (min-width: 600px) {
+    .row-colummn {
+        flex-direction: column;
+    } 
 }
