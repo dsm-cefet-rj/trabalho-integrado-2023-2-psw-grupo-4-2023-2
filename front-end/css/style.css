@@ -1,14 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: rgb(0, 183, 255);
-
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Libre Baskerville', serif;
 }
 
-.button-blue {
-    padding: 20px;
-    background: blue;
-    font-size: 14px;
-    color: aliceblue;
+
+body {
+    background: rgb(47, 255, 238);
 }
+
+

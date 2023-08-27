@@ -3,27 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeiaMais</title>
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/section-suggestions.css">
-    <title>Página inicial</title>
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/suggestions.css">
+    <link rel="stylesheet" href="css/reading.css">
+    <link rel="stylesheet" href="css/favorite-list.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <!-- box icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
-<header>
 
-</header>
 <body>
+    <header class="flex center space-between">
 
-    <section id="section-suggestions">
-        <div class="container">
-            <h1>Olá mundo</h1>
-            <div class="flex column">
-                <button class="button-blue">Renan</button>
-                <button class="button-blue">Davi</button>
-                <button class="button-blue">Ana</button>
-                <button class="button-blue">Thiago</button>
-            </div>
+        <!-- mobile -->
+        <div class="bx bx-menu icon"></div>
+        <figure>
+            <img src="img/logo.svg" alt="logo LeiaMais">
+        </figure>
+        <div class="bx bx-search icon"></div>
+        <nav class="navbar">
+        </nav>
+        <div class="bx bxs-user-circle icon"></div>
+    </header>
+
+    <section id="suggestions">
+        <h1>Sugestões de Leitura</h1>
+        <figure>
+            <img src="img/livro-fogo-e-sangue.svg" alt="">
+        </figure>
+        <div class="icon">
+            <i class='bx bx-chevron-left'></i>
+            <i class='bx bx-chevron-right'></i>
         </div>
+        <h2>Fogo & Sangue - Volume 1</h2>
+        <p>Edição Português por George R. R. Martin (Autor), 
+            Alceu Chiesorin Nunes (Arte de Capa), 
+            Doug Wheatley (Ilustrador), Leonardo Alves; 
+            Regiane Winarski (Tradutor)
+        </p>
+    </section>
+    
+    <section id="reading">
+        <h1>Continue Lendo ></h1>
+        <h2>Você ainda não está lendo nenhum livro...</h2>
+        <figure>
+            <img src="img/gatinho-triste.png" alt="">
+        </figure>
+    </section>
+    
+    <section id="favorite-list">
+        <h1>Sua lista Favorita ></h1>
+        <h2>Sua prateleira ainda não possui livros.</h2>
+        <figure>
+            <img src="img/prateleira-vaiza.png" alt="">
+        </figure>
     </section>
 
+    <footer>
+        <figure>
+            <img src="img/logo.svg" alt="logo LeiaMais">
+        </figure>
+        <p>Desvende Mundos: onde cada página é uma Nova Aventura!</p>
+    </footer>
 </body>
 </html>
