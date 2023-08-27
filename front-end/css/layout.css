@@ -10,9 +10,19 @@
     display: flex;
 }
 
-.container {
-    max-width: 1440px;
+.flex-1 {
+    flex: 1;
 }
+
+.gap-10{
+    gap: 10px;
+}
+
+.container {
+    max-width: 1440px; /* Largura máxima do container */
+    margin: 0 auto; /* Centraliza o container horizontalmente */
+    padding: 0px 10px;
+  }
 
 .space-between {
     justify-content: space-between;
@@ -21,6 +31,13 @@
     justify-content: space-around;
 }
 
-.center {
+.justify-center {
+    justify-content: center;
+}
+.align-center {
     align-items: center;
+}
+
+.row-colummn {
+    flex-direction: row;
 }

@@ -1,0 +1,36 @@
+header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 0.5px solid rgba(255, 243, 228, 0.25);
+}
+
+header figure img {
+    width: 100px;
+}
+
+.navbar a {
+    color: white;
+    font-size: 1rem;
+    margin-left: 1rem;
+}
+
+.bx-chevron-down {
+    font-size: 20px;
+}
+
+.mobile-menu {
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 999px) {
+    .nav-list {
+        position: absolute;
+        top: 8vh;
+        right: 0;
+        background: aqua;
+    }
+    
+}

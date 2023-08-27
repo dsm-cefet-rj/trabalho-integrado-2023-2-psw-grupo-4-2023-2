@@ -1,17 +1,93 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
 
+
+/* Geral */
 * {
     margin: 0;
-    padding: 0;
+    padding: 0; 
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
     font-family: 'Libre Baskerville', serif;
+    color: #FDFDFD;
+    
+}
+body {
+    height: 100%;
+    background: linear-gradient(to bottom, #031881, hsl(185, 55%, 40%));
+  }
+
+
+/* title-1 */
+h1 {
+    font-size: 20px;
+    font-weight: 100;
+    border-bottom: 1px solid #FDFDFD;
+}
+
+/* subtitle-1 */
+h2 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/* sub-subtitle-1 */
+h3 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* title-2 */
+h4 {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* subtitle-2 */
+h5 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* paragraph */
+p {
+    font-size: 8px;
+    font-weight: 400;
+}
+
+.icon {
+    font-size: 2rem;
+    color: #B2B6B9;
+    /* display: none; */
+}
+
+.yellow-light {
+    color: #E6B33D;
+}
+.blue-dark {
+    color: #091A62;
+    border-bottom: 1px solid #091A62;
+}
+
+.red-dark {
+    color: #995052;
 }
 
 
-body {
-    background: rgb(47, 255, 238);
+
+/* Laptop */
+@media (min-width: 600px) {
+    
+}
+
+/* Notebook */
+@media (min-width: 1024px) {
+    
+}
+
+/* Desktop */
+@media (min-width: 1440px) {
+    
 }
 
 

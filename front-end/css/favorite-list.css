@@ -1,3 +1,22 @@
 #favorite-list figure img {
     width: 50px;
 }
+
+#favorite-list{
+    background: #ECF0F2;
+    position: relative;
+    padding: 32px 0;
+}
+
+#favorite-list div > div {
+    padding-top: 32px;
+    gap: 10px;
+}
+
+#favorite-list a {
+    position: absolute;
+    right: 20px;
+    bottom: 152px;
+    font-size: 8px;
+    font-weight: 400;
+}

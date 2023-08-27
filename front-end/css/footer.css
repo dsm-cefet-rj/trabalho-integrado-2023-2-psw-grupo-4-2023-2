@@ -1,3 +1,9 @@
 footer {
-    background: blueviolet;
+    background: #031881;
+    height: 50px;
+}
+
+footer div {
+    padding: 20px;
+    gap: 10px;
 }

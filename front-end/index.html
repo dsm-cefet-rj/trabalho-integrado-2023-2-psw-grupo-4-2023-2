@@ -7,11 +7,13 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/suggestions.css">
     <link rel="stylesheet" href="css/reading.css">
     <link rel="stylesheet" href="css/favorite-list.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="icon" href="img/logo.png" type="image/png">
 
     <!-- box icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -19,57 +21,84 @@
 </head>
 
 <body>
-    <header class="flex center space-between">
-
-        <!-- mobile -->
-        <div class="bx bx-menu icon"></div>
-        <figure>
-            <img src="img/logo.svg" alt="logo LeiaMais">
-        </figure>
-        <div class="bx bx-search icon"></div>
-        <nav class="navbar">
-        </nav>
-        <div class="bx bxs-user-circle icon"></div>
+    <header>
+        <div class="flex space-between align-center">
+            <div class="bx bx-menu icon"></div>
+            <figure>
+                <img src="img/logo.svg" alt="logo LeiaMais">
+            </figure>
+            <div class="bx bx-search icon"></div>
+            <div class="flex align-center">
+                <div class="bx bxs-user-circle icon"></div>
+                <div class='bx bx-chevron-down icon'></div>
+            </div>
+        </div>
     </header>
 
-    <section id="suggestions">
-        <h1>Sugestões de Leitura</h1>
-        <figure>
-            <img src="img/livro-fogo-e-sangue.svg" alt="">
-        </figure>
-        <div class="icon">
-            <i class='bx bx-chevron-left'></i>
-            <i class='bx bx-chevron-right'></i>
-        </div>
-        <h2>Fogo & Sangue - Volume 1</h2>
-        <p>Edição Português por George R. R. Martin (Autor), 
-            Alceu Chiesorin Nunes (Arte de Capa), 
-            Doug Wheatley (Ilustrador), Leonardo Alves; 
-            Regiane Winarski (Tradutor)
-        </p>
-    </section>
-    
-    <section id="reading">
-        <h1>Continue Lendo ></h1>
-        <h2>Você ainda não está lendo nenhum livro...</h2>
-        <figure>
-            <img src="img/gatinho-triste.png" alt="">
-        </figure>
-    </section>
-    
-    <section id="favorite-list">
-        <h1>Sua lista Favorita ></h1>
-        <h2>Sua prateleira ainda não possui livros.</h2>
-        <figure>
-            <img src="img/prateleira-vaiza.png" alt="">
-        </figure>
-    </section>
+    <main>
+
+        <!-- Section suggestions -->
+        <section id="suggestions">
+            <div class="container">
+                <h1>Sugestões de Leitura</h1>
+                <div class="flex justify-center">
+                    <figure>
+                        <img src="img/livro-fogo-e-sangue.svg" alt="imagem LeiaMais">
+                    </figure>
+                </div>
+                <div class="flex justify-center gap-10">
+                    <div class="bx bx-chevron-left icon"></div>
+                    <div class="bx bx-chevron-right icon"></div>
+                </div>
+                <div class="flex column align-center">
+                    <h2 class="yellow-light">Fogo & Sangue - Volume 1</h2>
+                    <p>Edição Português por George R. R. Martin (Autor), 
+                        Alceu Chiesorin Nunes (Arte de Capa), 
+                        Doug Wheatley (Ilustrador), Leonardo Alves; 
+                        Regiane Winarski (Tradutor)
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section reading -->
+        <section id="reading">
+            <div class="container">
+                <h1 class="blue-dark">Continue Lendo ></h1>
+                <div class="flex column align-center">
+                    <h5 class="yellow-light">Você ainda não está lendo nenhum livro...</h5>
+                    <figure>
+                        <img src="img/gatinho-triste.png" alt="">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sectio favorite list -->
+        <section id="favorite-list">
+            <a class="red-dark" href="#">ver todos</a>
+            <div class="container">
+                <h1 class="blue-dark">Sua lista Favorita ></h1>
+                <div class="flex column align-center">
+                    <h5 class="yellow-light">Sua prateleira ainda não possui livros.</h5>
+                    <figure>
+                        <img src="img/prateleira-vaiza.png" alt="">
+                    </figure>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <figure>
-            <img src="img/logo.svg" alt="logo LeiaMais">
-        </figure>
-        <p>Desvende Mundos: onde cada página é uma Nova Aventura!</p>
+        <div class="flex column align-center">
+            <figure>
+                <img src="img/logo.svg" alt="logo LeiaMais">
+            </figure>
+            <p>Desvende Mundos: onde cada página é uma Nova Aventura!</p>
+        </div>
     </footer>
+
+    <!-- script -->
+    <script src="js/navbar.js"></script>
 </body>
 </html>
