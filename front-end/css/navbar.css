@@ -1,6 +1,23 @@
 
   
-  @media (max-width: 600px) {
 
-  }
+
+
   
+/* Laptop */
+@media (min-width: 600px) {
+  /* title-1 */
+h1 {
+  font-size: 18px;
+}
+}
+
+/* Notebook */
+@media (min-width: 1024px) {
+  
+}
+
+/* Desktop */
+@media (min-width: 1440px) {
+  
+}

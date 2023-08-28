@@ -6,6 +6,7 @@
 
 #suggestions {
     padding: 32px 0;
+    background: linear-gradient(to bottom, #031881, #2E969F);
 }
 #suggestions h1 {
     margin-bottom: 32px;

@@ -12,10 +12,6 @@
     color: #FDFDFD;
     
 }
-body {
-    height: 100%;
-    background: linear-gradient(to bottom, #031881, hsl(185, 55%, 40%));
-  }
 
 
 /* title-1 */
@@ -65,8 +61,8 @@ p {
     color: #E6B33D;
 }
 .blue-dark {
-    color: #091A62;
-    border-bottom: 1px solid #091A62;
+    color: #031881;
+    border-bottom: 1px solid #031881;
 }
 
 .red-dark {

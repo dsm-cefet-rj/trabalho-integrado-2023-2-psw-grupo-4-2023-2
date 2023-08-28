@@ -4,6 +4,7 @@ header {
     width: 100%;
     padding: 1rem;
     border-bottom: 0.5px solid rgba(255, 243, 228, 0.25);
+    background: #031881;
 }
 
 header figure img {
@@ -25,12 +26,21 @@ header figure img {
     display: none;
 }
 
-@media (max-width: 999px) {
-    .nav-list {
-        position: absolute;
-        top: 8vh;
-        right: 0;
-        background: aqua;
-    }
+
+/* Laptop */
+@media (min-width: 600px) {
+    /* title-1 */
+h1 {
+    font-size: 18px;
+}
+}
+
+/* Notebook */
+@media (min-width: 1024px) {
+    
+}
+
+/* Desktop */
+@media (min-width: 1440px) {
     
 }
