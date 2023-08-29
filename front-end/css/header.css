@@ -7,12 +7,28 @@ header {
     background: #031881;
 }
 
-header figure img {
+header > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header div figure img {
     width: 100px;
 }
 
+header figure {
+    color: #FFF3E4;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+header figure p {
+    font-size: 14px;
+}
+
 .navbar a {
-    color: white;
+    color: #FFF3E4;
     font-size: 1rem;
     margin-left: 1rem;
 }
@@ -23,24 +39,41 @@ header figure img {
 
 .mobile-menu {
     cursor: pointer;
-    display: none;
+}
+.mobile-menu div {
+    width: 32px;
+    height: 2px;
+    background: #fff;
+    margin: 8px;
+    transition: 0.3s;
+  }
+#logo-header {
+  width: 40px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+@media (min-width: 480px) {
+    header > div {
+        margin-left: 160px;
+    }
+    .mobile-menu {
+        display: none;
+    }
+    header figure {
+        display: none;
+    }
 }
 
 
-/* Laptop */
-@media (min-width: 600px) {
-    /* title-1 */
-h1 {
-    font-size: 18px;
-}
-}
-
-/* Notebook */
-@media (min-width: 1024px) {
-    
-}
-
-/* Desktop */
-@media (min-width: 1440px) {
-    
+@media (min-width: 920px) {
+    header > div{
+        margin-left: 240px;
+    }
+    .mobile-menu {
+        display: none;
+    }
+    header figure {
+        display: none;
+    }
 }

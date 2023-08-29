@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/aside.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/suggestions.css">
     <link rel="stylesheet" href="css/reading.css">
     <link rel="stylesheet" href="css/favorite-list.css">
@@ -21,19 +23,58 @@
 </head>
 
 <body>
+
+    <!-- menu fixo -->
+    <aside class="sidebar">
+        <figure>
+            <img id="logo-aside" src="img/logo.png" alt="logo LeiaMais">
+            <p>LeiaMais</p>
+        </figure>
+        <nav>
+            <ul id="nav-list-sidebar">
+                <p class="aside-text">Descubra seu livro</p>
+                <li><a class="aside-text" href="#">Início</a></li>
+                <li><a class="aside-text" href="#">Acervo</a></li>
+                <p class="aside-text">Seu Acervo</p>
+                <li><a class="aside-text" href="#">Minhas Listas</a></li>
+                <li><a class="aside-text" href="#">Continuar Lendo</a></li>
+                <li><a class="aside-text" href="#">Livros Lidos</a></li>
+                <li><a class="aside-text" href="#">Relatório do Usuário</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- mobile-menu -->
+    
     <header>
-        <div class="flex space-between align-center">
-            <div class="bx bx-menu icon"></div>
-            <figure>
-                <img src="img/logo.svg" alt="logo LeiaMais">
-            </figure>
-            <div class="bx bx-search icon"></div>
-            <div class="flex align-center">
-                <div class="bx bxs-user-circle icon"></div>
-                <div class='bx bx-chevron-down icon'></div>
+        <nav>
+            <div class="mobile-menu">
+              <div class="line1"></div>
+              <div class="line2"></div>
+              <div class="line3"></div>
             </div>
-        </div>
-    </header>
+            <ul class="nav-list">
+                <p class="nav-text">Descubra seu Livro</p>
+                <li><a href="#" class="nav-text">Início</a></li>
+                <li><a href="#" class="nav-text">Acervo</a></li>
+                <p class="nav-text">Seu Acervo</p>
+                <li><a href="#" class="nav-text">Minhas Listas</a></li>
+                <li><a href="#" class="nav-text">Continuar Lendo</a></li>
+                <li><a href="#" class="nav-text">Livros Lidos</a></li>
+                <li><a href="#" class="nav-text">Relatório do Usuário</a></li>
+              </ul>
+              <figure>
+                  <img id="logo-header" src="img/logo.png" alt="logo LeiaMais">
+                  <p>LeiaMais</p>
+              </figure>
+              <div class="bx bx-search icon"></div>
+              <div class="flex align-center">
+                  <div class="bx bxs-user-circle icon"></div>
+                  <div class='bx bx-chevron-down icon'></div>
+              </div>
+        </nav>
+      </header>
+  
     
     <main>
 
@@ -99,6 +140,6 @@
     </footer>
 
     <!-- script -->
-    <script src="js/navbar.js"></script>
+    <script src="js/mobile-navbar.js"></script>
 </body>
 </html>

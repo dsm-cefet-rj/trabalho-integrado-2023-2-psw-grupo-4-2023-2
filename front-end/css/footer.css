@@ -1,8 +1,27 @@
 footer {
     background: #031881;
+
 }
 
 footer div {
     padding: 20px;
     gap: 10px;
+
+}
+
+@media (min-width: 480px) {
+    footer div {
+        padding: 20px;
+        gap: 10px;
+        margin-left: 160px;
+    }
+}
+
+
+@media (min-width: 920px) {
+    footer div {
+        padding: 20px;
+        gap: 10px;
+        margin-left: 240px;
+    }
 }
