@@ -27,6 +27,11 @@ header figure p {
     font-size: 14px;
 }
 
+header .nav-text {
+    font-size: 18px;
+    color: #B2B6B9;
+}
+
 .navbar a {
     color: #FFF3E4;
     font-size: 1rem;
@@ -43,7 +48,7 @@ header figure p {
 .mobile-menu div {
     width: 32px;
     height: 2px;
-    background: #fff;
+    background: #B2B6B9;
     margin: 8px;
     transition: 0.3s;
   }
@@ -51,6 +56,12 @@ header figure p {
   width: 40px;
   text-transform: uppercase;
   letter-spacing: 4px;
+}
+
+.nav-text i{
+    color: #B2B6B9;
+    font-size: 18px;
+    margin-right: 4px;
 }
 
 @media (min-width: 480px) {

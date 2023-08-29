@@ -48,6 +48,11 @@ aside .aside-text {
 #nav-list-sidebar li{
     margin: 8px 0;
 }
+#nav-list-sidebar i{
+    color: #B2B6B9;
+    font-size: 18px;
+    margin-right: 4px;
+}
 
 #logo-aside {
     width: 100px;
@@ -70,7 +75,7 @@ aside .aside-text {
     }
 
     .sidebar nav > ul > li {
-        font-size: 12px;
+        font-size: 10px;
     }
     #logo-aside {
         width: 70px;
