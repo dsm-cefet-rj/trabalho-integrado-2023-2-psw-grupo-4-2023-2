@@ -41,6 +41,10 @@ aside .aside-text {
     display: flex;
     flex-direction: column;
 }
+#nav-list-sidebar a {
+    display: flex;
+    align-items: center;
+  }
 #nav-list-sidebar p{
     padding-top: 8px;
     font-size: 12px;

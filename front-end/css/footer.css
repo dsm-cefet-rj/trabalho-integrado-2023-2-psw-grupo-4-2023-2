@@ -6,7 +6,13 @@ footer {
 footer div {
     padding: 20px;
     gap: 10px;
+}
+footer div p {
+    letter-spacing: .1rem;
+}
 
+footer div figure img {
+    width: 80px;
 }
 
 @media (min-width: 480px) {
@@ -14,6 +20,9 @@ footer div {
         padding: 20px;
         gap: 10px;
         margin-left: 160px;
+    }
+    footer div figure img {
+        width: 100px;
     }
 }
 
@@ -23,5 +32,8 @@ footer div {
         padding: 20px;
         gap: 10px;
         margin-left: 240px;
+    }
+    footer div figure img {
+        width: 120px;
     }
 }
