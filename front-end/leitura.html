@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lendo: Fogo e Sangue</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/user-reading.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/aside.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/suggestions.css">
+    <link rel="stylesheet" href="css/reading.css">
+    <link rel="stylesheet" href="css/favorite-list.css">
+    <link rel="stylesheet" href="css/read-pdf.css">
+
+    <link rel="icon" href="img/logo.png" type="image/png">
+
+    <!-- box icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="flex align-center">
+                <a href="index.html" class="size-12 gray"><i class="bx bx-chevron-left icon flex gray"></i>Voltar</a>
+            </div>
+            
+            <div class="bx bx-list-ul icon dark-blue centralizar">
+                <p class="dark-blue size-12">Sumário</p>
+            </div>
+            <div class="bx bxs-zoom-in icon dark-blue">
+                <p class="dark-blue size-12">Zoom</p>
+            </div>
+            <div class="flex align-center">
+                <div class="bx bx-search icon icon flex "></div>
+                <p class="dark-blue size-12">Pesquisa</p>
+            </div>
+        </nav>
+    </header>
+  
+    
+    <main style="margin: 0px;">
+
+        <!-- Section Opções de leitura -->
+        <section id="opcao-leitura ">
+            <div class="container">
+                <div class="flex space-between">
+                    <div class="dark-gray underline">Voltar a página inicial</div>
+                    <div class="dark-gray underline">Continuar onde parei (pág 20)</div>
+                </div>
+            </div>
+        </section>
+
+        <!--Section Read PDF -->
+        <section id="read-pdf">
+            <div id="canvas_container">
+                <canvas id="pdf_renderer"></canvas>
+            </div>
+            <div id="navigation_controls" class="flex justify-center gap-10">
+                <button id="go_previous">Previous</button>
+                <input id="current_page" value="1" type="number"/>
+                <button id="go_next">Next</button>
+            </div>
+            <div id="zoom_controls" class="flex justify-center gap-10">  
+                <button id="zoom_in">+</button>
+                <button id="zoom_out">-</button>
+            </div>
+        </section>
+
+    
+    </main>
+
+    <footer class="footer-lendo">
+        <div class="container">
+            <div class="flex space-between">
+                <div class="bx bx-expand icon size-12">Expandir</div>
+                <div class="size-12">Página 1 / 320 (0%)</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- script 
+    <script src="js/mobile-navbar.js"></script> -->
+
+    <script src="js/user-reading.js"></script>
+
+</body>
+</html>
