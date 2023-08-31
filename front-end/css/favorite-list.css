@@ -1,5 +1,5 @@
 #favorite-list figure img {
-    width: 50px;
+    width: 100px;
 }
 
 #favorite-list{
@@ -9,7 +9,7 @@
 
 #favorite-list div > div {
     padding-top: 32px;
-    gap: 10px;
+    gap: 20px;
 }
 
 #favorite-list a {

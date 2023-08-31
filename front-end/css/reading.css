@@ -1,5 +1,5 @@
 #reading figure img {
-    width: 50px;
+    width: 100px;
 }
 
 #reading{
@@ -9,5 +9,5 @@
 
 #reading div > div {
     padding: 32px 0;
-    gap: 10px;
+    gap: 20px;
 }
