@@ -1,26 +1,26 @@
-main{
+/* main{
   width: 100vw;
   height: 100vh;
   background-color: aqua;
-}
+} */
 
-nav{
+/* nav{
   height: 100vh;
   width: 20vw;
   background-color: blue;
   position: fixed;
   left: -20vw;
-}
+} */
 
-nav.show{
+/* nav.show{
   transform: translateX(20vw);
-}
+} */
 
-header{
+/* header{
   background-color: blueviolet;
-}
+} */
 
-@media (min-width:1024px) {
+/* @media (min-width:1024px) {
   main{
     width: 80vw;
   }
@@ -37,7 +37,8 @@ header{
   nav.show{
     transform: none;
   }
-  
-  
-}
+} */
 
+.App {
+  display: flex;
+}

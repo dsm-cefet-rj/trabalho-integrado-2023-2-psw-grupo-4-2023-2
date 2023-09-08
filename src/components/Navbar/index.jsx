@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { LiaTimesSolid } from "react-icons/lia";
 import "./Navbar.css";
 
-const Navbar = () => {
-  const [openedNavbar, setOpenedNavbar] = useState(false);
+const Navbar = ({openedNavbar, closeNavbar}) => {
+    console.log(openedNavbar)
 
   return (
-    <div>
-      <nav className={openedNavbar ? "responsive_nav" : ""}>
+      <nav className={openedNavbar && "show"}>
         <h6>Descubra seu livro</h6>
         <a href="/#">Início</a>
         <a href="/#">Acervo</a>
@@ -16,18 +15,10 @@ const Navbar = () => {
         <a href="/#">Continuar Lendo</a>
         <a href="/#">Livros Lidos</a>
 
-        <button
-          className="nav-btn nav-close-btn"
-          onClick={() => setOpenedNavbar(false)}
-        >
-          <FaTimes />
+        <button onClick={closeNavbar} className="nav-btn nav-close-btn">
+          <LiaTimesSolid />
         </button>
       </nav>
-
-      <button className="nav-btn" onClick={() => setOpenedNavbar(true)}>
-        <FaBars style={{ width: "100%" }} />
-      </button>
-    </div>
   );
 };
 

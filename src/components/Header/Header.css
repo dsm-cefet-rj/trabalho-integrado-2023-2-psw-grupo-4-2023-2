@@ -1,6 +1,17 @@
 header {
     display: flex;
     align-items: center;
+    background-color: #091A62;
+    padding: 16px;
+    justify-content: space-between;
+}
+
+header .nav-menu, .nav-search, .nav-user {
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	outline: none;
+	font-size: 1.8rem;
 }
 
 img {
@@ -12,6 +23,8 @@ i {
 }
 
 .logo-text {
+    display: flex;
+    align-items: center;
     gap: 4px;
 }
 
