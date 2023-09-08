@@ -1,0 +1,13 @@
+#reading figure img {
+    width: 100px;
+}
+
+#reading{
+    background: #ECF0F2;
+    padding: 32px 0;
+}
+
+#reading div > div {
+    padding: 32px 0;
+    gap: 20px;
+}

@@ -1,0 +1,17 @@
+header {
+    display: flex;
+    align-items: center;
+}
+
+img {
+    width: 30px;
+}
+
+i {
+ font-size: 30px;
+}
+
+.logo-text {
+    gap: 4px;
+}
+

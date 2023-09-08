@@ -1,0 +1,14 @@
+main {
+    overflow: hidden;
+}
+
+@media (min-width: 480px) {
+    main {
+        margin-left: 160px;
+    }   
+}
+@media (min-width: 920px) {
+    main {
+        margin-left: 240px;
+    }   
+}
