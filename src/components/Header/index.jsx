@@ -1,9 +1,9 @@
 import "./Header.css";
 import logo from "../../assets/img/logo.png"
 import Navbar from "../Navbar";
+import { useState } from "react";
 
 const Header = () => {
-
   return (
     <header>
       <Navbar/>
