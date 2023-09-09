@@ -3,7 +3,6 @@ import { LiaTimesSolid } from "react-icons/lia";
 import "./Navbar.css";
 
 const Navbar = ({openedNavbar, closeNavbar}) => {
-    console.log(openedNavbar)
 
   return (
       <nav className={openedNavbar && "show"}>
