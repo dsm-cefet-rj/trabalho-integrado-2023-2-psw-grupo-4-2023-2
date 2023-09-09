@@ -3,9 +3,10 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Main from "./components/Main";
+import Footer from "./components/Footer";
 
 function App() {
-  const [openedNavbar, setOpenedNavbar] = useState(false);
+  // const [openedNavbar, setOpenedNavbar] = useState(false);
   // console.log(openedNavbar)
 
   return (
@@ -15,13 +16,14 @@ function App() {
       <main>MAIN
         <header><button onClick={()=>{setOpenedNavbar(true)}}>SHOW</button></header>
       </main> */}
-      <Navbar
+      {/* <Navbar
         openedNavbar={openedNavbar}
         closeNavbar={() => setOpenedNavbar(false)}
       />
       <Main>
         <Header showNavbar={() => setOpenedNavbar(true)} />
-      </Main>
+      </Main> */}
+      <Footer/>
     </div>
   );
 }
