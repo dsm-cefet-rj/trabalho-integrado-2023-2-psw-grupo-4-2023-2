@@ -6,8 +6,7 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 
 function App() {
-  // const [openedNavbar, setOpenedNavbar] = useState(false);
-  // console.log(openedNavbar)
+  const [openedNavbar, setOpenedNavbar] = useState(false);
 
   return (
     <div className="App">
@@ -16,14 +15,14 @@ function App() {
       <main>MAIN
         <header><button onClick={()=>{setOpenedNavbar(true)}}>SHOW</button></header>
       </main> */}
-      {/* <Navbar
+      <Navbar
         openedNavbar={openedNavbar}
         closeNavbar={() => setOpenedNavbar(false)}
       />
       <Main>
         <Header showNavbar={() => setOpenedNavbar(true)} />
-      </Main> */}
-      <Footer/>
+      </Main>
+      {/* <Footer/> */}
     </div>
   );
 }
