@@ -9,11 +9,11 @@
 html,
 body {
   font-family: "Libre Baskerville", serif;
-  color: #fdfdfd;
+  color: var(--color-white);
 }
 
 button {
-  color: var(--text-color-greey);
+  color: var(--color-white);
 }
 a {
   text-decoration: none;
@@ -30,7 +30,10 @@ code {
 }
 
 :root {
-  --text-color-greey: #b2b6b9;
+  --color-greey: #b2b6b9;
+  --color-white: #ECF0F2;
+  --color-blue-dark: #091A62;
+  --color-blue-gradient: linear-gradient(to bottom, #031881, #2E969F);
 }
 /* title-1 */
 h1 {

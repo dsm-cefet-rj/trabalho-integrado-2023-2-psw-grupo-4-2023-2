@@ -10,11 +10,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <nav className={openedNavbar && "show"}>NAVBAR
-      <button onClick={()=>setOpenedNavbar(false)}>HIDE</button></nav>
-      <main>MAIN
-        <header><button onClick={()=>{setOpenedNavbar(true)}}>SHOW</button></header>
-      </main> */}
       <Navbar
         openedNavbar={openedNavbar}
         closeNavbar={() => setOpenedNavbar(false)}

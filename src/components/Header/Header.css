@@ -1,30 +1,40 @@
 header {
-    display: flex;
-    align-items: center;
-    background-color: #091A62;
-    padding: 16px;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  background-color: #091a62;
+  padding: 16px;
+  justify-content: space-between;
 }
 
-header .nav-menu, .nav-search, .nav-user {
-	cursor: pointer;
-	background: transparent;
-	border: none;
-	outline: none;
-	font-size: 1.8rem;
-}
-
-img {
-    width: 30px;
+header .nav-menu,
+.nav-search,
+.nav-user {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.8rem;
 }
 
 i {
- font-size: 30px;
+  font-size: 30px;
 }
 
-.logo-text {
+.logo-header {
     display: flex;
     align-items: center;
     gap: 4px;
 }
 
+header div img {
+  width: 30px;
+}
+header div h6 {
+  font-size: 12px;
+}
+
+@media (min-width: 900px) {
+  .logo-header {
+    display: none;
+  }
+}
