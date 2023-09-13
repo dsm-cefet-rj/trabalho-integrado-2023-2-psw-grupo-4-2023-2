@@ -1,7 +1,7 @@
 nav {
   height: 100vh;
   width: 100%;
-  background-color: #091a62;
+  background-color: var(--color-blue-dark);
   color: var(--text-color-greey);
   position: fixed;
   left: -100vw;

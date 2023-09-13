@@ -3,7 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Main from "./components/Main";
-import Footer from "./components/Footer";
+import Sugestao from "./components/Sugestao";
 
 function App() {
   const [openedNavbar, setOpenedNavbar] = useState(false);
@@ -16,8 +16,8 @@ function App() {
       />
       <Main>
         <Header showNavbar={() => setOpenedNavbar(true)} />
+        <Sugestao />
       </Main>
-      {/* <Footer/> */}
     </div>
   );
 }
