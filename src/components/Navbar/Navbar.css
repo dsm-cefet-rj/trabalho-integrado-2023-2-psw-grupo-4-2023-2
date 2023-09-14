@@ -40,7 +40,7 @@ nav i {
   font-size: 16px;
   padding-right: 8px;
 }
-div {
+nav div {
   display: flex;
 }
 

@@ -1,23 +1,18 @@
-import React, { useState } from "react";
+import Home from "./pages/Home";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Sugestao from "./components/Sugestao";
 
 function App() {
-  const [openedNavbar, setOpenedNavbar] = useState(false);
-
   return (
     <div className="App">
-      <Navbar
-        openedNavbar={openedNavbar}
-        closeNavbar={() => setOpenedNavbar(false)}
-      />
-      <Main>
-        <Header showNavbar={() => setOpenedNavbar(true)} />
-        <Sugestao />
-      </Main>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} /> */}
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
