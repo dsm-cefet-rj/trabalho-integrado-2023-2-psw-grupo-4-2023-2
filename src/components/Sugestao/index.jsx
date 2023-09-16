@@ -43,7 +43,7 @@ const Sugestao = () => {
               </div>
               <div className="info">
                 <div className="bookmark">
-                <h4 className="name">{name}</h4>
+                <h5 className="name">{name}</h5>
                 <i class='bx bxs-bookmark-heart'></i>
                 </div>
                 <p className="descricao">{descricao}</p>

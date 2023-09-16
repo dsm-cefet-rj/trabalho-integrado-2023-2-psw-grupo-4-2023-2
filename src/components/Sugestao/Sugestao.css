@@ -1,10 +1,10 @@
 section {
   background: var(--color-blue-gradient);
   width: 100%;
-  min-height: 100vh;
   display: flex;
-  padding-left: 10px;
+  padding: 0 0 32px 10px;
   flex-direction: column;
+  
 }
 
 .imagem {
@@ -44,6 +44,7 @@ section {
   height: 450px;
   border-radius: 16px;
   flex: none;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .container .carousel .item .image img {

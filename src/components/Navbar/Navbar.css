@@ -1,7 +1,7 @@
 nav {
-  height: 100vh;
-  width: 100%;
-  background-color: var(--color-blue-dark);
+  width: 240px;
+  box-shadow: 2px 0px 6px 0px rgba(0, 0, 0, 0.3);
+  background-color: #ffff;
   color: var(--text-color-greey);
   position: fixed;
   left: -100vw;
@@ -15,6 +15,9 @@ nav {
 
 nav.show {
   transform: translateX(100vw);
+  height: 100vh;
+  width: 100%;
+  z-index: 999;
 }
 
 nav .nav-close-btn {
@@ -29,19 +32,28 @@ nav .nav-btn {
   border: none;
   outline: none;
   font-size: 1.8rem;
+  
 }
 
 nav h6,
 a {
   color: var(--color-greey);
+  font-size: 13px;
+  padding-left: 8px;
 }
 
 nav i {
-  font-size: 16px;
+  font-size: 18px;
   padding-right: 8px;
 }
 nav div {
   display: flex;
+}
+nav div img {
+  width: 50px;
+}
+nav div h6 {
+  font-size: 24px;
 }
 
 .logo-navbar {
@@ -51,10 +63,9 @@ nav div {
 @media (min-width: 900px) {
   nav {
     position: static;
-    width: 20vw;
+    /* width: 24vw; */
     padding-top: 32px;
   }
-
 
   nav.show {
     transform: none;
@@ -65,36 +76,17 @@ nav div {
     gap: 4px;
   }
 
-  nav div img {
-    width: 40px;
-  }
-  nav div h6 {
-    font-size: 20px;
-  }
-
   nav .nav-btn {
     display: none;
   }
 }
 
 @media (min-width: 1024px) {
-  nav div img {
-    width: 60px;
-  }
-  nav div h6 {
-    font-size: 24px;
-  }
   nav .nav-btn {
     display: none;
   }
 }
 @media (min-width: 1600px) {
-  nav div img {
-    width: 100px;
-  }
-  nav div h6 {
-    font-size: 32px;
-  }
   nav .nav-btn {
     display: none;
   }
