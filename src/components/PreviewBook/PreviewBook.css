@@ -1,0 +1,30 @@
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 32px 0;
+  }
+  .section-title i {
+    font-size: 24px;
+  }
+  .book-information{
+    text-align: center;
+  }
+  .description{
+    width: 40%;
+    margin: auto;
+    margin-top: 12px;
+  }
+  .titulo{
+    margin-bottom: 5px;
+  }
+  .button-list{
+    background: none;
+    border: none;
+    font-size: 40px;
+  }
+  .options{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
