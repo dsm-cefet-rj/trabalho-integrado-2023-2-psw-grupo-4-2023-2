@@ -1,0 +1,122 @@
+[
+    {
+        "id": "01",
+        "image": "livr-o-feiticeiro-de-terramar.jpg",
+        "name": "O feiticeiro de Terramar (Ciclo Terramar – Livro 1)",
+        "descricao": "Edição Português | por Ursula K. Le Guin"
+    },
+    {
+        "id": "02",
+        "image": "livro-a-culpa-e-das-estrelas.jpg",
+        "name": "A culpa é das estrelas",
+        "descricao": "Edição Português | por John Green e Renata Pettengill"
+    },
+    {
+        "id": "03",
+        "image": "livro-a-selecao-livro-amazon-1-1.jpg",
+        "name": "A Seleção: 1",
+        "descricao": "Edição Português | por Kiera Cass (Autor), Cristian Clemente (Tradutor)"
+    },
+    {
+        "id": "04",
+        "image": "livro-o-colecionador.jpg",
+        "name": "O Colecionador",
+        "descricao": "Edição Português | por John Fowles (Autor), Antonio Tibau (Tradutor)"
+    },
+    {
+        "id": "05",
+        "image": "livro-a-ultima-festa.jpg",
+        "name": "A última festa",
+        "descricao": "Edição Português | por Lucy Foley (Autor), Marina Vargas (Tradutor)"
+    },
+    {
+        "id": "06",
+        "image": "livro-aventuras-na-amazonia.jpg",
+        "name": "Aventuras na Amazônia. Uma Brilhante Aventura Biológica!",
+        "descricao": "Edição Português | por Dan Green (Autor)"
+    },
+    {
+        "id": "07",
+        "image": "livro-biblioteca-da-meia-noite.jpg",
+        "name": "A Biblioteca da Meia-Noite",
+        "descricao": "Edição Português | por Matt Haig (Autor), Adriana Fidalgo (Tradutor)"
+    },
+    {
+        "id": "08",
+        "image": "livro-cidades-dos-ossos.jpg",
+        "name": "Cidade dos ossos (Vol. 1 Os Instrumentos Mortais)",
+        "descricao": "Edição Português | por Cassandra Clare (Autor), Rita Sussekind (Tradutor)"
+    },
+    {
+        "id": "09",
+        "image": "livro-e-assim-que-começa.jpg",
+        "name": "É assim que começa (Vol. 2 É assim que acaba)",
+        "descricao": "Edição Português | por Colleen Hoover (Autor), Priscila Catão (Tradutor)"
+    },
+    {
+        "id": "10",
+        "image": "livro-escrevendo-ficacao-cientifica-e-fantasia.jpg",
+        "name": "Escrevendo Ficção Científica e Fantasia: Como Contar Histórias de Outros Mundos (Segredos do Best-Seller)",
+        "descricao": "Edição Português | por Eldes Saullo (Autor)"
+    },
+    {
+        "id": "11",
+        "image": "livro-fogo-e-sangue.jpg",
+        "name": "Fogo & Sangue – Volume 1",
+        "descricao": "Edição Português | por George R. R. Martin (Autor), Alceu Chiesorin Nunes (Arte de Capa), Doug Wheatley (Ilustrador), Leonardo Alves; Regiane Winarski (Tradutor)"
+    },
+    {
+        "id": "12",
+        "image": "livro-neuromancer.width-171.jpg",
+        "name": "Neuromancer: 1",
+        "descricao": "Edição Português | por William Gibson (Autor), Fábio Fernandes (Tradutor)"
+    },
+    {
+        "id": "13",
+        "image": "livro-o-azul-daqui-e-mais-azul.jpg",
+        "name": "O azul daqui é mais azul",
+        "descricao": "Edição Português | por Robbie Couch (Autor), Vitor Martins (Tradutor)"
+    },
+    {
+        "id": "14",
+        "image": "livro-princesa-das-cinzas.jpg",
+        "name": "Princesa das cinzas (Princesa das cinzas – Livro 1)",
+        "descricao": "Edição Português | por Laura Sebastian (Autor), Raquel Zampil (Tradutor)"
+    },
+    {
+        "id": "15",
+        "image": "livro-quando-ninguem-esta-olhando.jpg",
+        "name": "Quando ninguém está olhando",
+        "descricao": "Edição Português | por Alyssa Cole (Autor), Thaís Britto (Tradutor)"
+    },
+    {
+        "id": "16",
+        "image": "livro-trone-de-diamante.jpg",
+        "name": "O Trono de Diamante",
+        "descricao": "Edição Português | por David Eddings (Autor)"
+    },
+    {
+        "id": "17",
+        "image": "livro-um-amor-para-recordar-melhores-livros-romance-1.jpg",
+        "name": "Um amor para recordar",
+        "descricao": "Edição Português | por Nicholas Sparks (Autor), Rachel Agavino (Tradutor)"
+    },
+    {
+        "id": "18",
+        "image": "livro-um-romance-fora-de-epoca.jpg",
+        "name": "Um Romance Fora de Época (Amores Imprevisiveis Livro 1)",
+        "descricao": "Edição Português | por Gabriela Goulart (Autor)"
+    },
+    {
+        "id": "19",
+        "image": "livro-vermelho-branco-e-sangue-azul.jpg",
+        "name": "Vermelho, Branco e Sangue Azul",
+        "descricao": "Edição Português | por Casey McQuiston; Tradução: Inês Guerreiro (Autor)"
+    },
+    {
+        "id": "20",
+        "image": "livros-reino-de-belfront.jpg",
+        "name": "Reino de Belfront",
+        "descricao": "Edição Português | por Jaqueline Moniz (Autor)"
+    }
+]

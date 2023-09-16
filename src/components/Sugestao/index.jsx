@@ -1,26 +1,69 @@
+import { useEffect, useState, useRef } from 'react';
 import "./Sugestao.css";
-import imgLivro from "../../assets/img/livro-fogo-e-sangue.svg"
 import { AiOutlineLeft } from "react-icons/ai";
 import { AiOutlineRight } from "react-icons/ai";
 
 const Sugestao = () => {
-    return (
-        <section>
-            <h1>Sugestão de Leitura</h1>
-            <img src={imgLivro} />
-            <div>
-                <i><AiOutlineLeft /></i>
-                <i><AiOutlineRight /></i>
+  const [data, setData] = useState([]);
+  const carousel = useRef(null);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/static/livros.json')
+      .then((response) => response.json())
+      .then(setData);
+  }, []);
+
+  if (!data || !data.length) return null;
+
+  const handleLeftClick = (e) => {
+    e.preventDefault();
+    carousel.current.scrollLeft -= carousel.current.offsetWidth;
+  };
+
+  const handleRightClick = (e) => {
+    e.preventDefault();
+    carousel.current.scrollLeft += carousel.current.offsetWidth;
+  };
+
+  return (
+    <section>
+      <div className="section-title">
+        <h1>Sugestão de Leitura</h1>
+        <i class="bx bx-chevron-right"></i>
+      </div>
+
+      <div className="container"> 
+        <div className="carousel" ref={carousel}>
+        {data.map((item) => {
+          const { id, image, name, descricao} = item;
+          return (
+            <div className="item" key={id}>
+              <div className="image">
+                <img src={require("/src/assets/img/livros/"+image)} alt={image} />
+              </div>
+              <div className="info">
+                <div className="bookmark">
+                <h4 className="name">{name}</h4>
+                <i class='bx bxs-bookmark-heart'></i>
+                </div>
+                <p className="descricao">{descricao}</p>
+              </div>
             </div>
-            <h2 className="color-text">Fogo & Sangue – Volume 1</h2>
-            <p>Edição Português por George R. R. Martin (Autor)
-                , Alceu Chiesorin Nunes (Arte de Capa)
-                , Doug Wheatley (Ilustrador), Leonardo Alves; 
-                Regiane Winarski (Tradutor)
-            </p>
-        </section>
+          );
+        })}
+        </div>
+        
+        <div className="voltar-passar">
+          <i onClick={handleLeftClick}>
+            <AiOutlineLeft />
+          </i>
+          <i onClick={handleRightClick}>
+            <AiOutlineRight />
+          </i>
+        </div>
+      </div>
+    </section>
+  );
+};
 
-    )
-}
-
-export default Sugestao
+export default Sugestao;

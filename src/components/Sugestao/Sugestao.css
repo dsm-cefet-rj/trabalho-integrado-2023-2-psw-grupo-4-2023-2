@@ -1,7 +1,99 @@
-
 section {
-    background: var(--color-blue-gradient);
-
+  background: var(--color-blue-gradient);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  padding-left: 10px;
+  flex-direction: column;
 }
 
+.imagem {
+  width: 40px;
+}
 
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 32px 0;
+}
+.section-title i {
+  font-size: 24px;
+}
+
+.container {
+  max-width: 75vw;
+  margin-left: 40px;
+}
+
+.container .carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.container .carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.container .carousel .item {
+  background-color: var(--color-white);
+  margin: 0 32px 16px 0;
+  padding: 10px;
+  width: 220px;
+  height: 450px;
+  border-radius: 16px;
+  flex: none;
+}
+
+.container .carousel .item .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  height: 300px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.bookmark {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-blue-dark);
+  cursor: pointer;
+}
+.container .carousel .item .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container .carousel .item .info .name {
+  margin: 10px 0;
+  color: var(--color-yellow);
+}
+
+.container .carousel .item .info .descricao {
+  flex-grow: 1;
+  color: var(--color-blue-dark);
+}
+
+.container .voltar-passar {
+  width: 100%;
+  text-align: center;
+}
+.container .voltar-passar i {
+  cursor: pointer;
+  padding: 16px;
+}
+
+@media (min-width: 900px) {
+  section {
+    padding-left: 64px;
+  }
+
+  .container {
+    max-width: 75vw;
+    margin-left: 0;
+  }
+  
+
+}

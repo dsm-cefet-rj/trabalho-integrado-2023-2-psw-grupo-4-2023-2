@@ -55,9 +55,6 @@ nav div {
     padding-top: 32px;
   }
 
-  button {
-    display: none;
-  }
 
   nav.show {
     transform: none;
@@ -74,6 +71,10 @@ nav div {
   nav div h6 {
     font-size: 20px;
   }
+
+  nav .nav-btn {
+    display: none;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -83,6 +84,9 @@ nav div {
   nav div h6 {
     font-size: 24px;
   }
+  nav .nav-btn {
+    display: none;
+  }
 }
 @media (min-width: 1600px) {
   nav div img {
@@ -90,5 +94,8 @@ nav div {
   }
   nav div h6 {
     font-size: 32px;
+  }
+  nav .nav-btn {
+    display: none;
   }
 }

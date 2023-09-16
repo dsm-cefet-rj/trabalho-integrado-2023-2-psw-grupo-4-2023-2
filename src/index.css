@@ -33,6 +33,7 @@ code {
   --color-greey: #b2b6b9;
   --color-white: #ECF0F2;
   --color-blue-dark: #031881;
+  --color-black: #000000;
   --color-yellow: #E6B33D;
   --color-blue-gradient: linear-gradient(to bottom, #031881, #2E969F);
 }
@@ -40,7 +41,6 @@ code {
 h1 {
   font-size: 22px;
   font-weight: 100;
-  border-bottom: 1px solid #fdfdfd;
 }
 
 /* subtitle-1 */
@@ -75,6 +75,6 @@ h6 {
 
 /* paragraph */
 p {
-  font-size: 7px;
+  font-size: 10px;
   font-weight: 400;
 }
