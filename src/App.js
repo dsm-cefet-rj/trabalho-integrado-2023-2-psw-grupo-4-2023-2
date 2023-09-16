@@ -1,4 +1,5 @@
 import Home from "./pages/Home";
+import Leitor from "./Leitor"
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import "./App.css";
@@ -11,6 +12,7 @@ function App() {
           <Route path="/" element={<Home />} />
           {/* <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} /> */}
+          <Route path="/lendolivro" element={<Leitor/>} />
         </Routes>
       </BrowserRouter>
     </div>
