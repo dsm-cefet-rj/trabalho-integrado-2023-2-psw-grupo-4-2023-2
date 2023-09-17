@@ -1,5 +1,5 @@
 import React from 'react'
-import Leitor from '../components/Leitor'
+import Leitor from "../components/Leitor"
 
 const ReadingBook = () => {   
   return (
