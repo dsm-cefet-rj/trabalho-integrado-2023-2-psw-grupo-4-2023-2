@@ -1,9 +1,9 @@
 import React from 'react'
 import Leitor from "../components/Leitor"
 
-const ReadingBook = () => {   
+const ReadingBook = () => {  
   return (
-    <>
+    <>   
         <Leitor/>
     </>
   )
