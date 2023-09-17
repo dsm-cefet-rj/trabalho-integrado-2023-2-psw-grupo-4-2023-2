@@ -1,0 +1,9 @@
+.descricao h3{
+    color: var(--color-blue-dark);
+    margin: 15px 0px;
+    
+}
+.descricao{
+    padding: 42px 25px;
+
+}
