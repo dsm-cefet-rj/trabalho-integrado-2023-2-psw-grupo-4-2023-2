@@ -4,11 +4,6 @@ section {
   display: flex;
   padding: 0 0 32px 10px;
   flex-direction: column;
-  
-}
-
-.imagem {
-  width: 40px;
 }
 
 .section-title {
@@ -17,19 +12,30 @@ section {
   gap: 8px;
   margin: 32px 0;
 }
+
 .section-title i {
   font-size: 24px;
+  color: var(--color-yellow); /* Adicionei a cor amarela ao ícone */
 }
 
 .container {
-  max-width: 75vw;
-  margin-left: 40px;
+  max-width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden; 
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .container .carousel {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
+  margin: 0 -16px; /* Removi a margem direita para que os itens não quebrem */
+  padding-bottom: 16px; /* Adicionei padding inferior para melhor espaçamento */
+  width: 250px;
+  height: auto;
 }
 
 .container .carousel::-webkit-scrollbar {
@@ -38,29 +44,28 @@ section {
 
 .container .carousel .item {
   background-color: var(--color-white);
-  margin: 0 32px 16px 0;
+  margin: 0 16px; /* Ajustei a margem para espaçamento entre os itens */
   padding: 10px;
-  width: 220px;
-  height: 450px;
+  width: calc(25% - 32px); /* Dividi em 4 colunas (25% - margem) */
   border-radius: 16px;
   flex: none;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.3);
 }
 
 .container .carousel .item .image img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
-  height: 300px;
   border-radius: 4px;
   cursor: pointer;
+  width: 100%;
 }
+
 .bookmark {
   display: flex;
   justify-content: space-between;
   color: var(--color-blue-dark);
   cursor: pointer;
 }
+
 .container .carousel .item .info {
   display: flex;
   flex-direction: column;
@@ -72,7 +77,7 @@ section {
   color: var(--color-yellow);
 }
 
-.container .carousel .item .info .descricao {
+.container .carousel .item .info .descricao-sugestao {
   flex-grow: 1;
   color: var(--color-blue-dark);
 }
@@ -81,20 +86,46 @@ section {
   width: 100%;
   text-align: center;
 }
+
 .container .voltar-passar i {
   cursor: pointer;
   padding: 16px;
 }
 
-@media (min-width: 900px) {
-  section {
-    padding-left: 64px;
-  }
-
-  .container {
-    max-width: 75vw;
-    margin-left: 0;
+@media (min-width: 600px) {
+  .container .carousel {
+    width: 450px;
+    height: auto;
   }
   
-
+}
+@media (min-width: 1024px) {
+  .container .carousel {
+    width: 650px;
+    height: auto;
+  }
+  section {
+    padding: 0 0 32px 64px;
+  }
+  
+}
+@media (min-width: 1400px) {
+  section {
+    padding: 0 0 32px 64px;
+  }
+  .container .carousel {
+    width: 900px;
+    height: auto;
+  }
+  
+}
+@media (min-width: 1600px) {
+  section {
+    padding: 0 0 32px 64px;
+  }
+  .container .carousel {
+    width: 1200px;
+    height: auto;
+  }
+  
 }

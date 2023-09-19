@@ -1,8 +1,9 @@
-.continue-lendo {
-  background: var(--color-white);
-  color: var(--color-blue-dark);
-  padding: 32px 0;
-  padding-left: 10px;
+section {
+  background: var(--color-blue-gradient);
+  width: 100%;
+  display: flex;
+  padding: 0 0 32px 10px;
+  flex-direction: column;
 }
 
 .section-title {
@@ -11,44 +12,104 @@
   gap: 8px;
   margin: 32px 0;
 }
+
 .section-title i {
   font-size: 24px;
-}
-.box {
-  width: 220px;
-  border-radius: 8px;
-  background-image: #ffff;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  position: relative;
+  color: var(--color-yellow); /* Adicionei a cor amarela ao ícone */
 }
 
-.box-item {
+.container-continue-lendo {
+  max-width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden; 
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
 }
-.imagem-continue-lendo {
-  width: 80px;
+
+.carousel-continue-lendo {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  margin: 0 -16px; /* Removi a margem direita para que os itens não quebrem */
+  padding-bottom: 16px; /* Adicionei padding inferior para melhor espaçamento */
+  width: 250px;
+  height: auto;
 }
+
+.carousel-continue-lendo::-webkit-scrollbar {
+  display: none;
+}
+
+.item-continue-lendo {
+  background-color: var(--color-white);
+  margin: 0 16px; /* Ajustei a margem para espaçamento entre os itens */
+  padding: 10px;
+  width: calc(25% - 32px); /* Dividi em 4 colunas (25% - margem) */
+  border-radius: 16px;
+  flex: none;
+  box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
 .imagem-continue-lendo img {
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
   width: 100%;
-  height: 100%;
-  border-radius: 8px 0 0 8px;
-}
-.texto-continue-lendo {
-  padding-right: 18px;
 }
 
-.close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: var(--color-greey);
-    cursor: pointer;    
+
+.name-continue-lendo {
+  margin: 10px 0;
+  color: var(--color-yellow);
 }
 
-@media (min-width: 900px) {
-  .continue-lendo {
-    padding-left: 64px;
+
+.voltar-passar {
+  width: 100%;
+  text-align: center;
+}
+
+.voltar-passar i {
+  cursor: pointer;
+  padding: 16px;
+}
+
+@media (min-width: 600px) {
+  .carousel-continue-lendo {
+    width: 450px;
+    height: auto;
   }
+  
+}
+@media (min-width: 1024px) {
+  .carousel-continue-lendo {
+    width: 650px;
+    height: auto;
+  }
+  section {
+    padding: 0 0 32px 64px;
+  }
+  
+}
+@media (min-width: 1400px) {
+  section {
+    padding: 0 0 32px 64px;
+  }
+  .carousel-continue-lendo {
+    width: 900px;
+    height: auto;
+  }
+  
+}
+@media (min-width: 1600px) {
+  section {
+    padding: 0 0 32px 64px;
+  }
+  .carousel-continue-lendo {
+    width: 1200px;
+    height: auto;
+  }
+  
 }
