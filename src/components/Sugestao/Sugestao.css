@@ -15,7 +15,7 @@ section {
 
 .section-title i {
   font-size: 24px;
-  color: var(--color-yellow); /* Adicionei a cor amarela ao ícone */
+  color: var(--color-yellow); 
 }
 
 .container {
@@ -32,8 +32,8 @@ section {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  margin: 0 -16px; /* Removi a margem direita para que os itens não quebrem */
-  padding-bottom: 16px; /* Adicionei padding inferior para melhor espaçamento */
+  margin: 0 -16px;
+  padding-bottom: 16px;
   width: 250px;
   height: auto;
 }
@@ -44,12 +44,13 @@ section {
 
 .container .carousel .item {
   background-color: var(--color-white);
-  margin: 0 16px; /* Ajustei a margem para espaçamento entre os itens */
+  margin: 0 16px;
   padding: 10px;
-  width: calc(25% - 32px); /* Dividi em 4 colunas (25% - margem) */
+  width: calc(25% - 32px); 
   border-radius: 16px;
   flex: none;
   box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
 .container .carousel .item .image img {
@@ -64,6 +65,12 @@ section {
   justify-content: space-between;
   color: var(--color-blue-dark);
   cursor: pointer;
+}
+
+.bh-sugestao {
+    position: absolute;
+    bottom: 5px;
+    right: 0;
 }
 
 .container .carousel .item .info {

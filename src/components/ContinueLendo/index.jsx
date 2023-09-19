@@ -74,7 +74,7 @@ const ContinueLendo = () => {
     // </div>
 
     <div className="continue-lendo">
-      <div className="section-title">
+      <div className="section-title-continue-lendo">
         <h1>Continue Lendo</h1>
         <i class="bx bx-chevron-right"></i>
       </div>

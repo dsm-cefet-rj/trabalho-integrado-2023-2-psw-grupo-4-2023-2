@@ -6,7 +6,7 @@ import { AiOutlineRight } from "react-icons/ai";
 const Sugestao = () => {
   const [data, setData] = useState([]);
   const carousel = useRef(null);
-  const [itemsPerSlide, setItemsPerSlide] = useState(4); // Inicialmente, exiba 4 itens por slide
+  const [itemsPerSlide, setItemsPerSlide] = useState(4); 
 
   useEffect(() => {
     const updateItemsPerSlide = () => {
@@ -22,13 +22,13 @@ const Sugestao = () => {
         setItemsPerSlide(1);
     };
   
-    // Registre um ouvinte de redimensionamento para atualizar o número de itens com base no tamanho da tela
+  
     window.addEventListener("resize", updateItemsPerSlide);
   
-    // Chame a função inicialmente para definir o número correto com base no tamanho da tela inicial
+   
     updateItemsPerSlide();
   
-    // Remova o ouvinte de redimensionamento quando o componente for desmontado
+    
     return () => {
       window.removeEventListener("resize", updateItemsPerSlide);
     };
@@ -73,7 +73,7 @@ const Sugestao = () => {
                 <div className="info">
                   <div className="bookmark">
                     <h5 className="name">{name}</h5>
-                    <i className='bx bxs-bookmark-heart'></i>
+                    <i className='bx bxs-bookmark-heart bh-sugestao'></i>
                   </div>
                   <p className="descricao-sugestao">{descricao}</p>
                 </div>
