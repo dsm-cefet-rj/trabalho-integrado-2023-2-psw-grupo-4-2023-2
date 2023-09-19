@@ -1,6 +1,7 @@
-import Home from "./pages/Home";
+import UsuarioLogado from "./pages/UsuarioLogado";
 import PreLeitura from "./pages/PreLeitura";
 import ReadingBook from "./pages/ReadingBook";
+import Home from "./pages/Home/Home";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import "./App.css";
@@ -12,8 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} /> */}
+          <Route path="/user-logado" element={<UsuarioLogado />} />
           <Route path="/PreLeitura" element={<PreLeitura />} />
           <Route path="/lendolivro" element={<ReadingBook />} />
         </Routes>

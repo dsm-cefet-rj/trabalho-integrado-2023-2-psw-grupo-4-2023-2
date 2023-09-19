@@ -8,8 +8,9 @@ import Favoritos from "../components/Favoritos";
 import Footer from "../components/Footer";
 
 
-const Home = () =>{
+const UsuarioLogado = () =>{
     const [openedNavbar, setOpenedNavbar] = useState(false);
+    const userName = "Renan";
 
     return(
         <>
@@ -18,7 +19,7 @@ const Home = () =>{
           closeNavbar={() => setOpenedNavbar(false)}
         />
         <Main>
-          <Header showNavbar={() => setOpenedNavbar(true)} />
+          <Header showNavbar={() => setOpenedNavbar(true)} userName={userName}/>
           <Sugestao />
           <ContinueLendo />
           <Favoritos />
@@ -28,4 +29,4 @@ const Home = () =>{
     )
 }
 
-export default Home;
+export default UsuarioLogado;

@@ -53,6 +53,52 @@ header div h6 {
   font-size: 10px;
 }
 
+.menu-suspenso {
+  /* display: none; */
+  position: absolute;
+  top: 65px;
+  right: 10px; 
+  background-color: #f0f0f0;
+  color: var(--color-greey);
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  padding: 4px 0;
+  z-index: 100;
+}
+
+.menu-suspenso ul {
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 8px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.menu-suspenso li {
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  outline: none;
+  list-style: none;
+  font-size: 13px;
+}
+.menu-suspenso li i{
+  font-size: 20px;
+}
+.menu-suspenso li:hover {
+  background: #f0f0f0;
+  outline: none;
+  list-style: none;
+}
+
+.active {
+  transform: rotate(180deg);
+}
+
+
+
 
 @media (min-width: 900px) {
 
