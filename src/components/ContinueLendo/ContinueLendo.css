@@ -11,11 +11,12 @@ section {
   align-items: center;
   gap: 8px;
   margin: 32px 0;
+  color: var(--color-blue-dark);
 }
 
 .section-title i {
   font-size: 24px;
-  color: var(--color-yellow); /* Adicionei a cor amarela ao ícone */
+  color: var(--color-yellow);
 }
 
 .container-continue-lendo {
@@ -30,12 +31,13 @@ section {
 
 .carousel-continue-lendo {
   display: flex;
+  color: var(--color-yellow);
   overflow-x: auto;
   scroll-behavior: smooth;
-  margin: 0 -16px; /* Removi a margem direita para que os itens não quebrem */
-  padding-bottom: 16px; /* Adicionei padding inferior para melhor espaçamento */
-  width: 250px;
-  height: auto;
+  margin: 0 -16px;
+  padding-bottom: 16px;
+  width: 220px;
+  height: 150px;
 }
 
 .carousel-continue-lendo::-webkit-scrollbar {
@@ -44,19 +46,34 @@ section {
 
 .item-continue-lendo {
   background-color: var(--color-white);
-  margin: 0 16px; /* Ajustei a margem para espaçamento entre os itens */
-  padding: 10px;
-  width: calc(25% - 32px); /* Dividi em 4 colunas (25% - margem) */
+  margin: 0 16px; 
+  width: calc(25% - 32px);
   border-radius: 16px;
-  flex: none;
+  display: flex;
   box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+
+}
+.texto-icon {
+  display: flex;
+  align-items: center;
+  padding-left: 4px;
+
 }
 
 .imagem-continue-lendo img {
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 8px 0 0 8px;
   cursor: pointer;
-  width: 100%;
+  width: 80px;
+  height: 100%;
+}
+
+.bh-continue-lendo {
+  color: var(--color-blue-dark);
+  position: absolute;
+  bottom: 5px;
+  right: 0;
 }
 
 
@@ -66,14 +83,15 @@ section {
 }
 
 
-.voltar-passar {
+.voltar-passar-continue-lendo {
   width: 100%;
   text-align: center;
 }
 
-.voltar-passar i {
+.voltar-passar-continue-lendo i {
   cursor: pointer;
   padding: 16px;
+  color: var(--color-blue-dark);
 }
 
 @media (min-width: 600px) {
