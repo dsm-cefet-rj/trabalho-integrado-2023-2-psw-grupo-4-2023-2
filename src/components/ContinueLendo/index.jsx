@@ -95,14 +95,17 @@ const ContinueLendo = () => {
                     alt={image}
                   />
                 </div>
+                <div className="texto-icon">
                 <h5 className="name">{name}</h5>
-                <i className="bx bxs-bookmark-heart"></i>
+                <i className="bx bxs-bookmark-heart bh-continue-lendo"></i>
+                <i className='bx bx-x close'></i>
+                </div>
               </div>
             );
           })}
         </div>
 
-        <div className="voltar-passar">
+        <div className="voltar-passar-continue-lendo">
           <i onClick={handleLeftClick}>
             <AiOutlineLeft />
           </i>
