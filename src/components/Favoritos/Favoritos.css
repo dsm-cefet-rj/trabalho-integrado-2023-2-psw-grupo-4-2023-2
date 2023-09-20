@@ -21,12 +21,14 @@
     background-image: #ffff;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     position: relative;
+    padding: 32px;
   }
   
   .box-item {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
   }
   .imagem-favoritos {
     width: 80px;
@@ -38,14 +40,64 @@
   }
   .texto-favoritos {
     padding-right: 18px;
+    font-weight: 700;
+  }
+
+  .info {
+      font-size: 8px;
+      padding-top: 4px;
+  }
+  .info > span{
+    padding-right: 4px ;
+    color: var(--color-yellow);
   }
   
-  .close {
+  .bx-dots-vertical-rounded {
       position: absolute;
       top: 0;
       right: 0;
       color: var(--color-greey);
       cursor: pointer;    
+  }
+
+  .menu-suspenso-favoritos {
+    display: none;
+    position: absolute;
+    top: 28px;
+    right: 5px; 
+    background-color: var(--color-white);
+    color: var(--color-greey);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 0;
+    z-index: 100;
+  }
+  
+  .menu-suspenso-favoritos ul {
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 8px 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .menu-suspenso-favoritos li {
+    cursor: pointer;
+    display: flex;
+    gap: 8px;
+    outline: none;
+    list-style: none;
+    font-size: 13px;
+  }
+  .menu-suspenso-favoritos li i{
+    font-size: 20px;
+  }
+  .menu-suspenso-favoritos li:hover {
+    background: #f0f0f0;
+    outline: none;
+    list-style: none;
   }
   
   @media (min-width: 900px) {
