@@ -1,5 +1,4 @@
 import "./Favoritos.css";
-import imgLivro from "../../assets/img/livros/livr-o-feiticeiro-de-terramar.jpg";
 
 const Favoritos = () => {
   return (
@@ -10,12 +9,20 @@ const Favoritos = () => {
       </div>
 
       <div className="box">
+        <i class="bx bx-dots-vertical-rounded"></i>
         <div className="box-item">
-          <i className='bx bx-x close'></i>
-          <div className="imagem-favoritos">
-            <img  src={imgLivro} alt="" />
+          <h6 className="texto-favoritos">Matheus</h6>
+          <div className="info">
+            <span>0 item</span>
+            <span>|</span>
+            <span>Atualizado em 21 ago 2023</span>
           </div>
-          <h6 className="texto-favoritos">lorem ipsum</h6>
+          <div className="menu-suspenso-favoritos">
+            <ul>
+              <li>Renomar Lista</li>
+              <li>Deletar Lista</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
