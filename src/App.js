@@ -14,9 +14,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/userlogado" element={<UsuarioLogado />} />
-          <Route path="/PreLeitura" element={<PreLeitura />} />
+          <Route path="/preleitura" element={<PreLeitura />} />
           <Route path="/lendolivro" element={<ReadingBook />} />
-          <Route path="/MeusFavoritos" element={<MeusFavoritos />}/>
+          <Route path="/meusfavoritos" element={<MeusFavoritos />}/>
         </Routes>
       </BrowserRouter>
     </div>
