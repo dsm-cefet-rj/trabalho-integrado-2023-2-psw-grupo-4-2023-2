@@ -17,6 +17,7 @@ aside .aside-text {
 
 .sidebar {
     position: fixed;
+    z-index: 0;
     top: 0;
     display: flex;
     flex-direction: column;
