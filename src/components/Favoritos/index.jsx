@@ -4,7 +4,7 @@ const Favoritos = () => {
   return (
     <div className="favoritos">
       <div className="section-title">
-        <h1>Minhas Listas</h1>
+        <h1>Meus favoritos</h1>
         <i class="bx bx-chevron-right"></i>
       </div>
 

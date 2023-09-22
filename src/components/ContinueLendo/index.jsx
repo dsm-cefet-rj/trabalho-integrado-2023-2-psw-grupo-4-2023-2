@@ -37,7 +37,7 @@ const ContinueLendo = () => {
 
 
   useEffect(() => {
-    fetch('http://localhost:3000/static/livros.json')
+    fetch('http://localhost:3000/livros')
       .then((response) => response.json())
       .then(setData);
   }, []);

@@ -17,7 +17,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/user-logado" element={<UsuarioLogado />} />
-          <Route path="/PreLeitura" element={<PreLeitura />} />
+          <Route path="/PreLeitura/:id" element={<PreLeitura />}/>
+
           <Route path="/lendolivro" element={<ReadingBook />} />
           <Route path="/DadosUsuario" element={<DadosUsuario />} />
           <Route path="/MeusFavoritos" element={<MeusFavoritos/>} />
