@@ -7,7 +7,7 @@ const ContinueLendo = () => {
   const [data, setData] = useState([]);
   const carousel = useRef(null);
   const [itemsPerSlide, setItemsPerSlide] = useState(4); // Inicialmente, exiba 4 itens por slide
-
+  
   useEffect(() => {
     const updateItemsPerSlide = () => {
       if (window.innerWidth >= 1600) {

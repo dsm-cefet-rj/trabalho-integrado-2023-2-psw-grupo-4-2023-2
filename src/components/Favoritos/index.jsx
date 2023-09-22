@@ -1,9 +1,13 @@
 import "./Favoritos.css";
+import "../ContinueLendo/ContinueLendo.css";
 import { useEffect, useState, useRef } from 'react';
 import "../ContinueLendo/ContinueLendo.css";
 import { AiOutlineLeft } from "react-icons/ai";
 import { AiOutlineRight } from "react-icons/ai";
-
+import { Link } from "react-router-dom";
+import { yellow } from "@mui/material/colors";
+import ListaVazia from "../MinhaLista/ListaVazia";
+import gatinhotriste from "../../assets/img/gatinho-triste.png";
 const Favoritos = () => {
   const [data, setData] = useState([]);
   const carousel = useRef(null);
@@ -53,8 +57,25 @@ const Favoritos = () => {
     carousel.current.scrollLeft += carousel.current.offsetWidth;
   };
 
-  if (!data || !data.length) return null;
-
+  if (!data || !data.length) return (
+    <>  
+      <div className="section-title-continue-lendo">
+        <Link to={`/MeusFavoritos`} >
+          <h1>Favoritos</h1>
+        </Link>
+        <i class="bx bx-chevron-right"></i>
+      </div>
+      <div className="container-lista-vazia">
+        <h2>Você não tem nenhum favotiro ainda!</h2>
+        <img src={gatinhotriste} alt="gatinho-triste" width="100vh" height="100vh"/>
+      </div>
+    </>
+  );
+  const linkStyle = {
+    marginLeft: "1rem",
+    textDecoration: "none",
+    color: "#E6B33D"
+  };
 
   return (
     // <div className="continue-lendo">
@@ -76,7 +97,9 @@ const Favoritos = () => {
 
     <div className="continue-lendo">
       <div className="section-title-continue-lendo">
-        <h1>Favoritos</h1>
+        <Link to={`/MeusFavoritos`} >
+          <h1>Favoritos</h1>
+        </Link>
         <i class="bx bx-chevron-right"></i>
       </div>
 
@@ -97,9 +120,9 @@ const Favoritos = () => {
                   />
                 </div>
                 <div className="texto-icon">
-                <h5 className="name">{name}</h5>
-                <i className="bx bxs-bookmark-heart bh-continue-lendo"></i>
-                <i className='bx bx-x close'></i>
+                  <Link to= {`/PreLeitura/${id}`} style={linkStyle}>
+                    <h5 className="name">{name}</h5>
+                  </Link>
                 </div>
               </div>
             );

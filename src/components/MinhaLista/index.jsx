@@ -4,14 +4,11 @@ import ListaVazia from './ListaVazia'
 import "./MinhaLista.css"
 import Lista from './Lista'
 import { useEffect, useState } from 'react'
+import { useFetch } from "../../hooks/useFetch";
 
 const MinhaLista = () => {
-    const [data, setData] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:3000/static/livros.json')
-          .then((response) => response.json())
-          .then(setData);
-      }, []);
+    // eslint-disable-next-line no-undef
+    const { data, httpConfig, setCallFetch, loading, error } = useFetch('http://localhost:3000/favoritos');
   return (
     <>
         <section className='body-box'>
@@ -20,7 +17,7 @@ const MinhaLista = () => {
                     <h1><BsBookmark/> Meus Favoritos</h1>
                 </div>
                 <div className='list-box'>
-                    {data? <Lista/>:<ListaVazia/>}
+                    <Lista/>
                 </div>
             </div>
         </section>

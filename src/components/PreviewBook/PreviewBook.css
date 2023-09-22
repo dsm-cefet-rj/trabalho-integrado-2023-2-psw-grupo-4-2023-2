@@ -19,9 +19,11 @@
     margin-bottom: 5px;
   }
   .button-list{
+    margin-left: 1rem;
     background: none;
     border: none;
     font-size: 40px;
+    cursor: pointer;
   }
   .options{
     display: flex;

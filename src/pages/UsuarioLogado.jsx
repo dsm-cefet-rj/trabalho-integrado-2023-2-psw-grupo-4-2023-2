@@ -21,7 +21,7 @@ const UsuarioLogado = () =>{
         <Main>
           <Header showNavbar={() => setOpenedNavbar(true)} userName={userName}/>
           <Sugestao />
-          <ContinueLendo />
+          {/* <ContinueLendo /> */}
           <Favoritos />
           <Footer />
         </Main>

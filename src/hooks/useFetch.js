@@ -105,5 +105,5 @@ export const useFetch = (url) => {
 
   console.log(config);
 
-  return { data, httpConfig, loading, error };
+  return { data, httpConfig,setCallFetch, loading, error };
 };

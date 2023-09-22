@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { Link } from "react-router-dom";
 import "./Sugestao.css";
 import { AiOutlineLeft } from "react-icons/ai";
 import { AiOutlineRight } from "react-icons/ai";
@@ -66,18 +67,21 @@ const Sugestao = () => {
           {data.map((item) => {
             const { id, image, name, descricao } = item;
             return (
-              <div className="item" key={id} style={{ flex: `0 0 calc(100% / ${itemsPerSlide} - 32px)` }}>
-                <div className="image">
-                  <img src={require("/src/assets/img/livros/" + image)} alt={image} />
-                </div>
-                <div className="info">
-                  <div className="bookmark">
-                    <h5 className="name">{name}</h5>
-                    <i className='bx bxs-bookmark-heart bh-sugestao'></i>
+                <div className="item" key={id} style={{ flex: `0 0 calc(100% / ${itemsPerSlide} - 32px)` }}>
+                  <div className="image">
+                    <img src={require("/src/assets/img/livros/" + image)} alt={image} />
                   </div>
-                  <p className="descricao-sugestao">{descricao}</p>
+                  <div className="info">
+                    <div className="bookmark">
+                      <Link to= {`/PreLeitura/${id}`} style={{textDecoration: "none"}}>
+                        <h5 className="name">{name}</h5>
+                      </Link>  
+                      <i className='bx bxs-bookmark-heart bh-sugestao'></i>
+                    </div>
+                    <p className="descricao-sugestao">{descricao}</p>
+                  </div>
                 </div>
-              </div>
+              
             );
           })}
         </div>

@@ -99,6 +99,11 @@
     outline: none;
     list-style: none;
   }
+  .container-lista-vazia{
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 45px;
+  }
   
   @media (min-width: 900px) {
     .favoritos {

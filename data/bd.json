@@ -121,18 +121,5 @@
       "descricao": "Edição Português | por Jaqueline Moniz (Autor)"
     }
   ],
-  "favoritos": [
-    {
-      "id": "06",
-      "image": "livro-aventuras-na-amazonia.jpg",
-      "name": "Aventuras na Amazônia. Uma Brilhante Aventura Biológica!",
-      "descricao": "Edição Português | por Dan Green (Autor)"
-    },
-    {
-      "id": "17",
-      "image": "livro-um-amor-para-recordar-melhores-livros-romance-1.jpg",
-      "name": "Um amor para recordar",
-      "descricao": "Edição Português | por Nicholas Sparks (Autor), Rachel Agavino (Tradutor)"
-    }
-  ]
+  "favoritos": []
 }
