@@ -1,0 +1,24 @@
+.containerLista{
+    text-align: center;
+    margin: 5px auto;
+    width: 95%;
+}
+.text-myfavorite{
+    border-bottom: 1.8px;
+    border-bottom-style: solid;
+    border-color: white;
+}
+.list-box{
+    border: 1px;
+    width: 95%;
+    margin: 30px auto;
+    border-style: dashed;
+    padding: 30px;
+}
+.body-box{
+    min-height: 100vh;
+}
+.button-list-fav{
+    margin-top: 20px;
+    background: var(--color-yellow);
+}

@@ -11,7 +11,7 @@ const Navbar = ({openedNavbar, closeNavbar}) => {
           <h6>LeiaMais</h6>
         </div>
         <h6>Descubra seu livro</h6>
-        <a href="/#"><i class='bx bx-home-alt'></i>Início</a>
+        <a href="/"><i class='bx bx-home-alt'></i>Início</a>
         <a href="/#"><i class='bx bx-library'></i>Acervo</a>
         <h6>Seu Acervo</h6>
         <a href="/#"><i class='bx bx-heart'></i>Minhas Listas</a>

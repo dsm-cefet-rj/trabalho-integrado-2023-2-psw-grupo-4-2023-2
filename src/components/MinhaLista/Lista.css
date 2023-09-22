@@ -1,0 +1,20 @@
+.container-list{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+.item-list{
+    display: flex;
+    flex-direction: row;
+    margin: 20px ;
+
+}
+.name-list{
+    color: white;
+    font-size: 140%;
+}
+.info-list{
+    margin: auto 30px;
+    text-align: start;
+}
