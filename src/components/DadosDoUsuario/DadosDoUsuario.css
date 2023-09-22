@@ -1,0 +1,46 @@
+.conteiner-DadosDoUsuario{
+    width: 80vh;
+    margin: auto;
+    margin-bottom: 32px;
+    margin-top: 5px;
+}
+
+.card-Dados{
+    background-color: #8a8eff;
+    border-radius: 16px;
+    padding: 16px;
+    
+}
+
+.card-Dados img{
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+}
+
+.meus-dados{
+    display: flex;
+    gap: 12px;
+    margin: 5px;
+}
+
+.card-Dados p{
+    font-size: 16px;
+    margin: 5px;
+}
+
+.button-finalizar-sessao{
+    margin: auto;
+    color: red;
+    background-color: transparent;
+    border: solid red 1px;
+    text-transform: none;
+    display: flex;
+    align-items: center;
+}
+
+.linha-dados{
+    display: flex;
+    flex-direction: row;
+}
+
