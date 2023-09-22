@@ -2,6 +2,7 @@ import UsuarioLogado from "./pages/UsuarioLogado";
 import PreLeitura from "./pages/PreLeitura";
 import ReadingBook from "./pages/ReadingBook";
 import Home from "./pages/Home/Home";
+import MeusFavoritos from "./pages/MeusFavoritos"
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import DadosUsuario from "./pages/DadosUsuario";
 import RelatorioUsuario from "./pages/RelatorioUsuario";
@@ -19,6 +20,7 @@ function App() {
           <Route path="/PreLeitura" element={<PreLeitura />} />
           <Route path="/lendolivro" element={<ReadingBook />} />
           <Route path="/DadosUsuario" element={<DadosUsuario />} />
+          <Route path="/MeusFavoritos" element={<MeusFavoritos/>} />
           <Route path="/RelatorioUsuario" element={<RelatorioUsuario />} />
         </Routes>
       </BrowserRouter>

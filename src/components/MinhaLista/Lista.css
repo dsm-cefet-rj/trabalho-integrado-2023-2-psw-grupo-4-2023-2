@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: row;
     margin: 20px ;
+    
 
 }
 .name-list{
@@ -17,4 +18,13 @@
 .info-list{
     margin: auto 30px;
     text-align: start;
+}
+.button-delete{
+   background-color: transparent;
+   height: 34px;
+   font-size: 30px;
+   margin-right: 20px;
+   cursor: pointer;
+   margin: auto 20px;
+   border: none;
 }
