@@ -18,9 +18,8 @@ function App() {
           <Router />
         </Autenticacao>
       </ThemeProvider>
-
     </div>
-  )
+  ) 
 }
 
 export default App
