@@ -1,7 +1,5 @@
-import React from 'react'
-
 export const Perfil = () => {
   return (
-    <div>Perfil</div>
+    <h1>Perfil</h1>
   )
 }
