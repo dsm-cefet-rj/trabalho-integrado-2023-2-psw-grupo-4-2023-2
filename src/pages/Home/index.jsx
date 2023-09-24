@@ -1,6 +1,11 @@
+import Carousel from "../../components/Carousel/Carousel";
+import Livro from "../../components/Livro/Livro";
+import Sugestao from "../../components/Sugestao/Sugestao";
+
+
 const Home = () => {
     return (
-        <h1>HOME</h1>
+        <Sugestao></Sugestao>
     );
 }
 
