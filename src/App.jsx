@@ -1,25 +1,13 @@
-import { ThemeProvider, Typography } from '@mui/material'
+import { ThemeProvider } from '@mui/material'
 import theme from './themes/default'
-import Logo from './components/Logo/Logo'
-import Sidebar from './components/Sidebar/Sidebar'
-import Navbar from './components/Navbar/Navbar'
-import { useState } from 'react'
+import { Router } from './Router'
 
 
 function App() {
-
-  const [open, setOpen] = useState(false);
-
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
   return (
     <div className='App'>
       <ThemeProvider theme={theme}>
-
-        <Navbar toggleDrawer={toggleDrawer} />
-        <Sidebar open={open} toggleDrawer={toggleDrawer} />
-        <Typography variant='h1' color={'primary'}>APP</Typography>
+        <Router/>
       </ThemeProvider>
 
     </div>
