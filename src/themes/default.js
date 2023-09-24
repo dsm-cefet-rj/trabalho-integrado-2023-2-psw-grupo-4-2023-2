@@ -13,7 +13,9 @@ const theme = createTheme({
         }
     },
     typography:{
-        
+        grey: {
+            color: '#B2B6B9' 
+        }
     }
 });
 
