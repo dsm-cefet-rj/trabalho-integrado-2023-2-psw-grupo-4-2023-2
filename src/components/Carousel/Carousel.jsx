@@ -1,44 +1,47 @@
-import styled from '@emotion/styled'
-import { Box, IconButton, Stack } from '@mui/material'
-import React from 'react'
-import { ArrowCircleLeft, ArrowCircleRight } from '@mui/icons-material';
+import React from 'react';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 
-const CarouselContainer = styled(Box)`
-    width: 100%;
-    padding: 16px 0;    
-    overflow: hidden;
-`
-const CarouselWrapper = styled(Stack)`
-    background-color: #d80101;
-    & > * {
-        flex: 0 0 calc((100% - ${props => ((props.slidesPerView - 1)*props.spaceBetween)+'px'}) / ${props => props.slidesPerView});
-        max-width: calc((100% - ${props => ((props.slidesPerView - 1)*props.spaceBetween)+'px'}) / ${props => props.slidesPerView});
-    }
-`
+import 'swiper/css';
 
-const Controllers = styled(Stack)`
-    justify-content: center;
-    flex-direction: row;
-`
+import { IconButton, Stack, Typography } from '@mui/material';
+import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 
-const Carousel = ({ children, slidesPerView, spaceBetween}) => {
-    const totalElementos = children.lenght;
-    
+const SwiperNvegation = () => {
+    const swiper = useSwiper();
+
     return (
-        <CarouselContainer>
-            <CarouselWrapper slidesPerView={slidesPerView} spaceBetween={spaceBetween} spacing={spaceBetween+'px'} direction={'row'}>
-                {children}
-            </CarouselWrapper>
-            <Controllers>
-                <IconButton  >
-                    <ArrowCircleLeft fontSize='large' color={'inherit'} />
-                </IconButton>
-                <IconButton >
-                    <ArrowCircleRight fontSize='large' color={'inherit'} />
-                </IconButton>
-            </Controllers>
-        </CarouselContainer>
+        <Stack direction={'row'} spacing={4} justifyContent={'center'} padding={2}>
+            <IconButton onClick={() => swiper.slidePrev()}>
+                <KeyboardArrowLeft  fontSize='large' color={'primary'}/>
+            </IconButton>
+            <IconButton onClick={() => swiper.slideNext()}>
+                {swiper.allowSlideNext? <KeyboardArrowRight fontSize='large' color={'primary'}/> : <KeyboardArrowRight />}
+                
+            </IconButton>
+        </Stack>
     )
-}
+};
 
-export default Carousel
+const Carousel = ({ children, titulo }) => {
+    const swiper = useSwiper();
+
+    return (
+        <>
+            <Typography variant='h4' color={'white'} component={'div'} display={'flex'} alignItems={'center'}> {titulo} <KeyboardArrowRight fontSize='large' color="secondary"/> </Typography>
+            <Swiper
+                modules={[Navigation]}
+                spaceBetween={50}
+                slidesPerView={5}
+                style={{ padding: '32px 0' }}
+            >
+                <SwiperNvegation />
+                {children.map((slide, index) => (
+                    <SwiperSlide key={index}>{slide}</SwiperSlide>
+                ))}
+            </Swiper>
+        </>
+    );
+};
+
+export default Carousel;
