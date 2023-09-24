@@ -10,7 +10,7 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage }
     }
 
     return (
-        <Card>
+        <Card sx={{ maxWidth: 256,}}>
             <CardMedia
                 component="img"
                 alt="green iguana"
