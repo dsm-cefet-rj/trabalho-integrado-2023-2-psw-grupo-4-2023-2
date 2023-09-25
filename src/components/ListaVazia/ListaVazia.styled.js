@@ -1,8 +1,11 @@
 import styled from '@emotion/styled'
-import React from 'react'
+import { Box } from '@mui/material'
 
-const ListaVaziaStyled = styled('Box')`
+const ListaVaziaStyled = styled(Box)`
+    display: flex;
     width: 100%;
+    flex-direction: column;
+    align-items: center;
 `
 
 

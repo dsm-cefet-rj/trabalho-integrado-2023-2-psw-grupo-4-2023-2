@@ -1,10 +1,14 @@
 import React from 'react'
 import ListaVaziaStyled from './ListaVazia.styled'
+import { Box, Typography } from '@mui/material'
 
-const ListaVazia = () => {
+const ListaVazia = ({text, urlImage}) => {
     return (
         <ListaVaziaStyled>
-            Lista Vazia
+            <Typography variant='body1' color={'secondary'} textAlign={'left'}>{text}</Typography>
+            <Box component={'img'} src={urlImage} sx={{
+                width:'128px'
+            }}/>
         </ListaVaziaStyled>
     )
 }
