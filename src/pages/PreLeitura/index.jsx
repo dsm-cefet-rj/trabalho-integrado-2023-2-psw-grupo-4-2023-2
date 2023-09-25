@@ -19,7 +19,7 @@ const PreLeitura = () => {
     return (
         <>
             <Voltar />
-            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center'}}>
                 <Livro id={livroData.id} titulo={livroData.name} autor={livroData.descricao} urlImage={livroData.url} />
             </Box>
 
