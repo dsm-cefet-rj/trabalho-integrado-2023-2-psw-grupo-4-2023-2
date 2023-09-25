@@ -13,7 +13,7 @@ const Principal = ({ drawerWidth = 240 }) => {
         setOpen(!open);
     };
     return (
-        <Box sx={{ display: 'flex', minHeight:'100vh', background:'linear-gradient(to bottom, #031881, #2E969F 100vh);'}}>
+        <Box sx={{ display: 'flex', minHeight:'100vh', background:'linear-gradient(to bottom, #031881, #1475a1 100vh);'}}>
             <Navbar drawerWidth={drawerWidth} toggleDrawer={toggleDrawer} />
             <Sidebar drawerWidth={drawerWidth} open={open} toggleDrawer={toggleDrawer} />
             <Container maxWidth='xl' sx={{mt: '64px', position:'relative'}} >
