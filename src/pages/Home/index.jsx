@@ -1,7 +1,6 @@
 import { Divider } from "@mui/material";
-import Carousel from "../../components/Carousel/Carousel";
-import Livro from "../../components/Livro/Livro";
 import Sugestao from "../../components/Sugestao/Sugestao";
+import ContinueLendo from "../../components/ContinueLendo/ContinueLendo";
 
 
 const Home = () => {
@@ -9,7 +8,7 @@ const Home = () => {
         <>
             <Sugestao></Sugestao>
             <Divider variant="middle" />
-            {/* <Sugestao></Sugestao> */}
+            <ContinueLendo></ContinueLendo>
         </>
     );
 }
