@@ -1,12 +1,25 @@
 import { Bookmark, BookmarkAdd, BookmarkBorder, BookmarkRemove, BookmarksSharp } from '@mui/icons-material'
 import { Box, Card, CardContent, CardMedia, IconButton, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
-const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage }) => {
+import { LivrosContext } from '../../contexts/Livros';
+import { AutenticacaoContext } from '../../contexts/Autenticacao';
+
+const Livro = ({titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, id}) => {
+
+    const {favorita, desfavorita } = useContext(LivrosContext);
+    const { user } = useContext(AutenticacaoContext);
+
     const [favorito, setFavorito] = useState(false);
 
     const handleFavorito = () => {
         setFavorito(!favorito);
+        
+        if(!favorito){
+            favorita(user.login, id);
+        }else{
+            desfavorita(user.login, id);
+        }
     }
 
     return (

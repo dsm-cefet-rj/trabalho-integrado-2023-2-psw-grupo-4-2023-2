@@ -14,7 +14,7 @@ const Sugestao = () => {
                 ?
                 <Box paddingTop={4} >
                     <Carousel titulo={'Sugestões de Livros'}>
-                        {livros.map(livro=><Livro urlImage={livro.url} titulo={livro.name} autor={livro.descricao}/>)}
+                        {livros.map(livro=><Livro key={livro.id} id={livro.id} urlImage={livro.url} titulo={livro.name} autor={livro.descricao}/>)}
                     </Carousel>
                 </Box>
                 : <></>
