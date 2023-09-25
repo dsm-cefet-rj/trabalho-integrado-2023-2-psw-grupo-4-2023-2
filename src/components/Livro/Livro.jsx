@@ -10,22 +10,26 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage }
     }
 
     return (
-        <Card sx={{ maxWidth: 256,}}>
+        <Card sx={{ maxWidth: 256, minHeight: 570 }}>
             <CardMedia
                 component="img"
-                alt="green iguana"
+                alt={titulo}
                 image={urlImage}
                 loading='eager'
+                sx={{ minHeight: 400 }}
             >
             </CardMedia>
             <CardContent >
                 <Typography variant='body1' color={'secondary'} fontWeight={'bolder'}>{titulo}</Typography>
                 <Typography variant='body2' color={'primary'}>{autor}</Typography>
-                <Box display={'flex'} justifyContent={'end'}>
-                    <IconButton onClick={handleFavorito}>
-                        {favorito? <Bookmark color='secondary'/> : <BookmarkBorder color='primary'/>}
-                    </IconButton>
-                </Box>
+                <IconButton onClick={handleFavorito} sx={{
+                    position:'absolute',
+                    bottom:'8px',
+                    right:'8px'
+                }}>
+                    {favorito ? <Bookmark color='secondary' /> : <BookmarkBorder color='primary' />}
+                </IconButton>
+
             </CardContent>
         </Card>
 

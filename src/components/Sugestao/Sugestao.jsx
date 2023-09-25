@@ -1,24 +1,25 @@
-import { KeyboardArrowRight } from '@mui/icons-material'
-import { Box, Stack, Typography } from '@mui/material'
-import React from 'react'
+import { Box } from '@mui/material'
+import React, { useContext } from 'react'
 import Carousel from '../Carousel/Carousel'
 import Livro from '../Livro/Livro'
 
+import { LivrosContext } from '../../contexts/Livros';
+
 const Sugestao = () => {
+    const { livros } = useContext(LivrosContext);
+
     return (
-        <Box paddingTop={4} >
-            <Carousel titulo={'Sugestões de Livros'}>
-                <Livro urlImage={'https://picsum.photos/256/350'} />
-                <Livro urlImage={'https://picsum.photos/256/350'} />
-                <Livro urlImage={'https://picsum.photos/256/350'} />
-                <Livro urlImage={'https://picsum.photos/256/350'} />
-                <Livro urlImage={'https://picsum.photos/256/350'} />
-                <Livro urlImage={'https://picsum.photos/256/350'} />
-                <Livro urlImage={'https://picsum.photos/256/350'} />
-                <Livro urlImage={'https://picsum.photos/256/350'} />
-                <Livro urlImage={'https://picsum.photos/256/350'} />
-            </Carousel>
-        </Box>
+        <>
+            {livros
+                ?
+                <Box paddingTop={4} >
+                    <Carousel titulo={'Sugestões de Livros'}>
+                        {livros.map(livro=><Livro urlImage={livro.url} titulo={livro.name} autor={livro.descricao}/>)}
+                    </Carousel>
+                </Box>
+                : <></>
+            }
+        </>
     )
 }
 
