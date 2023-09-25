@@ -1,14 +1,29 @@
-import { Box, Drawer, Typography } from "@mui/material";
+import { Box, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import Logo from "../Logo/Logo";
 import HomeIcon from '@mui/icons-material/Home';
 import BookIcon from '@mui/icons-material/Book';
 
 const Sidebar = ({ drawerWidth = 240, open, toggleDrawer }) => {
   const drawerContent = (
-    <Box sx={{mt:2, ml:2}} color={'grey'}>
-      <Typography variant="body2" marginBottom={'4px'}>Descubra seu livro:</Typography>
-      <Typography variant="body1" display={"flex"} alignItems={"center"}><HomeIcon color="disabled" fontSize="small"/>Início</Typography>
-      <Typography variant="body1" display={"flex"} alignItems={"center"}><BookIcon color="disabled" fontSize="small"/>Acervo</Typography>
+    <Box sx={{ p: 2 }}>
+      <List disablePadding>
+        <ListItemButton>
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText>
+            Início
+          </ListItemText>
+        </ListItemButton>
+        <ListItemButton>
+          <ListItemIcon>
+            <BookIcon />
+          </ListItemIcon>
+          <ListItemText>
+            Acervo
+          </ListItemText>
+        </ListItemButton>
+      </List>
     </Box>
   );
 
