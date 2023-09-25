@@ -13,7 +13,8 @@
     "url": "https://i.im.ge/2023/09/24/NDRxEy.livro-a-culpa-e-das-estrelas.jpg",
     "name": "A culpa é das estrelas",
     "descricao": "Edição Português | por John Green e Renata Pettengill",
-    "sinopse": "Hazel Grace Lancaster e Augustus Waters são dois adolescentes que se conhecem em um grupo de apoio para pacientes com câncer. Por causa da doença, Hazel sempre descartou a ideia de se envolver amorosamente, mas acaba cedendo ao se apaixonar por Augustus. Juntos, eles viajam para Amsterdã, onde embarcam em uma jornada inesquecível."
+    "sinopse": "Hazel Grace Lancaster e Augustus Waters são dois adolescentes que se conhecem em um grupo de apoio para pacientes com câncer. Por causa da doença, Hazel sempre descartou a ideia de se envolver amorosamente, mas acaba cedendo ao se apaixonar por Augustus. Juntos, eles viajam para Amsterdã, onde embarcam em uma jornada inesquecível.",
+    "pdf": "../src/assets/pdf/A Culpa É das Estrelas.pdf"
   },
   {
     "id": "03",
@@ -21,7 +22,8 @@
     "url": "  https://i.im.ge/2023/09/24/NDRZ8X.livro-a-selecao-livro-amazon-1-1.jpg",
     "name": "A Seleção: 1",
     "descricao": "Edição Português | por Kiera Cass (Autor), Cristian Clemente (Tradutor)",
-    "sinopse": "Para trinta e cinco garotas, a Seleção é a chance de uma vida. É a oportunidade de ser alçada a um mundo de vestidos deslumbrantes e joias valiosas. De morar em um palácio, conquistar o coração do belo príncipe Maxon e um dia ser a rainha. America Singer, no entanto, estar entre as Selecionadas é um pesadelo."
+    "sinopse": "Para trinta e cinco garotas, a Seleção é a chance de uma vida. É a oportunidade de ser alçada a um mundo de vestidos deslumbrantes e joias valiosas. De morar em um palácio, conquistar o coração do belo príncipe Maxon e um dia ser a rainha. America Singer, no entanto, estar entre as Selecionadas é um pesadelo.",
+    "pdf": "../src/assets/pdf/A-Selecao-Serie-Selecao.pdf"    
   },
   {
     "id": "04",
@@ -37,7 +39,7 @@
     "url": "https://i.im.ge/2023/09/24/NDRW59.livro-a-ultima-festa.jpg",
     "name": "A última festa",
     "descricao": "Edição Português | por Lucy Foley (Autor), Marina Vargas (Tradutor)",
-    "sinopse": "Um grupo de quatro amigos enfrenta dilemas amorosos em sua festa de formatura do ensino médio. A turma se prepara para seguir suas vidas em diferentes faculdades. Durante a festa, histórias acabam se cruzando."
+    "pdf": "../src/assets/pdf/A-Ultima-Festa-Lucy-Foley.pdf"
   },
   {
     "id": "06",
@@ -53,7 +55,8 @@
     "url": "https://i.im.ge/2023/09/24/NDRRrK.livro-biblioteca-da-meia-noite.jpg",
     "name": "A Biblioteca da Meia-Noite",
     "descricao": "Edição Português | por Matt Haig (Autor), Adriana Fidalgo (Tradutor)",
-    "sinopse": "A Biblioteca da Meia-Noite traz nos a história de Nora Seed, uma adulta com depressão e pensamentos suicidas. Outrora esteve quase a ser campeã de natação, esteve numa banda e abandonou o possível amor da sua vida. Sente que a sua vida está sem cor e tem vontade de desistir."
+    "sinopse": "A Biblioteca da Meia-Noite traz nos a história de Nora Seed, uma adulta com depressão e pensamentos suicidas. Outrora esteve quase a ser campeã de natação, esteve numa banda e abandonou o possível amor da sua vida. Sente que a sua vida está sem cor e tem vontade de desistir.",
+    "pdf": "../src/assets/pdf/A-Biblioteca-da-Meia-Noite.pdf"
   },
   {
     "id": "08",
@@ -69,7 +72,8 @@
     "url": "https://i.im.ge/2023/09/24/NDRVM8.livro-e-assim-que-comeca.jpg",
     "name": "É assim que começa (Vol. 2 É assim que acaba)",
     "descricao": "Edição Português | por Colleen Hoover (Autor), Priscila Catão (Tradutor)",
-    "sinopse": "Quando Lily esbarra em Atlas ― com quem não fala há quase dois anos ―, parece que finalmente chegou o momento de retomar o relacionamento da adolescência, já que ele também está solteiro e parece retribuir os sentimentos de Lily. Mas apesar de divorciada, Lily não está exatamente livre de Ryle."
+    "sinopse": "Quando Lily esbarra em Atlas ― com quem não fala há quase dois anos ―, parece que finalmente chegou o momento de retomar o relacionamento da adolescência, já que ele também está solteiro e parece retribuir os sentimentos de Lily. Mas apesar de divorciada, Lily não está exatamente livre de Ryle.",
+    "pdf": ""
   },
   {
     "id": "10",
