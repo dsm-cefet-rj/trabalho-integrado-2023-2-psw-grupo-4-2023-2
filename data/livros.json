@@ -11,14 +11,16 @@
     "image": "livro-a-culpa-e-das-estrelas.jpg",
     "url": "https://i.im.ge/2023/09/24/NDRxEy.livro-a-culpa-e-das-estrelas.jpg",
     "name": "A culpa é das estrelas",
-    "descricao": "Edição Português | por John Green e Renata Pettengill"
+    "descricao": "Edição Português | por John Green e Renata Pettengill",
+    "pdf": "../src/assets/pdf/A Culpa É das Estrelas.pdf"
   },
   {
     "id": "03",
     "image": "livro-a-selecao-livro-amazon-1-1.jpg",
     "url": "  https://i.im.ge/2023/09/24/NDRZ8X.livro-a-selecao-livro-amazon-1-1.jpg",
     "name": "A Seleção: 1",
-    "descricao": "Edição Português | por Kiera Cass (Autor), Cristian Clemente (Tradutor)"
+    "descricao": "Edição Português | por Kiera Cass (Autor), Cristian Clemente (Tradutor)",
+    "pdf": "../src/assets/pdf/A-Selecao-Serie-Selecao.pdf"    
   },
   {
     "id": "04",
@@ -32,7 +34,8 @@
     "image": "livro-a-ultima-festa.jpg",
     "url": "https://i.im.ge/2023/09/24/NDRW59.livro-a-ultima-festa.jpg",
     "name": "A última festa",
-    "descricao": "Edição Português | por Lucy Foley (Autor), Marina Vargas (Tradutor)"
+    "descricao": "Edição Português | por Lucy Foley (Autor), Marina Vargas (Tradutor)",
+    "pdf": "../src/assets/pdf/A-Ultima-Festa-Lucy-Foley.pdf"
   },
   {
     "id": "06",
@@ -46,7 +49,8 @@
     "image": "livro-biblioteca-da-meia-noite.jpg",
     "url": "https://i.im.ge/2023/09/24/NDRRrK.livro-biblioteca-da-meia-noite.jpg",
     "name": "A Biblioteca da Meia-Noite",
-    "descricao": "Edição Português | por Matt Haig (Autor), Adriana Fidalgo (Tradutor)"
+    "descricao": "Edição Português | por Matt Haig (Autor), Adriana Fidalgo (Tradutor)",
+    "pdf": "../src/assets/pdf/A-Biblioteca-da-Meia-Noite.pdf"
   },
   {
     "id": "08",
@@ -60,7 +64,8 @@
     "image": "livro-e-assim-que-começa.jpg",
     "url": "https://i.im.ge/2023/09/24/NDRVM8.livro-e-assim-que-comeca.jpg",
     "name": "É assim que começa (Vol. 2 É assim que acaba)",
-    "descricao": "Edição Português | por Colleen Hoover (Autor), Priscila Catão (Tradutor)"
+    "descricao": "Edição Português | por Colleen Hoover (Autor), Priscila Catão (Tradutor)",
+    "pdf": ""
   },
   {
     "id": "10",
