@@ -28,7 +28,8 @@
     "image": "livro-o-colecionador.jpg",
     "url": "https://i.im.ge/2023/09/24/NDR4uq.livro-o-colecionador.jpg",
     "name": "O Colecionador",
-    "descricao": "Edição Português | por John Fowles (Autor), Antonio Tibau (Tradutor)"
+    "descricao": "Edição Português | por John Fowles (Autor), Antonio Tibau (Tradutor)",
+    "pdf": "../src/assets/pdf/2.pdf"
   },
   {
     "id": "05",
@@ -43,7 +44,8 @@
     "image": "livro-aventuras-na-amazonia.jpg",
     "url": "https://i.im.ge/2023/09/24/NDRkxM.livro-aventuras-na-amazonia.jpg",
     "name": "Aventuras na Amazônia. Uma Brilhante Aventura Biológica!",
-    "descricao": "Edição Português | por Dan Green (Autor)"
+    "descricao": "Edição Português | por Dan Green (Autor)",
+    "pdf": "../src/assets/pdf/2.pdf"
   },
   {
     "id": "07",
@@ -58,7 +60,8 @@
     "image": "livro-cidades-dos-ossos.jpg",
     "url": "https://i.im.ge/2023/09/24/NDRgfF.livro-cidades-dos-ossos.jpg",
     "name": "Cidade dos ossos (Vol. 1 Os Instrumentos Mortais)",
-    "descricao": "Edição Português | por Cassandra Clare (Autor), Rita Sussekind (Tradutor)"
+    "descricao": "Edição Português | por Cassandra Clare (Autor), Rita Sussekind (Tradutor)",
+    "pdf": "../src/assets/pdf/2.pdf"
   },
   {
     "id": "09",
@@ -73,7 +76,8 @@
     "image": "livro-escrevendo-ficacao-cientifica-e-fantasia.jpg",
     "url": "https://i.im.ge/2023/09/24/NDRfIh.livro-escrevendo-ficacao-cientifica-e-fantasia.jpg",
     "name": "Escrevendo Ficção Científica e Fantasia",
-    "descricao": "Edição Português | por Eldes Saullo (Autor)"
+    "descricao": "Edição Português | por Eldes Saullo (Autor)",
+    "pdf": "../src/assets/pdf/2.pdf"
   },
   {
     "id": "11",
@@ -88,7 +92,8 @@
     "image": "livro-neuromancer.width-171.jpg",
     "url": "https://i.im.ge/2023/09/24/NDRpdD.livro-neuromancer-width-171.jpg",
     "name": "Neuromancer: 1",
-    "descricao": "Edição Português | por William Gibson (Autor), Fábio Fernandes (Tradutor)"
+    "descricao": "Edição Português | por William Gibson (Autor), Fábio Fernandes (Tradutor)",
+    "pdf": "../src/assets/pdf/2.pdf"
   },
   {
     "id": "13",
@@ -103,7 +108,8 @@
     "image": "livro-princesa-das-cinzas.jpg",
     "url": "https://i.im.ge/2023/09/24/NDRB5p.livro-princesa-das-cinzas.jpg",
     "name": "Princesa das cinzas (Princesa das cinzas – Livro 1)",
-    "descricao": "Edição Português | por Laura Sebastian (Autor), Raquel Zampil (Tradutor)"
+    "descricao": "Edição Português | por Laura Sebastian (Autor), Raquel Zampil (Tradutor)",
+    "pdf": "../src/assets/pdf/2.pdf"
   },
   {
     "id": "15",
@@ -118,21 +124,24 @@
     "image": "livro-trone-de-diamante.jpg",
     "url": "https://i.im.ge/2023/09/24/NDWQIf.livro-trone-de-diamante.jpg",
     "name": "O Trono de Diamante",
-    "descricao": "Edição Português | por David Eddings (Autor)"
+    "descricao": "Edição Português | por David Eddings (Autor)",
+    "pdf": "../src/assets/pdf/2.pdf"
   },
   {
     "id": "17",
     "image": "livro-um-amor-para-recordar-melhores-livros-romance-1.jpg",
     "url": "https://i.im.ge/2023/09/24/NDWTxm.livro-um-amor-para-recordar-melhores-livros-romance-1.jpg",
     "name": "Um amor para recordar",
-    "descricao": "Edição Português | por Nicholas Sparks (Autor), Rachel Agavino (Tradutor)"
+    "descricao": "Edição Português | por Nicholas Sparks (Autor), Rachel Agavino (Tradutor)",
+    "pdf": "../src/assets/pdf/2.pdf"
   },
   {
     "id": "18",
     "image": "livro-um-romance-fora-de-epoca.jpg",
     "url": "https://i.im.ge/2023/09/24/NDWonr.livro-um-romance-fora-de-epoca.jpg",
     "name": "Um Romance Fora de Época (Amores Imprevisiveis Livro 1)",
-    "descricao": "Edição Português | por Gabriela Goulart (Autor)"
+    "descricao": "Edição Português | por Gabriela Goulart (Autor)",
+    "pdf": "../src/assets/pdf/2.pdf"
   },
   {
     "id": "19",
@@ -147,6 +156,7 @@
     "image": "livros-reino-de-belfront.jpg",
     "url": "https://i.im.ge/2023/09/24/NDWMQ1.livros-reino-de-belfront.jpg",
     "name": "Reino de Belfront",
-    "descricao": "Edição Português | por Jaqueline Moniz (Autor)"
+    "descricao": "Edição Português | por Jaqueline Moniz (Autor)",
+    "pdf": "../src/assets/pdf/2.pdf"
   }
 ]
