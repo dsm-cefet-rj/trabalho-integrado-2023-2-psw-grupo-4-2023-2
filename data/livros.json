@@ -4,7 +4,8 @@
     "image": "livr-o-feiticeiro-de-terramar.jpg",
     "url": "https://i.im.ge/2023/09/24/NDRzJY.livr-o-feiticeiro-de-terramar.jpg",
     "name": "O feiticeiro de Terramar (Ciclo Terramar – Livro 1)",
-    "descricao": "Edição Português | por Ursula K. Le Guin"
+    "descricao": "Edição Português | por Ursula K. Le Guin",
+    "pdf": "../src/assets/pdf/Ursula K. Le Guin - 01 O feiticeiro de Terramar.pdf"
   },
   {
     "id": "02",
@@ -65,7 +66,7 @@
     "url": "https://i.im.ge/2023/09/24/NDRVM8.livro-e-assim-que-comeca.jpg",
     "name": "É assim que começa (Vol. 2 É assim que acaba)",
     "descricao": "Edição Português | por Colleen Hoover (Autor), Priscila Catão (Tradutor)",
-    "pdf": ""
+    "pdf": "../src/assets/pdf/E-assim-que-comeca-Vol.-2-Colleen-Hoover.pdf"
   },
   {
     "id": "10",
@@ -79,7 +80,8 @@
     "image": "livro-fogo-e-sangue.jpg",
     "url": "https://i.im.ge/2023/09/24/NDRvN4.livro-fogo-e-sangue.jpg",
     "name": "Fogo & Sangue – Volume 1",
-    "descricao": "Edição Português | por George R. R. Martin (Autor), Alceu Chiesorin Nunes (Arte de Capa), Doug Wheatley (Ilustrador), Leonardo Alves; Regiane Winarski (Tradutor)"
+    "descricao": "Edição Português | por George R. R. Martin (Autor), Alceu Chiesorin Nunes (Arte de Capa), Doug Wheatley (Ilustrador), Leonardo Alves; Regiane Winarski (Tradutor)",
+    "pdf": "../src/assets/pdf/Fogo e Sangue - George R R Martin.pdf"
   },
   {
     "id": "12",
@@ -93,7 +95,8 @@
     "image": "livro-o-azul-daqui-e-mais-azul.jpg",
     "url": "https://i.im.ge/2023/09/24/NDRJfC.livro-o-azul-daqui-e-mais-azul.jpg",
     "name": "O azul daqui é mais azul",
-    "descricao": "Edição Português | por Robbie Couch (Autor), Vitor Martins (Tradutor)"
+    "descricao": "Edição Português | por Robbie Couch (Autor), Vitor Martins (Tradutor)",
+    "pdf": "../src/assets/pdf/O-Azul-Daqui-e-Mais-Azul-Robbie-Couch.pdf"
   },
   {
     "id": "14",
@@ -107,7 +110,8 @@
     "image": "livro-quando-ninguem-esta-olhando.jpg",
     "url": "https://i.im.ge/2023/09/24/NDRG8P.livro-quando-ninguem-esta-olhando.jpg",
     "name": "Quando ninguém está olhando",
-    "descricao": "Edição Português | por Alyssa Cole (Autor), Thaís Britto (Tradutor)"
+    "descricao": "Edição Português | por Alyssa Cole (Autor), Thaís Britto (Tradutor)",
+    "pdf": "../src/assets/pdf/quando-ninguem-esta-olhando-alyssa-cole.pdf"
   },
   {
     "id": "16",
@@ -135,7 +139,8 @@
     "image": "livro-vermelho-branco-e-sangue-azul.jpg",
     "url": "https://i.im.ge/2023/09/24/NDWldW.livro-vermelho-branco-e-sangue-azul.jpg",
     "name": "Vermelho, Branco e Sangue Azul",
-    "descricao": "Edição Português | por Casey McQuiston; Tradução: Inês Guerreiro (Autor)"
+    "descricao": "Edição Português | por Casey McQuiston; Tradução: Inês Guerreiro (Autor)",
+    "pdf": "..//src/assets/pdf/Vermelho-Branco-e-Sangue-Azul-Casey-McQuiston.pdf"
   },
   {
     "id": "20",
