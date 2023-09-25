@@ -2,8 +2,8 @@ import { Bookmark, BookmarkAdd, BookmarkBorder, BookmarkRemove, BookmarksSharp }
 import { Box, Card, CardContent, CardMedia, IconButton, Typography } from '@mui/material'
 import React, { useContext, useEffect, useState } from 'react'
 
-import { LivrosContext } from '../../contexts/Livros';
-import { AutenticacaoContext } from '../../contexts/Autenticacao';
+import { LivrosContext } from "../../contexts/Livros";
+import { AutenticacaoContext } from "../../contexts/Autenticacao";
 
 const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, id }) => {
 
@@ -22,11 +22,12 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
         }
     }
 
+
     useEffect(() => {
         const livroFavoritado = meusFavoritos?.livros.find(livro => livro.id === id)
-        if (livroFavoritado){
+        if (livroFavoritado) {
             setFavorito(true);
-        }else{
+        } else {
             setFavorito(false);
         }
     }, [meusFavoritos])
@@ -41,21 +42,30 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
                 sx={{ minHeight: 400 }}
             >
             </CardMedia>
-            <CardContent >
-                <Typography variant='body1' color={'secondary'} fontWeight={'bolder'}>{titulo}</Typography>
-                <Typography variant='body2' color={'primary'}>{autor}</Typography>
-                <IconButton onClick={handleFavorito} sx={{
-                    position: 'absolute',
-                    bottom: '8px',
-                    right: '8px'
-                }}>
-                    {favorito ? <Bookmark color='secondary' /> : <BookmarkBorder color='primary' />}
+            <CardContent>
+                <Typography variant="body1" color="secondary" fontWeight="bolder">
+                    {titulo.length > 25 ? `${titulo.substring(0, 25)}...` : titulo}
+                </Typography>
+                <Typography variant="body2" color="primary">
+                    {autor.length > 50 ? `${autor.substring(0, 50)}...` : autor}
+                </Typography>
+                <IconButton
+                    onClick={handleFavorito}
+                    sx={{
+                        position: "absolute",
+                        bottom: "8px",
+                        right: "8px",
+                    }}
+                >
+                    {favorito ? (
+                        <Bookmark color="secondary" />
+                    ) : (
+                        <BookmarkBorder color="primary" />
+                    )}
                 </IconButton>
-
             </CardContent>
         </Card>
+    );
+};
 
-    )
-}
-
-export default Livro
+export default Livro;
