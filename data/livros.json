@@ -14,7 +14,7 @@
     "name": "A culpa é das estrelas",
     "descricao": "Edição Português | por John Green e Renata Pettengill",
     "sinopse": "Hazel Grace Lancaster e Augustus Waters são dois adolescentes que se conhecem em um grupo de apoio para pacientes com câncer. Por causa da doença, Hazel sempre descartou a ideia de se envolver amorosamente, mas acaba cedendo ao se apaixonar por Augustus. Juntos, eles viajam para Amsterdã, onde embarcam em uma jornada inesquecível.",
-    "pdf": "../src/assets/pdf/A Culpa É das Estrelas.pdf"
+    "pdf": "A Culpa É das Estrelas.pdf"
   },
   {
     "id": "03",
@@ -23,7 +23,7 @@
     "name": "A Seleção: 1",
     "descricao": "Edição Português | por Kiera Cass (Autor), Cristian Clemente (Tradutor)",
     "sinopse": "Para trinta e cinco garotas, a Seleção é a chance de uma vida. É a oportunidade de ser alçada a um mundo de vestidos deslumbrantes e joias valiosas. De morar em um palácio, conquistar o coração do belo príncipe Maxon e um dia ser a rainha. America Singer, no entanto, estar entre as Selecionadas é um pesadelo.",
-    "pdf": "../src/assets/pdf/A-Selecao-Serie-Selecao.pdf"    
+    "pdf": "A-Selecao-Serie-Selecao.pdf"    
   },
   {
     "id": "04",

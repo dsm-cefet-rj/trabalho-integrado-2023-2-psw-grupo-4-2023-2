@@ -7,6 +7,7 @@ import Favoritos from "./pages/Favoritos";
 import { AutenticacaoContext } from "./contexts/Autenticacao";
 import Acesso from "./pages/Acesso";
 import { useContext } from "react";
+import Leitura from "./pages/Leitura";
 
 const Privado = ({ Page }) => {
   const { signed } = useContext(AutenticacaoContext);
@@ -19,9 +20,10 @@ export const Router = () => {
       <Routes>
         <Route path="/" element={<Privado Page={<Principal />} />}>
           <Route index element={<Home />} />
-          <Route path="/pre-leitura" element={<PreLeitura />} />
           <Route path="perfil" element={<Perfil />} />
           <Route path="favoritos" element={<Favoritos />} />
+          <Route path="leitura/:urlPdf" element={<Leitura />} />
+          <Route path="preleitura/livro/:id" element={<PreLeitura />} />
           <Route path="*" element={<h1>Pagina não encontrada</h1>} />
         </Route>
       </Routes>
