@@ -13,33 +13,37 @@ const SwiperNvegation = () => {
     return (
         <Stack direction={'row'} spacing={4} justifyContent={'center'} padding={2}>
             <IconButton onClick={() => swiper.slidePrev()}>
-                <KeyboardArrowLeft  fontSize='large' color={'primary'}/>
+                <KeyboardArrowLeft fontSize='large' color={'primary'} />
             </IconButton>
             <IconButton onClick={() => swiper.slideNext()}>
-                {swiper.allowSlideNext? <KeyboardArrowRight fontSize='large' color={'primary'}/> : <KeyboardArrowRight />}
-                
+                {swiper.allowSlideNext ? <KeyboardArrowRight fontSize='large' color={'primary'} /> : <KeyboardArrowRight />}
+
             </IconButton>
         </Stack>
     )
 };
 
-const Carousel = ({ children, titulo }) => {
+const Carousel = ({ children, titulo, vazio = <div></div> }) => {
     const swiper = useSwiper();
 
     return (
         <>
-            <Typography variant='h4' color={'white'} component={'div'} display={'flex'} alignItems={'center'}> {titulo} <KeyboardArrowRight fontSize='large' color="secondary"/> </Typography>
-            <Swiper
-                modules={[Navigation]}
-                spaceBetween={50}
-                slidesPerView={5}
-                style={{ padding: '32px 0' }}
-            >
-                <SwiperNvegation />
-                {children.map((slide, index) => (
-                    <SwiperSlide key={index}>{slide}</SwiperSlide>
-                ))}
-            </Swiper>
+            <Typography variant='h4' color={'white'} component={'div'} display={'flex'} alignItems={'center'}> {titulo} <KeyboardArrowRight fontSize='large' color="secondary" /> </Typography>
+            {children
+                ? <Swiper
+                    modules={[Navigation]}
+                    spaceBetween={50}
+                    slidesPerView={5}
+                    style={{ padding: '32px 0' }}
+                >
+                    <SwiperNvegation />
+                    {children.map((slide, index) => (
+                        <SwiperSlide key={index}>{slide}</SwiperSlide>
+                    ))
+                    }
+                </Swiper>
+                : vazio
+            }
         </>
     );
 };
