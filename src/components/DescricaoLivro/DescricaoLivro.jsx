@@ -1,7 +1,17 @@
-const DescricaoLivro = () => {
+import { Typography } from "@mui/material";
+import { Box, Stack } from "@mui/system";
+
+const DescricaoLivro = ({sinopse}) => {
   return (
     <>
-      <h1>Descricao</h1>
+      <Stack>
+        <Box>
+          <Typography variant="h6">SINOPSE</Typography>
+          <Typography variant="subtitle2">
+            {sinopse}
+          </Typography>
+        </Box>
+      </Stack>
     </>
   );
 };

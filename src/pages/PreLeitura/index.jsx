@@ -5,7 +5,7 @@ import DescricaoLivro from "../../components/DescricaoLivro/DescricaoLivro";
 const PreLeitura = () => {
     return (
         <>
-            {/* <Sugestao></Sugestao> */}
+            <Sugestao></Sugestao>
             <DescricaoLivro />
         </>
     );
