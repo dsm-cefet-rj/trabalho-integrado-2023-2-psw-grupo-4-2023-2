@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.js';
 import './Leitor.css';
-import { Button, IconButton } from '@mui/material';
-import { ArrowCircleLeft, ZoomIn, ZoomOut } from '@mui/icons-material';
+import { Box, Button, IconButton, Stack, Tooltip } from '@mui/material';
+import { ArrowCircleLeft, ArrowCircleRight, ZoomIn, ZoomOut } from '@mui/icons-material';
 
 const Leitor = ({ namePdf }) => {
     const [pageNum, setPageNum] = useState(1);
@@ -92,39 +92,58 @@ const Leitor = ({ namePdf }) => {
     };
 
     return (
-        <div className="container">
-            <div className="leitor">
+        <>
+            <Box sx={{
+                display:'flex',
+                justifyContent:'center'
+            }}>
                 <canvas id="the-canvas" className={tamanhoPdf}></canvas>
-            </div>
+            </Box>
 
-            <div className="menu-leitor-fixado">
-                <Button variant='contained' color='secondary' onClick={voltarInicio} >
+            <Box sx={{
+                position:'sticky',
+                bottom:0,
+                textAlign:"center",
+                padding:4
+            }}>
+                <Button variant='contained' color='secondary' onClick={voltarInicio} size='small' sx={{
+                    position:'absolute',
+                    bottom:'16px',
+                    right:'16px',
+                }}>
                     Voltar a página inicial
                 </Button>
-                <div className="menu-leitor-botoes">
-                    <IconButton onClick={onPrevPage}>
-                        <ArrowCircleLeft></ArrowCircleLeft>
-                    </IconButton>
-                    <IconButton onClick={mudarTamanho}>
-                        {tamanhoPdf === 'super-grande' ? (
-                            <ZoomOut></ZoomOut>
-                        ) : (
-                            <ZoomIn></ZoomIn>
-                        )}
-                    </IconButton>
-                    <button id="next" onClick={onNextPage}>
-                        Próxima <i className="bx bxs-right-arrow"></i>
-                    </button>
-                </div>
+                <Stack direction={'row'} alignItems={'center'} justifyContent={'center'} spacing={16}>
+                    <Tooltip arrow title='Anterior' placement='left' >
+                        <IconButton onClick={onPrevPage}>
+                            <ArrowCircleLeft fontSize='large'></ArrowCircleLeft>
+                        </IconButton>
+                    </Tooltip>
+                    <Tooltip arrow title='Zoom' placement='top' >
+                        <IconButton onClick={mudarTamanho} >
+                            {tamanhoPdf === 'super-grande' ? (
+                                <ZoomOut fontSize='large'></ZoomOut>
+                            ) : (
+                                <ZoomIn fontSize='large'></ZoomIn>
+                            )}
 
-                <div id="contador">
+                        </IconButton>
+                    </Tooltip>
+                    <Tooltip arrow title='Próximo' placement='right' >
+                        <IconButton onClick={onNextPage}>
+                            <ArrowCircleRight fontSize='large'></ArrowCircleRight>
+                        </IconButton>
+                    </Tooltip>
+                </Stack>
+
+                <Box>
                     <span>
                         Página: <span id="page_num"></span> / <span id="page_count"></span>(
                         <span id="porcentagem"></span>%)
                     </span>
-                </div>
-            </div>
-        </div>
+                </Box>
+            </Box>
+        </>
     );
 };
 
