@@ -16,7 +16,7 @@ const SwiperNvegation = () => {
                 <KeyboardArrowLeft fontSize='large' color={'primary'} />
             </IconButton>
             <IconButton onClick={() => swiper.slideNext()}>
-                {swiper.allowSlideNext ? <KeyboardArrowRight fontSize='large' color={'primary'} /> : <KeyboardArrowRight />}
+                {swiper.allowSlideNext ? <KeyboardArrowRight fontSize='large' color={'primary'} /> : <KeyboardArrowRight fontSize='large' color="primary"/>}
 
             </IconButton>
         </Stack>
