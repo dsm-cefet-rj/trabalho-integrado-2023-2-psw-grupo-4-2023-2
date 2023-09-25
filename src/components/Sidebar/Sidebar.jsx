@@ -2,12 +2,13 @@ import { Box, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText
 import Logo from "../Logo/Logo";
 import HomeIcon from '@mui/icons-material/Home';
 import BookIcon from '@mui/icons-material/Book';
+import { Link } from "react-router-dom";
 
 const Sidebar = ({ drawerWidth = 240, open, toggleDrawer }) => {
   const drawerContent = (
     <Box sx={{ p: 2 }}>
       <List disablePadding>
-        <ListItemButton>
+        <ListItemButton component={Link} to="/" activeClassName="active" exact>
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
@@ -15,7 +16,7 @@ const Sidebar = ({ drawerWidth = 240, open, toggleDrawer }) => {
             Início
           </ListItemText>
         </ListItemButton>
-        <ListItemButton>
+        <ListItemButton component={Link} to="/acervo" activeClassName="active">
           <ListItemIcon>
             <BookIcon />
           </ListItemIcon>
