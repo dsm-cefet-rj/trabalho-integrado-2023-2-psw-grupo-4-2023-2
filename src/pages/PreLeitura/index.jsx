@@ -1,11 +1,14 @@
 import Sugestao from "../../components/Sugestao/Sugestao";
 import DescricaoLivro from "../../components/DescricaoLivro/DescricaoLivro";
+import Voltar from "../../components/Voltar/Voltar";
 
 
 const PreLeitura = () => {
     return (
         <>
-            <Sugestao></Sugestao>
+            <Voltar />
+            {/* <LivroSelecionado /> */}
+            <Sugestao />
             <DescricaoLivro />
         </>
     );
