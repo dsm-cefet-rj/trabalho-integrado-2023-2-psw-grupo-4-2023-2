@@ -33,10 +33,22 @@ const Navbar = ({ drawerWidth = 240, toggleDrawer }) => {
     };
 
     useEffect(() => {
-        setLivrosPesquisados(livros.filter(livro => {
-            const name = String(livro.name).slice(0, pesquisa.length).toLocaleLowerCase()
-            return name === pesquisa.toLocaleLowerCase()
-        }))
+        const pesquisaPorNome = livros.filter(livro => {
+            const name = String(livro.name).toLocaleLowerCase();
+            const pesquisaLowerCase = pesquisa.toLocaleLowerCase();
+
+            return name.includes(pesquisaLowerCase);
+        });
+
+
+        const pesquisaPorDescricao = livros.filter(livro => {
+            const descricao = String(livro.descricao).toLocaleLowerCase();
+            const pesquisaLowerCase = pesquisa.toLocaleLowerCase();
+
+            return descricao.includes(pesquisaLowerCase);
+        });
+
+        setLivrosPesquisados([...pesquisaPorNome, ...pesquisaPorDescricao])
 
     }, [pesquisa])
 
