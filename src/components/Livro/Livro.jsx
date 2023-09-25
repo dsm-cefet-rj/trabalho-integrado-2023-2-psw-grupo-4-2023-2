@@ -34,7 +34,7 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
 
     return (
 
-        <Card sx={{ maxWidth: 256, minHeight: 570, position:'relative'}}>
+        <Card sx={{ maxWidth: 256, minHeight: 570, position:'relative', margin:0}}>
             <Link href={`/preleitura/livro/${id}`} underline='none'>
                 <CardMedia
                     component="img"

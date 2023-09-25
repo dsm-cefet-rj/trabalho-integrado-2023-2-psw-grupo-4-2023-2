@@ -5,6 +5,8 @@ export const LivrosContext = createContext({});
 
 const Livros = ({ children }) => {
     const [favoritos, setFavoritos] = useState([]);
+
+    const [livrosPesquisados, setLivrosPesquisados] = useState([]);
     
     const desfavorita = (userLogin, livroId) => {
         const lista = favoritos.find((data) => data.userLogin === userLogin);
@@ -57,6 +59,8 @@ const Livros = ({ children }) => {
                 favoritos,
                 favorita,
                 desfavorita,
+                livrosPesquisados,
+                setLivrosPesquisados
             }}
         >
             {children}

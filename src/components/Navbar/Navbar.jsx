@@ -5,7 +5,8 @@ import { ArrowDropDown, KeyboardArrowDown, KeyboardArrowUp, SearchOutlined } fro
 import { Container } from "@mui/system";
 import styled from "@emotion/styled";
 import { AutenticacaoContext } from "../../contexts/Autenticacao";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { LivrosContext } from "../../contexts/Livros";
 
 const Toobar = styled(MuiToolbar)`    
     &.MuiToolbar-root{
@@ -15,8 +16,11 @@ const Toobar = styled(MuiToolbar)`
 
 const Navbar = ({ drawerWidth = 240, toggleDrawer }) => {
     const { user, signout } = useContext(AutenticacaoContext);
+    const { setLivrosPesquisados, livros } = useContext(LivrosContext);
 
     const [userMenu, setUserMenu] = useState(null);
+    const [pesquisa, setPesquisa] = useState("");
+
     const open = Boolean(userMenu);
     const handleMenu = (event) => {
         setUserMenu(event.currentTarget);
@@ -24,6 +28,17 @@ const Navbar = ({ drawerWidth = 240, toggleDrawer }) => {
     const handleClose = () => {
         setUserMenu(null);
     };
+    const handlePesquisa = (event) => {
+        setPesquisa(event.target.value);
+    };
+
+    useEffect(() => {
+        setLivrosPesquisados(livros.filter(livro => {
+            const name = String(livro.name).slice(0, pesquisa.length).toLocaleLowerCase()
+            return name === pesquisa.toLocaleLowerCase()
+        }))
+
+    }, [pesquisa])
 
     return (
         <AppBar position='fixed'
@@ -49,10 +64,12 @@ const Navbar = ({ drawerWidth = 240, toggleDrawer }) => {
 
                     <Search id="search" size='small' label="" variant="outlined" placeholder='Pesquisar'
                         sx={{ display: { xs: 'none', md: 'block' } }}
+                        value={pesquisa}
                         InputProps={{
                             startAdornment: <InputAdornment position="start"><SearchOutlined sx={{ color: 'white' }} /></InputAdornment>,
 
                         }}
+                        onChange={handlePesquisa}
                     />
 
                     <Box sx={{ flexGrow: 1 }}></Box>

@@ -10,7 +10,7 @@ const Sidebar = ({ drawerWidth = 240, open, toggleDrawer }) => {
     <Box sx={{ p: 2 }}>
       <Logo/>
       <List disablePadding>
-        <ListItemButton component={Link} to="/" activeClassName="active" exact>
+        <ListItemButton component={Link} to="/">
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
@@ -18,7 +18,7 @@ const Sidebar = ({ drawerWidth = 240, open, toggleDrawer }) => {
             Início
           </ListItemText>
         </ListItemButton>
-        <ListItemButton component={Link} to="/acervo" activeClassName="active">
+        <ListItemButton component={Link} to="/acervo" >
           <ListItemIcon>
             <BookIcon />
           </ListItemIcon>

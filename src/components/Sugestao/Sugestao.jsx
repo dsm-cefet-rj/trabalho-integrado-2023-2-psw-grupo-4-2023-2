@@ -6,15 +6,17 @@ import Livro from '../Livro/Livro'
 import { LivrosContext } from '../../contexts/Livros';
 
 const Sugestao = () => {
-    const { livros } = useContext(LivrosContext);
+    const { livros, livrosPesquisados } = useContext(LivrosContext);
+
+    const acervo = livrosPesquisados || livros
 
     return (
         <>
-            {livros
+            {acervo
                 ?
                 <Box paddingTop={4} >
                     <Carousel titulo={'Sugestões de Livros'}>
-                        {livros.map(livro=><Livro key={livro.id} id={livro.id} urlImage={livro.url} titulo={livro.name} autor={livro.descricao}/>)}
+                        {acervo.map(livro=><Livro key={livro.id} id={livro.id} urlImage={livro.url} titulo={livro.name} autor={livro.descricao}/>)}
                     </Carousel>
                 </Box>
                 : <></>
