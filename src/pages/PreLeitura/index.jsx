@@ -1,4 +1,3 @@
-import Sugestao from "../../components/Sugestao/Sugestao";
 import DescricaoLivro from "../../components/DescricaoLivro/DescricaoLivro";
 import Voltar from "../../components/Voltar/Voltar";
 import { useParams } from "react-router-dom";
@@ -24,7 +23,7 @@ const PreLeitura = () => {
                 <Livro id={livroData.id} titulo={livroData.name} autor={livroData.descricao} urlImage={livroData.url} />
             </Box>
 
-            <DescricaoLivro sinopse={livroData.sinopse} desc={livroData.descricao}  namePdf={namePdf}></DescricaoLivro>
+            <DescricaoLivro sinopse={livroData.sinopse} desc={livroData.descricao}  namePdf={namePdf} genero={livroData.genero}></DescricaoLivro>
         </>
     );
 }
