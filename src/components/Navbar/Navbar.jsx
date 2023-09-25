@@ -45,7 +45,8 @@ const Navbar = ({ drawerWidth = 240, toggleDrawer }) => {
             sx={{
                 width: { md: `calc(100% - ${drawerWidth}px)` },
                 ml: { md: `${drawerWidth}px` },
-                boxShadow: 'none'
+                boxShadow: 'none',
+                borderBottom: '1px solid white'
             }}
         >
             <Container maxWidth='xl'>

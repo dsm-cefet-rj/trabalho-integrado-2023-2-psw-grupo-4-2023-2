@@ -1,4 +1,3 @@
-import Sugestao from "../../components/Sugestao/Sugestao";
 import DescricaoLivro from "../../components/DescricaoLivro/DescricaoLivro";
 import Voltar from "../../components/Voltar/Voltar";
 import { useParams } from "react-router-dom";
@@ -6,6 +5,7 @@ import { LivrosContext } from "../../contexts/Livros";
 import { useContext } from "react";
 import Livro from "../../components/Livro/Livro";
 import { Box } from "@mui/material";
+
 
 
 
@@ -19,11 +19,11 @@ const PreLeitura = () => {
     return (
         <>
             <Voltar />
-            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center'}}>
                 <Livro id={livroData.id} titulo={livroData.name} autor={livroData.descricao} urlImage={livroData.url} />
             </Box>
 
-            <DescricaoLivro sinopse={livroData.sinopse} desc={livroData.descricao}  namePdf={namePdf}></DescricaoLivro>
+            <DescricaoLivro sinopse={livroData.sinopse} desc={livroData.descricao}  namePdf={namePdf} genero={livroData.genero}></DescricaoLivro>
         </>
     );
 }
