@@ -5,10 +5,8 @@ export const LivrosContext = createContext({});
 
 const Livros = ({ children }) => {
     const [favoritos, setFavoritos] = useState([]);
-    console.log(favoritos)
     
     const desfavorita = (userLogin, livroId) => {
-        console.log("desfavorita")
         const lista = favoritos.find((data) => data.userLogin === userLogin);
 
         if (lista) {
@@ -22,10 +20,7 @@ const Livros = ({ children }) => {
     };
 
     const favorita = (userLogin, livroId) => {
-        console.log("favorita")
         const lista = favoritos.find((data) => data.userLogin === userLogin);
-        console.log("lista", lista)
-
 
         if (lista) {
             const livroExistente = lista.livros.find((livro) => livro.id === livroId);
