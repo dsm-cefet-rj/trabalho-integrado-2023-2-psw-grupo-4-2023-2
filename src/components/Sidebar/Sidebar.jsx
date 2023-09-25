@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 
 const Sidebar = ({ drawerWidth = 240, open, toggleDrawer }) => {
   const drawerContent = (
+
     <Box sx={{ p: 2 }}>
+      <Logo/>
       <List disablePadding>
         <ListItemButton component={Link} to="/" activeClassName="active" exact>
           <ListItemIcon>
@@ -46,7 +48,7 @@ const Sidebar = ({ drawerWidth = 240, open, toggleDrawer }) => {
           },
         }}
       >
-        <Logo />
+
         {drawerContent}
       </Drawer>
       <Drawer
@@ -69,7 +71,6 @@ const Sidebar = ({ drawerWidth = 240, open, toggleDrawer }) => {
           },
         }}
       >
-        <Logo />
         {drawerContent}
       </Drawer>
     </>
