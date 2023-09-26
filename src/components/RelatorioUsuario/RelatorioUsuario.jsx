@@ -9,15 +9,16 @@ const RelatorioUsuario = () => {
     <Box sx={{
       display:'flex',
       flexDirection: 'column',
-      alignItems: 'center'
+      alignItems: 'center',
+      color: 'white'
     }}>
       <Box>
         <img src={img} alt="Descrição da imagem" />
       </Box>
-      <Typography variant='h6'>Você leu 34 livros esse ano. Parabéns</Typography>
-      <Typography variant='h5'>Relatório do Usuário</Typography>
+      <Typography variant='h6' color={'secondary'}>Você leu 5 livros esse ano. Parabéns</Typography>
       <Stack>
-        <Typography>Romance: 32 livros</Typography>
+        <Typography variant='h5'>Seu relatório:</Typography>
+        <Typography>Romance: 2 livros</Typography>
         <Typography>Terror: 1 livros</Typography>
         <Typography>Suspense: 2 livros</Typography>
       </Stack>
