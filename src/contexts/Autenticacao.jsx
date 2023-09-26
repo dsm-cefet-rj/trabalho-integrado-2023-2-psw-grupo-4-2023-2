@@ -1,10 +1,22 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const AutenticacaoContext = createContext({});
+import { users } from '../database/users';
 
 export const Autenticacao = ({ children }) => {
-    const users = [];
-    const [user, setUser] = useState({nome:'Renan Lima', login:'renan', password:'123'});
+
+    const [user, setUser] = useState(() => {
+        const storedUser = localStorage.getItem("user");
+        return storedUser ? JSON.parse(storedUser) : null;
+    });
+
+    useEffect(() => {
+        if (user) {
+            localStorage.setItem("user", JSON.stringify(user));
+        } else {
+            localStorage.removeItem("user");
+        }
+    }, [user]);
 
     const signin = (login, password) => {
         console.log('signin');
@@ -29,10 +41,10 @@ export const Autenticacao = ({ children }) => {
 
         const hasUser = users.find(user => (user?.login === login));
 
-        if(hasUser){
+        if (hasUser) {
             hasUser.nome = nome
             hasUser.password = password;
-        }else{
+        } else {
             users.push({
                 nome,
                 login,
