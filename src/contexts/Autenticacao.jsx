@@ -1,12 +1,13 @@
 import { createContext, useState } from "react";
 
 export const AutenticacaoContext = createContext({});
+const users = [];
 
 export const Autenticacao = ({ children }) => {
-    const users = [];
     const [user, setUser] = useState();
 
     const signin = (login, password) => {
+        console.log()
         const hasUser = users.find(user => (user?.login === login));
 
         if (hasUser) {

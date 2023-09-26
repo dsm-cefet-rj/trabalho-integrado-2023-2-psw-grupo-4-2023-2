@@ -21,11 +21,12 @@ const Acesso = () => {
   const handleSignup = () => {
     console.log(nome, login, password);
     signup(nome, login, password);
-    // setOpenCadastro(false);
-    // setOpenLogin(true);
+    setOpenCadastro(false);
+    setOpenLogin(true);
   };
-
+  
   const handleSignin = () => {
+    console.log(nome, login, password);
     signin(login, password)
   };
 
