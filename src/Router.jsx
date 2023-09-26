@@ -20,6 +20,7 @@ export const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="acesso" element={<Acesso />} />
         <Route path="/" element={<Privado Page={<Principal />} />}>
           <Route index element={<Home />} />
           <Route path="perfil" element={<Perfil />} />
