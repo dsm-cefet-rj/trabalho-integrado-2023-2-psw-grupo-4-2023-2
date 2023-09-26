@@ -131,9 +131,14 @@ const Navbar = ({ drawerWidth = 240, toggleDrawer }) => {
                             </MenuItem>
                         </Link>
 
+                        <Link underline="none" color={'inherit'} href="/relatorio">
+                            <MenuItem onClick={handleClose}>Relatório do Usuário</MenuItem>
+                        </Link>
 
-                        <MenuItem onClick={handleClose}>Relatorío do Usuário</MenuItem>
-                        <MenuItem onClick={signout}>Sair</MenuItem>
+                        <Link underline="none" color={'inherit'} href="/acesso">
+                            <MenuItem onClick={signout}>Sair</MenuItem>
+                        </Link>
+
                     </Menu>
 
                 </Toobar>

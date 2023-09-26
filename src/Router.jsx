@@ -4,6 +4,7 @@ import { Perfil } from "./pages/Perfil";
 import Home from "./pages/Home";
 import PreLeitura from "./pages/PreLeitura";
 import Favoritos from "./pages/Favoritos";
+import Relatorio from "./pages/Relatorio";
 import { AutenticacaoContext } from "./contexts/Autenticacao";
 import Acesso from "./pages/Acesso";
 import { useContext } from "react";
@@ -22,6 +23,7 @@ export const Router = () => {
         <Route path="/" element={<Privado Page={<Principal />} />}>
           <Route index element={<Home />} />
           <Route path="perfil" element={<Perfil />} />
+          <Route path="relatorio" element={<Relatorio />} />
           <Route path="favoritos" element={<Favoritos />} />
           <Route path="acervo" element={<Acervo />} />
           <Route path="leitura/:urlPdf" element={<Leitura />} />
