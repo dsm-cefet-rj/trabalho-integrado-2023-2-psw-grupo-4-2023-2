@@ -18,7 +18,7 @@ const Principal = ({ drawerWidth = 240 }) => {
         <Box sx={{ display: 'flex', minHeight:'100vh', background:'linear-gradient(to bottom, #031881, #1475a1 100vh);'}}>
             <Navbar drawerWidth={drawerWidth} toggleDrawer={toggleDrawer} />
             <Sidebar drawerWidth={drawerWidth} open={open} toggleDrawer={toggleDrawer} />
-            <Container maxWidth='xl' sx={{mt: '64px', position:'relative'}} >
+            <Container maxWidth='xl' sx={{mt: '64px', position:'relative',  width: {md:`calc(100vw - ${drawerWidth}px)`}}} >
                 <Outlet />
             </Container>
         </Box>

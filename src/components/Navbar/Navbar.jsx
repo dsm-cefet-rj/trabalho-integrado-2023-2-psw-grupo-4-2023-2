@@ -55,7 +55,7 @@ const Navbar = ({ drawerWidth = 240, toggleDrawer }) => {
     return (
         <AppBar position='fixed'
             sx={{
-                width: { md: `calc(100% - ${drawerWidth}px)` },
+                width: { md: `calc(100vw - ${drawerWidth}px)` },
                 ml: { md: `${drawerWidth}px` },
                 boxShadow: 'none',
                 borderBottom: '1px solid white'

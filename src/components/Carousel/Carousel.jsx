@@ -6,17 +6,16 @@ import 'swiper/css';
 
 import { IconButton, Stack, Typography } from '@mui/material';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
-import { breakpoints } from '@mui/system';
 
 
 
 const getBreakpoints = () => {
     return {
-      320: { slidesPerView: 1, spaceBetween: 10 },
-      600: { slidesPerView: 2, spaceBetween: 10 },
-      900: { slidesPerView: 3, spaceBetween: 10 },
-      1024: { slidesPerView: 4, spaceBetween: 10 },
-      1440: { slidesPerView: 5, spaceBetween: 10 }
+      0: { slidesPerView: 1, spaceBetween: 0 },
+      600: { slidesPerView: 2, spaceBetween: 8 },
+      900: { slidesPerView: 3, spaceBetween: 16 },
+      1200: { slidesPerView: 4, spaceBetween: 32 },
+      1536: { slidesPerView: 5, spaceBetween: 48 }
     };
   };
 
@@ -43,17 +42,17 @@ const Carousel = ({ children, titulo, vazio = <div></div> }) => {
 
     return (
         <>
-            <Typography variant='h4' color={'white'} component={'div'} display={'flex'} alignItems={'center'}> {titulo} <KeyboardArrowRight fontSize='large' color="secondary" /> </Typography>
+            <Typography variant={'h5'} color={'white'} component={'div'} display={'flex'} alignItems={'center'}> {titulo} <KeyboardArrowRight fontSize='large' color="secondary" /> </Typography>
             {children
                 ? <Swiper
                     modules={[Navigation]}
-                    style={{ padding: '32px 0', justifyContent: 'center' }}
+                    style={{ padding: '32px 0'}}
                     breakpoints={getBreakpoints()}
                 
                 >
                     <SwiperNvegation />
                     {children.map((slide, index) => (
-                        <SwiperSlide key={index}>{slide}</SwiperSlide>
+                        <SwiperSlide style={{display:'flex', justifyContent:'center'}} key={index}>{slide}</SwiperSlide>
                     ))
                     }
                 </Swiper>
