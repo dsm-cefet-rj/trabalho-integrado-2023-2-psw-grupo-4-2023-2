@@ -8,7 +8,7 @@ const Sidebar = ({ drawerWidth = 240, open, toggleDrawer }) => {
   const drawerContent = (
 
     <Box sx={{ p: 2 }}>
-      {/* <Logo/> */}
+      <Logo/>
       <List disablePadding>
         <ListItemButton component={Link} to="/">
           <ListItemIcon>

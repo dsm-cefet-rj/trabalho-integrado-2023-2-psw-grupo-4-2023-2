@@ -22,7 +22,7 @@ const Principal = ({ drawerWidth = 240 }) => {
                 <Outlet />
             </Container>
         </Box>
-        <Footer />
+        <Footer drawerWidth={drawerWidth} />
         </>
     );
 }
