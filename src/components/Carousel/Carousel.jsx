@@ -6,9 +6,24 @@ import 'swiper/css';
 
 import { IconButton, Stack, Typography } from '@mui/material';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
+import { breakpoints } from '@mui/system';
+
+
+
+const getBreakpoints = () => {
+    return {
+      320: { slidesPerView: 1, spaceBetween: 10 },
+      600: { slidesPerView: 2, spaceBetween: 10 },
+      900: { slidesPerView: 3, spaceBetween: 10 },
+      1024: { slidesPerView: 4, spaceBetween: 10 },
+      1440: { slidesPerView: 5, spaceBetween: 10 }
+    };
+  };
 
 const SwiperNvegation = () => {
     const swiper = useSwiper();
+
+
 
     return (
         <Stack direction={'row'} spacing={4} justifyContent={'center'} padding={2}>
@@ -32,9 +47,9 @@ const Carousel = ({ children, titulo, vazio = <div></div> }) => {
             {children
                 ? <Swiper
                     modules={[Navigation]}
-                    spaceBetween={50}
-                    slidesPerView={5}
-                    style={{ padding: '32px 0' }}
+                    style={{ padding: '32px 0', justifyContent: 'center' }}
+                    breakpoints={getBreakpoints()}
+                
                 >
                     <SwiperNvegation />
                     {children.map((slide, index) => (
