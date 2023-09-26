@@ -1,5 +1,11 @@
+import Voltar from "../../components/Voltar/Voltar"
+import PerfilUsuario from "../../components/PerfilUsuario/PerfilUsuario"
+
 export const Perfil = () => {
   return (
-    <h1>Perfil</h1>
+    <>
+    <Voltar />
+    <PerfilUsuario />
+    </>
   )
 }
