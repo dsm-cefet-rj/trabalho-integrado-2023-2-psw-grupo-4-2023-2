@@ -4,7 +4,7 @@ export const AutenticacaoContext = createContext({});
 
 export const Autenticacao = ({ children }) => {
     const users = [];
-    const [user, setUser] = useState({nome:"Renan Lima", login:"renanlima", password:'123'});
+    const [user, setUser] = useState();
 
     const signin = (login, password) => {
         const hasUser = users.find(user => (user?.login === login));

@@ -2,9 +2,10 @@ import { Box } from "@mui/material";
 import Navbar from "../components/Navbar/Navbar";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Footer from "../components/Footer/Footer";
-import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Container } from "@mui/system";
+import { useState } from "react";
+
 
 const Principal = ({ drawerWidth = 240 }) => {
 
