@@ -1,13 +1,14 @@
 import { createContext, useState } from "react";
 
 export const AutenticacaoContext = createContext({});
-const users = [];
 
 export const Autenticacao = ({ children }) => {
-    const [user, setUser] = useState();
+    const users = [];
+    const [user, setUser] = useState({nome:'Renan Lima', login:'renan', password:'123'});
 
     const signin = (login, password) => {
-        console.log()
+        console.log('signin');
+        console.log(users);
         const hasUser = users.find(user => (user?.login === login));
 
         if (hasUser) {
@@ -23,6 +24,8 @@ export const Autenticacao = ({ children }) => {
     };
 
     const signup = (nome, login, password) => {
+        console.log('signup');
+        console.log(users);
 
         const hasUser = users.find(user => (user?.login === login));
 
@@ -40,6 +43,8 @@ export const Autenticacao = ({ children }) => {
     };
 
     const signout = () => {
+        console.log('signout');
+        console.log(users);
         setUser(null);
     };
 

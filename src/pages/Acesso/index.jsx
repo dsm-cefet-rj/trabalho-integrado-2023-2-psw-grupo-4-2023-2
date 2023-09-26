@@ -26,8 +26,7 @@ const Acesso = () => {
   };
   
   const handleSignin = () => {
-    console.log(nome, login, password);
-    signin(login, password)
+    alert(signin(login, password))
   };
 
   const [nome, setNome] = useState('');
