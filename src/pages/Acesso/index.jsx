@@ -1,15 +1,14 @@
 import { Box } from '@mui/system'
 import React, { useContext, useState } from 'react'
 import imagemPrincipalHome from '../../assets/imagem-principal-home.jpg'
-import { Alert, AppBar, Button, Container, Grid, IconButton, Modal, Snackbar, Stack, TextField, Toolbar, Typography, useTheme } from '@mui/material'
+import { Alert, AppBar, Button, Container, Grid, IconButton, Modal, Snackbar, TextField, Toolbar, Typography } from '@mui/material'
 import Logo from '../../components/Logo/Logo'
 import { AutenticacaoContext } from '../../contexts/Autenticacao'
-import { Cancel, CancelOutlined } from '@mui/icons-material'
+import { Cancel } from '@mui/icons-material'
 
 
 const Acesso = () => {
   const { cadastrar, acessar } = useContext(AutenticacaoContext);
-  const theme = useTheme();
 
   const handleSignup = () => {
     cadastrar(nome, login, password);
@@ -111,7 +110,7 @@ const Acesso = () => {
         }}>
           <Box maxWidth='sm' sx={{
             position: 'relative',
-            bgcolor: theme.palette.secondary.main,
+            bgcolor: 'background.default',
             borderRadius: 1,
             boxShadow: 24,
             p: 4,
@@ -123,11 +122,11 @@ const Acesso = () => {
             }}
               onClick={handleCloseCadastro}
             >
-              <Cancel fontSize='small' color='primary'></Cancel>
+              <Cancel fontSize='small' color='secondary'></Cancel>
             </IconButton>
             <Grid container spacing={2} >
               <Grid item xs={12} >
-                <Typography variant='h4' textAlign={'center'} color={'primary'}>Cadastro</Typography>
+                <Typography variant='h4' textAlign={'center'} color={'secondary'}>Cadastro</Typography>
               </Grid>
               <Grid item xs={12}>
                 <TextField fullWidth value={nome} autoComplete="off" type='text' label="nome" onChange={handleNome}></TextField>
@@ -139,7 +138,7 @@ const Acesso = () => {
                 <TextField fullWidth value={password} autoComplete="off" type='password' label="senha" onChange={handlePassword}></TextField>
               </Grid>
               <Grid item xs={12}>
-                <Button fullWidth variant='contained' onClick={handleSignup}>Cadastrar</Button>
+                <Button fullWidth variant='contained'color='secondary' onClick={handleSignup}>Cadastrar</Button>
               </Grid>
             </Grid>
           </Box>
@@ -158,7 +157,7 @@ const Acesso = () => {
         }}>
           <Box maxWidth='sm' sx={{
             position: 'relative',
-            bgcolor: theme.palette.secondary.main,
+            bgcolor: 'background.default',
             borderRadius: 1,
             boxShadow: 24,
             p: 4,
@@ -170,11 +169,11 @@ const Acesso = () => {
             }}
               onClick={handleCloseLogin}
             >
-              <Cancel fontSize='small' color='primary'></Cancel>
+              <Cancel fontSize='small' color='secondary'></Cancel>
             </IconButton>
             <Grid container spacing={2} >
               <Grid item xs={12} >
-                <Typography variant='h4' textAlign={'center'} color={'primary'}>Login</Typography>
+                <Typography variant='h4' textAlign={'center'} color={'secondary'}>Login</Typography>
               </Grid>
               <Grid item xs={12}>
                 <TextField fullWidth value={login} autoComplete="off" type='email' label="email" onChange={handleLogin}></TextField>
@@ -183,7 +182,7 @@ const Acesso = () => {
                 <TextField fullWidth value={password} autoComplete="off" type='password' label="senha" onChange={handlePassword}></TextField>
               </Grid>
               <Grid item xs={12}>
-                <Button fullWidth variant='contained' onClick={handleSignin}>Login</Button>
+                <Button fullWidth variant='contained' color='secondary' onClick={handleSignin}>Login</Button>
               </Grid>
             </Grid>           
           </Box>
@@ -191,7 +190,7 @@ const Acesso = () => {
       </Modal>
 
       <Snackbar open={openAlertMessage} autoHideDuration={2500} onClose={handleCloseAlertMessage} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
-        <Alert onClose={handleCloseAlertMessage} severity="error" sx={{ width: '100%' }}>
+        <Alert onClose={handleCloseAlertMessage} severity="error" variant='filled' sx={{ width: '100%' }}>
           E-mail ou senha incorretos. Tente novamente.
         </Alert>
       </Snackbar>

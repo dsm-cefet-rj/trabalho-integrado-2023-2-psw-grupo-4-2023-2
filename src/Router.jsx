@@ -13,8 +13,6 @@ import Acervo from "./pages/Acervo";
 
 const Privado = ({ Page }) => {
   const { signed, usuario } = useContext(AutenticacaoContext);
-  console.log(usuario)
-  console.log(signed)
   return signed ? Page : <Acesso />;
 };
 
