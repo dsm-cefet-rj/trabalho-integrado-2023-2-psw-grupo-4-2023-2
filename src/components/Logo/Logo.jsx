@@ -8,7 +8,7 @@ const LogoStyled = styled(Box)`
 
 const Logo = ({color}) => {
     return (
-        <LogoStyled sx={{height:{xs:50, md:60}, alignItems:'center', display:'flex', gap:2, mb:2}} flexWrap={"nowrap"} >
+        <LogoStyled sx={{height:{xs:50, md:60}, flexDirection:'row', alignItems:'center', display:'flex', gap:1}} flexWrap={"nowrap"} >
             <Box component={'img'} src={logo} height={'100%'}/>
             <Typography component={'div'} color={color}>
                 LeiaMais

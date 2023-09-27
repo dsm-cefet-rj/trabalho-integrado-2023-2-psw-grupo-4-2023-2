@@ -1,7 +1,7 @@
-import { Box } from '@mui/system'
+import { Box, Stack } from '@mui/system'
 import React, { useContext, useState } from 'react'
 import imagemPrincipalHome from '../../assets/imagem-principal-home.jpg'
-import { Alert, AppBar, Backdrop, Button, CircularProgress, Container, FormControl, FormGroup, Grid, IconButton, LinearProgress, Modal, Snackbar, TextField, Toolbar, Typography } from '@mui/material'
+import { Alert, AppBar, Backdrop, Button, CircularProgress, Container, FormControl, FormGroup, Grid, IconButton, LinearProgress, Modal, Paper, Snackbar, TextField, Toolbar, Typography } from '@mui/material'
 import Logo from '../../components/Logo/Logo'
 import { AutenticacaoContext } from '../../contexts/Autenticacao'
 import { Cancel } from '@mui/icons-material'
@@ -78,10 +78,12 @@ const Acesso = () => {
 
   const handleSignin = () => {
     setOpenLoading(true);
+    setOpenModal(false);
 
     setTimeout(() => {
       if (acessar(login, password)) {
       } else {
+        setOpenModal(true);
         handleLoginErro();
       }
       setOpenLoading(false)
@@ -118,18 +120,25 @@ const Acesso = () => {
 
   return (
     <>
-      <AppBar sx={{ paddingY: 3 }}>
+      <AppBar>
         <Container maxWidth='xl'>
+          <Toolbar sx={{justifyContent:{xs:'center', sm:'space-between'}}}>
+            <Logo/>
+            <Stack direction={'row'} spacing={1} sx={{display:{xs:'none', sm:'block'}}}>
+              <Button variant='contained' color='secondary' onClick={handleOpenLogin}>Login</Button>
+              <Button variant='outlined' color='secondary' onClick={handleOpenCadastro}>Assine</Button>
+            </Stack>
+          </Toolbar>
+        </Container>
+      </AppBar>
+
+      <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0, display:{xs:'block', sm:'none'} }}>
+        <Container>
           <Toolbar>
-            <Logo />
-            <Box sx={{ flexGrow: 1 }}></Box>
-            <Box sx={{
-              display: 'flex',
-              gap: 1
-            }}>
-              <Button variant='contained' color='secondary' onClick={handleOpenLogin}>LOGIN</Button>
-              <Button variant='outlined' color='secondary' onClick={handleOpenCadastro}>CADASTRO</Button>
-            </Box>
+            <Stack direction={'row'} spacing={1} useFlexGap width={'100%'}>
+              <Button fullWidth variant='contained' color='secondary' onClick={handleOpenLogin}>Login</Button>
+              <Button fullWidth variant='outlined' color='secondary' onClick={handleOpenCadastro}>Assine</Button>
+            </Stack>
           </Toolbar>
         </Container>
       </AppBar>
@@ -142,6 +151,24 @@ const Acesso = () => {
         height: '100vh',
       }}>
 
+
+        <Container maxWidth='lg'>
+          <Stack sx={{
+            alignItems: 'center',
+            width: '100%',
+            pt: '128px'
+          }}
+            spacing={4}>
+             <Paper sx={{ bgcolor: 'primary.main', px: {xs:4, md:8}, py: 4 }} >
+              <Typography variant='h2' color={'secondary'} sx={{fontSize: {xs:'5vw', lg:'3vw'}}}>O maior clube de livros do Brasil</Typography>
+            </Paper>
+
+            <Paper sx={{ bgcolor: 'secondary.main', px: {xs:4, md:8}, py: 2 }}>
+              <Typography variant='h4' color={'primary'}  sx={{fontSize: {xs:'3vw', lg:'2vw'}}} >Acesse nosso mundo de livros digitais.</Typography>
+            </Paper>
+            <Button variant='contained' color='success' onClick={handleOpenCadastro}>Assine o LeiaMais!</Button>
+          </Stack>
+        </Container>
       </Box>
 
       <Modal
