@@ -12,7 +12,8 @@ import Leitura from "./pages/Leitura";
 import Acervo from "./pages/Acervo";
 
 const Privado = ({ Page }) => {
-  const { signed } = useContext(AutenticacaoContext);
+  const { signed, usuario } = useContext(AutenticacaoContext);
+  console.log(usuario)
   console.log(signed)
   return signed ? Page : <Acesso />;
 };
@@ -21,7 +22,6 @@ export const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="acesso" element={<Acesso />} />
         <Route path="/" element={<Privado Page={<Principal />} />}>
           <Route index element={<Home />} />
           <Route path="perfil" element={<Perfil />} />

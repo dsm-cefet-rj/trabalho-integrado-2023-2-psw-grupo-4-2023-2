@@ -1,68 +1,89 @@
 import { createContext, useEffect, useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 export const AutenticacaoContext = createContext({});
-import { users } from '../database/users';
 
 export const Autenticacao = ({ children }) => {
 
-    const [user, setUser] = useState(() => {
+    const [usuarios, setUsuarios] = useState(() => {
+        const storedUsers = localStorage.getItem("users");
+        return storedUsers ? JSON.parse(storedUsers) : [];
+    });
+
+    useEffect(() => {
+        if (usuarios) {
+            localStorage.setItem("users", JSON.stringify(usuarios));
+        } else {
+            localStorage.removeItem("users");
+        }
+    }, [usuarios]);
+
+
+    const [usuario, setUsuario] = useState(() => {
         const storedUser = localStorage.getItem("user");
         return storedUser ? JSON.parse(storedUser) : null;
     });
 
     useEffect(() => {
-        if (user) {
-            localStorage.setItem("user", JSON.stringify(user));
+        if (usuario) {
+            localStorage.setItem("user", JSON.stringify(usuario));
+            
         } else {
             localStorage.removeItem("user");
         }
-    }, [user]);
+    }, [usuario]);
 
-    const signin = (login, password) => {
-        console.log('signin');
-        console.log(users);
-        const hasUser = users.find(user => (user?.login === login));
 
-        if (hasUser) {
-            if (hasUser.password === password) {
-                setUser(hasUser)
-            } else {
-                return "Senha incorreta";
+    const acessar = (login, password) => {
+        const existeUsuario = usuarios.find(usuario => (usuario?.login === login));
+
+        if (existeUsuario) {
+            if (existeUsuario.password === password) {
+                setUsuario(existeUsuario)
+                return true;
             }
-            return "Logado com Sucesso";
-        } else {
-            return "Usuário não cadastrado";
+
+            return false;
         }
     };
 
-    const signup = (nome, login, password) => {
-        console.log('signup');
-        console.log(users);
+    const cadastrar = (nome, login, password) => {
+        const id = uuidv4();
 
-        const hasUser = users.find(user => (user?.login === login));
+        const novoUsuario = { id, nome, login, password };
 
-        if (hasUser) {
-            hasUser.nome = nome
-            hasUser.password = password;
+        const existeUsuario = usuarios.find(user => (user?.login === login));
+
+        if (existeUsuario) {
+            existeUsuario.nome = nome
+            existeUsuario.password = password;
         } else {
-            users.push({
-                nome,
-                login,
-                password
-            })
+            setUsuarios([...usuarios, novoUsuario]);
         }
         return;
     };
 
-    const signout = () => {
-        console.log('signout');
-        console.log(users);
-        setUser(null);
+    const excluir = (login, password) => {
+        if (acessar(login, password)) {
+
+            const usuariosAtualizados = usuarios.filter((usuario) => usuario.login !== login);
+            setUsers(usuariosAtualizados);
+
+            return true
+        };
+
+        return false
+
     };
+
+    const sair = () => {
+        setUsuario(null);
+    };
+
 
     return (
         <AutenticacaoContext.Provider
-            value={{ user, signed: !!user, signin, signup, signout }}
+            value={{ usuario, signed: !!usuario, acessar, cadastrar, sair, excluir }}
         >
             {children}
         </AutenticacaoContext.Provider>

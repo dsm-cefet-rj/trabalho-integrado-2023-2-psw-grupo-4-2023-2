@@ -16,17 +16,17 @@ const style = {
 };
 
 const Acesso = () => {
-  const { signup, signin} = useContext(AutenticacaoContext);
+  const { cadastrar, acessar} = useContext(AutenticacaoContext);
 
   const handleSignup = () => {
     console.log(nome, login, password);
-    signup(nome, login, password);
+    cadastrar(nome, login, password);
     setOpenCadastro(false);
     setOpenLogin(true);
   };
   
   const handleSignin = () => {
-    alert(signin(login, password))
+    alert(acessar(login, password))
   };
 
   const [nome, setNome] = useState('');
@@ -38,26 +38,27 @@ const Acesso = () => {
 
   const handleOpenCadastro = () => setOpenCadastro(true);
   const handleCloseCadastro = () => {
+    setNome('');
+    setLogin('');
+    setPassword('');
     setOpenCadastro(false);
-
   }
   const handleOpenLogin = () => setOpenLogin(true);
   const handleCloseLogin = () => {
+    setLogin('');
+    setPassword('');
     setOpenLogin(false)
   };
 
 
   const handleNome = (event) => {
     setNome(event.target.value);
-    console.log(nome)
   };
   const handleLogin = (event) => {
     setLogin(event.target.value);
-    console.log(login)
   };
   const handlePassword = (event) => {
     setPassword(event.target.value);
-    console.log(password)
   };
 
 

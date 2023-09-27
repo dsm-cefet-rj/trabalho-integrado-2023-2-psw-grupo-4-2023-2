@@ -15,7 +15,7 @@ const Toobar = styled(MuiToolbar)`
     `
 
 const Navbar = ({ drawerWidth = 240, toggleDrawer }) => {
-    const { user, signout } = useContext(AutenticacaoContext);
+    const { usuario, sair } = useContext(AutenticacaoContext);
     const { setLivrosPesquisados, livros } = useContext(LivrosContext);
 
     const [userMenu, setUserMenu] = useState(null);
@@ -88,7 +88,7 @@ const Navbar = ({ drawerWidth = 240, toggleDrawer }) => {
                     <Box sx={{ flexGrow: 1 }}></Box>
 
                     <Stack direction={'row'} alignItems={'center'} spacing={2}>
-                        <Typography variant="body1">{user.nome}</Typography>
+                        <Typography variant="body1">{usuario.nome}</Typography>
 
                         <Link href="/perfil">
                             <Avatar
@@ -135,8 +135,8 @@ const Navbar = ({ drawerWidth = 240, toggleDrawer }) => {
                             <MenuItem onClick={handleClose}>Relatório do Usuário</MenuItem>
                         </Link>
 
-                        <Link underline="none" color={'inherit'} href="/acesso">
-                            <MenuItem onClick={signout}>Sair</MenuItem>
+                        <Link underline="none" color={'inherit'}>
+                            <MenuItem onClick={sair}>Sair</MenuItem>
                         </Link>
 
                     </Menu>
