@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import logo from '../../assets/logo.png'
 import styled from "@emotion/styled";
 
