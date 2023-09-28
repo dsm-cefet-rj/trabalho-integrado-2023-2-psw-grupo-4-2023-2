@@ -26,6 +26,8 @@ export const Autenticacao = ({ children }) => {
 
     useEffect(() => {
         if (usuario) {
+            const outrosUsuarios = usuarios.filter((user) => user.email !== usuario.email);
+            setUsuarios([...outrosUsuarios, usuario]);
             localStorage.setItem("user", JSON.stringify(usuario));
 
         } else {
@@ -67,7 +69,7 @@ export const Autenticacao = ({ children }) => {
         if (acessar(email, password)) {
 
             const usuariosAtualizados = usuarios.filter((usuario) => usuario.email !== email);
-            setUsers(usuariosAtualizados);
+            setUsuarios(usuariosAtualizados);
 
             return true
         };
@@ -83,7 +85,7 @@ export const Autenticacao = ({ children }) => {
 
     return (
         <AutenticacaoContext.Provider
-            value={{ usuario, signed: !!usuario, acessar, cadastrar, sair, excluir }}
+            value={{ usuario, signed: !!usuario, acessar, cadastrar, sair, excluir, setUsuario }}
         >
             {children}
         </AutenticacaoContext.Provider>

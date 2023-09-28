@@ -8,22 +8,23 @@ import { AutenticacaoContext } from '../../contexts/Autenticacao';
 
 const Leitor = ({ namePdf, id }) => {
 
-    const { usuario } = useContext(AutenticacaoContext);
+    const { usuario, setUsuario } = useContext(AutenticacaoContext);
 
-    const [leitura, setLeitura] = useState(() => {
-        const storedLeitura = localStorage.getItem("leitura");
-        return storedLeitura ? JSON.parse(storedLeitura) : { livros: [] };
-    });
+    // const [leitura, setLeitura] = useState(() => {
+    //     const storedLeitura = localStorage.getItem("leitura");
+    //     return storedLeitura ? JSON.parse(storedLeitura) : { livros: [] };
+    // });
 
-    useEffect(() => {
-        console.log(JSON.stringify(leitura))
-        localStorage.setItem('leitura', JSON.stringify(leitura));
-    }, [leitura])
+    // useEffect(() => {
+    //     localStorage.setItem('leitura', JSON.stringify(leitura));
+    // }, [leitura])
 
 
-    const livroLido = leitura.livros.find(livro => livro.id === id);
+    const leituras = usuario.leituras;
+
+    const leitura = leituras.find(leitura => leitura.id === id);
    
-    const pagina = livroLido ? livroLido.pag : 1
+    const pagina = leitura ? leitura.pag : 1
 
     const [pageNum, setPageNum] = useState(pagina);''
     const [pdfDoc, setPdfDoc] = useState(null);
@@ -41,17 +42,8 @@ const Leitor = ({ namePdf, id }) => {
     }, [namePdf]);
 
     useEffect(() => {
-
-        fetch('http://api.leiamais.com/leitura').then((leitura)=>{
-            setLeitura(leitura);
-        }).catch((error)=>{
-
-        }).finally(()=>{
-
-        })
-
-        const novaLeitura = leitura.livros.filter(livro => livro.id !== id);
-        setLeitura({livros:[...novaLeitura, { id: id, pag: pageNum }]});
+        const outrasLeituras = leituras.filter(leitura => leitura.id !== id);
+        setUsuario({ ...usuario, leituras: [...outrasLeituras, { id: id, pag: pageNum }] });
 
     }, [pageNum]);
 
