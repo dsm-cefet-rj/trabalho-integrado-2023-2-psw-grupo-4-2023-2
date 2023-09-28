@@ -67,7 +67,7 @@ export const Autenticacao = ({ children }) => {
         if (acessar(login, password)) {
 
             const usuariosAtualizados = usuarios.filter((usuario) => usuario.login !== login);
-            setUsers(usuariosAtualizados);
+            setUsuarios(usuariosAtualizados);
 
             return true
         };
