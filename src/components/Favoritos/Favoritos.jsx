@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import Carousel from '../Carousel/Carousel'
 import ListaVazia from '../ListaVazia/ListaVazia'
 import prateleira from '../../assets/prateleira-vaiza.png'
