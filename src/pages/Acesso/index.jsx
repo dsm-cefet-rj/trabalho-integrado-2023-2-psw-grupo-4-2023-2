@@ -122,9 +122,9 @@ const Acesso = () => {
     <>
       <AppBar>
         <Container maxWidth='xl'>
-          <Toolbar sx={{justifyContent:{xs:'center', sm:'space-between'}}}>
-            <Logo/>
-            <Stack direction={'row'} spacing={1} sx={{display:{xs:'none', sm:'block'}}}>
+          <Toolbar sx={{ justifyContent: { xs: 'center', sm: 'space-between' } }}>
+            <Logo />
+            <Stack direction={'row'} spacing={1} sx={{ display: { xs: 'none', sm: 'block' } }}>
               <Button variant='contained' color='secondary' onClick={handleOpenLogin}>Login</Button>
               <Button variant='outlined' color='secondary' onClick={handleOpenCadastro}>Assine</Button>
             </Stack>
@@ -132,7 +132,7 @@ const Acesso = () => {
         </Container>
       </AppBar>
 
-      <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0, display:{xs:'block', sm:'none'} }}>
+      <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0, display: { xs: 'block', sm: 'none' } }}>
         <Container>
           <Toolbar>
             <Stack direction={'row'} spacing={1} useFlexGap width={'100%'}>
@@ -159,12 +159,12 @@ const Acesso = () => {
             pt: '128px'
           }}
             spacing={4}>
-             <Paper sx={{ bgcolor: 'primary.main', px: {xs:4, md:8}, py: 4 }} >
-              <Typography variant='h2' color={'secondary'} sx={{fontSize: {xs:'5vw', lg:'3vw'}}}>O maior clube de livros do Brasil</Typography>
+            <Paper sx={{ bgcolor: 'primary.main', px: { xs: 4, md: 8 }, py: 4 }} >
+              <Typography variant='h2' color={'secondary'} sx={{ fontSize: { xs: '5vw', lg: '3vw' } }}>O maior clube de livros do Brasil</Typography>
             </Paper>
 
-            <Paper sx={{ bgcolor: 'secondary.main', px: {xs:4, md:8}, py: 2 }}>
-              <Typography variant='h4' color={'primary'}  sx={{fontSize: {xs:'3vw', lg:'2vw'}}} >Acesse nosso mundo de livros digitais.</Typography>
+            <Paper sx={{ bgcolor: 'secondary.main', px: { xs: 4, md: 8 }, py: 2 }}>
+              <Typography variant='h4' color={'primary'} sx={{ fontSize: { xs: '3vw', lg: '2vw' } }} >Acesse nosso mundo de livros digitais.</Typography>
             </Paper>
             <Button variant='contained' color='success' onClick={handleOpenCadastro}>Assine o LeiaMais!</Button>
           </Stack>
@@ -197,6 +197,7 @@ const Acesso = () => {
               right: 0
             }}
               onClick={handleCloseCadastro}
+              aria-label="Fechar Acesso"
             >
               <Cancel fontSize='small' color='primary'></Cancel>
             </IconButton>
@@ -211,15 +212,26 @@ const Acesso = () => {
                 {isLogin
                   ? null
                   : <Grid item xs={12}>
-                    <TextField fullWidth value={nome} autoComplete="off" type='text' label="nome" onChange={handleNome}></TextField>
+                    <TextField
+                      fullWidth
+                      value={nome}
+                      autoComplete="off"
+                      type='text'
+                      label="nome"
+                      onChange={handleNome}
+                      required
+                    ></TextField>
                   </Grid>
                 }
 
                 <Grid item xs={12}>
-                  <TextField fullWidth value={login} autoComplete="off" type='email' label="email" onChange={handleLogin}></TextField>
+                  <TextField
+                    fullWidth value={login} autoComplete="off" type='email' label="email" onChange={handleLogin} required
+                    helperText={"exemplo@exemplo.com.br"}
+                  ></TextField>
                 </Grid>
                 <Grid item xs={12}>
-                  <TextField fullWidth value={password} autoComplete="off" type='password' label="senha" onChange={handlePassword}></TextField>
+                  <TextField fullWidth value={password} autoComplete="off" type='password' label="senha" onChange={handlePassword} required></TextField>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <Button type='submit' fullWidth variant='contained' color='primary'>{isLogin ? 'Login' : 'Cadastro'}</Button>

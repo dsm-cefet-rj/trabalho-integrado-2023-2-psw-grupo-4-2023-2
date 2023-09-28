@@ -1,19 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import Leitor from '../../components/Leitor/Leitor'
 import { useParams } from 'react-router-dom';
 
 import pdfDefault from '../../assets/pdf/exemplo.pdf';
 import Voltar from '../../components/Voltar/Voltar';
+import { AutenticacaoContext } from '../../contexts/Autenticacao';
 
 const Leitura = () => {
-    const { urlPdf } = useParams();
+    const { urlPdf, id } = useParams();
+
+    console.log(id)
 
     const url = urlPdf || pdfDefault  
     return (
         <>
         <Voltar />
-        <Leitor namePdf={url}></Leitor>
+        <Leitor id={id} namePdf={url}></Leitor>
         </>
     )
 }

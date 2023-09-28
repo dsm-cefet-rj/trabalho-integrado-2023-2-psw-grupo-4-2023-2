@@ -23,7 +23,7 @@ const PreLeitura = () => {
                 <Livro id={livroData.id} titulo={livroData.name} autor={livroData.descricao} urlImage={livroData.url} />
             </Box>
 
-            <DescricaoLivro sinopse={livroData.sinopse} desc={livroData.descricao}  namePdf={namePdf} genero={livroData.genero}></DescricaoLivro>
+            <DescricaoLivro id={livroData.id} sinopse={livroData.sinopse} desc={livroData.descricao}  namePdf={namePdf} genero={livroData.genero}></DescricaoLivro>
         </>
     );
 }

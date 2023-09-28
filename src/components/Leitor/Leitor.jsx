@@ -1,16 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.js';
 import './Leitor.css';
 import { Box, Button, IconButton, Stack, Tooltip } from '@mui/material';
 import { ArrowCircleLeft, ArrowCircleRight, ZoomIn, ZoomOut } from '@mui/icons-material';
+import { AutenticacaoContext } from '../../contexts/Autenticacao';
 
-const Leitor = ({ namePdf }) => {
-    const [pageNum, setPageNum] = useState(1);
+const Leitor = ({ namePdf, id }) => {
+
+    const { usuario } = useContext(AutenticacaoContext);
+
+    const [leitura, setLeitura] = useState(() => {
+        const storedLeitura = localStorage.getItem("leitura");
+        return storedLeitura ? JSON.parse(storedLeitura) : { livros: [] };
+    });
+
+    useEffect(() => {
+        console.log(JSON.stringify(leitura))
+        localStorage.setItem('leitura', JSON.stringify(leitura));
+    }, [leitura])
+
+
+    const livroLido = leitura.livros.find(livro => livro.id === id);
+   
+    const pagina = livroLido ? livroLido.pag : 1
+
+    const [pageNum, setPageNum] = useState(pagina);''
     const [pdfDoc, setPdfDoc] = useState(null);
     const [tamanhoPdf, setTamanhoPdf] = useState('pequeno');
 
-    const path = '/src/assets/pdf/';
+    const path = '/src/assets/pdf/'; ''
 
     useEffect(() => {
         const url = path + namePdf + '.pdf';
@@ -20,6 +39,21 @@ const Leitor = ({ namePdf }) => {
             setPdfDoc(pdfDoc_);
         });
     }, [namePdf]);
+
+    useEffect(() => {
+
+        fetch('http://api.leiamais.com/leitura').then((leitura)=>{
+            setLeitura(leitura);
+        }).catch((error)=>{
+
+        }).finally(()=>{
+
+        })
+
+        const novaLeitura = leitura.livros.filter(livro => livro.id !== id);
+        setLeitura({livros:[...novaLeitura, { id: id, pag: pageNum }]});
+
+    }, [pageNum]);
 
     useEffect(() => {
         const renderizaPagina = (pageNumber) => {
@@ -68,6 +102,8 @@ const Leitor = ({ namePdf }) => {
         renderizaPagina(pageNum);
     }, [pageNum, pdfDoc]);
 
+
+
     const onPrevPage = () => {
         if (pageNum > 1) {
             setPageNum(pageNum - 1);
@@ -94,22 +130,22 @@ const Leitor = ({ namePdf }) => {
     return (
         <>
             <Box sx={{
-                display:'flex',
-                justifyContent:'center'
+                display: 'flex',
+                justifyContent: 'center'
             }}>
                 <canvas id="the-canvas" className={tamanhoPdf}></canvas>
             </Box>
 
             <Box sx={{
-                position:'sticky',
-                bottom:0,
-                textAlign:"center",
-                padding:4
+                position: 'sticky',
+                bottom: 0,
+                textAlign: "center",
+                padding: 4
             }}>
                 <Button variant='contained' color='secondary' onClick={voltarInicio} size='small' sx={{
-                    position:'absolute',
-                    bottom:'16px',
-                    right:'16px',
+                    position: 'absolute',
+                    bottom: '16px',
+                    right: '16px',
                 }}>
                     Voltar a página inicial
                 </Button>
