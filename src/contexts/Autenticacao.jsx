@@ -27,15 +27,15 @@ export const Autenticacao = ({ children }) => {
     useEffect(() => {
         if (usuario) {
             localStorage.setItem("user", JSON.stringify(usuario));
-            
+
         } else {
             localStorage.removeItem("user");
         }
     }, [usuario]);
 
 
-    const acessar = (login, password) => {
-        const existeUsuario = usuarios.find(usuario => (usuario?.login === login));
+    const acessar = (email, password) => {
+        const existeUsuario = usuarios.find(usuario => (usuario?.email === email));
 
         if (existeUsuario) {
             if (existeUsuario.password === password) {
@@ -47,12 +47,12 @@ export const Autenticacao = ({ children }) => {
         }
     };
 
-    const cadastrar = (nome, login, password) => {
+    const cadastrar = (nome, email, password) => {
         const id = uuidv4();
 
-        const novoUsuario = { id, nome, login, password };
+        const novoUsuario = { id, nome, email, password, leituras: [], favoritos: [] };
 
-        const existeUsuario = usuarios.find(user => (user?.login === login));
+        const existeUsuario = usuarios.find(usuario => (usuario?.email === email));
 
         if (existeUsuario) {
             existeUsuario.nome = nome
@@ -63,10 +63,10 @@ export const Autenticacao = ({ children }) => {
         return;
     };
 
-    const excluir = (login, password) => {
-        if (acessar(login, password)) {
+    const excluir = (email, password) => {
+        if (acessar(email, password)) {
 
-            const usuariosAtualizados = usuarios.filter((usuario) => usuario.login !== login);
+            const usuariosAtualizados = usuarios.filter((usuario) => usuario.email !== email);
             setUsers(usuariosAtualizados);
 
             return true
