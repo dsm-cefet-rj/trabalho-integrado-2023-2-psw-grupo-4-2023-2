@@ -70,16 +70,13 @@ export const Autenticacao = ({ children }) => {
             setUsuarios(usuariosAtualizados);
 
             return true
-        };
-
+        }
         return false
-
     };
 
     const sair = () => {
         setUsuario(null);
     };
-
 
     return (
         <AutenticacaoContext.Provider
