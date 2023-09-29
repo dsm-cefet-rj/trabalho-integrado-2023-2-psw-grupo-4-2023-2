@@ -17,7 +17,7 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
     const meusFavoritos = favoritos.find(data => data.userLogin === usuario.email)
     
     const [favorito, setFavorito] = useState(false);
-    console.log(usuario)
+    
     const handleFavorito = () => {
         if (!favorito) {
             favorita(usuario.email, id);
