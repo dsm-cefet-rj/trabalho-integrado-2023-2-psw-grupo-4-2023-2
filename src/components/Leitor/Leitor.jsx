@@ -23,6 +23,8 @@ const Leitor = ({ namePdf, id }) => {
     const [pdfDoc, setPdfDoc] = useState(null);
     const [tamanhoPdf, setTamanhoPdf] = useState('pequeno');
 
+    const leituras = usuario.leituras;
+
     const path = '/src/assets/pdf/';
 
     useEffect(() => {
