@@ -19,7 +19,7 @@ const ContinueLendo = () => {
 
     return (
         <Carousel titulo={'Continue Lendo'} vazio={<ListaVazia text="Você ainda não está lendo nenhum livro..." urlImage={Gato} />}>
-            {continueLendo? continueLendo.map(livro => <Livro key={livro.id} id={livro.id} urlImage={livro.url} titulo={livro.name} autor={livro.descricao} />) : ""}
+            {continueLendo.length? continueLendo.map(livro => <Livro key={livro.id} id={livro.id} urlImage={livro.url} titulo={livro.name} autor={livro.descricao} />) : ""}
         </Carousel>
     )
 }
