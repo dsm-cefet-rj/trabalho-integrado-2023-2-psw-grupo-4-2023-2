@@ -17,7 +17,7 @@ const Favoritos = () => {
 
     return (
         <Carousel titulo={'Lista de Favoritos'} vazio={<ListaVazia text="Sua prateleira ainda não possui livros." urlImage={prateleira} />}>
-            {lista?.livros ? lista.livros.map(livro => <Livro key={livro.id} id={livro.id} urlImage={livro.url} titulo={livro.name} autor={livro.descricao} />) : ""}
+            {lista?.livros.length ? lista.livros.map(livro => <Livro key={livro.id} id={livro.id} urlImage={livro.url} titulo={livro.name} autor={livro.descricao} />) : ""}
         </Carousel>
     )
 }
