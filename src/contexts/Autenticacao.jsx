@@ -47,12 +47,12 @@ export const Autenticacao = ({ children }) => {
         }
     };
 
-    const cadastrar = (nome, login, password) => {
+    const cadastrar = (nome, email, password) => {
         const id = uuidv4();
 
-        const novoUsuario = { id, nome, login, password, leituras:[], favoritos: []};
+        const novoUsuario = { id, nome, email, password, leituras:[], favoritos: []};
 
-        const existeUsuario = usuarios.find(user => (user?.login === login));
+        const existeUsuario = usuarios.find(usuario => (usuario?.email === email));
 
         if (existeUsuario) {
             existeUsuario.nome = nome
