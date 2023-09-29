@@ -1,29 +1,16 @@
-import { Avatar, Card, Container, Typography, TextField } from '@mui/material'
+import { Avatar, Card, Container, Typography, TextField } from '@mui/material';
 import AccountCircleTwoTone from '@mui/icons-material/AccountCircleTwoTone';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
+import EventIcon from '@mui/icons-material/Event';
 import { Box } from '@mui/system'
 import React from 'react'
+import './PerfilUsuario.css'
 
 const PerfilUsuario = () => {
   return (
     <Container maxWidth='sm'>
-        <Typography variant='h5' color={'white'}>Meus Dados</Typography>
-            <Card sx={{display:'flex', backgroundColor: 'goldenrod', alignItems:'center', gap: 2, pl: 2}}>
-                <Avatar><AccountCircleTwoTone /></Avatar>
-                <Box display={'flex'} flexDirection={'column'}>
-                    <Box sx={{display:'flex', gap:1}}>
-                        <Typography variant='h6' color={'white'}>Nome:</Typography>
-                        <Typography variant='h6' color={'white'}>Renan Lima</Typography>
-                    </Box>
-                    <Box sx={{display:'flex', gap:1}}>
-                        <Typography variant='h6' color={'white'}>Email:</Typography>
-                        <Typography variant='h6' color={'white'}>teste@lolmail.com</Typography>
-                    </Box>
-                </Box>
-            </Card>
-
-
-
-        <Typography variant='h5' color={'white'}>Meus Dados</Typography>
+        <Box sx={{margin: '30px'}}>
+            <Typography variant='h5' color={'white'}>Meus Dados</Typography>
             <Card sx={{display:'flex', backgroundColor: 'goldenrod', alignItems:'center', gap: 2, pl: 2}}>
                 <Avatar><AccountCircleTwoTone /></Avatar>
                 <Box display={'flex'} flexDirection={'column'}>
@@ -49,11 +36,14 @@ const PerfilUsuario = () => {
                     </Box>
                 </Box>
             </Card>
-        
-            <Typography variant='h5' color={'white'}>Assinatura e conbrança</Typography>
+        </Box>
+       
+        <Box sx={{margin: '30px'}}>
+            <Typography variant='h5' color={'white'}>Assinatura e cobrança</Typography>
             <Card sx={{display:'flex', backgroundColor: 'goldenrod', alignItems:'center', gap: 2, pl: 2}}>
                 <Box display={'flex'} flexDirection={'column'}>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
+                        <EventIcon sx={{ color: 'white', mr: 1, my: 0.5 }} />
                         <Typography variant='h6' color={'white'}>Data de cobrança:</Typography>
                         <TextField variant="standard"  margin="dense"
                             id="data-cobrança"
@@ -64,18 +54,21 @@ const PerfilUsuario = () => {
                         />
                     </Box>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
+                        <CreditCardIcon sx={{ color: 'white', mr: 1, my: 0.5 }} />  
                         <Typography variant='h6' color={'white'}>Pagamento</Typography>
                         <TextField variant="standard" margin="dense"
                             id="forma-pagamento"
                             defaultValue="teste@lolmail.com"
                             InputProps={{
                                 readOnly: true,
-                              }}
+                            }}
                         />
                     </Box>
                 </Box>
             </Card>
+        </Box>
 
+        <Box sx={{margin: '30px'}}>
             <Typography variant='h5' color={'white'}>Informações pessoais</Typography>
             <Card sx={{display:'flex', backgroundColor: 'goldenrod', alignItems:'center', gap: 2, pl: 2}}>
                 <Box display={'flex'} flexDirection={'column'}>
@@ -121,7 +114,7 @@ const PerfilUsuario = () => {
                     </Box>
                 </Box>
             </Card>
-
+        </Box>
             
 
         
