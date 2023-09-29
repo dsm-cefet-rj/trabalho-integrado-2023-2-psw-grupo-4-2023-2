@@ -19,5 +19,9 @@
     height: 30px;
 }
 
+.stack-relatorio{
+    width: -webkit-fill-available;
+    margin: 0 10% 30px 10%;
+}
 
 
