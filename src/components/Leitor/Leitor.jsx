@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.js';
 import './Leitor.css';
 import { Box, Button, IconButton, Stack, Tooltip } from '@mui/material';
 import { ArrowCircleLeft, ArrowCircleRight, ZoomIn, ZoomOut } from '@mui/icons-material';
+import { AutenticacaoContext } from '../../contexts/Autenticacao';
 
 const Leitor = ({ namePdf, id }) => {
+
+    const {usuario, setUsuario} = useContext(AutenticacaoContext);
+    
     const [pageNum, setPageNum] = useState(1);
     const [pdfDoc, setPdfDoc] = useState(null);
     const [tamanhoPdf, setTamanhoPdf] = useState('pequeno');
