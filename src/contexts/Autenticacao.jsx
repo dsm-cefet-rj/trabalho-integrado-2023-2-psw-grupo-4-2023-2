@@ -63,10 +63,10 @@ export const Autenticacao = ({ children }) => {
         return;
     };
 
-    const excluir = (login, password) => {
-        if (acessar(login, password)) {
+    const excluir = (email, password) => {
+        if (acessar(email, password)) {
 
-            const usuariosAtualizados = usuarios.filter((usuario) => usuario.login !== login);
+            const usuariosAtualizados = usuarios.filter((usuario) => usuario.email !== email);
             setUsuarios(usuariosAtualizados);
 
             return true
