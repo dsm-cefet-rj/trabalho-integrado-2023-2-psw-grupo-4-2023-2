@@ -5,7 +5,7 @@ import './Leitor.css';
 import { Box, Button, IconButton, Stack, Tooltip } from '@mui/material';
 import { ArrowCircleLeft, ArrowCircleRight, ZoomIn, ZoomOut } from '@mui/icons-material';
 
-const Leitor = ({ namePdf }) => {
+const Leitor = ({ namePdf, id }) => {
     const [pageNum, setPageNum] = useState(1);
     const [pdfDoc, setPdfDoc] = useState(null);
     const [tamanhoPdf, setTamanhoPdf] = useState('pequeno');

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useContext } from 'react'
 import Carousel from '../Carousel/Carousel'
 import ListaVazia from '../ListaVazia/ListaVazia'
