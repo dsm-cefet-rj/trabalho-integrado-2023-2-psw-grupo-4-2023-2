@@ -37,11 +37,15 @@
 
 }
 
-.menu-leitor-botoes{
+#menu-leitor-botoes{
     display: flex;
     justify-content: space-between;
     margin: auto;
     max-width: 400px;
+}
+
+#botao-pagina-inicial{
+    position: inherit;
 }
 
 .menu-leitor-botoes button{
@@ -55,6 +59,8 @@
 .menu-leitor-fixado i{
     font-size: 12px;
 }
+
+
 
 #inicio{
     background-color: transparent;

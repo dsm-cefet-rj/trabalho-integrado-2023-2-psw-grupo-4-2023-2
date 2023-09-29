@@ -108,6 +108,9 @@ const Leitor = ({ namePdf, id }) => {
 
     return (
         <>
+            <Button variant='contained' color='secondary' onClick={voltarInicio} size='small' align='center'>
+                    Voltar a página inicial
+            </Button>
             <Box sx={{
                 display:'flex',
                 justifyContent:'center'
@@ -121,14 +124,8 @@ const Leitor = ({ namePdf, id }) => {
                 textAlign:"center",
                 padding:4
             }}>
-                <Button variant='contained' color='secondary' onClick={voltarInicio} size='small' sx={{
-                    position:'absolute',
-                    bottom:'16px',
-                    right:'16px',
-                }}>
-                    Voltar a página inicial
-                </Button>
-                <Stack direction={'row'} alignItems={'center'} justifyContent={'center'} spacing={16}>
+                
+                 <Stack direction={'row'} alignItems={'center'} justifyContent={'center'} id='menu-leitor-botoes'> 
                     <Tooltip arrow title='Anterior' placement='left' >
                         <IconButton onClick={onPrevPage}>
                             <ArrowCircleLeft fontSize='large'></ArrowCircleLeft>
@@ -157,6 +154,8 @@ const Leitor = ({ namePdf, id }) => {
                         <span id="porcentagem"></span>%)
                     </span>
                 </Box>
+
+    
             </Box>
         </>
     );
