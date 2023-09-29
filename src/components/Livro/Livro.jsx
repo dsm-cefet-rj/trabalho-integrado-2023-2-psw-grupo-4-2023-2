@@ -61,33 +61,36 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
                     </Typography>
                 </CardContent>
             </Link >
-            <IconButton
-                onClick={handleFavorito}
-                sx={{
-                    position: "absolute",
-                    bottom: "8px",
-                    right: "8px",
-                }}
-            >
-                {favorito ? (
-                    <Bookmark color="secondary" />
-                ) : (
-                    <BookmarkBorder color="primary" />
-                )}
-            </IconButton>
-            {listaIDs.includes(id)?(
-                <IconButton 
-                    onClick={removerLendo}
-                    aria-label="delete"
+            <div style={{display:'flex', alingContent:'flex-end'}}>
+                <IconButton
+                    onClick={handleFavorito}
                     sx={{
-                        position: "relative",
+                        position: "absolute",
                         bottom: "8px",
                         right: "8px",
-                    }}>
-                    <DeleteIcon/>
-                </IconButton>):(
-                "")
-            }
+                    }}
+                >
+                    {favorito ? (
+                        <Bookmark color="secondary" />
+                    ) : (
+                        <BookmarkBorder color="primary" />
+                    )}
+                </IconButton>
+                {listaIDs.includes(id)?(
+                    <IconButton
+                        onClick={removerLendo}
+                        aria-label="delete"
+                        sx={{
+                            position: "absolute",
+                            bottom: "8px",
+                            right: "8px",
+                            marginRight: "78%"
+                        }}>
+                        <DeleteIcon/>
+                    </IconButton>):(
+                    "")
+                }
+            </div>
             
         </Card>
 
