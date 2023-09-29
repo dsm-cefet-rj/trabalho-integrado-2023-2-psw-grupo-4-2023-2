@@ -3,10 +3,19 @@ import AccountCircleTwoTone from '@mui/icons-material/AccountCircleTwoTone';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import EventIcon from '@mui/icons-material/Event';
 import { Box } from '@mui/system'
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { AutenticacaoContext } from "../../contexts/Autenticacao";
 
 const PerfilUsuario = () => {
     const [readOnly, setReadOnly] = useState(true);
+    const { usuario, sair } = useContext(AutenticacaoContext);
+
+    const perfil ={
+        nome: usuario.nome,
+        email: usuario.email,
+        endereco: 'Av. maracanã',
+        celular: '+55 (21) 9387-4293',
+    }
 
     const editarDados = () => {
         setReadOnly(false);
@@ -29,7 +38,7 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Nome:</Typography>
                         <TextField variant="standard"  margin="dense"
                             id="nome-usuario"
-                            defaultValue="Renan Lima"
+                            defaultValue={perfil.nome}
                             InputProps={{
                                 readOnly,
                               }}
@@ -39,7 +48,7 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Email:</Typography>
                         <TextField variant="standard" margin="dense"
                             id="email-usuario"
-                            defaultValue="teste@lolmail.com"
+                            defaultValue={perfil.email}
                             InputProps={{
                                 readOnly,
                               }}
@@ -87,7 +96,7 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Nome:</Typography>
                         <TextField variant="standard"  margin="dense"
                             id="nome-usuario2"
-                            defaultValue="Renan Lima"
+                            defaultValue={perfil.nome}
                             InputProps={{
                                 readOnly,
                               }}
@@ -97,7 +106,7 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Email:</Typography>
                         <TextField variant="standard" margin="dense"
                             id="email-usuario2"
-                            defaultValue="teste@lolmail.com"
+                            defaultValue={perfil.email}
                             InputProps={{
                                 readOnly,
                               }}
@@ -106,8 +115,8 @@ const PerfilUsuario = () => {
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'black'}>Celular:</Typography>
                         <TextField variant="standard" margin="dense"
-                            id="celular-usuario2"
-                            defaultValue="+55 (21) 9387-4293"
+                            id="celular-usuario"
+                            defaultValue={perfil.celular}
                             InputProps={{
                                 readOnly,
                               }}
@@ -117,7 +126,7 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Endereço:</Typography>
                         <TextField variant="standard" margin="dense"
                             id="endereco-usuario2"
-                            defaultValue="Av. maracanã"
+                            defaultValue={perfil.endereco}
                             InputProps={{
                                 readOnly,
                               }}
@@ -126,7 +135,10 @@ const PerfilUsuario = () => {
                 </Box>
             </Card>
         </Box>
-
+        
+        <Button onClick={sair} variant="contained" color="secondary">
+          Finalizar sessão
+        </Button>
         <Button onClick={editarDados} variant="contained" color="secondary">
           Editar dados
         </Button>
