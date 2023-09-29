@@ -24,7 +24,7 @@ const Leitor = ({ namePdf, id }) => {
 
     const pagina = leitura? leitura.pag: 1;
 
-    const [pageNum, setPageNum] = useState(1);
+    const [pageNum, setPageNum] = useState(pagina);
     const [pdfDoc, setPdfDoc] = useState(null);
     const [tamanhoPdf, setTamanhoPdf] = useState('pequeno');
 
@@ -43,7 +43,7 @@ const Leitor = ({ namePdf, id }) => {
     useEffect(()=>{
         const outrasLeituras = leituras.filter(leitura => leitura.id !== id);
         setUsuario({...usuario, leituras: [...outrasLeituras,{id:id, pag: pageNum}]});
-    },[pageNum]);
+    },[pageNum, id, leituras, setUsuario, usuario]);
 
     useEffect(() => {
         const renderizaPagina = (pageNumber) => {
