@@ -4,6 +4,18 @@ import img from '../../assets/imagem-relatorio.png'
 import { Stack } from '@mui/system'
 
 const RelatorioUsuario = () => {
+
+  const generosLidos =[
+    {genero: "Romance", qtd: 5},
+    {genero: "Terror", qtd: 4},
+    {genero: "Fantasia", qtd: 7},
+    {genero: "Suspense", qtd: 2},
+  ];
+
+  const totalLidos = generosLidos.reduce((soma, objeto) => soma + objeto.qtd, 0);
+
+  generosLidos.sort((a,b) => b.qtd - a.qtd);
+ 
   return (
   <>
     <Box sx={{
@@ -15,12 +27,19 @@ const RelatorioUsuario = () => {
       <Box>
         <img src={img} alt="Descrição da imagem" />
       </Box>
-      <Typography variant='h6' color={'secondary'}>Você leu 5 livros esse ano. Parabéns</Typography>
+      <Typography variant='h6' color={'secondary'}>Você leu {totalLidos} livros esse ano. Parabéns</Typography>
       <Stack>
         <Typography variant='h5'>Seu relatório:</Typography>
-        <Typography>Romance: 2 livros</Typography>
-        <Typography>Terror: 1 livros</Typography>
-        <Typography>Suspense: 2 livros</Typography>
+
+        {
+          generosLidos.map((objeto) => (
+
+            <><Typography>{objeto.genero}: {objeto.qtd} livros</Typography>
+            <div>
+              <div>{(objeto.qtd * 100) / totalLidos}%</div>
+            </div></>
+        ))}
+        
       </Stack>
     </Box>
   </>
