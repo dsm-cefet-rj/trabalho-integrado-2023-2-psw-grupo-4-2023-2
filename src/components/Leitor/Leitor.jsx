@@ -42,7 +42,8 @@ const Leitor = ({ namePdf, id }) => {
 
     useEffect(()=>{
         const outrasLeituras = leituras.filter(leitura => leitura.id !== id);
-    })
+        setUsuario({...usuario, leituras: [...outrasLeituras,{id:id, pag: pageNum}]});
+    },[pageNum]);
 
     useEffect(() => {
         const renderizaPagina = (pageNumber) => {
