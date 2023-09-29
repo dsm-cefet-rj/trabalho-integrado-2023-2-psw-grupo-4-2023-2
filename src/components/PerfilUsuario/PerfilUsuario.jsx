@@ -4,14 +4,13 @@ import CreditCardIcon from '@mui/icons-material/CreditCard';
 import EventIcon from '@mui/icons-material/Event';
 import { Box } from '@mui/system'
 import React from 'react'
-import './PerfilUsuario.css'
 
 const PerfilUsuario = () => {
   return (
     <Container maxWidth='sm'>
         <Box sx={{margin: '30px'}}>
             <Typography variant='h5' color={'white'}>Meus Dados</Typography>
-            <Card sx={{display:'flex', backgroundColor: 'goldenrod', alignItems:'center', gap: 2, pl: 2}}>
+            <Card sx={{display:'flex', backgroundColor: 'goldenrod', alignItems:'center', gap: 2, pl: 2, borderRadius: '15px'}}>
                 <Avatar><AccountCircleTwoTone /></Avatar>
                 <Box display={'flex'} flexDirection={'column'}>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
@@ -40,7 +39,7 @@ const PerfilUsuario = () => {
        
         <Box sx={{margin: '30px'}}>
             <Typography variant='h5' color={'white'}>Assinatura e cobrança</Typography>
-            <Card sx={{display:'flex', backgroundColor: 'goldenrod', alignItems:'center', gap: 2, pl: 2}}>
+            <Card sx={{display:'flex', backgroundColor: 'goldenrod', alignItems:'center', gap: 2, pl: 2, borderRadius: '15px'}}>
                 <Box display={'flex'} flexDirection={'column'}>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <EventIcon sx={{ color: 'white', mr: 1, my: 0.5 }} />
@@ -70,7 +69,7 @@ const PerfilUsuario = () => {
 
         <Box sx={{margin: '30px'}}>
             <Typography variant='h5' color={'white'}>Informações pessoais</Typography>
-            <Card sx={{display:'flex', backgroundColor: 'goldenrod', alignItems:'center', gap: 2, pl: 2}}>
+            <Card sx={{display:'flex', backgroundColor: 'goldenrod', alignItems:'center', gap: 2, pl: 2, borderRadius: '15px'}}>
                 <Box display={'flex'} flexDirection={'column'}>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'white'}>Nome:</Typography>
@@ -115,9 +114,6 @@ const PerfilUsuario = () => {
                 </Box>
             </Card>
         </Box>
-            
-
-        
     </Container>
 )
 }
