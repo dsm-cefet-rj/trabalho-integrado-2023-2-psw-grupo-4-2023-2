@@ -1,4 +1,5 @@
-import { Bookmark, BookmarkAdd, BookmarkBorder, BookmarkRemove, BookmarksSharp } from '@mui/icons-material'
+import { Bookmark, BookmarkAdd, BookmarkBorder, BookmarkRemove, BookmarksSharp} from '@mui/icons-material'
+import DeleteIcon from '@mui/icons-material/Delete';
 import { Box, Card, CardContent, CardMedia, IconButton, Link, Typography } from '@mui/material'
 import React, { useContext, useEffect, useState } from 'react'
 
@@ -9,10 +10,9 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
 
     const { favoritos, favorita, desfavorita } = useContext(LivrosContext);
 
-    
     const { usuario } = useContext(AutenticacaoContext);
-   
-        
+    const leituras = usuario.leituras;
+    let listaIDs = leituras.map(item => item.id)     
 
     const meusFavoritos = favoritos.find(data => data.userLogin === usuario.email)
     
@@ -25,7 +25,8 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
             desfavorita(usuario.email, id);
         }
     }
-
+    
+    
 
     useEffect(() => {
         const livroFavoritado = meusFavoritos?.livros.find(livro => livro.id === id)
@@ -71,6 +72,20 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
                     <BookmarkBorder color="primary" />
                 )}
             </IconButton>
+            { listaIDs.includes(id)?(
+                <IconButton 
+                    
+                    aria-label="delete"
+                    sx={{
+                        position: "relative",
+                        bottom: "8px",
+                        right: "8px",
+                    }}>
+                    <DeleteIcon/>
+                </IconButton>):
+                ""
+            }
+            
         </Card>
 
     );
