@@ -10,14 +10,14 @@ const Leitor = ({ namePdf, id }) => {
 
     const {usuario, setUsuario} = useContext(AutenticacaoContext);
 
-    const [leitura, setLeitura] = useState(()=> {
-        const storedLeitura = localStorage.getItem("leitura");
-        return storedLeitura ? JSON.parse(storedLeitura) : {livros: leitura};
-    });
+    // const [leitura, setLeitura] = useState(()=> {
+    //     const storedLeitura = localStorage.getItem("leitura");
+    //     return storedLeitura ? JSON.parse(storedLeitura) : {livros: leitura};
+    // });
 
-    useEffect(()=>{
-        localStorage.setItem('leitura',JSON.stringify(leitura))
-    },[leitura]);
+    // useEffect(()=>{
+    //     localStorage.setItem('leitura',JSON.stringify(leitura))
+    // },[leitura]);
 
     const [pageNum, setPageNum] = useState(1);
     const [pdfDoc, setPdfDoc] = useState(null);

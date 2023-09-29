@@ -13,7 +13,7 @@ const Favoritos = () => {
     const { favoritos } = useContext(LivrosContext);
     const { usuario } = useContext(AutenticacaoContext);
 
-    const lista = favoritos.find(data=>data.userLogin===usuario.login)
+    const lista = favoritos.find(data=>data.userLogin===usuario.email)
 
     return (
         <Carousel titulo={'Lista de Favoritos'} vazio={<ListaVazia text="Sua prateleira ainda não possui livros." urlImage={prateleira} />}>

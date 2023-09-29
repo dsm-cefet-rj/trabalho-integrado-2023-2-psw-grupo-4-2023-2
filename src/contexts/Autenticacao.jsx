@@ -6,30 +6,30 @@ export const AutenticacaoContext = createContext({});
 export const Autenticacao = ({ children }) => {
 
     const [usuarios, setUsuarios] = useState(() => {
-        const storedUsers = localStorage.getItem("users");
+        const storedUsers = localStorage.getItem("usuarios");
         return storedUsers ? JSON.parse(storedUsers) : [];
     });
 
     useEffect(() => {
         if (usuarios) {
-            localStorage.setItem("users", JSON.stringify(usuarios));
+            localStorage.setItem("usuarios", JSON.stringify(usuarios));
         } else {
-            localStorage.removeItem("users");
+            localStorage.removeItem("usuarios");
         }
     }, [usuarios]);
 
 
     const [usuario, setUsuario] = useState(() => {
-        const storedUser = localStorage.getItem("user");
+        const storedUser = localStorage.getItem("usuario");
         return storedUser ? JSON.parse(storedUser) : null;
     });
 
     useEffect(() => {
         if (usuario) {
-            localStorage.setItem("user", JSON.stringify(usuario));
+            localStorage.setItem("usuario", JSON.stringify(usuario));
             
         } else {
-            localStorage.removeItem("user");
+            localStorage.removeItem("usuario");
         }
     }, [usuario]);
 

@@ -8,17 +8,21 @@ import { AutenticacaoContext } from "../../contexts/Autenticacao";
 const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, id }) => {
 
     const { favoritos, favorita, desfavorita } = useContext(LivrosContext);
-    const { usuario } = useContext(AutenticacaoContext);
 
-    const meusFavoritos = favoritos.find(data => data.userLogin === usuario.login)
+    
+    const { usuario } = useContext(AutenticacaoContext);
+   
+        
+
+    const meusFavoritos = favoritos.find(data => data.userLogin === usuario.email)
     
     const [favorito, setFavorito] = useState(false);
     console.log(usuario)
     const handleFavorito = () => {
         if (!favorito) {
-            favorita(usuario.login, id);
+            favorita(usuario.email, id);
         } else {
-            desfavorita(usuario.login, id);
+            desfavorita(usuario.email, id);
         }
     }
 
