@@ -11,7 +11,7 @@ const Leitor = ({ namePdf, id }) => {
     const {usuario, setUsuario} = useContext(AutenticacaoContext);
 
     const [leitura, setLeitura] = useState(()=> {
-        
+        const storedLeitura = localStorage.getItem("leitura");
     }
     )
 
