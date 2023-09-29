@@ -11,7 +11,7 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
     const { user } = useContext(AutenticacaoContext);
 
     const meusFavoritos = favoritos.find(data => data.userLogin === user.login)
-
+    console.log(user)
     const [favorito, setFavorito] = useState(false);
 
     const handleFavorito = () => {
@@ -30,7 +30,7 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
         } else {
             setFavorito(false);
         }
-    }, [meusFavoritos])
+    }, [meusFavoritos, id])
 
     return (
 
