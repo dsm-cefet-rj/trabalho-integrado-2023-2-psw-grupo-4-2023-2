@@ -11,7 +11,7 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
     const { favoritos, favorita, desfavorita } = useContext(LivrosContext);
 
     const { usuario, setUsuario } = useContext(AutenticacaoContext);
-    let leituras = usuario.leituras;
+    const leituras = usuario.leituras;
     let listaIDs = leituras.map(item => item.id);     
 
     const meusFavoritos = favoritos.find(data => data.userLogin === usuario.email)
@@ -27,7 +27,8 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
     }
     
     const removerLendo=()=>{
-        leituras = leituras.filter(item => item.id !== id);
+        let leiturasAtualizadas = leituras.filter(item => item.id !== id);
+        setUsuario({...usuario, leituras: leiturasAtualizadas});
     }
 
     useEffect(() => {
@@ -74,7 +75,7 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
                     <BookmarkBorder color="primary" />
                 )}
             </IconButton>
-            { listaIDs.includes(id)?(
+            {listaIDs.includes(id)?(
                 <IconButton 
                     onClick={removerLendo}
                     aria-label="delete"
