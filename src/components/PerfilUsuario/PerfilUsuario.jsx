@@ -1,11 +1,18 @@
-import { Avatar, Card, Container, Typography, TextField } from '@mui/material';
+import { Avatar, Card, Container, Typography, TextField, Button } from '@mui/material';
 import AccountCircleTwoTone from '@mui/icons-material/AccountCircleTwoTone';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import EventIcon from '@mui/icons-material/Event';
 import { Box } from '@mui/system'
-import React from 'react'
+import React, { useState } from 'react';
 
 const PerfilUsuario = () => {
+    const [readOnly, setReadOnly] = useState(true);
+
+    const editarDados = () => {
+        setReadOnly(!readOnly);
+        console.log("editar dados");
+    };
+
   return (
     <Container maxWidth='sm'>
         <Box sx={{margin: '30px'}}>
@@ -19,7 +26,7 @@ const PerfilUsuario = () => {
                             id="nome-usuario"
                             defaultValue="Renan Lima"
                             InputProps={{
-                                readOnly: true,
+                                readOnly,
                               }}
                         />
                     </Box>
@@ -29,7 +36,7 @@ const PerfilUsuario = () => {
                             id="email-usuario"
                             defaultValue="teste@lolmail.com"
                             InputProps={{
-                                readOnly: true,
+                                readOnly,
                               }}
                         />
                     </Box>
@@ -48,7 +55,7 @@ const PerfilUsuario = () => {
                             id="data-cobrança"
                             defaultValue="Renan Lima"
                             InputProps={{
-                                readOnly: true,
+                                readOnly,
                               }}
                         />
                     </Box>
@@ -59,7 +66,7 @@ const PerfilUsuario = () => {
                             id="forma-pagamento"
                             defaultValue="teste@lolmail.com"
                             InputProps={{
-                                readOnly: true,
+                                readOnly,
                             }}
                         />
                     </Box>
@@ -77,7 +84,7 @@ const PerfilUsuario = () => {
                             id="nome-usuario2"
                             defaultValue="Renan Lima"
                             InputProps={{
-                                readOnly: true,
+                                readOnly,
                               }}
                         />
                     </Box>
@@ -87,7 +94,7 @@ const PerfilUsuario = () => {
                             id="email-usuario2"
                             defaultValue="teste@lolmail.com"
                             InputProps={{
-                                readOnly: true,
+                                readOnly,
                               }}
                         />
                     </Box>
@@ -97,7 +104,7 @@ const PerfilUsuario = () => {
                             id="celular-usuario2"
                             defaultValue="+55 (21) 9387-4293"
                             InputProps={{
-                                readOnly: true,
+                                readOnly,
                               }}
                         />
                     </Box>
@@ -107,13 +114,17 @@ const PerfilUsuario = () => {
                             id="endereco-usuario2"
                             defaultValue="Av. maracanã"
                             InputProps={{
-                                readOnly: true,
+                                readOnly,
                               }}
                         />
                     </Box>
                 </Box>
             </Card>
         </Box>
+
+        <Button onClick={editarDados} variant="contained" color="secondary">
+          Editar dados
+        </Button>
     </Container>
 )
 }
