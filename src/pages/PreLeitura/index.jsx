@@ -16,8 +16,11 @@ const PreLeitura = () => {
   const namePdf = String(livroData.pdf).slice(0, -4);
 
   return (
+   
+    
     <div className="pre-leitura-container">
-      <Voltar />
+       <div><Voltar style={{ position: "absolute", top: 10, left: 10 }} /></div>
+     
 
       <Paper elevation={3} className="livro-info">
         <Livro
