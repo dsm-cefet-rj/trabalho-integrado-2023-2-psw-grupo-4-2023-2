@@ -26,7 +26,9 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
         }
     }
     
-    
+    const removerLendo=()=>{
+        leituras = leituras.filter(item => item.id !== id);
+    }
 
     useEffect(() => {
         const livroFavoritado = meusFavoritos?.livros.find(livro => livro.id === id)
