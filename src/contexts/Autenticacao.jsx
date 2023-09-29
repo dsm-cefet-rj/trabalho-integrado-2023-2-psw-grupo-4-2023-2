@@ -34,8 +34,8 @@ export const Autenticacao = ({ children }) => {
     }, [usuario]);
 
 
-    const acessar = (login, password) => {
-        const existeUsuario = usuarios.find(usuario => (usuario?.login === login));
+    const acessar = (email, password) => {
+        const existeUsuario = usuarios.find(usuario => (usuario?.email === email));
 
         if (existeUsuario) {
             if (existeUsuario.password === password) {
