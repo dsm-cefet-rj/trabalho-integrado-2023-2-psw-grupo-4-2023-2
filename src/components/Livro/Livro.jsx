@@ -10,7 +10,7 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
 
     const { favoritos, favorita, desfavorita } = useContext(LivrosContext);
 
-    const { usuario, setUsuariog } = useContext(AutenticacaoContext);
+    const { usuario, setUsuario } = useContext(AutenticacaoContext);
     let leituras = usuario.leituras;
     let listaIDs = leituras.map(item => item.id);     
 
