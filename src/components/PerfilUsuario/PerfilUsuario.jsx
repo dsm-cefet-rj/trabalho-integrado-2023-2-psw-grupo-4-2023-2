@@ -9,9 +9,14 @@ const PerfilUsuario = () => {
     const [readOnly, setReadOnly] = useState(true);
 
     const editarDados = () => {
-        setReadOnly(!readOnly);
+        setReadOnly(false);
         console.log("editar dados");
     };
+
+    const salvarDados = () => {
+        setReadOnly(true);
+        console.log("salvar dados");
+    }
 
   return (
     <Container maxWidth='sm'>
@@ -124,6 +129,9 @@ const PerfilUsuario = () => {
 
         <Button onClick={editarDados} variant="contained" color="secondary">
           Editar dados
+        </Button>
+        <Button onClick={salvarDados} variant="contained" color="success">
+          Salvar dados
         </Button>
     </Container>
 )
