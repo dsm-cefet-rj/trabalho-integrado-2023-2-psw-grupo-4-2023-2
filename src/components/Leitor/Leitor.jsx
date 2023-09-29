@@ -18,16 +18,17 @@ const Leitor = ({ namePdf, id }) => {
     // useEffect(()=>{
     //     localStorage.setItem('leitura',JSON.stringify(leitura))
     // },[leitura]);
-
-    const [pageNum, setPageNum] = useState(1);
-    const [pdfDoc, setPdfDoc] = useState(null);
-    const [tamanhoPdf, setTamanhoPdf] = useState('pequeno');
-
     const leituras = usuario.leituras;
 
     const leitura = leituras.find(leitura => leitura.id===id);
 
     const pagina = leitura? leitura.pag: 1;
+
+    const [pageNum, setPageNum] = useState(1);
+    const [pdfDoc, setPdfDoc] = useState(null);
+    const [tamanhoPdf, setTamanhoPdf] = useState('pequeno');
+
+    
     const path = '/src/assets/pdf/';
 
     useEffect(() => {
@@ -38,6 +39,10 @@ const Leitor = ({ namePdf, id }) => {
             setPdfDoc(pdfDoc_);
         });
     }, [namePdf]);
+
+    useEffect(()=>{
+        const outrasLeituras = leituras.filter(leitura => leitura.id !== id);
+    })
 
     useEffect(() => {
         const renderizaPagina = (pageNumber) => {
