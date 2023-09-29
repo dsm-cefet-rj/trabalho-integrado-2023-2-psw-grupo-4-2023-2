@@ -11,12 +11,12 @@ const ContinueLendo = () => {
     const {usuario} = useContext(AutenticacaoContext);
     const leituras = usuario.leituras;
     const { livros } = useContext(LivrosContext);
-    // const lista = leituras.id.find(data=>data.userLogin===usuario.email);
+   
     let listaIDs = leituras.map(item => item.id) 
     console.log(leituras)
     return (
         <Carousel titulo={'Continue Lendo'} vazio={<ListaVazia text="Você ainda não está lendo nenhum livro..." urlImage={Gato}/>}>
-            {livros?.length ? livros.map( => <Livro key={livro.id} id={livro.id} urlImage={livro.url} titulo={livro.name} autor={livro.descricao} />) : ""}
+            {livros?.length ? livros.filter((livros)=>listaIDs.includes(livros.id)).map( livro=> <Livro key={livro.id} id={livro.id} urlImage={livro.url} titulo={livro.name} autor={livro.descricao} />) : ""}
         </Carousel>
     )
 }
