@@ -9,14 +9,17 @@ import Livro from '../Livro/Livro'
 
 const ContinueLendo = () => {
     const {usuario} = useContext(AutenticacaoContext);
-    const leituras = usuario.leituras;
     const { livros } = useContext(LivrosContext);
-   
-    let listaIDs = leituras.map(item => item.id) 
-    console.log(leituras)
+    // const leituras = usuario.leituras;
+    
+    const idLivros = usuario.leituras.map(leitura => leitura.id)
+    const leituras = new Set(idLivros)
+    // let listaIDs = leituras.map(item => item.id) 
+    const continueLendo = livros.filter(livro=>leituras.has(livro.id))
     return (
         <Carousel titulo={'Continue Lendo'} vazio={<ListaVazia text="Você ainda não está lendo nenhum livro..." urlImage={Gato}/>}>
-            {livros?.length ? livros.filter((livros)=>listaIDs.includes(livros.id)).map( livro=> <Livro key={livro.id} id={livro.id} urlImage={livro.url} titulo={livro.name} autor={livro.descricao} />) : ""}
+            {/* {usuario.leituras!==0? livros.filter((livros)=>listaIDs.includes(livros.id)).map( livro=> <Livro key={livro.id} id={livro.id} urlImage={livro.url} titulo={livro.name} autor={livro.descricao} />) : ""} */}
+            {continueLendo.length? continueLendo.map(livro => <Livro key={livro.id} id={livro.id} urlImage={livro.url} titulo={livro.name} autor={livro.descricao} /> ): ""}
         </Carousel>
     )
 }
