@@ -9,7 +9,12 @@ import { AutenticacaoContext } from '../../contexts/Autenticacao';
 const Leitor = ({ namePdf, id }) => {
 
     const {usuario, setUsuario} = useContext(AutenticacaoContext);
-    
+
+    const [leitura, setLeitura] = useState(()=> {
+        
+    }
+    )
+
     const [pageNum, setPageNum] = useState(1);
     const [pdfDoc, setPdfDoc] = useState(null);
     const [tamanhoPdf, setTamanhoPdf] = useState('pequeno');
