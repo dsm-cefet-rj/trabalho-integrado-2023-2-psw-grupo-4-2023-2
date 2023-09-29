@@ -1,4 +1,4 @@
-LeiaMais - book signing
+#LeiaMais - book signing
 
 Welcome to book LeiaMais, a React-based book signing website! This project allows users to explore a vast collection of books, read them, and manage their personal libraries.
 
