@@ -10,9 +10,9 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
 
     const { favoritos, favorita, desfavorita } = useContext(LivrosContext);
 
-    const { usuario } = useContext(AutenticacaoContext);
-    const leituras = usuario.leituras;
-    let listaIDs = leituras.map(item => item.id)     
+    const { usuario, setUsuariog } = useContext(AutenticacaoContext);
+    let leituras = usuario.leituras;
+    let listaIDs = leituras.map(item => item.id);     
 
     const meusFavoritos = favoritos.find(data => data.userLogin === usuario.email)
     
@@ -76,7 +76,7 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
             </IconButton>
             { listaIDs.includes(id)?(
                 <IconButton 
-                    
+                    onClick={removerLendo}
                     aria-label="delete"
                     sx={{
                         position: "relative",
@@ -84,8 +84,8 @@ const Livro = ({ titulo = "Titulo do Livro", autor = "Nome do Autor", urlImage, 
                         right: "8px",
                     }}>
                     <DeleteIcon/>
-                </IconButton>):
-                ""
+                </IconButton>):(
+                "")
             }
             
         </Card>
