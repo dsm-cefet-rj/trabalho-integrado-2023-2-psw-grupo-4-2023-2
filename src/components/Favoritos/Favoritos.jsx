@@ -11,9 +11,9 @@ import { AutenticacaoContext } from '../../contexts/Autenticacao'
 const Favoritos = () => {
 
     const { favoritos } = useContext(LivrosContext);
-    const { user } = useContext(AutenticacaoContext);
+    const { usuario } = useContext(AutenticacaoContext);
 
-    const lista = favoritos.find(data=>data.userLogin===user.login)
+    const lista = favoritos.find(data=>data.userLogin===usuario.login)
 
     return (
         <Carousel titulo={'Lista de Favoritos'} vazio={<ListaVazia text="Sua prateleira ainda não possui livros." urlImage={prateleira} />}>
