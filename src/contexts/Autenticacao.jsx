@@ -80,7 +80,7 @@ export const Autenticacao = ({ children }) => {
 
     return (
         <AutenticacaoContext.Provider
-            value={{ usuario, signed: !!usuario, acessar, cadastrar, sair, excluir }}
+            value={{ usuario, signed: !!usuario, acessar, cadastrar, sair, excluir, setUsuario }}
         >
             {children}
         </AutenticacaoContext.Provider>
