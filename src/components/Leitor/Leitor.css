@@ -46,6 +46,12 @@
 
 #botao-pagina-inicial{
     position: inherit;
+    float: right;
+    margin-right: 30px;
+}
+
+.div-pag-inicial{
+    height: 60px;
 }
 
 .menu-leitor-botoes button{

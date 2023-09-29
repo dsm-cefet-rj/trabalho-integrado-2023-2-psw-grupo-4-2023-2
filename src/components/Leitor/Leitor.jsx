@@ -108,9 +108,11 @@ const Leitor = ({ namePdf, id }) => {
 
     return (
         <>
-            <Button variant='contained' color='secondary' onClick={voltarInicio} size='small' align='center'>
-                    Voltar a página inicial
-            </Button>
+            <div className='div-pag-inicial'>
+                <Button variant='contained' color='secondary' onClick={voltarInicio} size='small' id='botao-pagina-inicial'>
+                        Voltar a página inicial
+                </Button>
+            </div>
             <Box sx={{
                 display:'flex',
                 justifyContent:'center'
