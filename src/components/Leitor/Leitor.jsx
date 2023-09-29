@@ -15,6 +15,10 @@ const Leitor = ({ namePdf, id }) => {
         return storedLeitura ? JSON.parse(storedLeitura) : {livros: leitura};
     });
 
+    useEffect(()=>{
+        localStorage.setItem('leitura',JSON.stringify(leitura))
+    },[leitura]);
+
     const [pageNum, setPageNum] = useState(1);
     const [pdfDoc, setPdfDoc] = useState(null);
     const [tamanhoPdf, setTamanhoPdf] = useState('pequeno');
