@@ -12,8 +12,8 @@ const Leitor = ({ namePdf, id }) => {
 
     const [leitura, setLeitura] = useState(()=> {
         const storedLeitura = localStorage.getItem("leitura");
-    }
-    )
+        return storedLeitura ? JSON.parse(storedLeitura) : {livros: leitura};
+    });
 
     const [pageNum, setPageNum] = useState(1);
     const [pdfDoc, setPdfDoc] = useState(null);
