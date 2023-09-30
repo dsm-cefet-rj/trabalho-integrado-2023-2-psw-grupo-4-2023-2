@@ -1,4 +1,4 @@
-import { Avatar, Card, Container, Typography, TextField, Button, MenuItem, Select } from '@mui/material';
+import { Avatar, Card, Container, Typography, TextField, Button, MenuItem, Snackbar, Alert } from '@mui/material';
 import AccountCircleTwoTone from '@mui/icons-material/AccountCircleTwoTone';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import EventIcon from '@mui/icons-material/Event';
@@ -9,6 +9,11 @@ import { AutenticacaoContext } from "../../contexts/Autenticacao";
 const PerfilUsuario = () => {
     const [readOnly, setReadOnly] = useState(true);
     const { usuario, sair } = useContext(AutenticacaoContext);
+    
+    const [openAlertMessage, setOpenAlertMessage] = useState(false);
+    const [typeMessage, setTypeMessage] = useState('info');
+    const [alertMessage, setAlertMessage] = useState('');
+    const [alertDuration, setAlertDuration] = useState(3000);
 
     const formasPagamento = [{value:'Débito'}, {value:'Crédito'}, {value:'Pix'}, {value:'Boleto'}];
 
@@ -24,17 +29,73 @@ const PerfilUsuario = () => {
 
     const editarDados = () => {
         setReadOnly(false);
-        console.log("editar dados");
-        console.log(readOnly);
     };
 
     const salvarDados = () => {
-        setReadOnly(true);
-        console.log("salvar dados");
+        if(validarCampos()){
+            mensagemSucesso();
+            setReadOnly(true);
+        }
+    }
+
+    const mensagemError = (campo) => {
+        setTypeMessage('error');
+        setAlertMessage('Por favor preencha o campo '+ campo);
+        setOpenAlertMessage(true);
+    };
+
+    const mensagemSucesso = () => {
+        setTypeMessage('success');
+        setAlertMessage('Dados alterados com sucesso.');
+        setOpenAlertMessage(true);
+        setAlertDuration(6000);
+      };
+    
+
+    const handleCloseAlertMessage = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+        setOpenAlertMessage(false);
+    };
+
+    function validarCampos(){
+        const inputs=[ 'nome-usuario','email-usuario', 'celular-usuario', 'endereco-usuario'];
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const regexCelular = /^\+\d{2}\(\d{2}\)\d{4,5}-\d{4}$/;
+        let validar = true;
+
+        for (let i = 0; i < inputs.length; i++) {
+            const id = inputs[i];
+            const input = document.getElementById(id);
+            if (input.value.trim() === '') {
+                mensagemError(id);
+                input.focus();
+                validar = false;
+                break; // Isso interrompe o loop imediatamente quando validar é definido como false
+            }
+            if( id === 'email-usuario'){
+                validar = regexEmail.test(input.value.trim());
+                mensagemError(id + " no formato nome@email");
+            }
+            if( id === 'celular-usuario'){
+                validar = regexCelular.test(input.value.trim());
+                mensagemError(id + " no formato +55 (XX) XXXX-XXXX ou +55 (XX) XXXXX-XXXX");
+            }
+        }
+        return validar;
     }
 
   return (
+
     <Container maxWidth='sm'>
+
+        <Snackbar open={openAlertMessage} autoHideDuration={alertDuration} onClose={handleCloseAlertMessage} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+            <Alert onClose={handleCloseAlertMessage} severity={typeMessage} variant='filled' sx={{ width: '100%' }}>
+            {alertMessage}
+            </Alert>
+        </Snackbar>
+
         <Box sx={{margin: '30px'}}>
             <Typography variant='h5' color={'secondary'}>Meus Dados</Typography>
             <Card sx={{display:'flex', backgroundColor: 'white', alignItems:'center', gap: 2, pl: 2, borderRadius: '15px'}}>
@@ -139,7 +200,7 @@ const PerfilUsuario = () => {
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'black'}>Endereço:</Typography>
                         <TextField variant="standard" margin="dense"
-                            id="endereco-usuario2"
+                            id="endereco-usuario"
                             defaultValue={perfil.endereco}
                             InputProps={{
                                 readOnly,
