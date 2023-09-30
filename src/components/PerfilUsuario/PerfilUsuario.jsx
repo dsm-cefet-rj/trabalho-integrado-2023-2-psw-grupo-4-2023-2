@@ -3,7 +3,7 @@ import AccountCircleTwoTone from '@mui/icons-material/AccountCircleTwoTone';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import EventIcon from '@mui/icons-material/Event';
 import { Box } from '@mui/system'
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { AutenticacaoContext } from "../../contexts/Autenticacao";
 
 const PerfilUsuario = () => {
@@ -38,6 +38,10 @@ const PerfilUsuario = () => {
     const editarDados = () => {
         setReadOnly(false);
     };
+
+    // useEffect(()=>{
+    //     console.log(usuario);
+    // },[usuario]);
 
     const salvarDados = () => {
         if(validarCampos()){
@@ -74,7 +78,9 @@ const PerfilUsuario = () => {
 
     const salvarNovaSenha = () => {
         if(validarSenhaNova()){
-            mensagemSucesso('Nova seha salva com sucesso')
+            const senha = document.getElementById('novaSenha').value.trim();
+            setUsuario({ ...usuario, password: senha });
+            mensagemSucesso('Nova senha salva com sucesso');
             fecharModal();
         }
     }
@@ -83,7 +89,7 @@ const PerfilUsuario = () => {
         const inputSenhaAtual = document.getElementById('senhaAtual');
         const senhaAtual = inputSenhaAtual.value.trim();
 
-        const inputNovaSenha = document.getElementById('senhaNova');
+        const inputNovaSenha = document.getElementById('novaSenha');
         const novaSenha = inputNovaSenha.value.trim();
 
         if (senhaAtual === '') {
@@ -93,6 +99,7 @@ const PerfilUsuario = () => {
         }
         else if(senhaAtual != usuario.password){
             mensagemError('A senha atual está incorreta');
+            console.log("Senha atual: "+senhaAtual+ " password: "+ usuario.password);
             inputSenhaAtual.focus();
             return false;
         }
@@ -314,7 +321,7 @@ const PerfilUsuario = () => {
                         label="Senha atual"
                     />
                     <TextField variant="outlined"  margin="dense"
-                        id="senhaNova"
+                        id="novaSenha"
                         fullWidth
                         label="Nova senha"
                     />
