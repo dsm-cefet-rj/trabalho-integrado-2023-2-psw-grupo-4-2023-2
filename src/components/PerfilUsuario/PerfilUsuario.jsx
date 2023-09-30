@@ -110,25 +110,11 @@ const PerfilUsuario = () => {
                 <Box display={'flex'} flexDirection={'column'}>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'black'}>Nome:</Typography>
-                        <TextField variant="standard"  margin="dense"
-                            id="nome-usuario"
-                            onChange={(e)=> setNomeNovo(e.target.value)}
-                            value={usuario.nome}
-                            InputProps={{
-                                readOnly:false,
-                              }}
-                        />
+                        <Typography variant='h6' color={'black'}>{usuario.nome}</Typography>
                     </Box>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'black'}>Email:</Typography>
-                        <TextField variant="standard" margin="dense"
-                            id="email-usuario"
-                            onChange={(e)=> setEmailNovo(e.target.value) }
-                            value={usuario.email}
-                            InputProps={{
-                                readOnly: false,
-                              }}
-                        />
+                        <Typography variant='h6' color={'black'}>{usuario.email}</Typography>
                     </Box>
                 </Box>
             </Card>
@@ -179,7 +165,7 @@ const PerfilUsuario = () => {
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'black'}>Nome:</Typography>
                         <TextField variant="standard"  margin="dense"
-                            id="nome-usuario2"
+                            id="nome-usuario"
                             onChange={(e)=> setNomeNovo(e.target.value) }
                             defaultValue={perfil.nome}
                             InputProps={{
@@ -190,7 +176,7 @@ const PerfilUsuario = () => {
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'black'}>Email:</Typography>
                         <TextField variant="standard" margin="dense"
-                            id="email-usuario2"
+                            id="email-usuario"
                             onChange={(e)=> setEmailNovo(e.target.value) }
                             defaultValue={perfil.email}
                             InputProps={{
