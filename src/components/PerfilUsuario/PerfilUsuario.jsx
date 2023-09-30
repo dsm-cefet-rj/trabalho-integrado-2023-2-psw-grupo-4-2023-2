@@ -123,7 +123,7 @@ const PerfilUsuario = () => {
         <Box sx={{margin: '30px'}}>
             <Typography variant='h5' color={'secondary'}>Assinatura e cobrança</Typography>
             <Card sx={{display:'flex', backgroundColor: 'white', alignItems:'center', gap: 2, pl: 2, borderRadius: '15px'}}>
-                <Box display={'flex'} flexDirection={'column'}>
+                <Box display={'flex'} flexDirection={'column'} minWidth={'95%'}>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <EventIcon sx={{ color: 'black', mr: 1, my: 0.5 }} />
                         <Typography variant='h6' color={'black'}>Data de cobrança:</Typography>
@@ -132,8 +132,8 @@ const PerfilUsuario = () => {
                             defaultValue={perfil.dataCobranca}
                             InputProps={{
                                 readOnly,
-                              }}
-                            
+                            }}
+                            fullWidth
                         />
                     </Box>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
@@ -146,6 +146,7 @@ const PerfilUsuario = () => {
                                 readOnly,
                               }}
                               select
+                              fullWidth
                         >
                             {formasPagamento.map((option) => (
                                     <MenuItem key={option.value} value={option.value}>
@@ -162,7 +163,7 @@ const PerfilUsuario = () => {
         <Box sx={{margin: '30px'}}>
             <Typography variant='h5' color={'secondary'}>Informações pessoais</Typography>
             <Card sx={{display:'flex', backgroundColor: 'white', alignItems:'center', gap: 2, pl: 2, borderRadius: '15px'}}>
-                <Box display={'flex'} flexDirection={'column'}>
+                <Box display={'flex'} flexDirection={'column'} minWidth={'95%'}>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'black'}>Nome:</Typography>
                         <TextField variant="standard"  margin="dense"
@@ -171,7 +172,8 @@ const PerfilUsuario = () => {
                             defaultValue={perfil.nome}
                             InputProps={{
                                 readOnly,
-                            }} 
+                            }}
+                            fullWidth 
                         />
                     </Box>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
@@ -183,6 +185,7 @@ const PerfilUsuario = () => {
                             InputProps={{
                                 readOnly,
                             }}
+                            fullWidth
                         />
                     </Box>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
@@ -193,9 +196,8 @@ const PerfilUsuario = () => {
                             defaultValue={perfil.celular}
                             InputProps={{
                                 readOnly,
-                              }
-                            }
-                            
+                            }}
+                            fullWidth
                         />
                     </Box>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
@@ -206,7 +208,8 @@ const PerfilUsuario = () => {
                             defaultValue={perfil.endereco}
                             InputProps={{
                                 readOnly,
-                              }}
+                            }}
+                            fullWidth
                         />
                     </Box>
                 </Box>
