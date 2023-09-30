@@ -67,7 +67,7 @@ const PerfilUsuario = () => {
     };
 
     function validarCampos(){
-        const inputs=[ 'nome-usuario','email-usuario', 'celular-usuario', 'endereco-usuario'];
+        const inputs=[ "nome",'email', 'celular', 'endereco'];
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const regexCelular = /^\(\d{2}\)\d{4,5}-\d{4}$/;
         let validar = true;
@@ -166,19 +166,18 @@ const PerfilUsuario = () => {
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'black'}>Nome:</Typography>
                         <TextField variant="standard"  margin="dense"
-                            id="nome-usuario"
+                            id="nome"
                             onChange={(e)=> setNomeNovo(e.target.value) }
                             defaultValue={perfil.nome}
                             InputProps={{
                                 readOnly,
-                              }}
-                              
+                            }} 
                         />
                     </Box>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'black'}>Email:</Typography>
                         <TextField variant="standard" margin="dense"
-                            id="email-usuario"
+                            id="email"
                             onChange={(e)=> setEmailNovo(e.target.value) }
                             defaultValue={perfil.email}
                             InputProps={{
@@ -189,7 +188,7 @@ const PerfilUsuario = () => {
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'black'}>Celular:</Typography>
                         <TextField variant="standard"           margin="dense"
-                            id="celular-usuario"
+                            id="celular"
                             onChange={(e)=> setCelularNovo(e.target.value) }
                             defaultValue={perfil.celular}
                             InputProps={{
@@ -202,7 +201,7 @@ const PerfilUsuario = () => {
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'black'}>Endereço:</Typography>
                         <TextField variant="standard" margin="dense"
-                            id="endereco-usuario"
+                            id="endereco"
                             onChange={(e)=> setEnderecoNovo(e.target.value) }
                             defaultValue={perfil.endereco}
                             InputProps={{
