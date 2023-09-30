@@ -8,13 +8,14 @@ import { AutenticacaoContext } from "../../contexts/Autenticacao";
 
 const PerfilUsuario = () => {
     const [readOnly, setReadOnly] = useState(true);
+    const [celularNovo, setCelularNovo] = useState();
     const { usuario, sair, setUsuario } = useContext(AutenticacaoContext);
 
     const perfil ={
         nome: usuario.nome,
         email: usuario.email,
         endereco: 'Av. maracanã',
-        celular: '+55 (21) 9387-4293',
+        celular: usuario.celular,
     }
 
     const editarDados = () => {
@@ -24,7 +25,7 @@ const PerfilUsuario = () => {
 
     const salvarDados = () => {
         setReadOnly(true);
-        setUsuario({...usuario,  });
+        setUsuario({...usuario, celular:celularNovo, });
         console.log("salvar dados");
     }
 
@@ -117,8 +118,8 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Celular:</Typography>
                         <TextField variant="standard"           margin="dense"
                             id="celular-usuario"
-                            onChange={(e)=> setEmail(e.target.value) }
-                            value={perfil.celular}
+                            onChange={(e)=> setCelularNovo(e.target.value) }
+                            defaultValue={perfil.celular}
                             InputProps={{
                                 readOnly,
                               }
