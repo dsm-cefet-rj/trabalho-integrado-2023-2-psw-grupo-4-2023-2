@@ -8,7 +8,7 @@ import { AutenticacaoContext } from "../../contexts/Autenticacao";
 
 const PerfilUsuario = () => {
     const [readOnly, setReadOnly] = useState(true);
-    const { usuario, sair } = useContext(AutenticacaoContext);
+    const { usuario, sair, setUsuario } = useContext(AutenticacaoContext);
 
     const perfil ={
         nome: usuario.nome,
@@ -24,6 +24,7 @@ const PerfilUsuario = () => {
 
     const salvarDados = () => {
         setReadOnly(true);
+        setUsuario({...usuario,  });
         console.log("salvar dados");
     }
 
@@ -114,12 +115,15 @@ const PerfilUsuario = () => {
                     </Box>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'black'}>Celular:</Typography>
-                        <TextField variant="standard" margin="dense"
+                        <TextField variant="standard"           margin="dense"
                             id="celular-usuario"
-                            defaultValue={perfil.celular}
+                            onChange={(e)=> setEmail(e.target.value) }
+                            value={perfil.celular}
                             InputProps={{
                                 readOnly,
-                              }}
+                              }
+                            }
+                            
                         />
                     </Box>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
