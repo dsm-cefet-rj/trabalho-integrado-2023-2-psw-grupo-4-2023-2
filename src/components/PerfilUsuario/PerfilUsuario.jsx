@@ -69,7 +69,7 @@ const PerfilUsuario = () => {
     function validarCampos(){
         const inputs=[ 'nome-usuario','email-usuario', 'celular-usuario', 'endereco-usuario'];
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const regexCelular = /^\+\d{2}\(\d{2}\)\d{4,5}-\d{4}$/;
+        const regexCelular = /^\(\d{2}\)\d{4,5}-\d{4}$/;
         let validar = true;
 
         for (let i = 0; i < inputs.length; i++) {
@@ -87,7 +87,7 @@ const PerfilUsuario = () => {
             }
             if( id === 'celular-usuario'){
                 validar = regexCelular.test(input.value.trim());
-                mensagemError(id + " no formato +55 (XX) XXXX-XXXX ou +55 (XX) XXXXX-XXXX");
+                mensagemError(id + " no formato (XX) XXXX-XXXX ou (XX) XXXXX-XXXX");
             }
         }
         return validar;
@@ -133,6 +133,7 @@ const PerfilUsuario = () => {
                             InputProps={{
                                 readOnly,
                               }}
+                            
                         />
                     </Box>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
@@ -171,6 +172,7 @@ const PerfilUsuario = () => {
                             InputProps={{
                                 readOnly,
                               }}
+                              
                         />
                     </Box>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
@@ -181,7 +183,7 @@ const PerfilUsuario = () => {
                             defaultValue={perfil.email}
                             InputProps={{
                                 readOnly,
-                              }}
+                            }}
                         />
                     </Box>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
