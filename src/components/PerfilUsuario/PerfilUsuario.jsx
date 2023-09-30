@@ -314,7 +314,10 @@ const PerfilUsuario = () => {
                 borderRadius: 1,
                 boxShadow: 24,
                 p: 4, }}>
-                <Box display={'flex'} flexDirection={'column'} minWidth={'95%'}>
+                    <Typography variant='h4' textAlign={'center'} color={'primary'}>
+                        Alterar senha
+                  </Typography>
+                
                     <TextField variant="outlined"  margin="dense"
                         id="senhaAtual"
                         fullWidth
@@ -325,13 +328,14 @@ const PerfilUsuario = () => {
                         fullWidth
                         label="Nova senha"
                     />
+                <Box sx={{display:'flex', justifyContent: 'space-between', margin: '10px 0 0'}}>
+                    <Button onClick={cancelarSenha} variant="contained" color="error">
+                        Cancelar
+                    </Button>
+                    <Button onClick={salvarNovaSenha} variant="contained" color="success">
+                        Salvar nova Senha
+                    </Button>
                 </Box>
-                <Button onClick={cancelarSenha} variant="contained" color="error">
-                    Cancelar
-                </Button>
-                <Button onClick={salvarNovaSenha} variant="contained" color="success">
-                    Salvar nova Senha
-                </Button>
             </Box>
         </Container>
 
