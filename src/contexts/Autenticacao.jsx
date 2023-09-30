@@ -6,36 +6,36 @@ export const AutenticacaoContext = createContext({});
 export const Autenticacao = ({ children }) => {
 
     const [usuarios, setUsuarios] = useState(() => {
-        const storedUsers = localStorage.getItem("users");
+        const storedUsers = localStorage.getItem("usuarios");
         return storedUsers ? JSON.parse(storedUsers) : [];
     });
 
     useEffect(() => {
         if (usuarios) {
-            localStorage.setItem("users", JSON.stringify(usuarios));
+            localStorage.setItem("usuarios", JSON.stringify(usuarios));
         } else {
-            localStorage.removeItem("users");
+            localStorage.removeItem("usuarios");
         }
     }, [usuarios]);
 
 
     const [usuario, setUsuario] = useState(() => {
-        const storedUser = localStorage.getItem("user");
+        const storedUser = localStorage.getItem("usuario");
         return storedUser ? JSON.parse(storedUser) : null;
     });
 
     useEffect(() => {
         if (usuario) {
-            localStorage.setItem("user", JSON.stringify(usuario));
+            localStorage.setItem("usuario", JSON.stringify(usuario));
             
         } else {
-            localStorage.removeItem("user");
+            localStorage.removeItem("usuario");
         }
     }, [usuario]);
 
 
-    const acessar = (login, password) => {
-        const existeUsuario = usuarios.find(usuario => (usuario?.login === login));
+    const acessar = (email, password) => {
+        const existeUsuario = usuarios.find(usuario => (usuario?.email === email));
 
         if (existeUsuario) {
             if (existeUsuario.password === password) {
@@ -47,12 +47,12 @@ export const Autenticacao = ({ children }) => {
         }
     };
 
-    const cadastrar = (nome, login, password) => {
+    const cadastrar = (nome, email, password) => {
         const id = uuidv4();
 
-        const novoUsuario = { id, nome, login, password };
+        const novoUsuario = { id, nome, email, password, leituras:[], favoritos: []};
 
-        const existeUsuario = usuarios.find(user => (user?.login === login));
+        const existeUsuario = usuarios.find(usuario => (usuario?.email === email));
 
         if (existeUsuario) {
             existeUsuario.nome = nome
@@ -63,10 +63,10 @@ export const Autenticacao = ({ children }) => {
         return;
     };
 
-    const excluir = (login, password) => {
-        if (acessar(login, password)) {
+    const excluir = (email, password) => {
+        if (acessar(email, password)) {
 
-            const usuariosAtualizados = usuarios.filter((usuario) => usuario.login !== login);
+            const usuariosAtualizados = usuarios.filter((usuario) => usuario.email !== email);
             setUsuarios(usuariosAtualizados);
 
             return true
@@ -80,7 +80,7 @@ export const Autenticacao = ({ children }) => {
 
     return (
         <AutenticacaoContext.Provider
-            value={{ usuario, signed: !!usuario, acessar, cadastrar, sair, excluir }}
+            value={{ usuario, signed: !!usuario, acessar, cadastrar, sair, excluir, setUsuario }}
         >
             {children}
         </AutenticacaoContext.Provider>

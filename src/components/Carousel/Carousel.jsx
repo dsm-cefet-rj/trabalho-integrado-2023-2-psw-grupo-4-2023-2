@@ -38,7 +38,7 @@ const SwiperNvegation = () => {
 };
 
 const Carousel = ({ children, titulo, vazio = <div></div> }) => {
-    // const swiper = useSwiper();
+     const swiper = useSwiper();
 
     return (
         <>

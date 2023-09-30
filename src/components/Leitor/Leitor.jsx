@@ -1,15 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.js';
 import './Leitor.css';
 import { Box, Button, IconButton, Stack, Tooltip } from '@mui/material';
 import { ArrowCircleLeft, ArrowCircleRight, ZoomIn, ZoomOut } from '@mui/icons-material';
+import { AutenticacaoContext } from '../../contexts/Autenticacao';
 
-const Leitor = ({ namePdf }) => {
-    const [pageNum, setPageNum] = useState(1);
+const Leitor = ({ namePdf, id }) => {
+
+    const {usuario, setUsuario} = useContext(AutenticacaoContext);
+
+    // const [leitura, setLeitura] = useState(()=> {
+    //     const storedLeitura = localStorage.getItem("leitura");
+    //     return storedLeitura ? JSON.parse(storedLeitura) : {livros: leitura};
+    // });
+
+    // useEffect(()=>{
+    //     localStorage.setItem('leitura',JSON.stringify(leitura))
+    // },[leitura]);
+    const leituras = usuario.leituras;
+
+    const leitura = leituras.find(leitura => leitura.id===id);
+
+    const pagina = leitura? leitura.pag: 1;
+
+    const [pageNum, setPageNum] = useState(pagina);
     const [pdfDoc, setPdfDoc] = useState(null);
     const [tamanhoPdf, setTamanhoPdf] = useState('pequeno');
 
+    
     const path = '/src/assets/pdf/';
 
     useEffect(() => {
@@ -20,6 +39,11 @@ const Leitor = ({ namePdf }) => {
             setPdfDoc(pdfDoc_);
         });
     }, [namePdf]);
+
+    useEffect(()=>{
+        const outrasLeituras = leituras.filter(leitura => leitura.id !== id);
+        setUsuario({...usuario, leituras: [...outrasLeituras,{id:id, pag: pageNum}]});
+    },[pageNum, id, leituras, setUsuario, usuario]);
 
     useEffect(() => {
         const renderizaPagina = (pageNumber) => {
