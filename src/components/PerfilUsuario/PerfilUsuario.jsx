@@ -1,4 +1,4 @@
-import { Avatar, Card, Container, Typography, TextField, Button, MenuItem, Snackbar, Alert } from '@mui/material';
+import { Avatar, Card, Container, Typography, TextField, Button, MenuItem, Snackbar, Alert , Modal} from '@mui/material';
 import AccountCircleTwoTone from '@mui/icons-material/AccountCircleTwoTone';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import EventIcon from '@mui/icons-material/Event';
@@ -9,6 +9,8 @@ import { AutenticacaoContext } from "../../contexts/Autenticacao";
 const PerfilUsuario = () => {
     const [readOnly, setReadOnly] = useState(true);
     const { usuario, sair, setUsuario} = useContext(AutenticacaoContext);
+
+    const [openModal, setOpenModal] = useState(false);
     
     const [openAlertMessage, setOpenAlertMessage] = useState(false);
     const [typeMessage, setTypeMessage] = useState('info');
@@ -39,25 +41,47 @@ const PerfilUsuario = () => {
 
     const salvarDados = () => {
         if(validarCampos()){
-            mensagemSucesso();
+            mensagemSucesso('Dados alterados com sucesso.');
             setReadOnly(true);
             setUsuario({...usuario, nome:nomeNovo, email: emailNovo,celular:celularNovo, endereco:enderecoNovo});
         }
     }
 
-    const mensagemError = (campo) => {
+    const mensagemError = (texto) => {
         setTypeMessage('error');
-        setAlertMessage('Por favor preencha o campo '+ campo);
+        setAlertMessage(texto);
         setOpenAlertMessage(true);
     };
 
-    const mensagemSucesso = () => {
+    const mensagemSucesso = (texto) => {
         setTypeMessage('success');
-        setAlertMessage('Dados alterados com sucesso.');
+        setAlertMessage(texto);
         setOpenAlertMessage(true);
         setAlertDuration(6000);
-      };
+    };
+
+    const alterarSenha = () => {
+        setOpenModal(true);
+    }
+
+    const fecharModal = () => {
+        setOpenModal(false);
+    }
+
+    const cancelarSenha = () => {
+        fecharModal();
+    }
+
+    const salvarNovaSenha = () => {
+        validarSenhaNova();
+        mensagemSucesso('Nova seha salva com sucesso')
+        fecharModal();
+    }
     
+    const validarSenhaNova= () => {
+        return true;
+    }
+   
 
     const handleCloseAlertMessage = (event, reason) => {
         if (reason === 'clickaway') {
@@ -76,19 +100,19 @@ const PerfilUsuario = () => {
             const id = inputs[i];
             const input = document.getElementById(id);
             if (input.value.trim() === '') {
-                mensagemError(id);
+                mensagemError('Por favor preencha o campo '+ id);
                 input.focus();
                 validar = false;
                 break;
             }
             if( id === 'email' && !regexEmail.test(input.value.trim())){
-                mensagemError(id + " no formato nome@email");
+                mensagemError('Por favor preencha o campo '+ id + " no formato nome@email");
                 input.focus();
                 validar = false;
                 break;
             }
             if( id === 'celular' && !regexCelular.test(input.value.trim())){
-                mensagemError(id + " no formato (XX) XXXX-XXXX ou (XX) XXXXX-XXXX");
+                mensagemError('Por favor preencha o campo '+ id + " no formato (XX) XXXX-XXXX ou (XX) XXXXX-XXXX");
                 input.focus();
                 validar = false;
                 break;
@@ -98,7 +122,7 @@ const PerfilUsuario = () => {
     }
 
   return (
-
+<>
     <Container maxWidth='sm'>
 
         <Snackbar open={openAlertMessage} autoHideDuration={alertDuration} onClose={handleCloseAlertMessage} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
@@ -119,6 +143,11 @@ const PerfilUsuario = () => {
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'black'}>Email:</Typography>
                         <Typography variant='h6' color={'black'}>{usuario.email}</Typography>
+                    </Box>
+                    <Box>
+                        <Button onClick={alterarSenha} variant="contained" color="secondary">
+                            Alterar senha
+                        </Button>
                     </Box>
                 </Box>
             </Card>
@@ -222,7 +251,7 @@ const PerfilUsuario = () => {
         
         <Box sx={{display:'flex', justifyContent: 'space-around', marginBottom: '30px'}}>
             <Button onClick={sair} variant="contained" color="error">
-            Finalizar sessão
+                Finalizar sessão
             </Button>
             { readOnly && 
                 <Button onClick={editarDados} variant="contained" color="secondary">
@@ -234,6 +263,47 @@ const PerfilUsuario = () => {
                 </Button>}
         </Box>
     </Container>
+
+    <Modal
+        open={openModal}
+        onClose={fecharModal}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+    >
+        <Container maxWidth='xs' sx={{
+          display: 'flex',
+          alignItems: 'center',
+          height: '100vh'
+        }}>
+            <Box maxWidth='sm' sx={{
+                position: 'relative',
+                bgcolor: 'background.default',
+                borderRadius: 1,
+                boxShadow: 24,
+                p: 4, }}>
+                <Box display={'flex'} flexDirection={'column'} minWidth={'95%'}>
+                    <TextField variant="outlined"  margin="dense"
+                        id="senhaAtual"
+                        fullWidth
+                        label="Senha atual"
+                    />
+                    <TextField variant="outlined"  margin="dense"
+                        id="senhaNova"
+                        fullWidth
+                        label="Nova senha"
+                    />
+                </Box>
+                <Button onClick={cancelarSenha} variant="contained" color="error">
+                    Cancelar
+                </Button>
+                <Button onClick={salvarNovaSenha} variant="contained" color="success">
+                    Salvar nova Senha
+                </Button>
+            </Box>
+        </Container>
+
+    </Modal>
+</>
 )
 }
 
