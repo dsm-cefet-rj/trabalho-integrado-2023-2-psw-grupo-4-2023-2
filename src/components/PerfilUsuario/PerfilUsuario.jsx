@@ -17,12 +17,18 @@ const PerfilUsuario = () => {
 
     const formasPagamento = [{value:'Débito'}, {value:'Crédito'}, {value:'Pix'}, {value:'Boleto'}];
 
+    const [nomeNovo, setNomeNovo] = useState(usuario.nome);
+    const [emailNovo, setEmailNovo] = useState(usuario.email);
+    const [enderecoNovo, setEnderecoNovo] = useState(usuario.endereco);
+    const [celularNovo, setCelularNovo] = useState(usuario.celular);
+
+
     const perfil ={
         nome: usuario.nome,
         email: usuario.email,
         senha: usuario.passaword,
-        endereco: 'Av. maracanã',
-        celular: '+55 (21) 9387-4293',
+        endereco: usuario.endereco,
+        celular: usuario.celular,
         formaPagamento: "Débito",
         dataCobranca: '22/08/2023',
     }
@@ -35,6 +41,7 @@ const PerfilUsuario = () => {
         if(validarCampos()){
             mensagemSucesso();
             setReadOnly(true);
+            setUsuario({...usuario, nome:nomeNovo, email: emailNovo,celular:celularNovo, endereco:enderecoNovo});
         }
     }
 
@@ -105,9 +112,10 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Nome:</Typography>
                         <TextField variant="standard"  margin="dense"
                             id="nome-usuario"
-                            defaultValue={perfil.nome}
+                            onChange={(e)=> setNomeNovo(e.target.value)}
+                            value={usuario.nome}
                             InputProps={{
-                                readOnly,
+                                readOnly:'false',
                               }}
                         />
                     </Box>
@@ -115,9 +123,10 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Email:</Typography>
                         <TextField variant="standard" margin="dense"
                             id="email-usuario"
-                            defaultValue={perfil.email}
+                            onChange={(e)=> setEmailNovo(e.target.value) }
+                            value={usuario.email}
                             InputProps={{
-                                readOnly,
+                                readOnly:'false',
                               }}
                         />
                     </Box>
@@ -171,6 +180,7 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Nome:</Typography>
                         <TextField variant="standard"  margin="dense"
                             id="nome-usuario2"
+                            onChange={(e)=> setNomeNovo(e.target.value) }
                             defaultValue={perfil.nome}
                             InputProps={{
                                 readOnly,
@@ -181,6 +191,7 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Email:</Typography>
                         <TextField variant="standard" margin="dense"
                             id="email-usuario2"
+                            onChange={(e)=> setEmailNovo(e.target.value) }
                             defaultValue={perfil.email}
                             InputProps={{
                                 readOnly,
@@ -189,18 +200,22 @@ const PerfilUsuario = () => {
                     </Box>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'black'}>Celular:</Typography>
-                        <TextField variant="standard" margin="dense"
+                        <TextField variant="standard"           margin="dense"
                             id="celular-usuario"
+                            onChange={(e)=> setCelularNovo(e.target.value) }
                             defaultValue={perfil.celular}
                             InputProps={{
                                 readOnly,
-                              }}
+                              }
+                            }
+                            
                         />
                     </Box>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'black'}>Endereço:</Typography>
                         <TextField variant="standard" margin="dense"
                             id="endereco-usuario"
+                            onChange={(e)=> setEnderecoNovo(e.target.value) }
                             defaultValue={perfil.endereco}
                             InputProps={{
                                 readOnly,
