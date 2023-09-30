@@ -46,9 +46,10 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Nome:</Typography>
                         <TextField variant="standard"  margin="dense"
                             id="nome-usuario"
-                            defaultValue={perfil.nome}
+                            onChange={(e)=> setNomeNovo(e.target.value)}
+                            value={usuario.nome}
                             InputProps={{
-                                readOnly,
+                                readOnly:'false',
                               }}
                         />
                     </Box>
@@ -56,9 +57,10 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Email:</Typography>
                         <TextField variant="standard" margin="dense"
                             id="email-usuario"
-                            defaultValue={perfil.email}
+                            onChange={(e)=> setEmailNovo(e.target.value) }
+                            value={usuario.email}
                             InputProps={{
-                                readOnly,
+                                readOnly:'false',
                               }}
                         />
                     </Box>
