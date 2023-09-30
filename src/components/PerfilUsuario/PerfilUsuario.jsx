@@ -8,18 +8,19 @@ import { AutenticacaoContext } from "../../contexts/Autenticacao";
 
 const PerfilUsuario = () => {
     const [readOnly, setReadOnly] = useState(true);
-    
-    const [nomeNovo, setNomeNovo] = useState();
-    const [emailNovo, setEmailNovo] = useState();
-    const [enderecoNovo, setEnderecoNovo] = useState();
-    const [celularNovo, setCelularNovo] = useState();
 
     const { usuario, sair, setUsuario } = useContext(AutenticacaoContext);
+
+    const [nomeNovo, setNomeNovo] = useState(usuario.nome);
+    const [emailNovo, setEmailNovo] = useState(usuario.email);
+    const [enderecoNovo, setEnderecoNovo] = useState(usuario.endereco);
+    const [celularNovo, setCelularNovo] = useState(usuario.celular);
+
 
     const perfil ={
         nome: usuario.nome,
         email: usuario.email,
-        endereco: usuario.email,
+        endereco: usuario.endereco,
         celular: usuario.celular,
     }
 
@@ -30,7 +31,7 @@ const PerfilUsuario = () => {
 
     const salvarDados = () => {
         setReadOnly(true);
-        setUsuario({...usuario, celular:celularNovo, });
+        setUsuario({...usuario, nome:nomeNovo, email: emailNovo,celular:celularNovo, endereco:enderecoNovo});
         console.log("salvar dados");
     }
 
@@ -74,7 +75,7 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Data de cobrança:</Typography>
                         <TextField variant="standard"  margin="dense"
                             id="data-cobrança"
-                            defaultValue="Renan Lima"
+                            defaultValue="15/10/2023"
                             InputProps={{
                                 readOnly,
                               }}
@@ -85,7 +86,7 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Pagamento</Typography>
                         <TextField variant="standard" margin="dense"
                             id="forma-pagamento"
-                            defaultValue="teste@lolmail.com"
+                            defaultValue="Crédito"
                             InputProps={{
                                 readOnly,
                             }}
@@ -136,6 +137,7 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Endereço:</Typography>
                         <TextField variant="standard" margin="dense"
                             id="endereco-usuario2"
+                            onChange={(e)=> setEnderecoNovo(e.target.value) }
                             defaultValue={perfil.endereco}
                             InputProps={{
                                 readOnly,
