@@ -21,6 +21,7 @@ const Acesso = () => {
   const [nome, setNome] = useState('');
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
+  const [telefone, setTelefone] = useState('');
 
   const [openModal, setOpenModal] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
@@ -60,6 +61,9 @@ const Acesso = () => {
   };
   const handlePassword = (event) => {
     setPassword(event.target.value);
+  };
+  const handleTelefone = (event) => {
+    setTelefone(event.target.value);
   };
 
   const handleSignup = () => {
@@ -210,9 +214,17 @@ const Acesso = () => {
                 </Grid>
                 {isLogin
                   ? null
-                  : <Grid item xs={12}>
-                    <TextField fullWidth value={nome} autoComplete="off" type='text' label="nome" onChange={handleNome}></TextField>
-                  </Grid>
+                  :( 
+                  <>
+                  <Grid item xs={12}>
+                      <TextField fullWidth value={nome} autoComplete="off" type='text' label="nome" onChange={handleNome}></TextField>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField fullWidth value={telefone} autoComplete="off" type='text' label="telefone" onChange={handleTelefone}></TextField>
+                    </Grid>
+                    
+                  </>
+                  )
                 }
 
                 <Grid item xs={12}>
