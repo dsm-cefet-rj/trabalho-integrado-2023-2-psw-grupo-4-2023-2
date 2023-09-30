@@ -9,7 +9,7 @@ import { AutenticacaoContext } from "../../contexts/Autenticacao";
 const PerfilUsuario = () => {
     const [readOnly, setReadOnly] = useState(true);
 
-    const { usuario, sair, setUsuario, setUsuarios } = useContext(AutenticacaoContext);
+    const { usuario, sair, setUsuario } = useContext(AutenticacaoContext);
 
     const [nomeNovo, setNomeNovo] = useState(usuario.nome);
     const [emailNovo, setEmailNovo] = useState(usuario.email);
@@ -32,7 +32,6 @@ const PerfilUsuario = () => {
 
     const salvarDados = () => {
         setReadOnly(true);
-        
         setUsuario({...usuario, nome:nomeNovo, email: emailNovo,celular:celularNovo, endereco:enderecoNovo});
         console.log("salvar dados");
     }
