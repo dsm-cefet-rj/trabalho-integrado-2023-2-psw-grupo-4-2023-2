@@ -23,7 +23,7 @@ const PerfilUsuario = () => {
     const [emailNovo, setEmailNovo] = useState(usuario.email);
     const [enderecoNovo, setEnderecoNovo] = useState(usuario.endereco);
     const [celularNovo, setCelularNovo] = useState(usuario.celular);
-
+    const [senhaNova, setSenhaNova] = useState(usuario.password);
 
     const perfil ={
         nome: usuario.nome,
@@ -73,16 +73,42 @@ const PerfilUsuario = () => {
     }
 
     const salvarNovaSenha = () => {
-        validarSenhaNova();
-        mensagemSucesso('Nova seha salva com sucesso')
-        fecharModal();
+        if(validarSenhaNova()){
+            mensagemSucesso('Nova seha salva com sucesso')
+            fecharModal();
+        }
     }
     
     const validarSenhaNova= () => {
+        const inputSenhaAtual = document.getElementById('senhaAtual');
+        const senhaAtual = inputSenhaAtual.value.trim();
+
+        const inputNovaSenha = document.getElementById('senhaNova');
+        const novaSenha = inputNovaSenha.value.trim();
+
+        if (senhaAtual === '') {
+            mensagemError('Por favor preencha o campo senha atual');
+            inputSenhaAtual.focus();
+            return false;
+        }
+        else if(senhaAtual != usuario.password){
+            mensagemError('A senha atual está incorreta');
+            inputSenhaAtual.focus();
+            return false;
+        }
+        else if (novaSenha === '') {
+            mensagemError('Por favor preencha o campo senha nova');
+            inputNovaSenha.focus();
+            return false;
+        }
+        else if(senhaAtual === novaSenha){
+            mensagemError('A nova senha deve ser diferente da senha antiga');
+            inputNovaSenha.focus();
+            return false;
+        }
         return true;
     }
    
-
     const handleCloseAlertMessage = (event, reason) => {
         if (reason === 'clickaway') {
           return;
