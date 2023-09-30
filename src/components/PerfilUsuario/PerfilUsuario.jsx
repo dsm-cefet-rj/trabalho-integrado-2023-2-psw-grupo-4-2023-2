@@ -68,7 +68,7 @@ const PerfilUsuario = () => {
 
     function validarCampos(){
         const inputs=[ "nome",'email', 'celular', 'endereco'];
-        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const regexEmail = /^[^\s@]+@[^\s@]+$/;     // ou /^[^\s@]+@[^\s@]+\.[^\s@]+$/ para ser: nome@email.c;
         const regexCelular = /^\(\d{2}\)\d{4,5}-\d{4}$/;
         let validar = true;
 
@@ -79,17 +79,21 @@ const PerfilUsuario = () => {
                 mensagemError(id);
                 input.focus();
                 validar = false;
-                break; // Isso interrompe o loop imediatamente quando validar é definido como false
+                break;
             }
-            if( id === 'email-usuario'){
-                validar = regexEmail.test(input.value.trim());
+            if( id === 'email' && !regexEmail.test(input.value.trim())){
                 mensagemError(id + " no formato nome@email");
+                input.focus();
+                validar = false;
+                break;
             }
-            if( id === 'celular-usuario'){
-                validar = regexCelular.test(input.value.trim());
+            if( id === 'celular' && !regexCelular.test(input.value.trim())){
                 mensagemError(id + " no formato (XX) XXXX-XXXX ou (XX) XXXXX-XXXX");
+                input.focus();
+                validar = false;
+                break;
             }
-        }
+        }            
         return validar;
     }
 
