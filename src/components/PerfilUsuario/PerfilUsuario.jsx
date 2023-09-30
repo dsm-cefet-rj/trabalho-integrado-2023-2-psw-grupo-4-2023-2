@@ -1,4 +1,4 @@
-import { Avatar, Card, Container, Typography, TextField, Button } from '@mui/material';
+import { Avatar, Card, Container, Typography, TextField, Button, MenuItem, Select } from '@mui/material';
 import AccountCircleTwoTone from '@mui/icons-material/AccountCircleTwoTone';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import EventIcon from '@mui/icons-material/Event';
@@ -10,17 +10,22 @@ const PerfilUsuario = () => {
     const [readOnly, setReadOnly] = useState(true);
     const { usuario, sair } = useContext(AutenticacaoContext);
 
+    const formasPagamento = [{value:'Débito'}, {value:'Crédito'}, {value:'Pix'}, {value:'Boleto'}];
+
     const perfil ={
         nome: usuario.nome,
         email: usuario.email,
         senha: usuario.passaword,
         endereco: 'Av. maracanã',
         celular: '+55 (21) 9387-4293',
+        formaPagamento: "Débito",
+        dataCobranca: '22/08/2023',
     }
 
     const editarDados = () => {
         setReadOnly(false);
         console.log("editar dados");
+        console.log(readOnly);
     };
 
     const salvarDados = () => {
@@ -68,7 +73,7 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Data de cobrança:</Typography>
                         <TextField variant="standard"  margin="dense"
                             id="data-cobrança"
-                            defaultValue="Renan Lima"
+                            defaultValue={perfil.dataCobranca}
                             InputProps={{
                                 readOnly,
                               }}
@@ -79,11 +84,19 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Pagamento</Typography>
                         <TextField variant="standard" margin="dense"
                             id="forma-pagamento"
-                            defaultValue="teste@lolmail.com"
+                            defaultValue={perfil.formaPagamento}
                             InputProps={{
                                 readOnly,
-                            }}
-                        />
+                              }}
+                              select
+                        >
+                            {formasPagamento.map((option) => (
+                                    <MenuItem key={option.value} value={option.value}>
+                                    {option.value}
+                                    </MenuItem>
+                                ))}
+                        </TextField>
+                                
                     </Box>
                 </Box>
             </Card>
