@@ -8,7 +8,7 @@ import { AutenticacaoContext } from "../../contexts/Autenticacao";
 
 const PerfilUsuario = () => {
     const [readOnly, setReadOnly] = useState(true);
-    const { usuario, sair } = useContext(AutenticacaoContext);
+    const { usuario, sair, setUsuario} = useContext(AutenticacaoContext);
     
     const [openAlertMessage, setOpenAlertMessage] = useState(false);
     const [typeMessage, setTypeMessage] = useState('info');
@@ -115,7 +115,7 @@ const PerfilUsuario = () => {
                             onChange={(e)=> setNomeNovo(e.target.value)}
                             value={usuario.nome}
                             InputProps={{
-                                readOnly:'false',
+                                readOnly:false,
                               }}
                         />
                     </Box>
@@ -126,7 +126,7 @@ const PerfilUsuario = () => {
                             onChange={(e)=> setEmailNovo(e.target.value) }
                             value={usuario.email}
                             InputProps={{
-                                readOnly:'false',
+                                readOnly: false,
                               }}
                         />
                     </Box>
