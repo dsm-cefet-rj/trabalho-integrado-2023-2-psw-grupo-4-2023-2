@@ -22,6 +22,7 @@ const Acesso = () => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [celular, setCelular] = useState('');
+  const [endereco, setEndereco] = useState('');
 
   const [openModal, setOpenModal] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
@@ -74,7 +75,7 @@ const Acesso = () => {
     setInProgress(true);
 
     setTimeout(() => {
-      cadastrar(nome, login, password);
+      cadastrar(nome, login, password, endereco, celular);
       setIsLogin(true);
       handleCadastrado();
       setInProgress(false);
@@ -119,11 +120,8 @@ const Acesso = () => {
     }
     else {
       handleSignup()
-    };
-
-
+    }
   };
-
 
   return (
     <>
@@ -224,6 +222,9 @@ const Acesso = () => {
                     </Grid>
                     <Grid item xs={12}>
                       <TextField fullWidth value={celular} autoComplete="off" type='text' label="celular" onChange={handleCelular}></TextField>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField fullWidth value={endereco} autoComplete="off" type='text' label="endereço" onChange={handleEndereco}></TextField>
                     </Grid>
                     
                   </>
