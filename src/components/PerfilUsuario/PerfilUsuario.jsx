@@ -20,6 +20,7 @@ const PerfilUsuario = () => {
     const perfil ={
         nome: usuario.nome,
         email: usuario.email,
+        senha: usuario.passaword,
         endereco: usuario.endereco,
         celular: usuario.celular,
     }
@@ -38,7 +39,7 @@ const PerfilUsuario = () => {
   return (
     <Container maxWidth='sm'>
         <Box sx={{margin: '30px'}}>
-            <Typography variant='h5' color={'white'}>Meus Dados</Typography>
+            <Typography variant='h5' color={'secondary'}>Meus Dados</Typography>
             <Card sx={{display:'flex', backgroundColor: 'white', alignItems:'center', gap: 2, pl: 2, borderRadius: '15px'}}>
                 <Avatar><AccountCircleTwoTone /></Avatar>
                 <Box display={'flex'} flexDirection={'column'}>
@@ -69,7 +70,7 @@ const PerfilUsuario = () => {
         </Box>
        
         <Box sx={{margin: '30px'}}>
-            <Typography variant='h5' color={'white'}>Assinatura e cobrança</Typography>
+            <Typography variant='h5' color={'secondary'}>Assinatura e cobrança</Typography>
             <Card sx={{display:'flex', backgroundColor: 'white', alignItems:'center', gap: 2, pl: 2, borderRadius: '15px'}}>
                 <Box display={'flex'} flexDirection={'column'}>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
@@ -99,7 +100,7 @@ const PerfilUsuario = () => {
         </Box>
 
         <Box sx={{margin: '30px'}}>
-            <Typography variant='h5' color={'white'}>Informações pessoais</Typography>
+            <Typography variant='h5' color={'secondary'}>Informações pessoais</Typography>
             <Card sx={{display:'flex', backgroundColor: 'white', alignItems:'center', gap: 2, pl: 2, borderRadius: '15px'}}>
                 <Box display={'flex'} flexDirection={'column'}>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
