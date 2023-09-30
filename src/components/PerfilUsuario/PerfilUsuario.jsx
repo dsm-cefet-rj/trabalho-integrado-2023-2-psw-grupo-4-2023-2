@@ -8,13 +8,18 @@ import { AutenticacaoContext } from "../../contexts/Autenticacao";
 
 const PerfilUsuario = () => {
     const [readOnly, setReadOnly] = useState(true);
+    
+    const [nomeNovo, setNomeNovo] = useState();
+    const [emailNovo, setEmailNovo] = useState();
+    const [enderecoNovo, setEnderecoNovo] = useState();
     const [celularNovo, setCelularNovo] = useState();
+
     const { usuario, sair, setUsuario } = useContext(AutenticacaoContext);
 
     const perfil ={
         nome: usuario.nome,
         email: usuario.email,
-        endereco: 'Av. maracanã',
+        endereco: usuario.email,
         celular: usuario.celular,
     }
 
