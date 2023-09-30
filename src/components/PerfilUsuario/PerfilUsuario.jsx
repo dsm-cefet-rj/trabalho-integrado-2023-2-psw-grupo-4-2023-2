@@ -104,6 +104,7 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Nome:</Typography>
                         <TextField variant="standard"  margin="dense"
                             id="nome-usuario2"
+                            onChange={(e)=> setNomeNovo(e.target.value) }
                             defaultValue={perfil.nome}
                             InputProps={{
                                 readOnly,
@@ -114,6 +115,7 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Email:</Typography>
                         <TextField variant="standard" margin="dense"
                             id="email-usuario2"
+                            onChange={(e)=> setEmailNovo(e.target.value) }
                             defaultValue={perfil.email}
                             InputProps={{
                                 readOnly,
