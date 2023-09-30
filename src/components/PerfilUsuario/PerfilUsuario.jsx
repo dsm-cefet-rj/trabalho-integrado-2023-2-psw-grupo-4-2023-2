@@ -166,8 +166,8 @@ const PerfilUsuario = () => {
 
         <Box sx={{margin: '30px'}}>
             <Typography variant='h5' color={'secondary'}>Meus Dados</Typography>
-            <Card sx={{display:'flex', backgroundColor: 'white', alignItems:'center', gap: 2, pl: 2, borderRadius: '15px'}}>
-                <Avatar><AccountCircleTwoTone /></Avatar>
+            <Card sx={{display:'flex', backgroundColor: 'white', alignItems:'center', gap: 2,  p: '20px', borderRadius: '15px'}}>
+                <Avatar style={{ width: '50px', height: '50px' }}><AccountCircleTwoTone style={{ width: '50px', height: '50px' }}/></Avatar>
                 <Box display={'flex'} flexDirection={'column'}>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'black'}>Nome:</Typography>
@@ -188,7 +188,7 @@ const PerfilUsuario = () => {
        
         <Box sx={{margin: '30px'}}>
             <Typography variant='h5' color={'secondary'}>Assinatura e cobrança</Typography>
-            <Card sx={{display:'flex', backgroundColor: 'white', alignItems:'center', gap: 2, pl: 2, borderRadius: '15px'}}>
+            <Card sx={{display:'flex', backgroundColor: 'white', alignItems:'center', gap: 2, borderRadius: '15px', p: '20px'}}>
                 <Box display={'flex'} flexDirection={'column'} minWidth={'95%'}>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <EventIcon sx={{ color: 'black', mr: 1, my: 0.5 }} />
@@ -228,8 +228,8 @@ const PerfilUsuario = () => {
 
         <Box sx={{margin: '30px'}}>
             <Typography variant='h5' color={'secondary'}>Informações pessoais</Typography>
-            <Card sx={{display:'flex', backgroundColor: 'white', alignItems:'center', gap: 2, pl: 2, borderRadius: '15px'}}>
-                <Box display={'flex'} flexDirection={'column'} minWidth={'95%'}>
+            <Card sx={{display:'flex', backgroundColor: 'white', alignItems:'center', gap: 2, borderRadius: '15px',p: '20px'}}>
+                <Box display={'flex'} flexDirection={'column'} minWidth={'100%'}>
                     <Box sx={{display:'flex', gap:1, alignItems: 'center'}}>
                         <Typography variant='h6' color={'black'}>Nome:</Typography>
                         <TextField variant="standard"  margin="dense"
