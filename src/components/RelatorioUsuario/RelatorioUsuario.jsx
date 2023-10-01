@@ -3,14 +3,37 @@ import React from 'react'
 import img from '../../assets/imagem-relatorio.png'
 import { Stack } from '@mui/system'
 import './RelatorioUsuario.css'
+import { AutenticacaoContext } from '../../contexts/Autenticacao'
+import { LivrosContext } from "../../contexts/Livros";
+import { useContext, useState } from "react";
 
 const RelatorioUsuario = () => {
+  const { livros } = useContext(LivrosContext);
+  const { usuario } = useContext(AutenticacaoContext);
+  const leituras = usuario.leituras;
+  let listaIDs = leituras.map(item => item.id);
+
+  const [ romance, setRomance] = useState(0);
+  const [ terror, setTerror] = useState(0);
+  const [ fantasia, setFantasia] = useState(0);
+  const [ suspense, setSuspense] = useState(0);
+  
+  livros.map(livro => {
+    if(listaIDs && listaIDs.includes(livro)){ 
+        generosLidos.map(Objeto =>{
+          if(Objeto.genero===livro.genero){
+            Objeto.qtd+=1;
+          }
+        })
+     }
+  })
+  
 
   const generosLidos =[
-    {genero: "Romance", qtd: 5},
-    {genero: "Terror", qtd: 4},
-    {genero: "Fantasia", qtd: 7},
-    {genero: "Suspense", qtd: 2},
+    {genero: "Romance", qtd: romance},
+    {genero: "Terror", qtd: terror},
+    {genero: "Fantasia", qtd: fantasia},
+    {genero: "Suspense", qtd: suspense},
   ];
 
   const totalLidos = generosLidos.reduce((soma, objeto) => soma + objeto.qtd, 0);
