@@ -27,7 +27,9 @@ const DescricaoLivro = ({ sinopse, desc, namePdf, genero, id }) => {
           <Box>
             <Typography variant="h6">AUTOR</Typography>
             <Typography variant="subtitle2" sx={{
-               
+              fontSize: '14px',
+              fontWeight: 'bold',
+              color: '#007BFF' 
             }}>
               {desc}
             </Typography>
@@ -35,7 +37,8 @@ const DescricaoLivro = ({ sinopse, desc, namePdf, genero, id }) => {
           <Box>
             <Typography variant="h6">GÊNERO</Typography>
             <Typography variant="subtitle2" sx={{
-              
+              fontSize: '14px',
+              color: '#666' 
             }}>
               {genero}
             </Typography>
