@@ -12,7 +12,7 @@ const DescricaoLivro = ({ sinopse, desc, namePdf, genero, id }) => {
           borderRadius: '10px', 
           padding: '16px', 
           background: '#fff', 
-        }}>
+        }}>//Descrição: sinopse, autor e gênero agrupados e estilizados.
           <Box>
             <Typography variant="h6">SINOPSE</Typography>
             <Typography variant="body1" sx={{
@@ -44,6 +44,7 @@ const DescricaoLivro = ({ sinopse, desc, namePdf, genero, id }) => {
             </Typography>
           </Box>
           <Box>
+            //Passando id do livro.
             <Button  href={`/leitura/${id || ""}/${namePdf || ""}`} size="large" variant='contained' color='secondary'>Começar a ler </Button>
           </Box>
         </Paper>
