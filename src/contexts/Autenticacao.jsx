@@ -35,8 +35,9 @@ export const Autenticacao = ({ children }) => {
 
 
     const acessar = (email, password) => {
+    
         const existeUsuario = usuarios.find(usuario => (usuario?.email === email));
-
+        
         if (existeUsuario) {
             if (existeUsuario.password === password) {
                 setUsuario(existeUsuario)
@@ -45,15 +46,16 @@ export const Autenticacao = ({ children }) => {
 
             return false;
         }
+        
     };
 
     const cadastrar = (nome, email, password, endereco, celular) => {
         const id = uuidv4();
 
         const novoUsuario = { id, nome, email, password, endereco, celular, leituras:[], favoritos: []};
-
+        console.log(usuarios)
+        
         const existeUsuario = usuarios.find(usuario => (usuario?.email === email));
-
         if (existeUsuario) {
             existeUsuario.nome = nome
             existeUsuario.password = password;
@@ -61,6 +63,7 @@ export const Autenticacao = ({ children }) => {
             setUsuarios([...usuarios, novoUsuario]);
         }
         return;
+        
     };
 
     const excluir = (email, password) => {
