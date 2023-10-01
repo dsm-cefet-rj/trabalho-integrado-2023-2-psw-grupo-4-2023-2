@@ -14,6 +14,7 @@ const DescricaoLivro = ({ sinopse, desc, namePdf, genero, id }) => {
           background: '#fff', 
         }}>
           <Box>
+            //sinopse estilizada com css.
             <Typography variant="h6">SINOPSE</Typography>
             <Typography variant="body1" sx={{
               textAlign: 'justify',
