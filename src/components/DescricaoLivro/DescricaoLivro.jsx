@@ -9,9 +9,7 @@ const DescricaoLivro = ({ sinopse, desc, namePdf, genero, id }) => {
         maxWidth: 400
       }}>
         <Paper elevation={3} sx={{ 
-          borderRadius: '10px', 
-          padding: '16px', 
-          background: '#fff', 
+           
         }}>
           <Box>
             <Typography variant="h6">SINOPSE</Typography>
