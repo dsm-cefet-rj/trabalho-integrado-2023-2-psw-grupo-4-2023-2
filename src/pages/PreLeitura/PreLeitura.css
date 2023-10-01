@@ -9,24 +9,6 @@
   }
   
 
-  
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-
-  .sinopse {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-    
-  .autor {
-    font-style: italic;
-  }
-  
-  .genero {
-    color: #007bff;
+ 
   }
   
