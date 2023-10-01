@@ -21,19 +21,24 @@ const RelatorioUsuario = () => {
   generosLidos.sort((a,b) => b.qtd - a.qtd);
 
   const listaPorcentagem = generosLidos.map((objeto) => {
-    const porcentagem = ((objeto.qtd * 100) / totalLidos).toFixed(1);
-    const largura = `${porcentagem}%`;
-  
-    return (
-      <div key={objeto.genero} className='item-lista-genero'>
-        <Typography>{objeto.genero}: {objeto.qtd} livros</Typography>
-        <div className='cem-porcento'>
-          <div className='porcentagem' style={{ width: largura }}>
-            {largura}
+    if(objeto.qtd === 0){
+      return (<></>);
+    }
+    else{
+      const porcentagem = ((objeto.qtd * 100) / totalLidos).toFixed(1);
+      const largura = `${porcentagem}%`;
+    
+      return (
+        <div key={objeto.genero} className='item-lista-genero'>
+          <Typography>{objeto.genero}: {objeto.qtd} livros</Typography>
+          <div className='cem-porcento'>
+            <div className='porcentagem' style={{ width: largura }}>
+              {largura}
+            </div>
           </div>
         </div>
-      </div>
       );
+    }
   });
  
   return (
