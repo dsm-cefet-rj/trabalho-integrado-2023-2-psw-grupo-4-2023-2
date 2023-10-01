@@ -13,7 +13,27 @@ const DescricaoLivro = ({ sinopse, desc, namePdf, genero }) => {
           padding: '16px', 
           background: '#fff', 
         }}>
-          
+          <Box>
+            <Typography variant="h6">SINOPSE</Typography>
+            <Typography variant="body1" sx={{
+              textAlign: 'justify',
+              lineHeight: '1.6',
+              fontSize: '16px',
+              color: '#333' 
+            }}>
+              {sinopse}
+            </Typography>
+          </Box>
+          <Box>
+            <Typography variant="h6">AUTOR</Typography>
+            <Typography variant="subtitle2" sx={{
+              fontSize: '14px',
+              fontWeight: 'bold',
+              color: '#007BFF' 
+            }}>
+              {desc}
+            </Typography>
+          </Box>
           <Box>
             <Typography variant="h6">GÊNERO</Typography>
             <Typography variant="subtitle2" sx={{
