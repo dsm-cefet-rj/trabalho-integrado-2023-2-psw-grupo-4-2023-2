@@ -19,8 +19,10 @@ const Acesso = () => {
 
 
   const [nome, setNome] = useState('');
-  const [login, setLogin] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [celular, setCelular] = useState('');
+  const [endereco, setEndereco] = useState('');
 
   const [openModal, setOpenModal] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
@@ -42,7 +44,7 @@ const Acesso = () => {
 
   const handleCloseCadastro = () => {
     setNome('');
-    setLogin('');
+    setEmail('');
     setPassword('');
     setOpenModal(false);
   }
@@ -55,11 +57,17 @@ const Acesso = () => {
   const handleNome = (event) => {
     setNome(event.target.value);
   };
-  const handleLogin = (event) => {
-    setLogin(event.target.value);
+  const handleEmail = (event) => {
+    setEmail(event.target.value);
   };
   const handlePassword = (event) => {
     setPassword(event.target.value);
+  };
+  const handleCelular = (event) => {
+    setCelular(event.target.value);
+  };
+  const handleEndereco = (event) => {
+    setEndereco(event.target.value);
   };
 
   const handleSignup = () => {
@@ -67,7 +75,7 @@ const Acesso = () => {
     setInProgress(true);
 
     setTimeout(() => {
-      cadastrar(nome, login, password);
+      cadastrar(nome, email, password, endereco, celular);
       setIsLogin(true);
       handleCadastrado();
       setInProgress(false);
@@ -81,8 +89,7 @@ const Acesso = () => {
     setOpenModal(false);
 
     setTimeout(() => {
-      if (acessar(login, password)) {
-      } else {
+      if (acessar(email, password)) { /* empty */ } else {
         setOpenModal(true);
         handleLoginErro();
       }
@@ -112,11 +119,8 @@ const Acesso = () => {
     }
     else {
       handleSignup()
-    };
-
-
+    }
   };
-
 
   return (
     <>
@@ -210,13 +214,24 @@ const Acesso = () => {
                 </Grid>
                 {isLogin
                   ? null
-                  : <Grid item xs={12}>
-                    <TextField fullWidth value={nome} autoComplete="off" type='text' label="nome" onChange={handleNome}></TextField>
-                  </Grid>
+                  :( 
+                  <>
+                  <Grid item xs={12}>
+                      <TextField fullWidth value={nome} autoComplete="off" type='text' label="nome" onChange={handleNome}></TextField>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField fullWidth value={celular} autoComplete="off" type='text' label="celular" onChange={handleCelular}></TextField>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField fullWidth value={endereco} autoComplete="off" type='text' label="endereço" onChange={handleEndereco}></TextField>
+                    </Grid>
+                    
+                  </>
+                  )
                 }
 
                 <Grid item xs={12}>
-                  <TextField fullWidth value={login} autoComplete="off" type='email' label="email" onChange={handleLogin}></TextField>
+                  <TextField fullWidth value={email} autoComplete="off" type='email' label="email" onChange={handleEmail}></TextField>
                 </Grid>
                 <Grid item xs={12}>
                   <TextField fullWidth value={password} autoComplete="off" type='password' label="senha" onChange={handlePassword}></TextField>
