@@ -1,10 +1,23 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import data from './../../data/livros.json'
 
 export const LivrosContext = createContext({});
 
 const Livros = ({ children }) => {
-    const [favoritos, setFavoritos] = useState([]);
+    // const [favoritos, setFavoritos] = useState([]);
+    const [favoritos, setFavoritos] = useState(() => {
+        const storedFavoritos = localStorage.getItem("favoritos");
+        return storedFavoritos ? JSON.parse(storedFavoritos) : [];
+    });
+
+    useEffect(() => {
+        if (favoritos) {
+            localStorage.setItem("favoritos", JSON.stringify(favoritos));
+        } else {
+            localStorage.removeItem("favoritos");
+        }
+    }, [favoritos]);
+
 
     const [livrosPesquisados, setLivrosPesquisados] = useState([]);
     

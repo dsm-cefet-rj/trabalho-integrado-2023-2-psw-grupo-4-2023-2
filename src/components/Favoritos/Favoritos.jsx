@@ -1,3 +1,4 @@
+import React from 'react';
 import { useContext } from 'react'
 import Carousel from '../Carousel/Carousel'
 import ListaVazia from '../ListaVazia/ListaVazia'
@@ -10,13 +11,13 @@ import { AutenticacaoContext } from '../../contexts/Autenticacao'
 const Favoritos = () => {
 
     const { favoritos } = useContext(LivrosContext);
-    const { user } = useContext(AutenticacaoContext);
+    const { usuario } = useContext(AutenticacaoContext);
 
-    const lista = favoritos.find(data=>data.userLogin===user.login)
+    const lista = favoritos.find(data=>data.userLogin===usuario.email)
 
     return (
         <Carousel titulo={'Lista de Favoritos'} vazio={<ListaVazia text="Sua prateleira ainda não possui livros." urlImage={prateleira} />}>
-            {lista?.livros ? lista.livros.map(livro => <Livro key={livro.id} id={livro.id} urlImage={livro.url} titulo={livro.name} autor={livro.descricao} />) : ""}
+            {lista?.livros.length ? lista.livros.map(livro => <Livro key={livro.id} id={livro.id} urlImage={livro.url} titulo={livro.name} autor={livro.descricao} />) : ""}
         </Carousel>
     )
 }
