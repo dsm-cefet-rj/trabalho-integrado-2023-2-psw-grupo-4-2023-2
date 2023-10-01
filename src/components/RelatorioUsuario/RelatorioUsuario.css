@@ -1,0 +1,27 @@
+.item-lista-genero{
+    margin: 10px;
+}
+
+.cem-porcento{
+    height: 30px;
+    width: auto;
+    background-color: #B2B6B9;
+    border-radius: 10px;
+    box-shadow: 2px 4px 4px 4px rgba(0, 0, 0, 0.2);
+    color: #031881;
+}
+
+.porcentagem{
+    background-color: #E6B33D;
+    text-align: right;
+    border-radius: 10px;
+    padding: 5px;
+    height: 30px;
+}
+
+.stack-relatorio{
+    width: -webkit-fill-available;
+    margin: 0 10% 30px 10%;
+}
+
+

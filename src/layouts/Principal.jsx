@@ -1,8 +1,11 @@
 import { Box } from "@mui/material";
 import Navbar from "../components/Navbar/Navbar";
 import Sidebar from "../components/Sidebar/Sidebar";
-import { useState } from "react";
+import Footer from "../components/Footer/Footer";
 import { Outlet } from "react-router-dom";
+import { Container } from "@mui/system";
+import { useState } from "react";
+
 
 const Principal = ({ drawerWidth = 240 }) => {
 
@@ -12,13 +15,16 @@ const Principal = ({ drawerWidth = 240 }) => {
         setOpen(!open);
     };
     return (
-        <Box sx={{ display: 'flex' }}>
+        <>
+        <Box sx={{ display: 'flex', minHeight:'100vh', background:'linear-gradient(to bottom, #031881, #1475a1 100vh);'}}>
             <Navbar drawerWidth={drawerWidth} toggleDrawer={toggleDrawer} />
             <Sidebar drawerWidth={drawerWidth} open={open} toggleDrawer={toggleDrawer} />
-            <Box sx={{ mt: '64px' }}>
+            <Container maxWidth='xl' sx={{mt: '64px', position:'relative',  width: {md:`calc(100vw - ${drawerWidth}px)`}}} >
                 <Outlet />
-            </Box>
+            </Container>
         </Box>
+        <Footer drawerWidth={drawerWidth} />
+        </>
     );
 }
 
