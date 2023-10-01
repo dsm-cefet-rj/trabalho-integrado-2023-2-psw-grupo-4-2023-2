@@ -44,7 +44,7 @@ const DescricaoLivro = ({ sinopse, desc, namePdf, genero, id }) => {
             </Typography>
           </Box>
           <Box>
-            <Button  href={`/leitura/${id || ""}/${namePdf || ""}`} size="large" variant='contained' color='secondary'>Começar a ler </Button>
+            <Button  href={`/leitura/$f || ""}`} size="large" variant='contained' color='secondary'>Começar a ler </Button>
           </Box>
         </Paper>
       </Stack>
