@@ -1,13 +1,14 @@
 import { Button, Typography, Paper } from "@mui/material";
 import { Box, Stack } from "@mui/system";
 
-const DescricaoLivro = ({ sinopse, desc, namePdf, genero }) => {
+const DescricaoLivro = ({ sinopse, desc, namePdf, genero}) => {
   return (
     <Box display={'flex'} justifyContent={'center'}>
       <Stack spacing={2} alignItems={"center"} textAlign={'center'} sx={{
         paddingY: 4,
         maxWidth: 400
       }}>
+        
         <Paper elevation={3} sx={{ 
           borderRadius: '10px', 
           padding: '16px', 
