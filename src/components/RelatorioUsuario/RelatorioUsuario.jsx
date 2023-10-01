@@ -11,7 +11,10 @@ const RelatorioUsuario = () => {
     {genero: "Terror", qtd: 4},
     {genero: "Fantasia", qtd: 7},
     {genero: "Suspense", qtd: 2},
+    {genero: "True crime", qtd: 0}
   ];
+
+  // const generosLidos =[]; 
 
   const totalLidos = generosLidos.reduce((soma, objeto) => soma + objeto.qtd, 0);
 
@@ -30,7 +33,7 @@ const RelatorioUsuario = () => {
           </div>
         </div>
       </div>
-    );
+      );
   });
  
   return (
@@ -44,13 +47,17 @@ const RelatorioUsuario = () => {
       <Box>
         <img src={img} alt="Descrição da imagem" />
       </Box>
-      <Typography variant='h6' color={'secondary'}>Você leu {totalLidos} livros esse ano. Parabéns</Typography>
-      <Stack className='stack-relatorio'>
-        <Typography variant='h5'>Seu relatório:</Typography>
-
-        {listaPorcentagem}
-        
-      </Stack>
+      { totalLidos === 0? (
+         <Typography variant='h6' color={'secondary'}>Você não leu nenhum livro esse ano.</Typography>
+      ) : (
+        <>
+        <Typography variant='h6' color={'secondary'}>Você leu {totalLidos} livros esse ano. Parabéns</Typography>
+        <Stack className='stack-relatorio'>
+          <Typography variant='h5'>Seu relatório:</Typography>
+          {listaPorcentagem}  
+        </Stack>
+        </>
+      )}
     </Box>
   </>
   )
