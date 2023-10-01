@@ -19,32 +19,35 @@ const DescricaoLivro = ({ sinopse, desc, namePdf, genero, id }) => {
               textAlign: 'justify',
               lineHeight: '1.6',
               fontSize: '16px',
-              color: '#333' 
+              color: '#333',
+              margin:'10px',
             }}>
               {sinopse}
             </Typography>
           </Box>
-          <Box>
+          {/* <Box>
             <Typography variant="h6">AUTOR</Typography>
             <Typography variant="subtitle2" sx={{
               fontSize: '14px',
               fontWeight: 'bold',
-              color: '#007BFF' 
+              color: '#007BFF', 
+              marginBottom:'10px'
             }}>
               {desc}
             </Typography>
-          </Box>
+          </Box> */}
           <Box>
             <Typography variant="h6">GÊNERO</Typography>
             <Typography variant="subtitle2" sx={{
               fontSize: '14px',
-              color: '#666' 
+              color: '#666',
+              margin: '5px 0 15px 0' 
             }}>
               {genero}
             </Typography>
           </Box>
           <Box>
-            <Button  href={`/leitura/${id || ""}/${namePdf || ""}`} size="large" variant='contained' color='secondary'>Começar a ler </Button>
+            <Button  href={`/leitura/${id || ""}/${namePdf || ""}`} size="large" variant='contained' color='secondary' sx={{fontWeight: 'bold'}}>LEIA</Button>
           </Box>
         </Paper>
       </Stack>
