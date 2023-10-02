@@ -302,13 +302,13 @@ const Acesso = () => {
                   :( 
                   <>
                   <Grid item xs={12}>
-                      <TextField fullWidth value={nome} autoComplete="off" type='text' label="nome" onChange={handleNome}></TextField>
+                      <TextField fullWidth value={nome} autoComplete="off" type='text' label="Nome" onChange={handleNome}></TextField>
                     </Grid>
                     <Grid item xs={12}>
-                      <TextField fullWidth value={celular} autoComplete="off" type='text' label="celular" onChange={handleCelular}></TextField>
+                      <TextField fullWidth value={celular} autoComplete="off" type='text' label="Celular" onChange={handleCelular}></TextField>
                     </Grid>
                     <Grid item xs={12}>
-                      <TextField fullWidth value={endereco} autoComplete="off" type='text' label="endereço" onChange={handleEndereco}></TextField>
+                      <TextField fullWidth value={endereco} autoComplete="off" type='text' label="Endereço" onChange={handleEndereco}></TextField>
                     </Grid>
                     
                   </>
@@ -316,10 +316,10 @@ const Acesso = () => {
                 }
 
                 <Grid item xs={12}>
-                  <TextField fullWidth value={email} autoComplete="off" type='email' label="email" onChange={handleEmail}></TextField>
+                  <TextField fullWidth value={email} autoComplete="off" type='email' label="E-mail" onChange={handleEmail}></TextField>
                 </Grid>
                 <Grid item xs={12}>
-                  <TextField fullWidth value={password} autoComplete="off" type='password' label="senha" onChange={handlePassword}></TextField>
+                  <TextField fullWidth value={password} autoComplete="off" type='password' label="Senha" onChange={handlePassword}></TextField>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <Button type='submit' fullWidth variant='contained' color='primary'>{isLogin ? 'Login' : 'Cadastro'}</Button>
