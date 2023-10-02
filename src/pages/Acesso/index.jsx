@@ -204,22 +204,22 @@ justifyContent: 'space-evenly',
             </Typography>
           </Box>
 
-          <Box>
+          <Box sx={{marginTop: '30px'}}>
             <Typography variant='h4' color={'secondary'}>Desvende Mundos com LeiaMais</Typography>
             <Typography variant='body1' sx={{  textAlign: 'justify', fontSize: '18px', margin:'10px 0', }}>
               LeiaMais é muito mais do que apenas uma plataforma de leitura online. É um portal que abre as portas para um universo ilimitado de histórias e conhecimento. Com um vasto acervo de livros de todos os gêneros imagináveis, desde romances épicos até thrillers emocionantes, temos algo para todos os gostos.
             </Typography>
           </Box>
 
-          <Box>
+          <Box sx={{marginTop: '30px'}}>
             <Typography variant='h4' color={'secondary'}>Uma Nova Aventura a Cada Página</Typography>
             <Typography variant='body1' sx={{  textAlign: 'justify', fontSize: '18px', margin:'10px 0', }}>
               Nosso lema, "Desvende Mundos: onde cada página é uma Nova Aventura!", resume perfeitamente o que oferecemos. A cada clique, você se transportará para um universo único, cheio de emoção, mistério e descobertas. Deixe-se envolver por histórias que o levarão a lugares que você jamais imaginou.
             </Typography>
           </Box>
 
-          <Box>
-            <Typography variant='h3' color={'secondary'}>Conheça nossos planos</Typography>
+          <Box sx={{marginTop: '30px'}}>
+            <Typography variant='h4' color={'secondary'}>Conheça nossos planos</Typography>
 
             <Box display={'flex'} sx={{flexWrap:'wrap', justifyContent: 'space-evenly', alignItems: 'stretch'}}>
               {planos.map((plano,id) => (
@@ -260,7 +260,7 @@ justifyContent: 'space-evenly',
             </Box>
           </Box>
 
-          <Box sx={{display:'flex', justifyContent: 'center'}}>
+          <Box sx={{display:'flex', justifyContent: 'center', margin:'30px'}}>
             <Button variant='contained' color='success' onClick={handleOpenCadastro} >Assine o LeiaMais!</Button>
           </Box>
 
