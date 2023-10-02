@@ -24,8 +24,10 @@ Follow these steps to set up the project on your local machine:
 Clone the repository:
 on bash
 Copy code: git clone https://github.com/dsm-cefet-rj/trabalho-integrado-2023-2-psw-grupo-4-2023-2.git
+
 Then you need to install the dependency:
 npm i
+
 Start the development server:
 npm run dev
 
