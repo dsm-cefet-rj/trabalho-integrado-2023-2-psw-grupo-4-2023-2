@@ -221,7 +221,7 @@ const Acesso = () => {
                 <Card 
                   key={plano.id} 
                   onClick={() => destacarCard(plano.id)} 
-                  sx={{borderRadius:'20px', margin:'20px 10px', minWidth:'150px',  backgroundColor: carDestacado === plano.id ? 'yellow' : 'transparent',}}
+                  sx={{borderRadius:'20px', margin:'20px 10px', minWidth:'150px',  backgroundColor: carDestacado === plano.id ? 'rgba(230, 179, 61, 0.5)' : 'transparent',}}
                 >
                   
                   <Typography variant='h4' color={'primary'} sx={{backgroundColor: 'secondary.main', padding:'10px 0', textAlign: 'center', fontSize:'30px',fontWeight:'bold',}}>{plano.nome}</Typography>
