@@ -52,7 +52,7 @@ const RelatorioUsuario = () => {
     setFantasia(fant);
     setSuspense(susp);
     setOutros(outr);
-  },[romance,terror,fantasia,suspense])
+  },[romance,terror,fantasia,suspense,outros])
     
   const generosLidos =[
     {genero: "Romance", qtd: romance},
