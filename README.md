@@ -21,19 +21,18 @@ User Profile: Customize your profile.
 ## Installation
 Follow these steps to set up the project on your local machine:
 
-Clone the repository:
+### Clone the repository:
 on bash
 Copy code: git clone https://github.com/dsm-cefet-rj/trabalho-integrado-2023-2-psw-grupo-4-2023-2.git
 
-Then you need to install the dependency:
-npm i
+### Then you need to install the dependency:
+"npm i"
 
-Start the development server:
-npm run dev
+### Start the development server:
+"npm run dev"
 
-The website will be available at http://127.0.0.1:5173/.
 
-### Usage
+## Usage
 
 After installation, you can start using LeiaMais right away. Here are some actions that you can perform:
 
@@ -42,12 +41,12 @@ Explore the book catalog and find a book you'd like to read.
 Click on the book to open it and starts reading.
 Go to your personal library to manage the books you've read.
 
-### Features
+## Features
 
 React - JavaScript library for building user interfaces.
 React Router - Routing for React applications.
 Redux - State management for JavaScript applications.
 Material Ui - CSS framework for responsive design. 
 
-### License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
