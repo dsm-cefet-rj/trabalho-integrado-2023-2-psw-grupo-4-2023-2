@@ -216,7 +216,7 @@ const Acesso = () => {
               {planos.map((plano,id) => (
                 <Card key={plano.id} sx={{borderRadius:'20px', margin:'20px 10px', minWidth:'150px'}}>
                   
-                  <Typography variant='h4' color={'primary'} sx={{backgroundColor: 'secondary.main', padding:'10px 0', textAlign: 'center', fontSize:'30px'}}>{plano.nome}</Typography>
+                  <Typography variant='h4' color={'primary'} sx={{backgroundColor: 'secondary.main', padding:'10px 0', textAlign: 'center', fontSize:'30px',fontWeight:'bold',}}>{plano.nome}</Typography>
                   
                   <Box sx={{display:'flex',justifyContent: 'space-between', flexDirection: 'column', alignItems: 'center', paddingTop:'10px'}}>
                     
@@ -241,15 +241,16 @@ const Acesso = () => {
                         <><CheckIcon></CheckIcon> Acesso antecipado </>:
                         <><CloseIcon></CloseIcon> Sem acesso antecipado</> }
                       </Typography>
-
                   </Box>
-                  
                 </Card>
               ))}
             </Box>
-
-
           </Box>
+
+          <Box sx={{display:'flex', justifyContent: 'center'}}>
+            <Button variant='contained' color='success' onClick={handleOpenCadastro} sx={{fontSize:'20px'}}>Assine o LeiaMais!</Button>
+          </Box>
+
         </Container>
       </Box>
           
