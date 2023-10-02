@@ -76,7 +76,7 @@ const Navbar = ({ drawerWidth = 240, toggleDrawer }) => {
                     </IconButton>
 
                     <Search id="search" size='small' label="" variant="outlined" placeholder='Pesquisar'
-                        sx={{ display: { xs: 'none', md: 'block' } }}
+                        sx={{ display: {width:'100vh', xs: 'none', md: 'block' } }}
                         value={pesquisa}
                         InputProps={{
                             startAdornment: <InputAdornment position="start"><SearchOutlined sx={{ color: 'white' }} /></InputAdornment>,
