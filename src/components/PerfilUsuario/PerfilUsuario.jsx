@@ -52,6 +52,10 @@ const PerfilUsuario = () => {
     }
 
     const cancelarDados = () => {
+        document.getElementById('nome').value = usuario.nome;
+        document.getElementById('email').value = usuario.email;
+        document.getElementById('celular').value = usuario.celular;
+        document.getElementById('endereco').value = usuario.endereco;
         setReadOnly(true);
     }
 
