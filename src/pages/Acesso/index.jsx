@@ -175,6 +175,33 @@ const Acesso = () => {
         </Container>
       </Box>
 
+      <Box>
+        <Container sx={{width: '80hv', margin: 'auto', p:'50px'}}>
+          <Box>
+            <Typography variant='h1' color={'primary'} sx={{fontSize: {xs:'5vw', lg:'3vw'}}}>Descubra um Mundo de Leitura com LeiaMais!</Typography>
+            <Typography variant='body1' sx={{  textAlign: 'justify', fontSize: '18px', margin:'10px 0', }}>
+              Você já sonhou em explorar novos mundos, viver aventuras emocionantes e conhecer personagens cativantes, tudo isso sem sair do conforto do seu lar? Se a resposta é sim, então LeiaMais é a plataforma perfeita para você!.
+            </Typography>
+          </Box>
+
+          <Box>
+            <Typography variant='h4' color={'secondary'}>Desvende Mundos com LeiaMais</Typography>
+            <Typography variant='body1' sx={{  textAlign: 'justify', fontSize: '18px', margin:'10px 0', }}>
+              LeiaMais é muito mais do que apenas uma plataforma de leitura online. É um portal que abre as portas para um universo ilimitado de histórias e conhecimento. Com um vasto acervo de livros de todos os gêneros imagináveis, desde romances épicos até thrillers emocionantes, temos algo para todos os gostos.
+            </Typography>
+          </Box>
+
+          <Box>
+            <Typography variant='h4' color={'secondary'}>Uma Nova Aventura a Cada Página</Typography>
+            <Typography variant='body1' sx={{  textAlign: 'justify', fontSize: '18px', margin:'10px 0', }}>
+              Nosso lema, "Desvende Mundos: onde cada página é uma Nova Aventura!", resume perfeitamente o que oferecemos. A cada clique, você se transportará para um universo único, cheio de emoção, mistério e descobertas. Deixe-se envolver por histórias que o levarão a lugares que você jamais imaginou.
+            </Typography>
+          </Box>
+          
+        </Container>
+      </Box>
+          
+
       <Modal
         open={openModal}
         onClose={handleCloseCadastro}
