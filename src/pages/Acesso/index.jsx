@@ -134,8 +134,8 @@ const Acesso = () => {
   const planos = [
     {id:1, nome:'Básico mensal', preco: 9.99, desconto: '', acesso: false, fav: '20', livPre: false, renovacao: false},
     {id:2, nome:'Básico anual', preco: 8.50 , desconto: '15%', acesso: false, fav: '20', livPre: false, renovacao: true},
-    {id:2, nome:'Premium mensal', preco: 19.99, desconto: '', acesso: true, fav: 'Ilimitados', livPre: true, renovacao: false},
-    {id:2, nome:'Premium anual', preco: 16.99, desconto: '15%', acesso: true, fav: 'Ilimitados', livPre: true},
+    {id:3, nome:'Premium mensal', preco: 19.99, desconto: '', acesso: true, fav: 'Ilimitados', livPre: true, renovacao: false},
+    {id:4, nome:'Premium anual', preco: 16.99, desconto: '15%', acesso: true, fav: 'Ilimitados', livPre: true},
   ];
 
 
@@ -218,12 +218,14 @@ const Acesso = () => {
           <Box>
             <Typography variant='h3' color={'secondary'}>Conheça nossos planos</Typography>
 
-            <Box display={'flex'}>
+            <Box display={'flex'} minWidth={'166px'}>
               {planos.map((plano,id) => (
-                <Card>
+                <Card sx={{borderRadius:'20px', margin:'20px',}}>
                   
-                  <Typography variant='h4' color={'primary'} sx={{backgroundColor: 'secondary.main', padding:'10px 0', textAlign: 'center'}}>{plano.nome}</Typography>
+                  <Typography variant='h4' color={'primary'} sx={{backgroundColor: 'secondary.main', padding:'10px 0', textAlign: 'center', fontSize:'30px'}}>{plano.nome}</Typography>
                   
+                  <Box sx={{display:'flex',justifyContent: 'space-between', flexDirection: 'column', alignItems: 'center', paddingTop:'10px'}}>
+                    
                   {plano.desconto && 
                       <Box display={'flex'}>
                         <Typography variant='body1' sx={{  textAlign: 'center', fontSize: '18px',}}><s>{planos[id-1].preco*12}</s></Typography>
@@ -245,6 +247,9 @@ const Acesso = () => {
                       <><CheckIcon></CheckIcon> Acesso antecipado </>:
                       <><CloseIcon></CloseIcon> Sem acesso antecipado</> }
                     </Typography>
+
+                  </Box>
+                  
                 </Card>
               ))}
             </Box>
