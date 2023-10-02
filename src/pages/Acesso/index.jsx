@@ -216,31 +216,32 @@ const Acesso = () => {
           </Box>
 
           <Box>
-            <Typography variant='h4' color={'secondary'}>Conheça nossos planos</Typography>
-            
+            <Typography variant='h3' color={'secondary'}>Conheça nossos planos</Typography>
+
             <Box display={'flex'}>
               {planos.map((plano,id) => (
                 <Card>
-                  <Typography variant='h4'>{plano.nome}</Typography>
-                  <Typography variant='body1'>{plano.desconto && 
+                  
+                  <Typography variant='h4' color={'primary'} sx={{backgroundColor: 'secondary.main', padding:'10px 0', textAlign: 'center'}}>{plano.nome}</Typography>
+                  
+                  {plano.desconto && 
                       <Box display={'flex'}>
-                        <Typography variant='body1'><s>{planos[id-1].preco*12}</s></Typography>
-                        <Typography variant='body1'>Economize {plano.desconto}</Typography>
+                        <Typography variant='body1' sx={{  textAlign: 'center', fontSize: '18px',}}><s>{planos[id-1].preco*12}</s></Typography>
+                        <Typography variant='body1'  sx={{  textAlign: 'center', fontSize: '18px',backgroundColor: 'secondary.main', padding:'2px 10px', borderRadius:'15px'}}>Economize {plano.desconto}</Typography>
                       </Box>
-                      }
-                    </Typography>
-                  <Typography variant='h5'>R$ {plano.preco}<sub>/mês</sub></Typography>
-                  <Typography variant='body1'>Total: R$ {plano.preco *12} <sub>/ano</sub> </Typography>
-                  <Typography variant='body1'>{plano.renovacao? 
+                    }
+                  <Typography variant='h5' color={'primary'}>R$ {plano.preco}<sub>/mês</sub></Typography>
+                  <Typography variant='body1'  sx={{  textAlign: 'center', fontSize: '18px',}}>Total: R$ {plano.preco *12} <sub>/ano</sub> </Typography>
+                  <Typography variant='body1'  sx={{  textAlign: 'center', fontSize: '18px',}}>{plano.renovacao? 
                       <><CheckIcon></CheckIcon> Com renovação automática </>:
                       <><CloseIcon></CloseIcon> Sem renovação automática</> }
                     </Typography>
-                  <Typography variant='body1'> {plano.fav} favoritos</Typography>
-                  <Typography variant='body1'>{plano.livPre? 
+                  <Typography variant='body1'  sx={{  textAlign: 'center', fontSize: '18px',}}> {plano.fav} favoritos</Typography>
+                  <Typography variant='body1'  sx={{  textAlign: 'center', fontSize: '18px',}}>{plano.livPre? 
                       <><CheckIcon></CheckIcon> Livros premium </>:
                       <><CloseIcon></CloseIcon> Sem livros premium</> }
                     </Typography>
-                    <Typography variant='body1'>{plano.acesso? 
+                    <Typography variant='body1' sx={{  textAlign: 'center', fontSize: '18px',}}>{plano.acesso? 
                       <><CheckIcon></CheckIcon> Acesso antecipado </>:
                       <><CloseIcon></CloseIcon> Sem acesso antecipado</> }
                     </Typography>
