@@ -129,9 +129,13 @@ const Acesso = () => {
     }
   };
 
+  //Funções da tabela
+
   const planos = [
-    {id:1, nome:'Básico mensal', preco: 9.99, acesso: false, fav: '20', livPre: false,},
-    {id:2, nome:'Premium mensal', preco: 19.99, acesso: true, fav: 'ilimitado', livPre: true},
+    {id:1, nome:'Básico mensal', preco: 9.99, desconto: '', acesso: false, fav: '20', livPre: false, renovacao: false},
+    {id:2, nome:'Básico anual', preco: 8.50 , desconto: '15%', acesso: false, fav: '20', livPre: false, renovacao: true},
+    {id:2, nome:'Premium mensal', preco: 19.99, desconto: '', acesso: true, fav: 'ilimitado', livPre: true, renovacao: false},
+    {id:2, nome:'Premium anual', preco: 16.99, desconto: '15%', acesso: true, fav: 'ilimitado', livPre: true},
   ];
 
 
@@ -234,6 +238,12 @@ const Acesso = () => {
                       <TableCell>Preço por ano</TableCell>
                       {planos.map((plano) => (
                         <TableCell> R$ {plano.preco *12}</TableCell>
+                      ))}
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Desconto</TableCell>
+                      {planos.map((plano) => (
+                        <TableCell> {plano.desconto}</TableCell>
                       ))}
                     </TableRow>
                     <TableRow>
