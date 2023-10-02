@@ -246,6 +246,7 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Email:</Typography>
                         <TextField variant="standard" margin="dense"
                             id="email"
+                            type='email'
                             onChange={(e)=> setEmailNovo(e.target.value) }
                             defaultValue={perfil.email}
                             InputProps={{
@@ -320,11 +321,13 @@ const PerfilUsuario = () => {
                 
                     <TextField variant="outlined"  margin="dense"
                         id="senhaAtual"
+                        type='password'
                         fullWidth
                         label="Senha atual"
                     />
                     <TextField variant="outlined"  margin="dense"
                         id="novaSenha"
+                        type='password'
                         fullWidth
                         label="Nova senha"
                     />
