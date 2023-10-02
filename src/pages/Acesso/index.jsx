@@ -214,7 +214,7 @@ const Acesso = () => {
 
             <Box display={'flex'} sx={{flexWrap:'wrap', justifyContent: 'space-evenly', alignItems: 'stretch'}}>
               {planos.map((plano,id) => (
-                <Card sx={{borderRadius:'20px', margin:'20px 10px', minWidth:'150px'}}>
+                <Card key={plano.id} sx={{borderRadius:'20px', margin:'20px 10px', minWidth:'150px'}}>
                   
                   <Typography variant='h4' color={'primary'} sx={{backgroundColor: 'secondary.main', padding:'10px 0', textAlign: 'center', fontSize:'30px'}}>{plano.nome}</Typography>
                   
@@ -226,7 +226,7 @@ const Acesso = () => {
                           <Typography variant='body1'  sx={{ fontSize: '18px',backgroundColor: 'secondary.main', padding:'2px 10px', borderRadius:'15px'}}>Economize {plano.desconto}</Typography>
                         </Box>
                       }
-                    <Typography variant='h5' color={'primary'} sx={{fontSize: '30px', fontWeight:'bold'}}>R$ {plano.preco}<sub>/mês</sub></Typography>
+                    <Typography variant='h5' color={'primary'} sx={{fontSize: '30px', fontWeight:'bold', margin:' 10px 0'}}>R$ {(plano.preco).toFixed(2)}<sub>/mês</sub></Typography>
                     <Typography variant='body1'  sx={{fontSize: '18px',}}>Total: R$ {plano.preco *12} <sub>/ano</sub> </Typography>
                     <Typography variant='body1'  sx={{textAlign:'center', fontSize: '18px',}}>{plano.renovacao? 
                         <><CheckIcon></CheckIcon> Com renovação automática </>:
