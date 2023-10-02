@@ -1,7 +1,7 @@
 import { Box, Stack } from '@mui/system'
 import React, { useContext, useState } from 'react'
 import imagemPrincipalHome from '../../assets/imagem-principal-home.jpg'
-import { Alert, AppBar, Backdrop, Button, CircularProgress, Container, FormControl, FormGroup, Grid, IconButton, LinearProgress, Modal, Paper, Snackbar, TextField, Toolbar, Typography } from '@mui/material'
+import { Alert, AppBar, Backdrop, Button, Card, CircularProgress, Container, FormControl, FormGroup, Grid, IconButton, LinearProgress, Modal, Paper, Snackbar, TextField, Toolbar, Typography } from '@mui/material'
 import Logo from '../../components/Logo/Logo'
 import { AutenticacaoContext } from '../../contexts/Autenticacao'
 import { Cancel } from '@mui/icons-material'
@@ -134,8 +134,8 @@ const Acesso = () => {
   const planos = [
     {id:1, nome:'Básico mensal', preco: 9.99, desconto: '', acesso: false, fav: '20', livPre: false, renovacao: false},
     {id:2, nome:'Básico anual', preco: 8.50 , desconto: '15%', acesso: false, fav: '20', livPre: false, renovacao: true},
-    {id:2, nome:'Premium mensal', preco: 19.99, desconto: '', acesso: true, fav: 'ilimitado', livPre: true, renovacao: false},
-    {id:2, nome:'Premium anual', preco: 16.99, desconto: '15%', acesso: true, fav: 'ilimitado', livPre: true},
+    {id:2, nome:'Premium mensal', preco: 19.99, desconto: '', acesso: true, fav: 'Ilimitados', livPre: true, renovacao: false},
+    {id:2, nome:'Premium anual', preco: 16.99, desconto: '15%', acesso: true, fav: 'Ilimitados', livPre: true},
   ];
 
 
@@ -217,75 +217,39 @@ const Acesso = () => {
 
           <Box>
             <Typography variant='h4' color={'secondary'}>Conheça nossos planos</Typography>
-            <TableContainer component={Paper}>
-              <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                <TableHead>
-                  <TableRow >
-                    <TableCell></TableCell>
-                    {planos.map((plano) => (
-                        <TableCell> {plano.nome}</TableCell>
-                      ))}
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                    <TableRow>
-                      <TableCell>Preço por mês</TableCell>
-                      {planos.map((plano) => (
-                        <TableCell> R$ {plano.preco}</TableCell>
-                      ))}
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Preço por ano</TableCell>
-                      {planos.map((plano) => (
-                        <TableCell> R$ {plano.preco *12}</TableCell>
-                      ))}
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Desconto</TableCell>
-                      {planos.map((plano) => (
-                        <TableCell> {plano.desconto}</TableCell>
-                      ))}
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Renovação automática</TableCell>
-                      {planos.map((plano) => (
-                        <TableCell> {plano.renovacao? 
-                          <CheckIcon></CheckIcon>:
-                          <CloseIcon></CloseIcon>
-                        }</TableCell>
-                      ))}
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Favoritos</TableCell>
-                      {planos.map((plano) => (
-                        <TableCell> {plano.fav}</TableCell>
-                      ))}
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Acesso antecipado</TableCell>
-                      {planos.map((plano) => (
-                        <TableCell> {plano.acesso? 
-                          <CheckIcon></CheckIcon>:
-                          <CloseIcon></CloseIcon>
-                        }</TableCell>
-                      ))}
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Livros premium</TableCell>
-                      {planos.map((plano) => (
-                        <TableCell> {plano.livPre? 
-                          <CheckIcon></CheckIcon>:
-                          <CloseIcon></CloseIcon>
-                        }</TableCell>
-                      ))}
-                    </TableRow>
-                   
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </Box>
+            
+            <Box display={'flex'}>
+              {planos.map((plano,id) => (
+                <Card>
+                  <Typography variant='h4'>{plano.nome}</Typography>
+                  <Typography variant='body1'>{plano.desconto && 
+                      <Box display={'flex'}>
+                        <Typography variant='body1'><s>{planos[id-1].preco*12}</s></Typography>
+                        <Typography variant='body1'>Economize {plano.desconto}</Typography>
+                      </Box>
+                      }
+                    </Typography>
+                  <Typography variant='h5'>R$ {plano.preco}<sub>/mês</sub></Typography>
+                  <Typography variant='body1'>Total: R$ {plano.preco *12} <sub>/ano</sub> </Typography>
+                  <Typography variant='body1'>{plano.renovacao? 
+                      <><CheckIcon></CheckIcon> Com renovação automática </>:
+                      <><CloseIcon></CloseIcon> Sem renovação automática</> }
+                    </Typography>
+                  <Typography variant='body1'> {plano.fav} favoritos</Typography>
+                  <Typography variant='body1'>{plano.livPre? 
+                      <><CheckIcon></CheckIcon> Livros premium </>:
+                      <><CloseIcon></CloseIcon> Sem livros premium</> }
+                    </Typography>
+                    <Typography variant='body1'>{plano.acesso? 
+                      <><CheckIcon></CheckIcon> Acesso antecipado </>:
+                      <><CloseIcon></CloseIcon> Sem acesso antecipado</> }
+                    </Typography>
+                </Card>
+              ))}
+            </Box>
 
-          
+
+          </Box>
         </Container>
       </Box>
           
