@@ -168,6 +168,9 @@ const Acesso = () => {
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center center',
         height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
       }}>
 
 
@@ -175,7 +178,9 @@ const Acesso = () => {
           <Stack sx={{
             alignItems: 'center',
             width: '100%',
-            pt: '128px'
+            
+justifyContent: 'space-evenly',
+            height: '50vh'
           }}
             spacing={4}>
              <Paper sx={{ bgcolor: 'primary.main', px: {xs:4, md:8}, py: 4 }} >
@@ -256,7 +261,7 @@ const Acesso = () => {
           </Box>
 
           <Box sx={{display:'flex', justifyContent: 'center'}}>
-            <Button variant='contained' color='success' onClick={handleOpenCadastro} sx={{fontSize:'20px'}}>Assine o LeiaMais!</Button>
+            <Button variant='contained' color='success' onClick={handleOpenCadastro} >Assine o LeiaMais!</Button>
           </Box>
 
         </Container>
