@@ -5,7 +5,14 @@ import { Alert, AppBar, Backdrop, Button, CircularProgress, Container, FormContr
 import Logo from '../../components/Logo/Logo'
 import { AutenticacaoContext } from '../../contexts/Autenticacao'
 import { Cancel } from '@mui/icons-material'
-
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Acesso = () => {
   const { cadastrar, acessar } = useContext(AutenticacaoContext);
@@ -122,6 +129,12 @@ const Acesso = () => {
     }
   };
 
+  const planos = [
+    {id:1, nome:'Básico mensal', preco: 9.99, acesso: false, fav: '20', livPre: false,},
+    {id:2, nome:'Premium mensal', preco: 19.99, acesso: true, fav: 'ilimitado', livPre: true},
+  ];
+
+
   return (
     <>
       <AppBar>
@@ -197,6 +210,71 @@ const Acesso = () => {
               Nosso lema, "Desvende Mundos: onde cada página é uma Nova Aventura!", resume perfeitamente o que oferecemos. A cada clique, você se transportará para um universo único, cheio de emoção, mistério e descobertas. Deixe-se envolver por histórias que o levarão a lugares que você jamais imaginou.
             </Typography>
           </Box>
+
+          <Box>
+            <Typography variant='h4' color={'secondary'}>Conheça nossos planos</Typography>
+            <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <TableHead>
+                  <TableRow >
+                    <TableCell></TableCell>
+                    {planos.map((plano) => (
+                        <TableCell> {plano.nome}</TableCell>
+                      ))}
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                    <TableRow>
+                      <TableCell>Preço por mês</TableCell>
+                      {planos.map((plano) => (
+                        <TableCell> R$ {plano.preco}</TableCell>
+                      ))}
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Preço por ano</TableCell>
+                      {planos.map((plano) => (
+                        <TableCell> R$ {plano.preco *12}</TableCell>
+                      ))}
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Renovação automática</TableCell>
+                      {planos.map((plano) => (
+                        <TableCell> {plano.renovacao? 
+                          <CheckIcon></CheckIcon>:
+                          <CloseIcon></CloseIcon>
+                        }</TableCell>
+                      ))}
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Favoritos</TableCell>
+                      {planos.map((plano) => (
+                        <TableCell> {plano.fav}</TableCell>
+                      ))}
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Acesso antecipado</TableCell>
+                      {planos.map((plano) => (
+                        <TableCell> {plano.acesso? 
+                          <CheckIcon></CheckIcon>:
+                          <CloseIcon></CloseIcon>
+                        }</TableCell>
+                      ))}
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Livros premium</TableCell>
+                      {planos.map((plano) => (
+                        <TableCell> {plano.livPre? 
+                          <CheckIcon></CheckIcon>:
+                          <CloseIcon></CloseIcon>
+                        }</TableCell>
+                      ))}
+                    </TableRow>
+                   
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Box>
+
           
         </Container>
       </Box>
