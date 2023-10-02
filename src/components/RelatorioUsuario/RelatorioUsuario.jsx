@@ -1,17 +1,65 @@
 import { Box, Typography } from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
 import img from '../../assets/imagem-relatorio.png'
 import { Stack } from '@mui/system'
 import './RelatorioUsuario.css'
+import { AutenticacaoContext } from '../../contexts/Autenticacao'
+import { LivrosContext } from "../../contexts/Livros";
+import { useContext, useState } from "react";
 
 const RelatorioUsuario = () => {
+  const { livros } = useContext(LivrosContext);
+  const { usuario } = useContext(AutenticacaoContext);
 
+  const idLivros = usuario.leituras.map(leitura => leitura.id)
+  const leituras = new Set(idLivros)
+  const continueLendo = livros.filter(livro=>leituras.has(livro.id))
+
+  const [ romance, setRomance] = useState(0);
+  const [ terror, setTerror] = useState(0);
+  const [ fantasia, setFantasia] = useState(0);
+  const [ suspense, setSuspense] = useState(0);
+  const [ outros, setOutros] = useState(0);
+  
+
+  let rom=0; let terr=0; let fant=0; let susp =0; let outr=0;
+  useEffect(()=>{
+    continueLendo.map(livro => {
+      console.log(livro.genero);
+        switch (livro.genero) {
+          case "Romance":
+            rom++;
+            console.log(rom);
+            break;
+          case "Terror":
+            terr++;
+            console.log(terr);
+            break;
+          case "Fantasia":
+            fant++;
+            break;
+          case "Suspense":
+            susp++;
+            break
+          default:
+            outr++;
+            break; 
+          }
+        }
+      )
+    setRomance(rom);
+    setTerror(terr);
+    setFantasia(fant);
+    setSuspense(susp);
+    setOutros(outr);
+  },[romance,terror,fantasia,suspense])
+    
   const generosLidos =[
-    {genero: "Romance", qtd: 5},
-    {genero: "Terror", qtd: 4},
-    {genero: "Fantasia", qtd: 7},
-    {genero: "Suspense", qtd: 2},
-    {genero: "True crime", qtd: 0}
+    {genero: "Romance", qtd: romance},
+    {genero: "Terror", qtd: terror},
+    {genero: "Fantasia", qtd: fantasia},
+    {genero: "Suspense", qtd: suspense},
+    {genero: "Outros", qtd: outros},
   ];
 
   // const generosLidos =[]; 

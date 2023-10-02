@@ -7,9 +7,9 @@ import pdfDefault from '../../assets/pdf/exemplo.pdf';
 import Voltar from '../../components/Voltar/Voltar';
 
 const Leitura = () => {
-    const { urlPdf, id } = useParams();
-    console.log(id)
-    const url = urlPdf || pdfDefault  
+        const { urlPdf, id } = useParams();
+        console.log(id)
+        const url = urlPdf || pdfDefault  
     return (
         <>
         <Voltar />
