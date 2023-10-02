@@ -5,12 +5,6 @@ import { Alert, AppBar, Backdrop, Button, Card, CircularProgress, Container, For
 import Logo from '../../components/Logo/Logo'
 import { AutenticacaoContext } from '../../contexts/Autenticacao'
 import { Cancel } from '@mui/icons-material'
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -193,7 +187,7 @@ const Acesso = () => {
       </Box>
 
       <Box>
-        <Container sx={{width: '80hv', margin: 'auto', p:'50px'}}>
+        <Container sx={{maxWidth: '80hv', margin: 'auto', p:'50px'}}>
           <Box>
             <Typography variant='h1' color={'primary'} sx={{fontSize: {xs:'5vw', lg:'3vw'}}}>Descubra um Mundo de Leitura com LeiaMais!</Typography>
             <Typography variant='body1' sx={{  textAlign: 'justify', fontSize: '18px', margin:'10px 0', }}>
