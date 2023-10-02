@@ -132,6 +132,10 @@ const Acesso = () => {
     {id:4, nome:'Premium anual', preco: 16.99, desconto: '15%', acesso: true, fav: 'Ilimitados', livPre: true},
   ];
 
+  const [carDestacado, setCarDestacado] = useState(null);
+  const destacarCard = (cardId) => {
+    setCarDestacado(cardId);
+  };
 
   return (
     <>
@@ -214,7 +218,11 @@ const Acesso = () => {
 
             <Box display={'flex'} sx={{flexWrap:'wrap', justifyContent: 'space-evenly', alignItems: 'stretch'}}>
               {planos.map((plano,id) => (
-                <Card key={plano.id} sx={{borderRadius:'20px', margin:'20px 10px', minWidth:'150px'}}>
+                <Card 
+                  key={plano.id} 
+                  onClick={() => destacarCard(plano.id)} 
+                  sx={{borderRadius:'20px', margin:'20px 10px', minWidth:'150px',  backgroundColor: carDestacado === plano.id ? 'yellow' : 'transparent',}}
+                >
                   
                   <Typography variant='h4' color={'primary'} sx={{backgroundColor: 'secondary.main', padding:'10px 0', textAlign: 'center', fontSize:'30px',fontWeight:'bold',}}>{plano.nome}</Typography>
                   
