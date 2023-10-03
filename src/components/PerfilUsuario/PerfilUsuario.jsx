@@ -51,6 +51,14 @@ const PerfilUsuario = () => {
         }
     }
 
+    const cancelarDados = () => {
+        document.getElementById('nome').value = usuario.nome;
+        document.getElementById('email').value = usuario.email;
+        document.getElementById('celular').value = usuario.celular;
+        document.getElementById('endereco').value = usuario.endereco;
+        setReadOnly(true);
+    }
+
     const mensagemError = (texto) => {
         setTypeMessage('error');
         setAlertMessage(texto);
@@ -246,6 +254,7 @@ const PerfilUsuario = () => {
                         <Typography variant='h6' color={'black'}>Email:</Typography>
                         <TextField variant="standard" margin="dense"
                             id="email"
+                            type="email"
                             onChange={(e)=> setEmailNovo(e.target.value) }
                             defaultValue={perfil.email}
                             InputProps={{
@@ -283,17 +292,24 @@ const PerfilUsuario = () => {
         </Box>
         
         <Box sx={{display:'flex', justifyContent: 'space-around', marginBottom: '30px'}}>
-            <Button onClick={sair} variant="contained" color="error">
-                Finalizar sessão
-            </Button>
-            { readOnly && 
-                <Button onClick={editarDados} variant="contained" color="secondary">
-                    Editar dados
-                </Button>}
-            { !readOnly &&
-                <Button onClick={salvarDados} variant="contained" color="success">
-                  Salvar dados
-                </Button>}
+            
+            { readOnly ?
+                <>
+                    <Button onClick={sair} variant="contained" color="error">
+                        Finalizar sessão
+                    </Button>
+                    <Button onClick={editarDados} variant="contained" color="secondary">
+                        Editar dados
+                    </Button>
+                </>:<>
+                    <Button onClick={cancelarDados} variant="contained" color="error">
+                        Cancelar
+                    </Button>
+                    <Button onClick={salvarDados} variant="contained" color="success">
+                    Salvar dados
+                    </Button>
+                </>
+            }
         </Box>
     </Container>
 
@@ -320,11 +336,13 @@ const PerfilUsuario = () => {
                 
                     <TextField variant="outlined"  margin="dense"
                         id="senhaAtual"
+                        type='password'
                         fullWidth
                         label="Senha atual"
                     />
                     <TextField variant="outlined"  margin="dense"
                         id="novaSenha"
+                        type='password'
                         fullWidth
                         label="Nova senha"
                     />

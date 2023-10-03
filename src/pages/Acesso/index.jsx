@@ -1,11 +1,12 @@
 import { Box, Stack } from '@mui/system'
 import React, { useContext, useState } from 'react'
 import imagemPrincipalHome from '../../assets/imagem-principal-home.jpg'
-import { Alert, AppBar, Backdrop, Button, CircularProgress, Container, FormControl, FormGroup, Grid, IconButton, LinearProgress, Modal, Paper, Snackbar, TextField, Toolbar, Typography } from '@mui/material'
+import { Alert, AppBar, Backdrop, Button, Card, CircularProgress, Container, FormControl, FormGroup, Grid, IconButton, LinearProgress, Modal, Paper, Snackbar, TextField, Toolbar, Typography } from '@mui/material'
 import Logo from '../../components/Logo/Logo'
 import { AutenticacaoContext } from '../../contexts/Autenticacao'
 import { Cancel } from '@mui/icons-material'
-
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Acesso = () => {
   const { cadastrar, acessar } = useContext(AutenticacaoContext);
@@ -122,6 +123,20 @@ const Acesso = () => {
     }
   };
 
+  //Funções da tabela
+
+  const planos = [
+    {id:1, nome:'Básico mensal', preco: 9.99, desconto: '', acesso: false, fav: '20', livPre: false, renovacao: false},
+    {id:2, nome:'Básico anual', preco: 8.50 , desconto: '15%', acesso: false, fav: '20', livPre: false, renovacao: true},
+    {id:3, nome:'Premium mensal', preco: 19.99, desconto: '', acesso: true, fav: 'Ilimitados', livPre: true, renovacao: false},
+    {id:4, nome:'Premium anual', preco: 16.99, desconto: '15%', acesso: true, fav: 'Ilimitados', livPre: true},
+  ];
+
+  const [carDestacado, setCarDestacado] = useState(null);
+  const destacarCard = (cardId) => {
+    setCarDestacado(cardId);
+  };
+
   return (
     <>
       <AppBar>
@@ -153,6 +168,9 @@ const Acesso = () => {
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center center',
         height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
       }}>
 
 
@@ -160,7 +178,9 @@ const Acesso = () => {
           <Stack sx={{
             alignItems: 'center',
             width: '100%',
-            pt: '128px'
+            
+justifyContent: 'space-evenly',
+            height: '50vh'
           }}
             spacing={4}>
              <Paper sx={{ bgcolor: 'primary.main', px: {xs:4, md:8}, py: 4 }} >
@@ -174,6 +194,79 @@ const Acesso = () => {
           </Stack>
         </Container>
       </Box>
+
+      <Box>
+        <Container sx={{maxWidth: '80hv', margin: 'auto', p:'50px'}}>
+          <Box>
+            <Typography variant='h1' color={'primary'} sx={{fontSize: {xs:'5vw', lg:'3vw'}}}>Descubra um Mundo de Leitura com LeiaMais!</Typography>
+            <Typography variant='body1' sx={{  textAlign: 'justify', fontSize: '18px', margin:'10px 0', }}>
+              Você já sonhou em explorar novos mundos, viver aventuras emocionantes e conhecer personagens cativantes, tudo isso sem sair do conforto do seu lar? Se a resposta é sim, então LeiaMais é a plataforma perfeita para você!.
+            </Typography>
+          </Box>
+
+          <Box sx={{marginTop: '30px'}}>
+            <Typography variant='h4' color={'secondary'}>Desvende Mundos com LeiaMais</Typography>
+            <Typography variant='body1' sx={{  textAlign: 'justify', fontSize: '18px', margin:'10px 0', }}>
+              LeiaMais é muito mais do que apenas uma plataforma de leitura online. É um portal que abre as portas para um universo ilimitado de histórias e conhecimento. Com um vasto acervo de livros de todos os gêneros imagináveis, desde romances épicos até thrillers emocionantes, temos algo para todos os gostos.
+            </Typography>
+          </Box>
+
+          <Box sx={{marginTop: '30px'}}>
+            <Typography variant='h4' color={'secondary'}>Uma Nova Aventura a Cada Página</Typography>
+            <Typography variant='body1' sx={{  textAlign: 'justify', fontSize: '18px', margin:'10px 0', }}>
+              Nosso lema, "Desvende Mundos: onde cada página é uma Nova Aventura!", resume perfeitamente o que oferecemos. A cada clique, você se transportará para um universo único, cheio de emoção, mistério e descobertas. Deixe-se envolver por histórias que o levarão a lugares que você jamais imaginou.
+            </Typography>
+          </Box>
+
+          <Box sx={{marginTop: '30px'}}>
+            <Typography variant='h4' color={'secondary'}>Conheça nossos planos</Typography>
+
+            <Box display={'flex'} sx={{flexWrap:'wrap', justifyContent: 'space-evenly', alignItems: 'stretch'}}>
+              {planos.map((plano,id) => (
+                <Card 
+                  key={plano.id} 
+                  onClick={() => destacarCard(plano.id)} 
+                  sx={{borderRadius:'20px', margin:'20px 10px', minWidth:'150px',  backgroundColor: carDestacado === plano.id ? 'rgba(230, 179, 61, 0.5)' : 'transparent',}}
+                >
+                  
+                  <Typography variant='h4' color={'primary'} sx={{backgroundColor: 'secondary.main', padding:'10px 0', textAlign: 'center', fontSize:'30px',fontWeight:'bold',}}>{plano.nome}</Typography>
+                  
+                  <Box sx={{display:'flex',justifyContent: 'space-between', flexDirection: 'column', alignItems: 'center', paddingTop:'10px'}}>
+                    
+                    {plano.desconto && 
+                        <Box display={'flex'} sx={{aliginItens: 'center'}}>
+                          <Typography variant='body1' sx={{fontSize: '18px',}}><s>R$ {planos[id-1].preco*12}</s></Typography>
+                          <Typography variant='body1'  sx={{ fontSize: '18px',backgroundColor: 'secondary.main', padding:'2px 10px', borderRadius:'15px'}}>Economize {plano.desconto}</Typography>
+                        </Box>
+                      }
+                    <Typography variant='h5' color={'primary'} sx={{fontSize: '30px', fontWeight:'bold', margin:' 10px 0'}}>R$ {(plano.preco).toFixed(2)}<sub>/mês</sub></Typography>
+                    <Typography variant='body1'  sx={{fontSize: '18px',}}>Total: R$ {plano.preco *12} <sub>/ano</sub> </Typography>
+                    <Typography variant='body1'  sx={{textAlign:'center', fontSize: '18px',}}>{plano.renovacao? 
+                        <><CheckIcon></CheckIcon> Com renovação automática </>:
+                        <><CloseIcon></CloseIcon> Sem renovação automática</> }
+                      </Typography>
+                    <Typography variant='body1'  sx={{fontSize: '18px',}}> {plano.fav} favoritos</Typography>
+                    <Typography variant='body1'  sx={{fontSize: '18px',}}>{plano.livPre? 
+                        <><CheckIcon></CheckIcon> Livros premium </>:
+                        <><CloseIcon></CloseIcon> Sem livros premium</> }
+                      </Typography>
+                      <Typography variant='body1' sx={{fontSize: '18px',}}>{plano.acesso? 
+                        <><CheckIcon></CheckIcon> Acesso antecipado </>:
+                        <><CloseIcon></CloseIcon> Sem acesso antecipado</> }
+                      </Typography>
+                  </Box>
+                </Card>
+              ))}
+            </Box>
+          </Box>
+
+          <Box sx={{display:'flex', justifyContent: 'center', margin:'30px'}}>
+            <Button variant='contained' color='success' onClick={handleOpenCadastro} >Assine o LeiaMais!</Button>
+          </Box>
+
+        </Container>
+      </Box>
+          
 
       <Modal
         open={openModal}
@@ -217,13 +310,13 @@ const Acesso = () => {
                   :( 
                   <>
                   <Grid item xs={12}>
-                      <TextField fullWidth value={nome} autoComplete="off" type='text' label="nome" onChange={handleNome}></TextField>
+                      <TextField fullWidth value={nome} autoComplete="off" type='text' label="Nome" onChange={handleNome}></TextField>
                     </Grid>
                     <Grid item xs={12}>
-                      <TextField fullWidth value={celular} autoComplete="off" type='text' label="celular" onChange={handleCelular}></TextField>
+                      <TextField fullWidth value={celular} autoComplete="off" type='text' label="Celular" onChange={handleCelular}></TextField>
                     </Grid>
                     <Grid item xs={12}>
-                      <TextField fullWidth value={endereco} autoComplete="off" type='text' label="endereço" onChange={handleEndereco}></TextField>
+                      <TextField fullWidth value={endereco} autoComplete="off" type='text' label="Endereço" onChange={handleEndereco}></TextField>
                     </Grid>
                     
                   </>
@@ -231,10 +324,10 @@ const Acesso = () => {
                 }
 
                 <Grid item xs={12}>
-                  <TextField fullWidth value={email} autoComplete="off" type='email' label="email" onChange={handleEmail}></TextField>
+                  <TextField fullWidth value={email} autoComplete="off" type='email' label="E-mail" onChange={handleEmail}></TextField>
                 </Grid>
                 <Grid item xs={12}>
-                  <TextField fullWidth value={password} autoComplete="off" type='password' label="senha" onChange={handlePassword}></TextField>
+                  <TextField fullWidth value={password} autoComplete="off" type='password' label="Senha" onChange={handlePassword}></TextField>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <Button type='submit' fullWidth variant='contained' color='primary'>{isLogin ? 'Login' : 'Cadastro'}</Button>
