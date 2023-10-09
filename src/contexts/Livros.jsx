@@ -1,10 +1,13 @@
 import { createContext, useState, useEffect } from "react";
-import data from './../../data/livros.json'
+import { useFetch } from "../hooks/useFetch";
+// import data from './../../data/livros.json'
 
 export const LivrosContext = createContext({});
 
 const Livros = ({ children }) => {
     // const [favoritos, setFavoritos] = useState([]);
+    const urlLivros = "http://localhost:3000/livros";
+    const {data} =useFetch(urlLivros);
     const [favoritos, setFavoritos] = useState(() => {
         const storedFavoritos = localStorage.getItem("favoritos");
         return storedFavoritos ? JSON.parse(storedFavoritos) : [];
