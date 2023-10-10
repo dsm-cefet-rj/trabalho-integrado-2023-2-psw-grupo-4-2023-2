@@ -3,11 +3,11 @@ import { useContext } from 'react'
 import Carousel from '../Carousel/Carousel'
 import ListaVazia from '../ListaVazia/ListaVazia'
 import Gato from '../../assets/gatinho-triste.png'
-import { AutenticacaoContext } from '../../contexts/Autenticacao'
 import Livro from '../Livro/Livro'
+import { useUsuario } from '../../hooks/useUsuario'
 
 const ContinueLendo = () => {
-    const {usuario} = useContext(AutenticacaoContext);
+    const {usuario} = useUsuario();
 
     return (
         <Carousel titulo={'Continue Lendo'} vazio={<ListaVazia text="Você ainda não está lendo nenhum livro..." urlImage={Gato}/>}>

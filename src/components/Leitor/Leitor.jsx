@@ -17,16 +17,6 @@ const Leitor = ({ namePdf, id }) => {
   const { usuario, setUsuario } = useUsuario();
   const { livroSelecionado } = useLivros();
 
-  // const [leitura, setLeitura] = useState(()=> {
-  //     const storedLeitura = localStorage.getItem("leitura");
-  //     return storedLeitura ? JSON.parse(storedLeitura) : {livros: leitura};
-  // });
-
-  // useEffect(()=>{
-  //     localStorage.setItem('leitura',JSON.stringify(leitura))
-  // },[leitura]);
-
-  console.log(usuario)
   const leituras = usuario.continuarLendo.leituras;
 
   const leitura = leituras.find((leitura) => leitura.id === id);
@@ -50,10 +40,11 @@ const Leitor = ({ namePdf, id }) => {
 
   useEffect(() => {
     const outrasLeituras = leituras.filter((leitura) => leitura.id !== id);
+    const outrasLivros = usuario.continuarLendo.livros.filter((livro) => livro.id !== id);
     setUsuario({
       ...usuario,
       continuarLendo: {
-        ...usuario.continuarLendo,
+        livros:[...outrasLivros, livroSelecionado],
         leituras: [...outrasLeituras, { id: id, pag: pageNum }],
       },
     });
