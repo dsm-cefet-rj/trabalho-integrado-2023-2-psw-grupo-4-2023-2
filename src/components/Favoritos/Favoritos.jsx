@@ -10,14 +10,11 @@ import { AutenticacaoContext } from '../../contexts/Autenticacao'
 
 const Favoritos = () => {
 
-    const { favoritos } = useContext(LivrosContext);
     const { usuario } = useContext(AutenticacaoContext);
-
-    const lista = favoritos.find(data=>data.userLogin===usuario.email)
 
     return (
         <Carousel titulo={'Lista de Favoritos'} vazio={<ListaVazia text="Sua prateleira ainda não possui livros." urlImage={prateleira} />}>
-            {lista?.livros.length ? lista.livros.map(livro => <Livro key={livro.id} id={livro.id} urlImage={livro.url} titulo={livro.name} autor={livro.descricao} />) : ""}
+            {usuario.favoritos.livros.map((livro, index) => <Livro key={index} id={livro.id} urlImage={livro.urlImage} titulo={livro.titulo} autor={livro.autor} />)}
         </Carousel>
     )
 }

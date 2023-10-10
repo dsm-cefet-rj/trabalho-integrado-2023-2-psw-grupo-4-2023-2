@@ -203,14 +203,52 @@
   ],
   "usuarios": [
     {
-      "id": "c544adc0-51e7-4f8f-99a8-a04be0055ebb",
-      "nome": "Davi Macedo",
-      "email": "daavi.macedo@gmail.com",
-      "password": "1234",
-      "endereco": "Rua ppf",
-      "celular": "21975024713",
-      "leituras": [],
-      "favoritos": []
+      "id": "b930ca24-9523-4044-88c9-3078b755efc6",
+      "nome": "Renan Alves Lima",
+      "email": "a@a",
+      "senha": "123",
+      "endereco": "",
+      "celular": "",
+      "favoritos": {
+        "livros": [],
+        "idsLivros": []
+      },
+      "continuarLendo": {
+        "livros": [],
+        "lendo": []
+      }
+    },
+    {
+      "id": "812d59f2-ae15-4803-a3c3-f834d2c41dbe",
+      "nome": "Matheus",
+      "email": "matheus@leiamais.com",
+      "senha": "123",
+      "endereco": "",
+      "celular": "",
+      "favoritos": {
+        "livros": [
+          {
+            "id": "05",
+            "titulo": "A última festa",
+            "autor": "Edição Português | por Lucy Foley (Autor), Marina Vargas (Tradutor)",
+            "urlImage": "https://i.im.ge/2023/09/24/NDRW59.livro-a-ultima-festa.jpg"
+          },
+          {
+            "id": "02",
+            "titulo": "A culpa é das estrelas",
+            "autor": "Edição Português | por John Green e Renata Pettengill",
+            "urlImage": "https://i.im.ge/2023/09/24/NDRxEy.livro-a-culpa-e-das-estrelas.jpg"
+          }
+        ],
+        "idsLivros": [
+          "05",
+          "02"
+        ]
+      },
+      "continuarLendo": {
+        "livros": [],
+        "lendo": []
+      }
     }
   ]
 }

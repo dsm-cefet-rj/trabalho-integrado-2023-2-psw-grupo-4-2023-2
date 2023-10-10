@@ -6,7 +6,7 @@ import { Container } from "@mui/system";
 import styled from "@emotion/styled";
 import { AutenticacaoContext } from "../../contexts/Autenticacao";
 import { useContext, useEffect, useState } from "react";
-import { LivrosContext } from "../../contexts/Livros";
+import { useLivros } from "../../hooks/useLivros";
 
 const Toobar = styled(MuiToolbar)`    
     &.MuiToolbar-root{
@@ -16,7 +16,7 @@ const Toobar = styled(MuiToolbar)`
 
 const Navbar = ({ drawerWidth = 240, toggleDrawer }) => {
     const { usuario, sair } = useContext(AutenticacaoContext);
-    const { setLivrosPesquisados, livros } = useContext(LivrosContext);
+    const {pesquisados, pesquisar} = useLivros();
 
     const [userMenu, setUserMenu] = useState(null);
     const [pesquisa, setPesquisa] = useState("");
@@ -33,23 +33,7 @@ const Navbar = ({ drawerWidth = 240, toggleDrawer }) => {
     };
 
     useEffect(() => {
-        const pesquisaPorNome = livros.filter(livro => {
-            const name = String(livro.name).toLocaleLowerCase();
-            const pesquisaLowerCase = pesquisa.toLocaleLowerCase();
-
-            return name.includes(pesquisaLowerCase);
-        });
-
-
-        const pesquisaPorDescricao = livros.filter(livro => {
-            const descricao = String(livro.descricao).toLocaleLowerCase();
-            const pesquisaLowerCase = pesquisa.toLocaleLowerCase();
-
-            return descricao.includes(pesquisaLowerCase);
-        });
-
-        setLivrosPesquisados([...pesquisaPorNome, ...pesquisaPorDescricao])
-
+        pesquisar(pesquisa);
     }, [pesquisa])
 
     return (

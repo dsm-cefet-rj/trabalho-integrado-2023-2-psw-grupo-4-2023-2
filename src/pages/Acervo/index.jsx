@@ -1,14 +1,12 @@
 import { Box, Grid, Typography } from '@mui/material';
-import React, { useContext } from 'react';
 import Livro from '../../components/Livro/Livro';
-import { LivrosContext } from '../../contexts/Livros';
-import Voltar from '../../components/Voltar/Voltar';
+import { useLivros } from '../../hooks/useLivros';
 
 const Acervo = ({}) => {
 
-    const { livros, livrosPesquisados } = useContext(LivrosContext);
+    const { colecao, pesquisados } = useLivros();
 
-    const acervo = livrosPesquisados || livros
+    const acervo = pesquisados?.length? pesquisados : colecao
 
     return (
         <Grid container rowSpacing={4} columnSpacing={{ xs: 1, sm: 2, md: 4 }}columns={60} marginY={4}>
