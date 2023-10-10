@@ -17,7 +17,10 @@ const Livros = ({ children }) => {
       const nome = livro.name.toLocaleLowerCase();
       const descricao = livro.descricao.toLocaleLowerCase();
       const textoLowerCase = texto.toLocaleLowerCase();
-      return (nome.includes(`${textoLowerCase}`) || descricao.includes(`${textoLowerCase}`));
+      return (
+        nome.includes(`${textoLowerCase}`) ||
+        descricao.includes(`${textoLowerCase}`)
+      );
     });
 
     setPesquisados(resultado);
@@ -39,6 +42,10 @@ const Livros = ({ children }) => {
 
     fetchData();
   }, []);
+  
+  useEffect(() => {
+    console.log(livros);
+  }, [livros]);
 
   return (
     <LivrosContext.Provider

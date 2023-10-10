@@ -14,13 +14,10 @@ const Sugestao = () => {
       {acervo ? (
         <Box paddingTop={4}>
           <Carousel titulo={"Sugestões de Livros"}>
-            {acervo.map((livro) => (
+            {acervo.map((data, index) => (
               <Livro
-                key={livro.id}
-                id={livro.id}
-                urlImage={livro.url}
-                titulo={livro.name}
-                autor={livro.descricao}
+                key={index}
+                data={data}
               />
             ))}
           </Carousel>

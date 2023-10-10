@@ -11,7 +11,7 @@ const ContinueLendo = () => {
 
     return (
         <Carousel titulo={'Continue Lendo'} vazio={<ListaVazia text="Você ainda não está lendo nenhum livro..." urlImage={Gato}/>}>
-            {usuario.continuarLendo.livros.map(livro => <Livro key={livro.id} id={livro.id} urlImage={livro.url} titulo={livro.name} autor={livro.descricao} /> )}
+            {usuario.continuarLendo.livros.map((data, index) => <Livro key={index} data={data} /> )}
         </Carousel>
     )
 }

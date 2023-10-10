@@ -1,8 +1,4 @@
-import {
-  Bookmark,
-  BookmarkBorder,
-
-} from "@mui/icons-material";
+import { Bookmark, BookmarkBorder } from "@mui/icons-material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import {
   Box,
@@ -15,31 +11,34 @@ import {
 } from "@mui/material";
 
 import { useUsuario } from "../../hooks/useUsuario";
+import { useLivros } from "./../../hooks/useLivros";
+import { useNavigate } from "react-router-dom";
 
-const Livro = ({
-  titulo = "Titulo do Livro",
-  autor = "Nome do Autor",
-  urlImage,
-  id,
-}) => {
+const Livro = ({ data }) => {
   const { usuario, setUsuario } = useUsuario();
+  const { setLivroSelecionado } = useLivros();
+
+  const navigate = useNavigate();
 
   const favoritos = new Set(usuario?.favoritos.idsLivros);
 
-  const existeFavorito = favoritos.has(id);
+  const existeFavorito = favoritos.has(data.id);
+
+  const handleCardClick = () => {
+    setLivroSelecionado(data);
+
+    navigate(`/preleitura/${data.id}`);
+  };
 
   const handleFavoritoClick = (event) => {
     event.stopPropagation();
-    console.log(usuario)
-    console.log(existeFavorito)
-
     if (existeFavorito) {
       const outrosIdsFavoritos = usuario?.favoritos.idsLivros.filter(
-        (idLivro) => idLivro !== id
+        (idLivro) => idLivro !== data.id
       );
 
       const outrosLivrosFavoritos = usuario?.favoritos.livros.filter(
-        (livro) => livro.id !== id
+        (livro) => livro.id !== data.id
       );
 
       setUsuario({
@@ -53,11 +52,8 @@ const Livro = ({
       setUsuario({
         ...usuario,
         favoritos: {
-          livros: [
-            ...usuario.favoritos.livros,
-            { id, titulo, autor, urlImage },
-          ],
-          idsLivros: [...usuario.favoritos.idsLivros, id],
+          livros: [...usuario.favoritos.livros, data],
+          idsLivros: [...usuario.favoritos.idsLivros, data.id],
         },
       });
     }
@@ -68,62 +64,65 @@ const Livro = ({
 
   const removerLendo = () => {
     const leiturasAtualizadas = leituras.filter((item) => item.id !== id);
-    setUsuario({ ...usuario, continueLendo: {livros:leiturasAtualizadas} });
+    setUsuario({ ...usuario, continueLendo: { livros: leiturasAtualizadas } });
   };
 
   return (
     <Card
       sx={{ maxWidth: 256, minHeight: 570, position: "relative", margin: 0 }}
+      onClick={handleCardClick}
     >
-      <Link href={`/preleitura/livro/${id}`} underline="none">
-        <CardMedia
-          component="img"
-          alt={titulo}
-          image={urlImage}
-          loading="eager"
-          sx={{ minHeight: 400 }}
-        ></CardMedia>
-        <CardContent>
-          <Typography variant="body1" color="secondary" fontWeight="bolder">
-            {titulo.length > 25 ? `${titulo.substring(0, 25)}...` : titulo}
-          </Typography>
-          <Typography variant="body2" color="primary">
-            {autor.length > 50 ? `${autor.substring(0, 50)}...` : autor}
-          </Typography>
-        </CardContent>
-      </Link>
-      <div style={{ display: "flex", alingContent: "flex-end" }}>
-        <IconButton
-          onClick={handleFavoritoClick}
-          sx={{
-            position: "absolute",
-            bottom: "8px",
-            right: "8px",
-          }}
-        >
-          {existeFavorito ? (
-            <Bookmark color="secondary" />
-          ) : (
-            <BookmarkBorder color="primary" />
-          )}
-        </IconButton>
-        {listaIDs.includes(id) ? (
+      <CardMedia
+        component="img"
+        alt={data.name}
+        image={data.url}
+        loading="eager"
+        sx={{ minHeight: 400 }}
+      ></CardMedia>
+      <CardContent>
+        <Typography variant="body1" color="secondary" fontWeight="bolder">
+          {data.name.length > 25
+            ? `${data.name.substring(0, 25)}...`
+            : data.name}
+        </Typography>
+        <Typography variant="body2" color="primary">
+          {data.descricao.length > 50
+            ? `${data.descricao.substring(0, 50)}...`
+            : data.descricao}
+        </Typography>
+        <div style={{ display: "flex", alingContent: "flex-end" }}>
           <IconButton
-            onClick={removerLendo}
-            aria-label="delete"
+            onClick={handleFavoritoClick}
             sx={{
               position: "absolute",
               bottom: "8px",
               right: "8px",
-              marginRight: "78%",
             }}
           >
-            <DeleteIcon />
+            {existeFavorito ? (
+              <Bookmark color="secondary" />
+            ) : (
+              <BookmarkBorder color="primary" />
+            )}
           </IconButton>
-        ) : (
-          ""
-        )}
-      </div>
+          {listaIDs.includes(data.id) ? (
+            <IconButton
+              onClick={removerLendo}
+              aria-label="delete"
+              sx={{
+                position: "absolute",
+                bottom: "8px",
+                right: "8px",
+                marginRight: "78%",
+              }}
+            >
+              <DeleteIcon />
+            </IconButton>
+          ) : (
+            ""
+          )}
+        </div>
+      </CardContent>
     </Card>
   );
 };

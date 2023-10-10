@@ -25,8 +25,8 @@ export const Router = () => {
           <Route path="relatorio" element={<Relatorio />} />
           <Route path="favoritos" element={<Favoritos />} />
           <Route path="acervo" element={<Acervo />} />
-          <Route path="leitura/:id/:urlPdf" element={<Leitura />} />
-          <Route path="preleitura/livro/:id" element={<PreLeitura />} />
+          <Route path="leitura/:id" element={<Leitura />} />
+          <Route path="preleitura/:id" element={<PreLeitura />} />
           <Route path="*" element={<h1>Pagina não encontrada</h1>} />
         </Route>
       </Routes>

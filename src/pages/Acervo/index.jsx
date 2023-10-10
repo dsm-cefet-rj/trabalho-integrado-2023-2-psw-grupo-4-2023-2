@@ -10,14 +10,14 @@ const Acervo = ({}) => {
 
     return (
         <Grid container rowSpacing={4} columnSpacing={{ xs: 1, sm: 2, md: 4 }}columns={60} marginY={4}>
-            {acervo ? acervo.map((livro, index) =>
+            {acervo ? acervo.map((data, index) =>
                 <Grid key={index} component={'div'} item xs={60} sm={30} md={20} lg={15} xl={12} color={'white'} sx={{
                     display: {xs:'flex', md:'block'},
                     alignItems:'center',
                     justifyContent:'center'
                 }}>
 
-                    <Livro key={livro.id} id={livro.id} urlImage={livro.url} titulo={livro.name} autor={livro.descricao} />
+                    <Livro key={index} data={data} />
                 </Grid>
             ) : ""}
 
