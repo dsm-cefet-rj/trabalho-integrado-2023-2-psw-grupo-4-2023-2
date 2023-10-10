@@ -42,8 +42,6 @@ export const Autenticacao = ({ children }) => {
 
       const usuarioExistente = await buscarUsuarioPorEmail(email);
 
-      console.log(usuarioExistente)
-
       if (usuarioExistente) {
         throw Error("Já existe um usuário com este e-mail.");
       } else {

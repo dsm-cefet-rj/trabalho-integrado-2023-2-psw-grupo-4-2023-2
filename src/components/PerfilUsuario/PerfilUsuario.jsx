@@ -39,10 +39,6 @@ const PerfilUsuario = () => {
         setReadOnly(false);
     };
 
-    // useEffect(()=>{
-    //     console.log(usuario);
-    // },[usuario]);
-
     const salvarDados = () => {
         if(validarCampos()){
             mensagemSucesso('Dados alterados com sucesso.');

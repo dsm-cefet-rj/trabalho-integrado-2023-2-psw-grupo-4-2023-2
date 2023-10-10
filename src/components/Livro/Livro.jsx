@@ -59,12 +59,24 @@ const Livro = ({ data }) => {
     }
   };
 
-  const leituras = usuario.continuarLendo.livros;
-  let listaIDs = leituras.map((item) => item.id);
+  const listaIDs = usuario.continuarLendo.livros.map((livro) => livro.id);
 
-  const removerLendo = () => {
-    const leiturasAtualizadas = leituras.filter((item) => item.id !== id);
-    setUsuario({ ...usuario, continueLendo: { livros: leiturasAtualizadas } });
+  const removerLendo = (event) => {
+    event.stopPropagation();
+
+    const livrosAtualizados = usuario.continuarLendo.livros.filter(
+      (item) => item.id !== data.id
+    );
+    const leiturasAtualizadas = usuario.continuarLendo.leituras.filter(
+      (item) => item.id !== data.id
+    );
+    setUsuario({
+      ...usuario,
+      continuarLendo: {
+        livros: [...livrosAtualizados],
+        leituras: [...leiturasAtualizadas],
+      },
+    });
   };
 
   return (
