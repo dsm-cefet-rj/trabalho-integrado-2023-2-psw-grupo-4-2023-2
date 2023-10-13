@@ -5,15 +5,14 @@ import Home from "./pages/Home";
 import PreLeitura from "./pages/PreLeitura";
 import Favoritos from "./pages/Favoritos";
 import Relatorio from "./pages/Relatorio";
-import { AutenticacaoContext } from "./contexts/Autenticacao";
 import Acesso from "./pages/Acesso";
-import { useContext } from "react";
 import Leitura from "./pages/Leitura";
 import Acervo from "./pages/Acervo";
+import { useAutenticacao } from "./hooks/useAutenticacao";
 
 const Privado = ({ Page }) => {
-  const { signed, usuario } = useContext(AutenticacaoContext);
-  return signed ? Page : <Acesso />;
+  const { autenticado } = useAutenticacao();
+  return autenticado ? Page : <Acesso />;
 };
 
 export const Router = () => {
@@ -26,8 +25,8 @@ export const Router = () => {
           <Route path="relatorio" element={<Relatorio />} />
           <Route path="favoritos" element={<Favoritos />} />
           <Route path="acervo" element={<Acervo />} />
-          <Route path="leitura/:id/:urlPdf" element={<Leitura />} />
-          <Route path="preleitura/livro/:id" element={<PreLeitura />} />
+          <Route path="leitura/:id" element={<Leitura />} />
+          <Route path="preleitura/:id" element={<PreLeitura />} />
           <Route path="*" element={<h1>Pagina não encontrada</h1>} />
         </Route>
       </Routes>

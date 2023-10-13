@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "json-server --watch data/bd.json"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -15,6 +16,7 @@
     "@mui/icons-material": "^5.14.9",
     "@mui/material": "^5.14.10",
     "@mui/styled-engine-sc": "^5.14.10",
+    "axios": "^1.5.1",
     "pdfjs-dist": "^3.11.174",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -25,6 +27,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "json-server": "^0.17.4",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react-swc": "^3.3.2",

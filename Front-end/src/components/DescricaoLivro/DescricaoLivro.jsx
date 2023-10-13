@@ -1,7 +1,7 @@
 import { Button, Typography, Paper } from "@mui/material";
 import { Box, Stack } from "@mui/system";
 
-const DescricaoLivro = ({ sinopse, desc, namePdf, genero, id }) => {
+const DescricaoLivro = ({data}) => {
   return (
     <Box display={'flex'} justifyContent={'center'}>
       <Stack spacing={2} alignItems={"center"} textAlign={'center'} sx={{
@@ -22,7 +22,7 @@ const DescricaoLivro = ({ sinopse, desc, namePdf, genero, id }) => {
               color: '#333',
               margin:'10px',
             }}>
-              {sinopse}
+              {data.sinopse}
             </Typography>
           </Box>
           {/* <Box>
@@ -43,11 +43,11 @@ const DescricaoLivro = ({ sinopse, desc, namePdf, genero, id }) => {
               color: '#666',
               margin: '5px 0 15px 0' 
             }}>
-              {genero}
+              {data.genero}
             </Typography>
           </Box>
           <Box>
-            <Button  href={`/leitura/${id || ""}/${namePdf || ""}`} size="large" variant='contained' color='secondary' sx={{fontWeight: 'bold'}}>LEIA</Button>
+            <Button  href={`/leitura/${data.id || ""}`} size="large" variant='contained' color='secondary' sx={{fontWeight: 'bold'}}>LEIA</Button>
           </Box>
         </Paper>
       </Stack>
