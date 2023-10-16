@@ -81,7 +81,7 @@ const Livro = ({ data }) => {
 
   return (
     <Card
-      sx={{ maxWidth: 256, minHeight: 570, position: "relative", margin: 0 }}
+      sx={{ maxWidth: 256, minHeight: 570, position: "relative", margin: 0, cursor: 'pointer' }}
       onClick={handleCardClick}
     >
       <CardMedia

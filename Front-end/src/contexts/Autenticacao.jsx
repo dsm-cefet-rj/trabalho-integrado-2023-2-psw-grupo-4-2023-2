@@ -37,7 +37,7 @@ export const Autenticacao = ({ children }) => {
         endereco,
         celular,
         favoritos: { livros: [], idsLivros: [] },
-        continuarLendo: { livros: [], leitura: [] },
+        continuarLendo: { livros: [], leituras: [] },
       };
 
       const usuarioExistente = await buscarUsuarioPorEmail(email);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 import pdfjsWorker from "pdfjs-dist/build/pdf.worker.js";
 import "./Leitor.css";
@@ -9,7 +9,6 @@ import {
   ZoomIn,
   ZoomOut,
 } from "@mui/icons-material";
-import { AutenticacaoContext } from "../../contexts/Autenticacao";
 import { useUsuario } from "../../hooks/useUsuario";
 import { useLivros } from "../../hooks/useLivros";
 
@@ -19,7 +18,7 @@ const Leitor = ({ namePdf, id }) => {
 
   const leituras = usuario.continuarLendo.leituras;
 
-  const leitura = leituras.find((leitura) => leitura.id === id);
+  const leitura = leituras.find((leitura) => leitura?.id === id);
 
   const pagina = leitura ? leitura.pag : 1;
 
@@ -40,11 +39,13 @@ const Leitor = ({ namePdf, id }) => {
 
   useEffect(() => {
     const outrasLeituras = leituras.filter((leitura) => leitura.id !== id);
-    const outrasLivros = usuario.continuarLendo.livros.filter((livro) => livro.id !== id);
+    const outrasLivros = usuario.continuarLendo.livros.filter(
+      (livro) => livro.id !== id
+    );
     setUsuario({
       ...usuario,
       continuarLendo: {
-        livros:[...outrasLivros, livroSelecionado],
+        livros: [...outrasLivros, livroSelecionado],
         leituras: [...outrasLeituras, { id: id, pag: pageNum }],
       },
     });
