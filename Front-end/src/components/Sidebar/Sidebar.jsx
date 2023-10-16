@@ -26,6 +26,14 @@ const Sidebar = ({ drawerWidth = 240, open, toggleDrawer }) => {
             Acervo
           </ListItemText>
         </ListItemButton>
+        <ListItemButton component={Link} to="/excluidos" >
+          <ListItemIcon>
+            <BookIcon />
+          </ListItemIcon>
+          <ListItemText>
+            Livros Excluidos
+          </ListItemText>
+        </ListItemButton>
       </List>
     </Box>
   );

@@ -1,11 +1,12 @@
 import { createContext, useEffect, useState } from "react";
-import { listaLivros } from "../services/livros";
+import { listaExcluidos, listaLivros } from "../services/livros";
 
 export const LivrosContext = createContext();
 
 const Livros = ({ children }) => {
   const [pesquisados, setPesquisados] = useState(null);
   const [livros, setLivros] = useState([]);
+  const [excluidos, setExcluidos] = useState([]);
 
   const [livroSelecionado, setLivroSelecionado] = useState(() => {
     const livroArmazenado = localStorage.getItem("livro");
@@ -35,13 +36,16 @@ const Livros = ({ children }) => {
   }, [livroSelecionado]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const livros = await listaLivros();
-      setLivros(livros);
-    };
-
-    fetchData();
+    carregaLivros();
   }, []);
+
+  const carregaLivros = async () =>{
+    const livros = await listaLivros();
+    setLivros(livros);
+
+    const excluidos = await listaExcluidos();
+    setExcluidos(excluidos);
+  }
   
   useEffect(() => {
     console.log(livros);
@@ -55,6 +59,8 @@ const Livros = ({ children }) => {
         pesquisar,
         livroSelecionado,
         setLivroSelecionado,
+        carregaLivros,
+        excluidos,
       }}
     >
       {children}

@@ -5,18 +5,21 @@ import { Router } from "./Router";
 import { Autenticacao } from "./contexts/Autenticacao";
 import Livros from "./contexts/Livros";
 import Usuario from "./contexts/Usuario";
+import Controlador from "./contexts/Controlador";
 
 function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <Livros>
-          <Usuario>
-            <Autenticacao>
-              <Router />
-            </Autenticacao>
-          </Usuario>
-        </Livros>
+        <Controlador>
+          <Livros>
+            <Usuario>
+              <Autenticacao>
+                <Router />
+              </Autenticacao>
+            </Usuario>
+          </Livros>
+        </Controlador>
       </ThemeProvider>
     </div>
   );
