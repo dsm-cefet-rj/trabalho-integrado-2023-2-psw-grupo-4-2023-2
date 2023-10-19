@@ -103,12 +103,19 @@ const Livro = ({ data }) => {
     setTipoModal("alterarLivro");
     setOpenModal(true);
   };
-  
+
   const openModalExcluir = (event) => {
     event.stopPropagation();
     handleCloseLivroMenu();
     setLivroSelecionado(data);
     setTipoModal("excluirLivro");
+    setOpenModal(true);
+  };
+  const openModalRestaurar = (event) => {
+    event.stopPropagation();
+    handleCloseLivroMenu();
+    setLivroSelecionado(data);
+    setTipoModal("restaurarLivro");
     setOpenModal(true);
   };
 
@@ -183,7 +190,11 @@ const Livro = ({ data }) => {
             }}
           >
             <MenuItem onClick={openModalAlterar}>Alterar</MenuItem>
-            <MenuItem onClick={openModalExcluir}>Excluir</MenuItem>
+            {data.excluido ? (
+              <MenuItem onClick={openModalRestaurar}>Restaurar</MenuItem>
+              ) : (
+              <MenuItem onClick={openModalExcluir}>Excluir</MenuItem>
+            )}
           </Menu>
         </CardContent>
       </Card>

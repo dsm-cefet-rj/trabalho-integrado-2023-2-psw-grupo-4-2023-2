@@ -3,7 +3,7 @@ const apiUrl = "http://localhost:3000/livros/";
 
 export async function listaLivros() {
   try {
-    const response = await axios.get(apiUrl+'?excluido=false',);
+    const response = await axios.get(apiUrl + "?excluido=false");
     return response.data;
   } catch (error) {
     console.error("Erro ao listar livros:", error);
@@ -13,7 +13,7 @@ export async function listaLivros() {
 
 export async function listaExcluidos() {
   try {
-    const response = await axios.get(apiUrl+'?excluido=true',);
+    const response = await axios.get(apiUrl + "?excluido=true");
     return response.data;
   } catch (error) {
     console.error("Erro ao listar livros:", error);
@@ -23,10 +23,20 @@ export async function listaExcluidos() {
 
 export async function excluiLivro(id) {
   try {
-    const response = await axios.patch(apiUrl+id,{excluido:true});
+    const response = await axios.patch(apiUrl + id, { excluido: true });
     return response.data;
   } catch (error) {
     console.error("Erro ao excluir livro:", error);
+    throw error;
+  }
+}
+
+export async function restauraLivro(id) {
+  try {
+    const response = await axios.patch(apiUrl + id, { excluido: false });
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao restaurar livro:", error);
     throw error;
   }
 }

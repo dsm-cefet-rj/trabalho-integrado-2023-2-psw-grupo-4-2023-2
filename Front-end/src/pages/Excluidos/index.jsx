@@ -5,8 +5,6 @@ import { useLivros } from '../../hooks/useLivros';
 const Excluidos = ({}) => {
 
     const { excluidos } = useLivros();
-    console.log(excluidos);
-
     return (
         <Grid container rowSpacing={4} columnSpacing={{ xs: 1, sm: 2, md: 4 }}columns={60} marginY={4}>
             {excluidos ? excluidos.map((data, index) =>
