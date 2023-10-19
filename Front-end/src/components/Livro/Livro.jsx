@@ -111,6 +111,7 @@ const Livro = ({ data }) => {
     setTipoModal("excluirLivro");
     setOpenModal(true);
   };
+  
   const openModalRestaurar = (event) => {
     event.stopPropagation();
     handleCloseLivroMenu();
