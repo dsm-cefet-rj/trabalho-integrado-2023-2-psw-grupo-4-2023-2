@@ -9,7 +9,7 @@
       "sinopse": "Há quem diga que o feiticeiro mais poderoso de todos os tempos é um homem chamado Gavião. Este livro narra as aventuras de Ged, o menino que um dia se tornará essa lenda. Ainda pequeno, o pastor órfão de mãe descobriu seus poderes e foi para uma escola de magos.",
       "pdf": "O Feiticeiro de Terramar.pdf",
       "genero": "Fantasia",
-      "excluido": true
+      "excluido": false
     },
     {
       "id": "02",
@@ -20,7 +20,7 @@
       "sinopse": "Hazel Grace Lancaster e Augustus Waters são dois adolescentes que se conhecem em um grupo de apoio para pacientes com câncer. Por causa da doença, Hazel sempre descartou a ideia de se envolver amorosamente, mas acaba cedendo ao se apaixonar por Augustus. Juntos, eles viajam para Amsterdã, onde embarcam em uma jornada inesquecível.",
       "pdf": "A Culpa É das Estrelas.pdf",
       "genero": "Romance",
-      "excluido": true
+      "excluido": false
     },
     {
       "id": "03",
@@ -31,7 +31,7 @@
       "sinopse": "Para trinta e cinco garotas, a Seleção é a chance de uma vida. É a oportunidade de ser alçada a um mundo de vestidos deslumbrantes e joias valiosas. De morar em um palácio, conquistar o coração do belo príncipe Maxon e um dia ser a rainha. America Singer, no entanto, estar entre as Selecionadas é um pesadelo.",
       "pdf": "A-Selecao-Serie-Selecao.pdf",
       "genero": "Aventura",
-      "excluido": true
+      "excluido": false
     },
     {
       "id": "04",
@@ -42,7 +42,7 @@
       "sinopse": "O COLECIONADOR também é a história de Miranda Gray, uma jovem estudante de artes sequestrada por um maníaco que acha que pode obrigá-la a se apaixonar por ele. Tudo o que ela deseja é escapar do cativeiro, e vai usar de toda sua inteligência para sobreviver ao inferno em que sua vida se transformou.",
       "pdf": "2.pdf",
       "genero": "Romance",
-      "excluido": true
+      "excluido": false
     },
     {
       "id": "05",
@@ -53,7 +53,7 @@
       "sinopse": "Um grupo de quatro amigos enfrenta dilemas amorosos em sua festa de formatura do ensino médio. A turma se prepara para seguir suas vidas em diferentes faculdades. Durante a festa, histórias acabam se cruzando.",
       "pdf": "A-Ultima-Festa-Lucy-Foley.pdf",
       "genero": "Suspense",
-      "excluido": true
+      "excluido": false
     },
     {
       "id": "06",
@@ -64,7 +64,7 @@
       "sinopse": "Em Aventuras na Amazônia, o leitor é convidado a desvendar os enigmas da floresta tropical para ajudar em uma missão de resgate na Amazônia. Esta brilhante aventura biológica nos traz curiosidades sobre os animais, as plantas, o desmatamento e os segredos escondidos da natureza tropical.",
       "pdf": "2.pdf",
       "genero": "Infantil",
-      "excluido": true
+      "excluido": false
     },
     {
       "id": "07",
@@ -75,7 +75,7 @@
       "sinopse": "A Biblioteca da Meia-Noite traz nos a história de Nora Seed, uma adulta com depressão e pensamentos suicidas. Outrora esteve quase a ser campeã de natação, esteve numa banda e abandonou o possível amor da sua vida. Sente que a sua vida está sem cor e tem vontade de desistir.",
       "pdf": "A-Biblioteca-da-Meia-Noite.pdf",
       "genero": "Ficcção Científica",
-      "excluido": true
+      "excluido": false
     },
     {
       "id": "08",
@@ -86,7 +86,7 @@
       "sinopse": "O primeiro volume da série best-seller Os Instrumentos Mortais, de Cassandra Clare. Depois ser apresentada ao Mundo de Sombras e a Jace — um Caçador que tem a aparência de um anjo, mas a língua tão afiada quanto Lúcifer —, Clary Fray só queria que sua vida voltasse ao normal.",
       "pdf": "2.pdf",
       "genero": "Fantasia",
-      "excluido": true
+      "excluido": false
     },
     {
       "id": "09",
@@ -97,7 +97,7 @@
       "sinopse": "Quando Lily esbarra em Atlas ― com quem não fala há quase dois anos ―, parece que finalmente chegou o momento de retomar o relacionamento da adolescência, já que ele também está solteiro e parece retribuir os sentimentos de Lily. Mas apesar de divorciada, Lily não está exatamente livre de Ryle.",
       "pdf": "E-assim-que-comeca-Vol.-2-Colleen-Hoover.pdf",
       "genero": "Romance",
-      "excluido": true
+      "excluido": false
     },
     {
       "id": "10",
@@ -108,7 +108,7 @@
       "sinopse": "Escrevendo Ficção Científica e Fantasia - Como Contar Histórias de Outros Mundos vai te mostrar exatamente como obter ideias originais e criar uma trama vigorosa com protagonistas que os leitores amem, personagens fantásticos e vilões inesquecíveis.",
       "pdf": "2.pdf",
       "genero": "Ficcção Científica",
-      "excluido": true
+      "excluido": false
     },
     {
       "id": "11",
@@ -119,7 +119,7 @@
       "sinopse": "Os Targaryen foram a única família de senhores dos dragões a sobreviver à Destruição de Valíria. Depois de tomarem residência em Pedra do Dragão, muitos anos ainda se passariam antes que Aegon voltasse os olhos para os Sete Reinos e desse início à guerra de conquista.",
       "pdf": "Fogo e Sangue - George R R Martin.pdf",
       "genero": "Fantasia",
-      "excluido": true
+      "excluido": false
     },
     {
       "id": "12",
@@ -130,7 +130,7 @@
       "sinopse": "Como punição por tentar enganar os patrões, seu sistema nervoso foi contaminado por uma toxina que o impede de entrar no mundo virtual. Agora, ele vaga pelos subúrbios de Tóquio, cometendo pequenos crimes para sobreviver, e acaba se envolvendo em uma jornada que mudará para sempre o mundo e a percepção da realidade.",
       "pdf": "2.pdf",
       "genero": "Ficcção Científica",
-      "excluido": true
+      "excluido": false
     },
     {
       "id": "13",
@@ -141,7 +141,7 @@
       "sinopse": "Uma história emocionante sobre o poder da amizade e a importância da autoceitação. Sky Baker não esconde de ninguém que é gay, mas, em sua pequena cidade às margens do Lago Michigan, garantir que você é invisível é muito mais fácil do que ser você mesmo.",
       "pdf": "O-Azul-Daqui-e-Mais-Azul-Robbie-Couch.pdf",
       "genero": "Ficcção Juvenil",
-      "excluido": true
+      "excluido": false
     },
     {
       "id": "14",
@@ -252,24 +252,8 @@
         "idsLivros": []
       },
       "continuarLendo": {
-        "livros": [
-          {
-            "id": "01",
-            "image": "livr-o-feiticeiro-de-terramar.jpg",
-            "url": "https://i.im.ge/2023/09/24/NDRzJY.livr-o-feiticeiro-de-terramar.jpg",
-            "name": "O feiticeiro de Terramar (Ciclo Terramar – Livro 1)",
-            "descricao": "Edição Português | por Ursula K. Le Guin",
-            "sinopse": "Há quem diga que o feiticeiro mais poderoso de todos os tempos é um homem chamado Gavião. Este livro narra as aventuras de Ged, o menino que um dia se tornará essa lenda. Ainda pequeno, o pastor órfão de mãe descobriu seus poderes e foi para uma escola de magos.",
-            "pdf": "O Feiticeiro de Terramar.pdf",
-            "genero": "Fantasia"
-          }
-        ],
-        "leituras": [
-          {
-            "id": "01",
-            "pag": 1
-          }
-        ]
+        "livros": [],
+        "leituras": []
       }
     }
   ]
