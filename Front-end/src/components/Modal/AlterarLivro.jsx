@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Container,
+  IconButton,
   Modal,
   Stack,
   TextField,
@@ -9,16 +10,44 @@ import {
 } from "@mui/material";
 import { useControlador } from "../../hooks/useControlador";
 import { useState } from "react";
+import axios from "axios";
+import { Cancel } from "@mui/icons-material";
+import index from "./../../pages/Relatorio/index";
 
 const AlterarLivro = () => {
+  const data = [
+    {
+      label: "url da imagem",
+      type: "url",
+      placeholder: "Coloque o link da imagem",
+    },
+    {
+      label: "titulo",
+      type: "text",
+      placeholder: "titulo do livro",
+    },
+    {
+      label: "autor",
+      type: "text",
+      placeholder: "Autores",
+    },
+  ];
+
   const { openModal, setOpenModal } = useControlador();
 
-  const [imagem, setImagem] = useState();
+  const [values, setValues] = useState(() => {
+    return data.map(() => "");
+  });
 
-  const carregaImagem = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("carregaImagem");
-    console.log(imagem);
+    console.log(values);
+  };
+
+  const handleValues = (e, index) => {
+    const _values = [...values];
+    _values[index] = e.target.value;
+    setValues(_values);
   };
 
   const handleClose = () => {
@@ -40,22 +69,59 @@ const AlterarLivro = () => {
           transform: "translate(-50%, -50%)",
         }}
       >
-        <Typography>Carregue a imagem:</Typography>
-        <form onSubmit={carregaImagem}>
-        <input
-          type="file"
-          autoComplete="off"
-          onChange={(e) => setImagem(e.target.files[0])}
-        />
-        <Button type="submit" variant="contained" color="error">
-          Salvar
-        </Button>
-      </form>
-        <Stack
-          direction={{ md: "row" }}
-          justifyContent={"space-around"}
-          marginTop={2}
-        ></Stack>
+        <form onSubmit={handleSubmit}>
+          <Stack spacing={4}>
+            {/* {1000 textfields} */}
+            {data.map((obj, index) => (
+              <TextField
+                key={index}
+                type={obj.type}
+                label={obj.label}
+                placeholder={obj.placeholder}
+                value={values[index]}
+                onChange={(e) => {
+                  handleValues(e, index);
+                }}
+              />
+            ))}
+            {/* <TextField
+              type="url"
+              label="Imagem"
+              placeholder="Coloque o link da imagem"
+              value={urlImage}
+              onChange={handleUrlImage}
+            />
+
+            <TextField
+              type="text"
+              label="Título"
+              value={titulo}
+              onChange={handleTitulo}
+            />
+
+            <TextField
+              type="text"
+              label="Autores"
+              value={autor}
+              onChange={handleAutor}
+            /> */}
+
+            <Button variant="contained" type="submit">
+              Enviar
+            </Button>
+          </Stack>
+        </form>
+
+        <IconButton
+          sx={{
+            position: "absolute",
+            top: 0,
+            right: 0,
+          }}
+          onClick={handleClose}
+        >
+          <Cancel fontSize="small" color="primary"></Cancel>
+        </IconButton>
       </Box>
     </Modal>
   );
