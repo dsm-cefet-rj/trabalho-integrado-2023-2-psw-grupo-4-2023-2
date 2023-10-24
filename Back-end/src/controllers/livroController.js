@@ -58,7 +58,7 @@ class LivroController{
            }
     };
     //BUSCA
-    static async listarLivrosPorEditora(req, res) {
+    static async listarLivrosPorNome(req, res) {
         const nome = req.query.nome;
         try{
             const livrosPorNome = await livro.find({nome: nome});

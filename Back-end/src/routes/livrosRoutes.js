@@ -5,7 +5,7 @@ const routes = express.Router();
 
 //Respeitar ordem de complexidade das rotas
 routes.get("/livros", LivroController.listarLivros);
-routes.get("/livros/busca", LivroController.listarLivrosPorEditora);
+routes.get("/livros/busca", LivroController.listarLivrosPorNome);
 routes.get("/livros/:id", LivroController.listarLivrosPorId);
 routes.post("/livros",LivroController.cadastrarLivro);
 routes.put("/livros/:id", LivroController.atualizarLivro);
