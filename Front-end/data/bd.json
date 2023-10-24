@@ -238,23 +238,6 @@
         "livros": [],
         "leituras": []
       }
-    },
-    {
-      "id": "270600a5-1f7a-41ad-b34f-42ff99256707",
-      "nome": "renan",
-      "email": "a@a",
-      "senha": "123",
-      "nivel": "usr",
-      "endereco": "",
-      "celular": "",
-      "favoritos": {
-        "livros": [],
-        "idsLivros": []
-      },
-      "continuarLendo": {
-        "livros": [],
-        "leituras": []
-      }
     }
   ]
 }
