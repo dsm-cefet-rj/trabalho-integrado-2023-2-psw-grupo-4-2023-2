@@ -6,3 +6,5 @@ const routes = (app) =>{
     //Transforma todas as requisições de String para Json e traz todas as rotas para Routes
     app.use(express.json(),livros);
 };
+
+export default routes;
