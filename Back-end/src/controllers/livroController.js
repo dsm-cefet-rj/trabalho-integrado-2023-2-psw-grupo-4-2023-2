@@ -58,11 +58,11 @@ class LivroController{
            }
     };
     //BUSCA
-    static async listarLivrosPorNome(req, res) {
-        const nome = req.query.nome;
+    static async listarLivrosPorName(req, res) {
+        const name = req.query.name;
         try{
-            const livrosPorNome = await livro.find({nome: nome});
-            res.status(200).json(livrosPorNome);
+            const livrosPorName = await livro.find({name: name});
+            res.status(200).json(livrosPorName);
         } catch (erro){
             res.status(500).json({message: `${erro.message} - falha na busca`});
         }
