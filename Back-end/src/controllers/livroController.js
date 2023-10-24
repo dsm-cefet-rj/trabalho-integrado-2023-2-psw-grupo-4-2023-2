@@ -23,7 +23,7 @@ class LivroController{
                .status(500)
                .json({ message: `${erro.message} - falha na requisição`});
            }
-    }
+    };
     //CREATE
     static async cadastrarLivro (req,res){
         try{
@@ -32,7 +32,7 @@ class LivroController{
         } catch (erro) {
             res.status(500).json({message: `${erro.massage} - falha ao cadastrar livro`});
         }
-    }
+    };
     //UPDATE
     static async atualizarLivro (req,res){
         try {
@@ -44,7 +44,7 @@ class LivroController{
                .status(500)
                .json({ message: `${erro.message} - falha na atualização`});
            }
-    }
+    };
     //DELETE
     static async excluirLivro (req,res){
         try {
@@ -56,5 +56,17 @@ class LivroController{
                .status(500)
                .json({ message: `${erro.message} - falha na exclusão`});
            }
-    }
-}
+    };
+    //BUSCA
+    static async listarLivrosPorEditora(req, res) {
+        const nome = req.query.nome;
+        try{
+            const livrosPorNome = await livro.find({nome: nome});
+            res.status(200).json(livrosPorNome);
+        } catch (erro){
+            res.status(500).json({message: `${erro.message} - falha na busca`});
+        }
+    };
+};
+
+export default LivroController;
