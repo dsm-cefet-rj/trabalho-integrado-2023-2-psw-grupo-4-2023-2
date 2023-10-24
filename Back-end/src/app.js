@@ -9,7 +9,7 @@ const conexao = await conectaNaDataBase();
 
 //Eventos 
 conexao.on("error", (erro)=>{   //Se o evento for um erro
-    console.error("erro de conexão:", erro)
+    console.error("erro de conexão: ", erro)
 });
 
 conexao.once("open", ()=>{ //Se a conexão for aberta com sucesso
