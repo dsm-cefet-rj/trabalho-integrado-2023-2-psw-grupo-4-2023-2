@@ -1,18 +1,14 @@
 import {
   Box,
   Button,
-  Container,
   IconButton,
   Modal,
   Stack,
   TextField,
-  Typography,
 } from "@mui/material";
 import { useControlador } from "../../hooks/useControlador";
 import { useState } from "react";
-import axios from "axios";
 import { Cancel } from "@mui/icons-material";
-import index from "./../../pages/Relatorio/index";
 
 const AlterarLivro = () => {
   const data = [
@@ -71,7 +67,6 @@ const AlterarLivro = () => {
       >
         <form onSubmit={handleSubmit}>
           <Stack spacing={4}>
-            {/* {1000 textfields} */}
             {data.map((obj, index) => (
               <TextField
                 key={index}
@@ -84,28 +79,6 @@ const AlterarLivro = () => {
                 }}
               />
             ))}
-            {/* <TextField
-              type="url"
-              label="Imagem"
-              placeholder="Coloque o link da imagem"
-              value={urlImage}
-              onChange={handleUrlImage}
-            />
-
-            <TextField
-              type="text"
-              label="Título"
-              value={titulo}
-              onChange={handleTitulo}
-            />
-
-            <TextField
-              type="text"
-              label="Autores"
-              value={autor}
-              onChange={handleAutor}
-            /> */}
-
             <Button variant="contained" type="submit">
               Enviar
             </Button>
