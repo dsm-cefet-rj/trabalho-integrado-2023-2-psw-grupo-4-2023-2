@@ -15,7 +15,15 @@ leitorSchema.pre('save', async function (next) {
     if (!this.isModified('senha')) {
       return next();
     }
-  
+  //Tratamento de erro.
+    try {
+      const hashedPassword = await bcrypt.hash(this.senha, 10);
+      this.senha = hashedPassword;
+      next();
+    } catch (error) {
+      next(error);
+    }
+  });
 
 const Leitor = mongoose.model("Leitor", leitorSchema);
 
