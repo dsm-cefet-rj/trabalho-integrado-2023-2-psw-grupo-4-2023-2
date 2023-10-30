@@ -27,7 +27,11 @@ class LeituraController{
     //CREATE
     static async cadastrarLeitura (req,res){
         try{
-            const novoLeitura = await leitura.create(req.body); 
+            const { idUsuario, idLivro } = req.body;
+            const pgAtual = 1;
+            const dataComeco = new Date();
+
+            const novoLeitura = await leitura.create({idUsuario, idLivro, pgAtual, dataComeco}); 
             res.status(201).json({message: "leitura criada com sucesso", leitura: novoLeitura}); 
         } catch (erro) {
             res.status(500).json({message: `${erro.message} - falha ao cadastrar leitura`});
