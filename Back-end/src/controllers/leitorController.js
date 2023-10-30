@@ -2,7 +2,7 @@ import Leitor from "../models/leitor.js";
 import bcrypt from "bcrypt";
 
 class LeitorController {
-  //Consulta de dados
+  //Consulta dos leitores.
   static async listarLeitores(req, res) {
     try {
       const listaLeitores = await Leitor.find({});
