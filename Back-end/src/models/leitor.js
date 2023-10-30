@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+//Está biblioteca é para criptografia. Estou pensando em usar para uma futura opção de segurança para as senhas do usuário.
+import bcrypt from "bcrypt";
 
 const leitorSchema = new mongoose.Schema({
   id: { type: mongoose.Schema.Types.ObjectId },
@@ -7,6 +9,7 @@ const leitorSchema = new mongoose.Schema({
   senha: { type: String, required: true },
   
 }, { versionKey: false });
+
 
 
 const Leitor = mongoose.model("Leitor", leitorSchema);
