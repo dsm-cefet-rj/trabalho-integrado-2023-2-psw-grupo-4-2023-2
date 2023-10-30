@@ -73,7 +73,12 @@ class LeituraController{
         const idLivro = req.query.idLivro;
         try{
             const leituraEncontrada = await leitura.find({idUsuario: idUsuario, idLivro: idLivro});
-            res.status(200).json(leituraEncontrada);
+            if(leituraEncontrada === 0){
+                await LeituraController.cadastrarLeitura(req, res);
+            }
+            else{
+                res.status(200).json(leituraEncontrada);
+            }
         } catch (erro){
             res.status(500).json({message: `${erro.message} - falha na busca`});
         }
