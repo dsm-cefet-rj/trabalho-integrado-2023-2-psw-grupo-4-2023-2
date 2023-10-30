@@ -22,8 +22,18 @@ class LeitorController {
     }
   }
 
- 
-  
+ //Trata a senha antes da criação do leitor no bd.
+  static async cadastrarLeitor(req, res) {
+    try {
+      const senhaCriptografada = await bcrypt.hash(req.body.senha, 10);
+      req.body.senha = senhaCriptografada;
+
+      const novoLeitor = await Leitor.create(req.body);
+      res.status(201).json({ message: "Leitor criado com sucesso", leitor: novoLeitor });
+    } catch (erro) {
+      res.status(500).json({ message: `${erro.message} - falha ao cadastrar leitor` });
+    }
+  }
 
   //Atualizar os leitores do Banco de Dados.
   static async atualizarLeitor(req, res) {
