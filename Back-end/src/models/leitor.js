@@ -10,7 +10,12 @@ const leitorSchema = new mongoose.Schema({
   
 }, { versionKey: false });
 
-
+//Tratando a senha com tabela de hash.
+leitorSchema.pre('save', async function (next) {
+    if (!this.isModified('senha')) {
+      return next();
+    }
+  
 
 const Leitor = mongoose.model("Leitor", leitorSchema);
 
