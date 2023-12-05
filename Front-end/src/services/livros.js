@@ -42,6 +42,16 @@ export async function restauraLivro(id) {
   }
 }
 
+export async function qtdLivrosPorGenero(livrosId) {
+  try {
+    const response = await axios.get(VITE_BASE_URL + endpoint + id, { params: { ids: livrosId } });
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao listar quantidade:", error);
+    throw error;
+  }
+}
+
 export async function editaLivro(id, dados) {
   try {
     const [urlImg, titulo, descricao, sinopse, genero] = dados;
