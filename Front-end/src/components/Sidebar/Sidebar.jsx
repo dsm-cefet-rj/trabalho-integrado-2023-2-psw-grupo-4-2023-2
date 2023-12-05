@@ -1,12 +1,23 @@
-import { Box, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
+import {
+  Box,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+} from "@mui/material";
 import Logo from "../Logo/Logo";
-import HomeIcon from '@mui/icons-material/Home';
-import BookIcon from '@mui/icons-material/Book';
+import HomeIcon from "@mui/icons-material/Home";
+import BookIcon from "@mui/icons-material/Book";
 import { Link } from "react-router-dom";
+import { useUsuario } from "../../hooks/useUsuario";
 
 const Sidebar = ({ drawerWidth = 240, open, toggleDrawer }) => {
-  const drawerContent = (
+  const { usuario } = useUsuario();
 
+  const drawerContent = (
     <Box sx={{ p: 2 }}>
       <Logo />
       <List disablePadding>
@@ -14,18 +25,22 @@ const Sidebar = ({ drawerWidth = 240, open, toggleDrawer }) => {
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
-          <ListItemText>
-            Início
-          </ListItemText>
+          <ListItemText>Início</ListItemText>
         </ListItemButton>
-        <ListItemButton component={Link} to="/acervo" >
+        <ListItemButton component={Link} to="/acervo">
           <ListItemIcon>
             <BookIcon />
           </ListItemIcon>
-          <ListItemText>
-            Acervo
-          </ListItemText>
+          <ListItemText>Acervo</ListItemText>
         </ListItemButton>
+        {usuario.nivel === "adm" && (
+          <ListItemButton component={Link} to="/excluidos">
+            <ListItemIcon>
+              <BookIcon />
+            </ListItemIcon>
+            <ListItemText>Livros Excluidos</ListItemText>
+          </ListItemButton>
+        )}
       </List>
     </Box>
   );
@@ -48,7 +63,6 @@ const Sidebar = ({ drawerWidth = 240, open, toggleDrawer }) => {
           },
         }}
       >
-
         {drawerContent}
       </Drawer>
       <Drawer

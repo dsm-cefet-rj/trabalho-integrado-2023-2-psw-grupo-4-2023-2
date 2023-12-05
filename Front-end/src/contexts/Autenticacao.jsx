@@ -28,6 +28,7 @@ export const Autenticacao = ({ children }) => {
         nome,
         email,
         senha,
+        nivel: "usr",
         endereco,
         celular
       };
