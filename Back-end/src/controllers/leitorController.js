@@ -73,7 +73,6 @@ class LeitorController {
 
     try {
       const leitor = await Leitor.findOne({ email });
-      console.log(leitor)
       if (!leitor) {
         res.status(404).json({ success: false, message: "Email ou senha incorretos. Tente novamente" })
       } else {
