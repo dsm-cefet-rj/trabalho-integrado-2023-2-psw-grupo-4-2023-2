@@ -20,62 +20,57 @@ const Livro = ({ data }) => {
 
   const navigate = useNavigate();
 
-  const favoritos = new Set(usuario?.favoritos.idsLivros);
+  // const favoritos = new Set(usuario?.favoritos.idsLivros);
 
-  const existeFavorito = favoritos.has(data.id);
+  // const existeFavorito = favoritos.has(data.id);
 
   const handleCardClick = () => {
     setLivroSelecionado(data);
 
-    navigate(`/preleitura/${data.id}`);
+    navigate(`/preleitura/${data._id}`);
   };
 
-  const handleFavoritoClick = (event) => {
-    event.stopPropagation();
-    if (existeFavorito) {
-      const outrosIdsFavoritos = usuario?.favoritos.idsLivros.filter(
-        (idLivro) => idLivro !== data.id
-      );
+  // const handleFavoritoClick = (event) => {
+  //   event.stopPropagation();
+  //   if (existeFavorito) {
+  //     const outrosIdsFavoritos = usuario?.favoritos.idsLivros.filter(
+  //       (idLivro) => idLivro !== data.id
+  //     );
 
-      const outrosLivrosFavoritos = usuario?.favoritos.livros.filter(
-        (livro) => livro.id !== data.id
-      );
+  //     const outrosLivrosFavoritos = usuario?.favoritos.livros.filter(
+  //       (livro) => livro.id !== data.id
+  //     );
 
-      setUsuario({
-        ...usuario,
-        favoritos: {
-          livros: [...outrosLivrosFavoritos],
-          idsLivros: [...outrosIdsFavoritos],
-        },
-      });
-    } else {
-      setUsuario({
-        ...usuario,
-        favoritos: {
-          livros: [...usuario.favoritos.livros, data],
-          idsLivros: [...usuario.favoritos.idsLivros, data.id],
-        },
-      });
-    }
-  };
+  //     setUsuario({
+  //       ...usuario,
+  //       favoritos: {
+  //         livros: [...outrosLivrosFavoritos],
+  //         idsLivros: [...outrosIdsFavoritos],
+  //       },
+  //     });
+  //   } else {
+  //     setUsuario({
+  //       ...usuario,
+  //       favoritos: {
+  //         livros: [...usuario.favoritos.livros, data],
+  //         idsLivros: [...usuario.favoritos.idsLivros, data.id],
+  //       },
+  //     });
+  //   }
+  // };
 
-  const listaIDs = usuario.continuarLendo.livros.map((livro) => livro.id);
+  const livrosId = usuario.leituras.map((leituras) => leituras.livroId);
 
   const removerLendo = (event) => {
     event.stopPropagation();
 
-    const livrosAtualizados = usuario.continuarLendo.livros.filter(
-      (item) => item.id !== data.id
+    const livrosAtualizados = usuario.leituras.filter(
+      (item) => item.livroId !== data._id
     );
-    const leiturasAtualizadas = usuario.continuarLendo.leituras.filter(
-      (item) => item.id !== data.id
-    );
+
     setUsuario({
       ...usuario,
-      continuarLendo: {
-        livros: [...livrosAtualizados],
-        leituras: [...leiturasAtualizadas],
-      },
+      leituras: [...livrosAtualizados],
     });
   };
 
@@ -103,8 +98,8 @@ const Livro = ({ data }) => {
             : data.descricao}
         </Typography>
         <div style={{ display: "flex", alingContent: "flex-end" }}>
-          <IconButton
-            onClick={handleFavoritoClick}
+          {/* <IconButton
+            // onClick={handleFavoritoClick}
             sx={{
               position: "absolute",
               bottom: "8px",
@@ -116,8 +111,8 @@ const Livro = ({ data }) => {
             ) : (
               <BookmarkBorder color="primary" />
             )}
-          </IconButton>
-          {listaIDs.includes(data.id) ? (
+          </IconButton> */}
+          {livrosId.includes(data._id) ? (
             <IconButton
               onClick={removerLendo}
               aria-label="delete"
