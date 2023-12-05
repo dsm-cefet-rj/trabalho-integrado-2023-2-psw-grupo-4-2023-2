@@ -12,7 +12,7 @@ const Leitura = () => {
     return (
         <>
         <Voltar />
-        <Leitor id={livroSelecionado.id} namePdf={livroSelecionado.pdf}></Leitor>
+        <Leitor id={livroSelecionado._id} namePdf={livroSelecionado.pdf}></Leitor>
         </>
     )
 }
