@@ -9,6 +9,7 @@ import Acesso from "./pages/Acesso";
 import Leitura from "./pages/Leitura";
 import Acervo from "./pages/Acervo";
 import { useAutenticacao } from "./hooks/useAutenticacao";
+import Excluidos from "./pages/Excluidos";
 
 const Privado = ({ Page }) => {
   const { autenticado } = useAutenticacao();
@@ -25,6 +26,7 @@ export const Router = () => {
           <Route path="relatorio" element={<Relatorio />} />
           <Route path="favoritos" element={<Favoritos />} />
           <Route path="acervo" element={<Acervo />} />
+          <Route path="excluidos" element={<Excluidos />} />
           <Route path="leitura/:id" element={<Leitura />} />
           <Route path="preleitura/:id" element={<PreLeitura />} />
           <Route path="*" element={<h1>Pagina não encontrada</h1>} />

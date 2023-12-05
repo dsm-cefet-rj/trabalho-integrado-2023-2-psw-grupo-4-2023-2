@@ -16,9 +16,9 @@ const Leitor = ({ namePdf, id }) => {
   const { usuario, setUsuario } = useUsuario();
   const { livroSelecionado } = useLivros();
 
-  const leituras = usuario.continuarLendo.leituras;
+  const leituras = usuario.leituras;
 
-  const leitura = leituras.find((leitura) => leitura?.id === id);
+  const leitura = leituras.find((leitura) => leitura?.livroId === id);
 
   const pagina = leitura ? leitura.pag : 1;
 
@@ -38,16 +38,11 @@ const Leitor = ({ namePdf, id }) => {
   }, [namePdf]);
 
   useEffect(() => {
-    const outrasLeituras = leituras.filter((leitura) => leitura.id !== id);
-    const outrasLivros = usuario.continuarLendo.livros.filter(
-      (livro) => livro.id !== id
-    );
+    const outrasLeituras = leituras.filter((leitura) => leitura.livroId !== id);
+
     setUsuario({
       ...usuario,
-      continuarLendo: {
-        livros: [...outrasLivros, livroSelecionado],
-        leituras: [...outrasLeituras, { id: id, pag: pageNum }],
-      },
+      leituras: [...outrasLeituras, { livroId: id, pag: pageNum }],
     });
   }, [pageNum]);
 

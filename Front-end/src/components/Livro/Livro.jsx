@@ -1,141 +1,192 @@
-import { Bookmark, BookmarkBorder } from "@mui/icons-material";
+import { Bookmark, BookmarkBorder, MoreVert } from "@mui/icons-material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import {
   Box,
+  Button,
   Card,
   CardContent,
   CardMedia,
+  Container,
   IconButton,
-  Link,
+  Menu,
+  MenuItem,
+  Stack,
   Typography,
 } from "@mui/material";
 
 import { useUsuario } from "../../hooks/useUsuario";
 import { useLivros } from "./../../hooks/useLivros";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useControlador } from "./../../hooks/useControlador";
 
 const Livro = ({ data }) => {
   const { usuario, setUsuario } = useUsuario();
   const { setLivroSelecionado } = useLivros();
+  const { setOpenModal, setTipoModal } = useControlador();
+  const [livroMenu, setLivroMenu] = useState(null);
+
+  const open = Boolean(livroMenu);
+  const handleLivroMenu = (event) => {
+    event.stopPropagation();
+    setLivroMenu(event.currentTarget);
+  };
+  const handleCloseLivroMenu = (event) => {
+    event.stopPropagation();
+    setLivroMenu(null);
+  };
 
   const navigate = useNavigate();
 
-  const favoritos = new Set(usuario?.favoritos.idsLivros);
+  const favoritos = new Set(usuario?.favoritos);
 
-  const existeFavorito = favoritos.has(data.id);
+  const existeFavorito = favoritos.has(data._id);
 
   const handleCardClick = () => {
     setLivroSelecionado(data);
 
-    navigate(`/preleitura/${data.id}`);
+    navigate(`/preleitura/${data._id}`);
   };
 
   const handleFavoritoClick = (event) => {
     event.stopPropagation();
     if (existeFavorito) {
-      const outrosIdsFavoritos = usuario?.favoritos.idsLivros.filter(
-        (idLivro) => idLivro !== data.id
-      );
-
-      const outrosLivrosFavoritos = usuario?.favoritos.livros.filter(
-        (livro) => livro.id !== data.id
+      const outrosIdsFavoritos = usuario?.favoritos.filter(
+        (idLivro) => idLivro !== data._id
       );
 
       setUsuario({
         ...usuario,
-        favoritos: {
-          livros: [...outrosLivrosFavoritos],
-          idsLivros: [...outrosIdsFavoritos],
-        },
+        favoritos: [...outrosIdsFavoritos],
       });
     } else {
       setUsuario({
         ...usuario,
-        favoritos: {
-          livros: [...usuario.favoritos.livros, data],
-          idsLivros: [...usuario.favoritos.idsLivros, data.id],
-        },
+        favoritos: [...usuario.favoritos, data._id],
       });
     }
   };
 
-  const listaIDs = usuario.continuarLendo.livros.map((livro) => livro.id);
+  const livrosId = usuario.leituras.map((leituras) => leituras.livroId);
 
   const removerLendo = (event) => {
     event.stopPropagation();
 
-    const livrosAtualizados = usuario.continuarLendo.livros.filter(
-      (item) => item.id !== data.id
+    const livrosAtualizados = usuario.leituras.filter(
+      (item) => item.livroId !== data._id
     );
-    const leiturasAtualizadas = usuario.continuarLendo.leituras.filter(
-      (item) => item.id !== data.id
-    );
+
     setUsuario({
       ...usuario,
-      continuarLendo: {
-        livros: [...livrosAtualizados],
-        leituras: [...leiturasAtualizadas],
-      },
+      leituras: [...livrosAtualizados],
     });
   };
 
+  const openModalAlterar = (event) => {
+    event.stopPropagation();
+    handleCloseLivroMenu(event);
+    setLivroSelecionado(data);
+    setTipoModal("alterarLivro");
+    setOpenModal(true);
+  };
+
+  const openModalExcluir = (event) => {
+    event.stopPropagation();
+    handleCloseLivroMenu(event);
+    setLivroSelecionado(data);
+    setTipoModal("excluirLivro");
+    setOpenModal(true);
+  };
+
+  const openModalRestaurar = (event) => {
+    event.stopPropagation();
+    handleCloseLivroMenu(event);
+    setLivroSelecionado(data);
+    setTipoModal("restaurarLivro");
+    setOpenModal(true);
+  };
+
   return (
-    <Card
-      sx={{ maxWidth: 256, minHeight: 570, position: "relative", margin: 0, cursor: 'pointer' }}
-      onClick={handleCardClick}
-    >
-      <CardMedia
-        component="img"
-        alt={data.name}
-        image={data.url}
-        loading="eager"
-        sx={{ minHeight: 400 }}
-      ></CardMedia>
-      <CardContent>
-        <Typography variant="body1" color="secondary" fontWeight="bolder">
-          {data.name.length > 25
-            ? `${data.name.substring(0, 25)}...`
-            : data.name}
-        </Typography>
-        <Typography variant="body2" color="primary">
-          {data.descricao.length > 50
-            ? `${data.descricao.substring(0, 50)}...`
-            : data.descricao}
-        </Typography>
-        <div style={{ display: "flex", alingContent: "flex-end" }}>
-          <IconButton
-            onClick={handleFavoritoClick}
+    <>
+      <Card
+        sx={{
+          maxWidth: 256,
+          minHeight: 570,
+          position: "relative",
+          margin: 0,
+          cursor: "pointer",
+        }}
+        onClick={handleCardClick}
+      >
+        <CardMedia
+          component="img"
+          alt={data.name}
+          image={data.url}
+          loading="eager"
+          sx={{ minHeight: 400 }}
+        ></CardMedia>
+        <CardContent>
+          <Typography variant="body1" color="secondary" fontWeight="bolder">
+            {data.name.length > 25
+              ? `${data.name.substring(0, 25)}...`
+              : data.name}
+          </Typography>
+          <Typography variant="body2" color="primary">
+            {data.descricao.length > 50
+              ? `${data.descricao.substring(0, 50)}...`
+              : data.descricao}
+          </Typography>
+          <Stack
+            direction={"row"}
+            spacing={1}
             sx={{
               position: "absolute",
               bottom: "8px",
               right: "8px",
             }}
           >
-            {existeFavorito ? (
-              <Bookmark color="secondary" />
-            ) : (
-              <BookmarkBorder color="primary" />
+            {livrosId.includes(data._id) && (
+              <IconButton
+                onClick={removerLendo}
+                aria-label="delete"
+              >
+                <DeleteIcon />
+              </IconButton>
             )}
-          </IconButton>
-          {listaIDs.includes(data.id) ? (
-            <IconButton
-              onClick={removerLendo}
-              aria-label="delete"
-              sx={{
-                position: "absolute",
-                bottom: "8px",
-                right: "8px",
-                marginRight: "78%",
-              }}
-            >
-              <DeleteIcon />
+            <IconButton onClick={handleFavoritoClick}>
+              {existeFavorito ? (
+                <Bookmark color="secondary" />
+              ) : (
+                <BookmarkBorder color="primary" />
+              )}
             </IconButton>
-          ) : (
-            ""
-          )}
-        </div>
-      </CardContent>
-    </Card>
+            {usuario.nivel === "adm" && (
+              <IconButton onClick={handleLivroMenu} id="menu-button">
+                <MoreVert color="primary" />
+              </IconButton>
+            )}
+          </Stack>
+
+          <Menu
+            id="livro-menu"
+            disableScrollLock
+            anchorEl={livroMenu}
+            open={open}
+            onClose={handleCloseLivroMenu}
+            MenuListProps={{
+              "aria-labelledby": "menu-button",
+            }}
+          >
+            <MenuItem onClick={openModalAlterar}>Alterar</MenuItem>
+            {data.excluido ? (
+              <MenuItem onClick={openModalRestaurar}>Restaurar</MenuItem>
+            ) : (
+              <MenuItem onClick={openModalExcluir}>Excluir</MenuItem>
+            )}
+          </Menu>
+        </CardContent>
+      </Card>
+    </>
   );
 };
 

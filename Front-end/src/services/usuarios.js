@@ -1,5 +1,5 @@
 import axios from "axios";
-const apiUrl = "http://localhost:3000/usuarios";
+const apiUrl = "http://localhost:3000/leitores";
 
 export async function listaUsuarios() {
   try {
@@ -48,5 +48,14 @@ export async function atualizarUsuario(id, novoUsuario) {
   } catch (error) {
     console.error("Erro ao atualizar usuário:", error);
     throw error;
+  }
+}
+
+export async function login(email, senha) {
+  try {
+    const { data } = await axios.post(`${apiUrl}/login`, { email, senha });
+    return data
+  } catch (error) {
+    return error.response.data
   }
 }

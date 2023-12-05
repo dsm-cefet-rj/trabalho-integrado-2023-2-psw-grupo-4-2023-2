@@ -102,8 +102,10 @@ const Navbar = ({ drawerWidth = 240, toggleDrawer }) => {
                     <Menu
                         id="user-menu"
                         anchorEl={userMenu}
+                        disableScrollLock
                         open={open}
                         onClose={handleClose}
+                        disableScrollLock
                         MenuListProps={{
                             'aria-labelledby': 'user-button avatar-user',
                         }}
