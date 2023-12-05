@@ -42,10 +42,6 @@ const Livros = ({ children }) => {
 
     fetchData();
   }, []);
-  
-  useEffect(() => {
-    console.log(livros);
-  }, [livros]);
 
   return (
     <LivrosContext.Provider
