@@ -47,7 +47,7 @@ const DescricaoLivro = ({data}) => {
             </Typography>
           </Box>
           <Box>
-            <Button  href={`/leitura/${data.id || ""}`} size="large" variant='contained' color='secondary' sx={{fontWeight: 'bold'}}>LEIA</Button>
+            <Button  href={`/leitura/${data._id || ""}`} size="large" variant='contained' color='secondary' sx={{fontWeight: 'bold'}}>LEIA</Button>
           </Box>
         </Paper>
       </Stack>
