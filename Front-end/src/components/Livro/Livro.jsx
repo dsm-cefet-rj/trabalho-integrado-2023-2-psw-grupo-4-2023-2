@@ -94,7 +94,7 @@ const Livro = ({ data }) => {
 
   const openModalAlterar = (event) => {
     event.stopPropagation();
-    handleCloseLivroMenu();
+    handleCloseLivroMenu(event);
     setLivroSelecionado(data);
     setTipoModal("alterarLivro");
     setOpenModal(true);
@@ -102,7 +102,7 @@ const Livro = ({ data }) => {
 
   const openModalExcluir = (event) => {
     event.stopPropagation();
-    handleCloseLivroMenu();
+    handleCloseLivroMenu(event);
     setLivroSelecionado(data);
     setTipoModal("excluirLivro");
     setOpenModal(true);
@@ -110,7 +110,7 @@ const Livro = ({ data }) => {
 
   const openModalRestaurar = (event) => {
     event.stopPropagation();
-    handleCloseLivroMenu();
+    handleCloseLivroMenu(event);
     setLivroSelecionado(data);
     setTipoModal("restaurarLivro");
     setOpenModal(true);
