@@ -30,6 +30,8 @@ import { useAutenticacao } from "../../hooks/useAutenticacao";
 const Acesso = () => {
   const { cadastrar, acessar } = useAutenticacao();
 
+  const DELAY = 2000;
+
   const handleCloseAlertMessage = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -104,25 +106,27 @@ const Acesso = () => {
       handleCadastrado({ sucesso, mensagem });
       setInProgress(false);
       setOpenLoading(false);
-    }, 2000);
+    }, DELAY);
   };
 
   const handleSignin = () => {
     setOpenLoading(true);
     setOpenModal(false);
 
-    setTimeout(() => {
-      if (!acessar(email, senha)) {
+    setTimeout(async () => {
+      const { success, message } = await acessar(email, senha)
+      console.log(success, message)
+      if (!success) {
         setOpenModal(true);
-        handleLoginErro();
+        handleLoginErro(message);
       }
       setOpenLoading(false);
-    }, 2000);
+    }, DELAY);
   };
 
-  const handleLoginErro = () => {
+  const handleLoginErro = (message) => {
     setMessageType("error");
-    setAlertMessage("E-mail ou senha incorretos. Tente novamente.");
+    setAlertMessage(message);
     setOpenAlertMessage(true);
   };
 

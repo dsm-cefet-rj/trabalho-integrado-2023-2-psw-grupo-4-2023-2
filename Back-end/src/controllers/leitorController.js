@@ -73,17 +73,22 @@ class LeitorController {
 
     try {
       const leitor = await Leitor.findOne({ email });
-      if (!leitor) res.status(401).json({ sucesso: false, mensagem: "email ou senha incorretos" });
+      console.log(leitor)
+      if (!leitor) {
+        res.status(404).json({ success: false, message: "Email ou senha incorretos. Tente novamente" })
+      } else {
 
-      bcrypt.compare(senha, leitor.senha, function (err, result) {
-        if (result) {
-          res.status(200).json({ sucesso: true, dados: leitor });
-        } else {
-          res.status(401).json({ sucesso: false, mensagem: "email ou senha incorretos" });
-        }
-      });
+        bcrypt.compare(senha, leitor.senha, function (err, result) {
+          if (result) {
+            res.status(200).json({ success: true, data: leitor });
+          } else {
+            res.status(404).json({ success: false, message: "Email ou senha incorretos. Tente novamente" });
+          }
+        });
+
+      }
     } catch (erro) {
-      res.status(500).json({ sucesso: false, mensagem: `${erro.message} - Erro ao tentar fazer login` });
+      res.status(500).json({ success: false, message: `${erro.message} - Erro ao tentar fazer login` });
     }
   }
 

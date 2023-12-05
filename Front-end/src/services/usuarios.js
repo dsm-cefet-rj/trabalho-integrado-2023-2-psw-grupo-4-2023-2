@@ -53,10 +53,9 @@ export async function atualizarUsuario(id, novoUsuario) {
 
 export async function login(email, senha) {
   try {
-    const response = await axios.post(`${apiUrl}/login`, {email, senha});
-    return response.data;
+    const { data } = await axios.post(`${apiUrl}/login`, { email, senha });
+    return data
   } catch (error) {
-    console.error("Erro ao fazer login:", error);
-    throw error;
+    return error.response.data
   }
 }

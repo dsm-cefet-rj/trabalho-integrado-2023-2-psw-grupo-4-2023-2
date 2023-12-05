@@ -9,15 +9,14 @@ export const Autenticacao = ({ children }) => {
   const { usuario, setUsuario } = useUsuario();
 
   const acessar = async (email, senha) => {
+    const { success, message, data } = await Usuarios.login(email, senha);
 
-    const res = await Usuarios.login(email, senha);
-
-    if (res.sucesso) {
-      const usuario = res.dados;
+    if (success) {
+      const usuario = data;
       setUsuario(usuario);
-      return true;
     }
-    return false;
+
+    return { success, message };
   };
 
 
