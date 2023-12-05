@@ -39,11 +39,12 @@ const SwiperNvegation = () => {
 
 const Carousel = ({ children, titulo, vazio = <div></div> }) => {
      const swiper = useSwiper();
+     console.log(children)
 
     return (
         <>
             <Typography variant={'h5'} color={'white'} component={'div'} display={'flex'} alignItems={'center'}> {titulo} <KeyboardArrowRight fontSize='large' color="secondary" /> </Typography>
-            {children
+            {children.length
                 ? <Swiper
                     modules={[Navigation]}
                     style={{ padding: '32px 0'}}
