@@ -4,9 +4,16 @@ class LivroController {
     //READ
     static async listarLivros(req, res) {
         try {
-            const { ids } = req.query
+            const { ids, excluido } = req.query
 
-            const query = ids ? { _id: ids } : {};
+            const query = {};
+
+            if (ids) {
+                query._id = ids;
+            }
+            if (excluido) {
+                query.excluido = excluido;
+            }
 
             const listaLivros = await livro.find(query);
             res.status(200).json(listaLivros);

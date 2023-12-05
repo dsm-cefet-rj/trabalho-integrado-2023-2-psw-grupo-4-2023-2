@@ -14,7 +14,7 @@ export async function listaLivros(ids) {
 
 export async function listaExcluidos() {
   try {
-    const response = await axios.get(VITE_BASE_URL + endpoint, { excluido: true });
+    const response = await axios.get(VITE_BASE_URL + endpoint, { params: {excluido: true} });
     return response.data;
   } catch (error) {
     console.error("Erro ao listar livros:", error);
@@ -24,7 +24,7 @@ export async function listaExcluidos() {
 
 export async function excluiLivro(id) {
   try {
-    const response = await axios.patch(VITE_BASE_URL + endpoint + id, { excluido: true });
+    const response = await axios.patch(VITE_BASE_URL + endpoint + id, { params: {excluido: true} });
     return response.data;
   } catch (error) {
     console.error("Erro ao excluir livro:", error);
@@ -34,7 +34,7 @@ export async function excluiLivro(id) {
 
 export async function restauraLivro(id) {
   try {
-    const response = await axios.patch(VITE_BASE_URL + endpoint + id, { excluido: false });
+    const response = await axios.patch(VITE_BASE_URL + endpoint + id, { params: {excluido: false} });
     return response.data;
   } catch (error) {
     console.error("Erro ao restaurar livro:", error);
