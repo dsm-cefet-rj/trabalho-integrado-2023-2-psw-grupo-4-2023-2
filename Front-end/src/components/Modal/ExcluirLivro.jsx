@@ -20,8 +20,8 @@ const ExcluirLivro = () => {
 
   const handleExcluiLivro = async() => {
     handleClose()
-    await excluiLivro(livroSelecionado.id);
-    await carregaLivros()
+    await excluiLivro(livroSelecionado._id);
+    await carregaLivros();
   };
 
   return (

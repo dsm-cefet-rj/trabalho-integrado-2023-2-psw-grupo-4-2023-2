@@ -11,9 +11,8 @@ class LivroController {
             if (ids) {
                 query._id = ids;
             }
-            if (excluido) {
-                query.excluido = excluido;
-            }
+            
+            query.excluido = excluido ? true : false
 
             const listaLivros = await livro.find(query);
             res.status(200).json(listaLivros);
@@ -48,12 +47,13 @@ class LivroController {
     static async atualizarLivro(req, res) {
         try {
             const id = req.params.id;
-            await livro.findByIdAndUpdate(id, req.body);
-            res.status(200).json({ message: "livro atualizado" });
+            const { excluido } = req.body
+            const result = await livro.findByIdAndUpdate(id, { excluido });
+            res.status(200).json({ success: true, data: result, message: "livro atualizado" });
         } catch (erro) {
             res
                 .status(500)
-                .json({ message: `${erro.message} - falha na atualização` });
+                .json({ success: false, message: `${erro.message} - falha na atualização` });
         }
     };
     //DELETE

@@ -20,7 +20,7 @@ import {
   
     const handleRestauraLivro = async() => {
       handleClose()
-      await restauraLivro(livroSelecionado.id);
+      await restauraLivro(livroSelecionado._id);
       await carregaLivros()
     };
   

@@ -8,7 +8,8 @@ const livroSchema = new mongoose.Schema({
     descricao: {type: String, requiered:true},
     sinopse: {type: String, requiered:true},
     pdf: {type: String, requiered:true},
-    genero: {type: String}
+    genero: {type: String},
+    excluido: { type: Boolean, default: false },
 
 }, {versionKey: false}); 
 
