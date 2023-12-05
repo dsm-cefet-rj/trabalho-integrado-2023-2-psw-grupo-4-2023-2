@@ -3,7 +3,6 @@ import LivroController from "../controllers/livroController.js";
 
 const routes = express.Router();
 
-//Respeitar ordem de complexidade das rotas
 routes.get("/livros", LivroController.listarLivros);
 routes.get("/livros/busca", LivroController.listarLivrosPorName);
 routes.get("/livros/:id", LivroController.listarLivrosPorId);
