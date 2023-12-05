@@ -11,7 +11,7 @@ const Usuario = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem("usuario", JSON.stringify(usuario));
-    if (usuario) atualizarUsuario(usuario.id, usuario);
+    if (usuario) atualizarUsuario(usuario._id, usuario);
   }, [usuario]);
 
   return (

@@ -1,52 +1,38 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import {
-  buscarUsuarioPorEmail,
-  criarUsuario,
-  listaUsuarios,
-} from "../services/usuarios";
+import * as Usuarios from "../services/usuarios";
 import { useUsuario } from "../hooks/useUsuario";
 
 export const AutenticacaoContext = createContext({});
 
 export const Autenticacao = ({ children }) => {
-  const usuarios = listaUsuarios();
   const { usuario, setUsuario } = useUsuario();
 
   const acessar = async (email, senha) => {
 
-    const usuario = await buscarUsuarioPorEmail(email);
-    if (usuario) {
-      if (usuario.senha === senha) {
-        setUsuario(usuario);
-        return true;
-      }
+    const res = await Usuarios.login(email, senha);
+
+    if (res.sucesso) {
+      const usuario = res.dados;
+      // console.log(usuario)
+      setUsuario(usuario);
+      return true;
     }
     return false;
   };
 
+
   const cadastrar = async (nome, email, senha, endereco, celular) => {
     try {
-      const id = uuidv4();
-
       const novoUsuario = {
-        id,
         nome,
         email,
         senha,
         endereco,
-        celular,
-        favoritos: { livros: [], idsLivros: [] },
-        continuarLendo: { livros: [], leituras: [] },
+        celular
       };
 
-      const usuarioExistente = await buscarUsuarioPorEmail(email);
-
-      if (usuarioExistente) {
-        throw Error("Já existe um usuário com este e-mail.");
-      } else {
-        await criarUsuario(novoUsuario);
-      }
+      await Usuarios.criarUsuario(novoUsuario);
 
       return {
         sucesso: true,
