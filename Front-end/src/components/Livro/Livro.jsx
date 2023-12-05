@@ -47,34 +47,34 @@ const Livro = ({ data }) => {
     navigate(`/preleitura/${data._id}`);
   };
 
-  // const handleFavoritoClick = (event) => {
-  //   event.stopPropagation();
-  //   if (existeFavorito) {
-  //     const outrosIdsFavoritos = usuario?.favoritos.idsLivros.filter(
-  //       (idLivro) => idLivro !== data.id
-  //     );
+  const handleFavoritoClick = (event) => {
+      event.stopPropagation();
+      // if (existeFavorito) {
+      //   const outrosIdsFavoritos = usuario?.favoritos.idsLivros.filter(
+      //     (idLivro) => idLivro !== data.id
+      //   );
 
-  //     const outrosLivrosFavoritos = usuario?.favoritos.livros.filter(
-  //       (livro) => livro.id !== data.id
-  //     );
+      //   const outrosLivrosFavoritos = usuario?.favoritos.livros.filter(
+      //     (livro) => livro.id !== data.id
+      //   );
 
-  //     setUsuario({
-  //       ...usuario,
-  //       favoritos: {
-  //         livros: [...outrosLivrosFavoritos],
-  //         idsLivros: [...outrosIdsFavoritos],
-  //       },
-  //     });
-  //   } else {
-  //     setUsuario({
-  //       ...usuario,
-  //       favoritos: {
-  //         livros: [...usuario.favoritos.livros, data],
-  //         idsLivros: [...usuario.favoritos.idsLivros, data.id],
-  //       },
-  //     });
-  //   }
-  // };
+      //   setUsuario({
+      //     ...usuario,
+      //     favoritos: {
+      //       livros: [...outrosLivrosFavoritos],
+      //       idsLivros: [...outrosIdsFavoritos],
+      //     },
+      //   });
+      // } else {
+      //   setUsuario({
+      //     ...usuario,
+      //     favoritos: {
+      //       livros: [...usuario.favoritos.livros, data],
+      //       idsLivros: [...usuario.favoritos.idsLivros, data.id],
+      //     },
+      //   });
+      // }
+  };
 
   const livrosId = usuario.leituras.map((leituras) => leituras.livroId);
 
@@ -158,22 +158,17 @@ const Livro = ({ data }) => {
               <IconButton
                 onClick={removerLendo}
                 aria-label="delete"
-                sx={{
-                  position: "absolute",
-                  bottom: "8px",
-                  right: "8px",
-                  marginRight: "78%",
-                }}
               >
                 <DeleteIcon />
               </IconButton>
             )}
             <IconButton onClick={handleFavoritoClick}>
-              {existeFavorito ? (
+              {/* {existeFavorito ? (
                 <Bookmark color="secondary" />
               ) : (
                 <BookmarkBorder color="primary" />
-              )}
+                )} */}
+                <BookmarkBorder />
             </IconButton>
             {usuario.nivel === "adm" && (
               <IconButton onClick={handleLivroMenu} id="menu-button">
