@@ -38,9 +38,9 @@ const Livro = ({ data }) => {
 
   const navigate = useNavigate();
 
-  // const favoritos = new Set(usuario?.favoritos.idsLivros);
+  const favoritos = new Set(usuario?.favoritos);
 
-  // const existeFavorito = favoritos.has(data.id);
+  const existeFavorito = favoritos.has(data._id);
 
   const handleCardClick = () => {
     setLivroSelecionado(data);
@@ -49,32 +49,22 @@ const Livro = ({ data }) => {
   };
 
   const handleFavoritoClick = (event) => {
-      event.stopPropagation();
-      // if (existeFavorito) {
-      //   const outrosIdsFavoritos = usuario?.favoritos.idsLivros.filter(
-      //     (idLivro) => idLivro !== data.id
-      //   );
+    event.stopPropagation();
+    if (existeFavorito) {
+      const outrosIdsFavoritos = usuario?.favoritos.filter(
+        (idLivro) => idLivro !== data._id
+      );
 
-      //   const outrosLivrosFavoritos = usuario?.favoritos.livros.filter(
-      //     (livro) => livro.id !== data.id
-      //   );
-
-      //   setUsuario({
-      //     ...usuario,
-      //     favoritos: {
-      //       livros: [...outrosLivrosFavoritos],
-      //       idsLivros: [...outrosIdsFavoritos],
-      //     },
-      //   });
-      // } else {
-      //   setUsuario({
-      //     ...usuario,
-      //     favoritos: {
-      //       livros: [...usuario.favoritos.livros, data],
-      //       idsLivros: [...usuario.favoritos.idsLivros, data.id],
-      //     },
-      //   });
-      // }
+      setUsuario({
+        ...usuario,
+        favoritos: [...outrosIdsFavoritos],
+      });
+    } else {
+      setUsuario({
+        ...usuario,
+        favoritos: [...usuario.favoritos, data._id],
+      });
+    }
   };
 
   const livrosId = usuario.leituras.map((leituras) => leituras.livroId);
@@ -164,12 +154,11 @@ const Livro = ({ data }) => {
               </IconButton>
             )}
             <IconButton onClick={handleFavoritoClick}>
-              {/* {existeFavorito ? (
+              {existeFavorito ? (
                 <Bookmark color="secondary" />
               ) : (
                 <BookmarkBorder color="primary" />
-                )} */}
-                <BookmarkBorder />
+              )}
             </IconButton>
             {usuario.nivel === "adm" && (
               <IconButton onClick={handleLivroMenu} id="menu-button">
