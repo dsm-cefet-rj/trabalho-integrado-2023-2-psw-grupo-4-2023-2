@@ -10,8 +10,8 @@ const Home = () => {
             <Sugestao></Sugestao>
             <Divider variant="middle" />
             <ContinueLendo></ContinueLendo>
-            <Divider variant="middle" />
-            <Favoritos></Favoritos>
+            {/* <Divider variant="middle" /> */}
+            {/* <Favoritos></Favoritos> */}
         </>
     );
 }
