@@ -9,6 +9,7 @@ const leitorSchema = new mongoose.Schema({
   senha: { type: String, required: true },
   celular: { type: String },
   endereco: { type: String },
+  nivel: { type: String },
   favoritos: [{ type: mongoose.Schema.Types.ObjectId }],
   leituras: [{
     _id: false,
