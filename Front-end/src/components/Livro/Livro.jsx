@@ -31,7 +31,8 @@ const Livro = ({ data }) => {
     event.stopPropagation();
     setLivroMenu(event.currentTarget);
   };
-  const handleCloseLivroMenu = () => {
+  const handleCloseLivroMenu = (event) => {
+    event.stopPropagation();
     setLivroMenu(null);
   };
 
