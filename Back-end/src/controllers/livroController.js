@@ -11,7 +11,7 @@ class LivroController {
             if (ids) {
                 query._id = ids;
             }
-            
+
             query.excluido = excluido ? true : false
 
             const listaLivros = await livro.find(query);
@@ -47,8 +47,8 @@ class LivroController {
     static async atualizarLivro(req, res) {
         try {
             const id = req.params.id;
-            const { excluido } = req.body
-            const result = await livro.findByIdAndUpdate(id, { excluido });
+            const { excluido, urlImg, titulo, descricao, sinopse, genero } = req.body;
+            const result = await livro.findByIdAndUpdate(id, { excluido, url: urlImg, name: titulo, descricao, sinopse, genero});
             res.status(200).json({ success: true, data: result, message: "livro atualizado" });
         } catch (erro) {
             res

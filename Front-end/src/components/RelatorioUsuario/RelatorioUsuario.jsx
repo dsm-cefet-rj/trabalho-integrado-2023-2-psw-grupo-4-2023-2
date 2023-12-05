@@ -25,7 +25,6 @@ const RelatorioUsuario = () => {
   let rom=0; let terr=0; let fant=0; let susp =0; let outr=0;
   useEffect(()=>{
     continueLendo.map(livro => {
-      console.log(livro.genero);
         switch (livro.genero) {
           case "Romance":
             rom++;

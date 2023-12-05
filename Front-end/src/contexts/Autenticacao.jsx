@@ -14,7 +14,6 @@ export const Autenticacao = ({ children }) => {
 
     if (res.sucesso) {
       const usuario = res.dados;
-      // console.log(usuario)
       setUsuario(usuario);
       return true;
     }

@@ -521,7 +521,7 @@ const Acesso = () => {
           }}
         >
           <Box
-            maxWidth="sm"
+            // maxWidth="xl"
             sx={{
               position: "relative",
               bgcolor: "background.default",

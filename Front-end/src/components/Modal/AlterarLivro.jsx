@@ -7,37 +7,67 @@ import {
   TextField,
 } from "@mui/material";
 import { useControlador } from "../../hooks/useControlador";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Cancel } from "@mui/icons-material";
+import { editaLivro } from "../../services/livros";
+import { useLivros } from "../../hooks/useLivros";
 
 const AlterarLivro = () => {
+  const { openModal, setOpenModal } = useControlador();
+  const { livroSelecionado, setLivroSelecionado, carregaLivros } = useLivros();
+  console.log(livroSelecionado)
+
   const data = [
     {
       label: "url da imagem",
       type: "url",
       placeholder: "Coloque o link da imagem",
+      value: livroSelecionado.url
     },
     {
       label: "titulo",
       type: "text",
       placeholder: "titulo do livro",
+      value: livroSelecionado.name
     },
     {
-      label: "autor",
+      label: "descricao",
       type: "text",
-      placeholder: "Autores",
+      placeholder: "Descricao",
+      value: livroSelecionado.descricao
     },
-  ];
-
-  const { openModal, setOpenModal } = useControlador();
+    {
+      label: "sinopse",
+      multiline: true,
+      maxRows: 8,
+      placeholder: "Sinopse",
+      value: livroSelecionado.sinopse
+    },
+    {
+      label: "genero",
+      type: "text",
+      placeholder: "Genero",
+      value: livroSelecionado.genero
+    },
+  ]
 
   const [values, setValues] = useState(() => {
-    return data.map(() => "");
+    return data.map((obj) => obj.value);
   });
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    setValues(data.map((obj) => obj.value))
+  }, [livroSelecionado])
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(values);
+    handleClose();
+    const res = await editaLivro(livroSelecionado._id, values);
+
+    if (res.success) {
+      setLivroSelecionado(res.data)
+    }
+    await carregaLivros();
   };
 
   const handleValues = (e, index) => {
@@ -63,6 +93,8 @@ const AlterarLivro = () => {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
+          width: { md: "50%" },
+          maxWidth: "md"
         }}
       >
         <form onSubmit={handleSubmit}>
@@ -74,6 +106,8 @@ const AlterarLivro = () => {
                 label={obj.label}
                 placeholder={obj.placeholder}
                 value={values[index]}
+                multiline={obj.multiline}
+                maxRows={obj.maxRows}
                 onChange={(e) => {
                   handleValues(e, index);
                 }}
